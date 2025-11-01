@@ -1,0 +1,502 @@
+Enabling podman.socket for user: s4176650
+Running RememberShape5-v0 with seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+
+####
+args.num_iterations=846 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=1920 args.batch_size=15360 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.9516[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1659[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_0_1.pt
+SPS: 563
+Epoch: 2, global_step=15360
+SPS: 917
+Epoch: 3, global_step=30720
+SPS: 1159
+Epoch: 4, global_step=46080
+SPS: 1336
+Epoch: 5, global_step=61440
+SPS: 1471
+Epoch: 6, global_step=76800
+SPS: 1575
+Epoch: 7, global_step=92160
+SPS: 1656
+Epoch: 8, global_step=107520
+SPS: 1721
+Epoch: 9, global_step=122880
+SPS: 1773
+Epoch: 10, global_step=138240
+SPS: 1813
+Epoch: 11, global_step=153600
+SPS: 1847
+Epoch: 12, global_step=168960
+SPS: 1876
+Epoch: 13, global_step=184320
+SPS: 1900
+Epoch: 14, global_step=199680
+SPS: 1921
+Epoch: 15, global_step=215040
+SPS: 1937
+Epoch: 16, global_step=230400
+SPS: 1952
+Epoch: 17, global_step=245760
+SPS: 1966
+Epoch: 18, global_step=261120
+SPS: 1977
+Epoch: 19, global_step=276480
+SPS: 1987
+Epoch: 20, global_step=291840
+SPS: 1997
+Epoch: 21, global_step=307200
+SPS: 2005
+Epoch: 22, global_step=322560
+SPS: 2012
+Epoch: 23, global_step=337920
+SPS: 2019
+Epoch: 24, global_step=353280
+SPS: 2025
+Epoch: 25, global_step=368640
+SPS: 2030
+Epoch: 26, global_step=384000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 2.5179[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0420[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_1_26.pt
+SPS: 1847
+Epoch: 27, global_step=399360
+SPS: 1857
+Epoch: 28, global_step=414720
+SPS: 1867
+Epoch: 29, global_step=430080
+SPS: 1876
+Epoch: 30, global_step=445440
+SPS: 1884
+Epoch: 31, global_step=460800
+SPS: 1892
+Epoch: 32, global_step=476160
+SPS: 1899
+Epoch: 33, global_step=491520
+SPS: 1906
+Epoch: 34, global_step=506880
+SPS: 1913
+Epoch: 35, global_step=522240
+SPS: 1920
+Epoch: 36, global_step=537600
+SPS: 1925
+Epoch: 37, global_step=552960
+SPS: 1931
+Epoch: 38, global_step=568320
+SPS: 1937
+Epoch: 39, global_step=583680
+SPS: 1942
+Epoch: 40, global_step=599040
+SPS: 1947
+Epoch: 41, global_step=614400
+SPS: 1951
+Epoch: 42, global_step=629760
+SPS: 1956
+Epoch: 43, global_step=645120
+SPS: 1960
+Epoch: 44, global_step=660480
+SPS: 1964
+Epoch: 45, global_step=675840
+SPS: 1967
+Epoch: 46, global_step=691200
+SPS: 1971
+Epoch: 47, global_step=706560
+SPS: 1974
+Epoch: 48, global_step=721920
+SPS: 1977
+Epoch: 49, global_step=737280
+SPS: 1980
+Epoch: 50, global_step=752640
+SPS: 1983
+Epoch: 51, global_step=768000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0833[0m
+[32mEvaluation Metric: return[0m | [36mMean: 4.0415[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0674[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0625[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_2_51.pt
+SPS: 1886
+Epoch: 52, global_step=783360
+SPS: 1890
+Epoch: 53, global_step=798720
+SPS: 1895
+Epoch: 54, global_step=814080
+SPS: 1899
+Epoch: 55, global_step=829440
+SPS: 1903
+Epoch: 56, global_step=844800
+SPS: 1907
+Epoch: 57, global_step=860160
+SPS: 1910
+Epoch: 58, global_step=875520
+SPS: 1914
+Epoch: 59, global_step=890880
+SPS: 1917
+Epoch: 60, global_step=906240
+SPS: 1920
+Epoch: 61, global_step=921600
+SPS: 1924
+Epoch: 62, global_step=936960
+SPS: 1927
+Epoch: 63, global_step=952320
+SPS: 1930
+Epoch: 64, global_step=967680
+SPS: 1932
+Epoch: 65, global_step=983040
+SPS: 1935
+Epoch: 66, global_step=998400
+SPS: 1938
+Epoch: 67, global_step=1013760
+SPS: 1940
+Epoch: 68, global_step=1029120
+SPS: 1943
+Epoch: 69, global_step=1044480
+SPS: 1945
+Epoch: 70, global_step=1059840
+SPS: 1947
+Epoch: 71, global_step=1075200
+SPS: 1949
+Epoch: 72, global_step=1090560
+SPS: 1951
+Epoch: 73, global_step=1105920
+SPS: 1953
+Epoch: 74, global_step=1121280
+SPS: 1955
+Epoch: 75, global_step=1136640
+SPS: 1956
+Epoch: 76, global_step=1152000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0208[0m
+[32mEvaluation Metric: return[0m | [36mMean: 5.2189[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0870[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_3_76.pt
+SPS: 1890
+Epoch: 77, global_step=1167360
+SPS: 1893
+Epoch: 78, global_step=1182720
+SPS: 1895
+Epoch: 79, global_step=1198080
+SPS: 1898
+Epoch: 80, global_step=1213440
+SPS: 1900
+Epoch: 81, global_step=1228800
+SPS: 1903
+Epoch: 82, global_step=1244160
+SPS: 1905
+Epoch: 83, global_step=1259520
+SPS: 1908
+Epoch: 84, global_step=1274880
+SPS: 1910
+Epoch: 85, global_step=1290240
+SPS: 1912
+Epoch: 86, global_step=1305600
+SPS: 1914
+Epoch: 87, global_step=1320960
+SPS: 1916
+Epoch: 88, global_step=1336320
+SPS: 1918
+Epoch: 89, global_step=1351680
+SPS: 1920
+Epoch: 90, global_step=1367040
+SPS: 1922
+Epoch: 91, global_step=1382400
+SPS: 1924
+Epoch: 92, global_step=1397760
+SPS: 1926
+Epoch: 93, global_step=1413120
+SPS: 1928
+Epoch: 94, global_step=1428480
+SPS: 1930
+Epoch: 95, global_step=1443840
+SPS: 1932
+Epoch: 96, global_step=1459200
+SPS: 1934
+Epoch: 97, global_step=1474560
+SPS: 1936
+Epoch: 98, global_step=1489920
+SPS: 1938
+Epoch: 99, global_step=1505280
+SPS: 1939
+Epoch: 100, global_step=1520640
+SPS: 1941
+Epoch: 101, global_step=1536000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1250[0m
+[32mEvaluation Metric: return[0m | [36mMean: 7.6864[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1281[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1042[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_4_101.pt
+SPS: 1893
+Epoch: 102, global_step=1551360
+SPS: 1895
+Epoch: 103, global_step=1566720
+SPS: 1897
+Epoch: 104, global_step=1582080
+SPS: 1899
+Epoch: 105, global_step=1597440
+SPS: 1900
+Epoch: 106, global_step=1612800
+SPS: 1902
+Epoch: 107, global_step=1628160
+SPS: 1904
+Epoch: 108, global_step=1643520
+SPS: 1906
+Epoch: 109, global_step=1658880
+SPS: 1908
+Epoch: 110, global_step=1674240
+SPS: 1909
+Epoch: 111, global_step=1689600
+SPS: 1911
+Epoch: 112, global_step=1704960
+SPS: 1913
+Epoch: 113, global_step=1720320
+SPS: 1914
+Epoch: 114, global_step=1735680
+SPS: 1916
+Epoch: 115, global_step=1751040
+SPS: 1918
+Epoch: 116, global_step=1766400
+SPS: 1919
+Epoch: 117, global_step=1781760
+SPS: 1920
+Epoch: 118, global_step=1797120
+SPS: 1922
+Epoch: 119, global_step=1812480
+SPS: 1923
+Epoch: 120, global_step=1827840
+SPS: 1925
+Epoch: 121, global_step=1843200
+SPS: 1926
+Epoch: 122, global_step=1858560
+SPS: 1928
+Epoch: 123, global_step=1873920
+SPS: 1929
+Epoch: 124, global_step=1889280
+SPS: 1930
+Epoch: 125, global_step=1904640
+SPS: 1932
+Epoch: 126, global_step=1920000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 4.1822[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0697[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_5_126.pt
+SPS: 1892
+Epoch: 127, global_step=1935360
+SPS: 1893
+Epoch: 128, global_step=1950720
+SPS: 1895
+Epoch: 129, global_step=1966080
+SPS: 1897
+Epoch: 130, global_step=1981440
+SPS: 1898
+Epoch: 131, global_step=1996800
+SPS: 1900
+Epoch: 132, global_step=2012160
+SPS: 1901
+Epoch: 133, global_step=2027520
+SPS: 1902
+Epoch: 134, global_step=2042880
+SPS: 1904
+Epoch: 135, global_step=2058240
+SPS: 1905
+Epoch: 136, global_step=2073600
+SPS: 1906
+Epoch: 137, global_step=2088960
+SPS: 1908
+Epoch: 138, global_step=2104320
+SPS: 1909
+Epoch: 139, global_step=2119680
+SPS: 1910
+Epoch: 140, global_step=2135040
+SPS: 1912
+Epoch: 141, global_step=2150400
+SPS: 1913
+Epoch: 142, global_step=2165760
+SPS: 1914
+Epoch: 143, global_step=2181120
+SPS: 1915
+Epoch: 144, global_step=2196480
+SPS: 1916
+Epoch: 145, global_step=2211840
+SPS: 1917
+Epoch: 146, global_step=2227200
+SPS: 1919
+Epoch: 147, global_step=2242560
+SPS: 1920
+Epoch: 148, global_step=2257920
+SPS: 1921
+Epoch: 149, global_step=2273280
+SPS: 1922
+Epoch: 150, global_step=2288640
+SPS: 1923
+Epoch: 151, global_step=2304000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0208[0m
+[32mEvaluation Metric: return[0m | [36mMean: 4.3100[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0718[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_6_151.pt
+SPS: 1889
+Epoch: 152, global_step=2319360
+SPS: 1890
+Epoch: 153, global_step=2334720
+SPS: 1892
+Epoch: 154, global_step=2350080
+SPS: 1893
+Epoch: 155, global_step=2365440
+SPS: 1894
+Epoch: 156, global_step=2380800
+SPS: 1895
+Epoch: 157, global_step=2396160
+SPS: 1897
+Epoch: 158, global_step=2411520
+SPS: 1898
+Epoch: 159, global_step=2426880
+SPS: 1899
+Epoch: 160, global_step=2442240
+SPS: 1900
+Epoch: 161, global_step=2457600
+SPS: 1901
+Epoch: 162, global_step=2472960
+SPS: 1902
+Epoch: 163, global_step=2488320
+SPS: 1903
+Epoch: 164, global_step=2503680
+SPS: 1904
+Epoch: 165, global_step=2519040
+SPS: 1905
+Epoch: 166, global_step=2534400
+SPS: 1906
+Epoch: 167, global_step=2549760
+SPS: 1907
+Epoch: 168, global_step=2565120
+SPS: 1908
+Epoch: 169, global_step=2580480
+SPS: 1909
+Epoch: 170, global_step=2595840
+SPS: 1910
+Epoch: 171, global_step=2611200
+SPS: 1911
+Epoch: 172, global_step=2626560
+SPS: 1912
+Epoch: 173, global_step=2641920
+SPS: 1913
+Epoch: 174, global_step=2657280
+SPS: 1914
+Epoch: 175, global_step=2672640
+SPS: 1915
+Epoch: 176, global_step=2688000
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 2.8811[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0480[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230803/20251025_230803/ckpt_7_176.pt
+SPS: 1886
+Epoch: 177, global_step=2703360
+SPS: 1887
+Epoch: 178, global_step=2718720
+SPS: 1888
+Epoch: 179, global_step=2734080
+SPS: 1889
+Epoch: 180, global_step=2749440
+SPS: 1890
+Epoch: 181, global_step=2764800
+SPS: 1891
+Epoch: 182, global_step=2780160
+SPS: 1892
+Epoch: 183, global_step=2795520
+SPS: 1893
+Epoch: 184, global_step=2810880
+SPS: 1894
+Epoch: 185, global_step=2826240
+SPS: 1895
+Epoch: 186, global_step=2841600
+SPS: 1896
+Epoch: 187, global_step=2856960
+SPS: 1897
+Epoch: 188, global_step=2872320
+SPS: 1898
+Epoch: 189, global_step=2887680
+SPS: 1899
+Epoch: 190, global_step=2903040
+SPS: 1900
+Epoch: 191, global_step=2918400
+SPS: 1901
+Epoch: 192, global_step=2933760
+SPS: 1902
+Epoch: 193, global_step=2949120
+SPS: 1903
+Epoch: 194, global_step=2964480
+SPS: 1904
+Epoch: 195, global_step=2979840
+SPS: 1905
+Epoch: 196, global_step=2995200
+SPS: 1906
+Epoch: 197, global_step=3010560
+SPS: 1907
+Epoch: 198, global_step=3025920
+SPS: 1908
+Epoch: 199, global_step=3041280

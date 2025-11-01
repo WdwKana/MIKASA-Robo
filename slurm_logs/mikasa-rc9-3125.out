@@ -1,0 +1,11 @@
+Enabling podman.socket for user: s4176650
+Collecting data for InterceptGrabMedium-v0 from ./oracle_checkpoints/ppo_memtasks/state/normalized_dense/InterceptGrabMedium-v0/ppo-mlp-state-dense-intercept-grab-medium-v0__123__state__20251030_061039/20251030_061039/final_success_ckpt.pt
+self.list_of_obs_keys=['state']
+state: 49
+Total length: 49
+envs.single_observation_space=Dict('state': Box(-inf, inf, (49,), float32))
+Generating 1000 episodes in 4 batches (batched with batch size 250)
+
+Dataset saved to data/MIKASA-Robo/batched/InterceptGrabMedium-v0
+Unbatching data/MIKASA-Robo/batched/InterceptGrabMedium-v0, 4 batches
+Deleted batched data for InterceptGrabMedium-v0 at data/MIKASA-Robo/batched/InterceptGrabMedium-v0

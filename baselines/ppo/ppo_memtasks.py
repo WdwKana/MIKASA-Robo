@@ -2,7 +2,9 @@ from collections import defaultdict
 import os
 import random
 import time
+import csv
 from dataclasses import dataclass
+from datetime import datetime
 from typing import Optional
 
 import gymnasium as gym
@@ -52,7 +54,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
         state (bool): Whether to include state data in the observation
     """
 
-    def __init__(self, env, rgb=True, depth=True, state=True, oracle=False, joints=False) -> None:
+    def __init__(self, env, rgb=True, depth=True, state=True, oracle=False, joints=False, target_camera="base_camera") -> None:
         self.base_env: BaseEnv = StateOnlyTensorToDictWrapper(env.unwrapped)
         super().__init__(env)
         self.include_rgb = rgb
@@ -60,6 +62,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
         self.include_state = state
         self.include_oracle = oracle
         self.include_joints = joints
+        self.target_camera = target_camera
 
         sample_obs, _ = env.reset()
         new_obs = self.observation(sample_obs)
@@ -75,10 +78,18 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
 
             del observation["sensor_param"]
             images = []
-            for cam_data in sensor_data.values():
-                if self.include_rgb:
-                    images.append(cam_data["rgb"])
-                if self.include_depth:
+
+            cam_data = sensor_data.get(self.target_camera)
+            if cam_data is None and len(sensor_data) > 0:
+                cam_data = next(iter(sensor_data.values()))
+
+            if cam_data is not None:
+                if self.include_rgb and "rgb" in cam_data:
+                    rgb_img = cam_data["rgb"]
+                    if isinstance(rgb_img, torch.Tensor) and rgb_img.shape[-1] > 3:
+                        rgb_img = rgb_img[..., :3]
+                    images.append(rgb_img)
+                if self.include_depth and "depth" in cam_data:
                     images.append(cam_data["depth"])
 
             if len(images) > 0:
@@ -144,7 +155,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
 class Args:
     exp_name: Optional[str] = None
     """the name of this experiment"""
-    seed: int = 123
+    seed: int = 42
     """seed of the experiment"""
     torch_deterministic: bool = True
     """if toggled, `torch.backends.cudnn.deterministic=False`"""
@@ -172,11 +183,11 @@ class Args:
     """the id of the environment"""
     include_state: bool = False
     """whether to include state information in observations"""
-    total_timesteps: int = 50_000_000
+    total_timesteps: int = 130_000_000
     """total timesteps of the experiments"""
     learning_rate: float = 3e-4
     """the learning rate of the optimizer"""
-    num_envs: int = 1024 # 512 | *256
+    num_envs: int = 128 # 512 | *256
     """the number of parallel environments"""
     num_eval_envs: int = 16
     """the number of parallel evaluation environments"""
@@ -692,6 +703,15 @@ if __name__ == "__main__":
     else:
         # run_name = args.exp_name
         run_name = f"{args.exp_name}__{args.seed}__{MODE}__{TIME}"
+    log_dir = f"{SAVE_DIR}/{run_name}/{TIME}"
+    os.makedirs(log_dir, exist_ok=True)
+    csv_path = os.path.join(log_dir, "training_metrics.csv")
+    csv_fieldnames = [
+        "iteration",
+        "total_env_steps",
+        "mode",
+        "timestamp",
+    ]
         
     # TRY NOT TO MODIFY: seeding
     random.seed(args.seed)
@@ -816,11 +836,26 @@ if __name__ == "__main__":
                         for k, v in eval_infos["final_info"]["episode"].items():
                             eval_metrics[k].append(v)
             print(f"Evaluated {args.num_eval_steps * args.num_eval_envs} steps resulting in {num_episodes} episodes")
+            csv_row = {
+                "iteration": iteration,
+                "total_env_steps": global_step,
+                "mode": "eval",
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            }
             for k, v in eval_metrics.items():
                 mean = torch.stack(v).float().mean()
                 if logger is not None:
                     logger.add_scalar(f"eval/{k}", mean, global_step)
                 print(f"{Fore.GREEN}Evaluation Metric: {k}{Style.RESET_ALL} | {Fore.CYAN}Mean: {mean:.4f}{Style.RESET_ALL}")
+                csv_row[k] = round(mean.item(), 4)
+                if k not in csv_fieldnames:
+                    csv_fieldnames.append(k)
+            file_exists = os.path.exists(csv_path)
+            with open(csv_path, "a", newline="", encoding="utf-8") as f:
+                writer = csv.DictWriter(f, fieldnames=csv_fieldnames)
+                if not file_exists:
+                    writer.writeheader()
+                writer.writerow(csv_row)
             if args.evaluate:
                 break
         if args.save_model and iteration % args.eval_freq == 1:
@@ -855,8 +890,24 @@ if __name__ == "__main__":
             if "final_info" in infos:
                 final_info = infos["final_info"]
                 done_mask = infos["_final_info"]
+                train_csv_row = {
+                    "iteration": iteration,
+                    "total_env_steps": global_step,
+                    "mode": "train",
+                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                }
                 for k, v in final_info["episode"].items():
-                    logger.add_scalar(f"train/{k}", v[done_mask].float().mean(), global_step)
+                    mean_value = v[done_mask].float().mean()
+                    logger.add_scalar(f"train/{k}", mean_value, global_step)
+                    train_csv_row[k] = round(mean_value.item(), 4)
+                    if k not in csv_fieldnames:
+                        csv_fieldnames.append(k)
+                file_exists = os.path.exists(csv_path)
+                with open(csv_path, "a", newline="", encoding="utf-8") as f:
+                    writer = csv.DictWriter(f, fieldnames=csv_fieldnames)
+                    if not file_exists:
+                        writer.writeheader()
+                    writer.writerow(train_csv_row)
                 for k in infos["final_observation"]:
                     infos["final_observation"][k] = infos["final_observation"][k][done_mask]
                 with torch.no_grad():

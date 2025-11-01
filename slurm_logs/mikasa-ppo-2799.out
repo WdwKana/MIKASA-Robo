@@ -1,0 +1,100 @@
+Enabling podman.socket for user: s4176650
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberColor5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberColorInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberColor5-v0/remember-color-5-v0__42__rgb_joints__20251025_125136/20251025_125136/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+
+####
+args.num_iterations=8463 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=480 args.batch_size=15360 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 2880 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.9548[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1659[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberColor5-v0/remember-color-5-v0__42__rgb_joints__20251025_125136/20251025_125136/ckpt_0_1.pt
+SPS: 593
+Epoch: 2, global_step=15360
+SPS: 946
+Epoch: 3, global_step=30720
+SPS: 1180
+Epoch: 4, global_step=46080
+SPS: 1345
+Epoch: 5, global_step=61440
+SPS: 1467
+Epoch: 6, global_step=76800
+SPS: 1556
+Epoch: 7, global_step=92160
+SPS: 1626
+Epoch: 8, global_step=107520
+SPS: 1680
+Epoch: 9, global_step=122880
+SPS: 1725
+Epoch: 10, global_step=138240
+SPS: 1759
+Epoch: 11, global_step=153600
+SPS: 1790
+Epoch: 12, global_step=168960
+SPS: 1816
+Epoch: 13, global_step=184320
+SPS: 1840
+Epoch: 14, global_step=199680
+SPS: 1857
+Epoch: 15, global_step=215040
+SPS: 1873
+Epoch: 16, global_step=230400
+SPS: 1888
+Epoch: 17, global_step=245760
+SPS: 1901
+Epoch: 18, global_step=261120
+SPS: 1912
+Epoch: 19, global_step=276480
+SPS: 1922
+Epoch: 20, global_step=291840
+SPS: 1930
+Epoch: 21, global_step=307200
+SPS: 1939
+Epoch: 22, global_step=322560
+SPS: 1946
+Epoch: 23, global_step=337920
+SPS: 1952
+Epoch: 24, global_step=353280
+SPS: 1957
+Epoch: 25, global_step=368640
+SPS: 1964
+Epoch: 26, global_step=384000
+Evaluating

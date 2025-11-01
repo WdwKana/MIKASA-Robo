@@ -1,0 +1,490 @@
+Enabling podman.socket for user: s4176650
+
+Configuration:
+{ 'anneal_lr': False,
+  'batch_size': 30720,
+  'capture_video': True,
+  'checkpoint': None,
+  'clip_coef': 0.2,
+  'clip_vloss': False,
+  'cuda': True,
+  'ent_coef': 0.0,
+  'env_id': 'RememberColor9-v0',
+  'eval_freq': 25,
+  'eval_partial_reset': False,
+  'eval_reconfiguration_freq': 1,
+  'evaluate': False,
+  'exp_name': 'ppo-mlp-state-dense-remember-color-9-v0',
+  'finite_horizon_gae': True,
+  'gae_lambda': 0.9,
+  'gamma': 0.8,
+  'include_joints': False,
+  'include_oracle': False,
+  'include_rgb': False,
+  'include_state': True,
+  'learning_rate': 0.0003,
+  'max_grad_norm': 0.5,
+  'minibatch_size': 960,
+  'noop_steps': 1,
+  'norm_adv': True,
+  'num_envs': 512,
+  'num_eval_envs': 16,
+  'num_eval_steps': 60,
+  'num_iterations': 4882,
+  'num_minibatches': 32,
+  'num_steps': 60,
+  'partial_reset': False,
+  'reconfiguration_freq': None,
+  'render_mode': 'all',
+  'reward_mode': 'normalized_dense',
+  'reward_scale': 1.0,
+  'save_model': True,
+  'save_train_video_freq': None,
+  'seed': 123,
+  'target_kl': 0.2,
+  'torch_deterministic': True,
+  'total_timesteps': 150000000,
+  'track': False,
+  'update_epochs': 4,
+  'vf_coef': 0.5,
+  'wandb_entity': None,
+  'wandb_project_name': 'MIKASA-Robo-dataset-collectors'}
+
+
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberColor9-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberColorInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       True  │ state will be used                    ║
+║ include_rgb:         False │ rgb images will not be used           ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      False │ joints will not be used               ║
+===========================================================================
+
+MODE='state'
+prompt_info=None
+Saving eval videos to oracle_checkpoints/ppo_memtasks/state/normalized_dense/RememberColor9-v0/ppo-mlp-state-dense-remember-color-9-v0__123__state__20251101_193512/20251101_193512/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+
+####
+args.num_iterations=4882 args.num_envs=512 args.num_eval_envs=16
+args.minibatch_size=960 args.batch_size=30720 args.update_epochs=4
+####
+
+self.list_of_obs_keys=['state']
+state: 53
+Total length: 53
+envs.single_observation_space=Dict('state': Box(-inf, inf, (53,), float32))
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.3615[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1560[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-1.941, 1.923]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.3374956   0.31309348 -0.6415235  -0.25227544  1.5369111   0.10235124
+  0.57121885 -0.20593706]
+Sample clipped actions:  [ 0.3374956   0.31309348 -0.6415235  -0.25227544  1.          0.10235124
+  0.57121885 -0.20593706]
+SPS: 1953
+Epoch: 2, global_step=30720
+SPS: 3032
+Epoch: 3, global_step=61440
+SPS: 3699
+Epoch: 4, global_step=92160
+SPS: 4138
+Epoch: 5, global_step=122880
+SPS: 4435
+Epoch: 6, global_step=153600
+SPS: 4646
+Epoch: 7, global_step=184320
+SPS: 4807
+Epoch: 8, global_step=215040
+SPS: 4931
+Epoch: 9, global_step=245760
+SPS: 5030
+Epoch: 10, global_step=276480
+SPS: 5105
+Epoch: 11, global_step=307200
+Original action range: [-1.941, 2.378]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.3295973   0.58868325 -0.358635    0.76611996 -0.0469376   0.6646429
+  0.36107114 -0.52525645]
+Sample clipped actions:  [ 0.3295973   0.58868325 -0.358635    0.76611996 -0.0469376   0.6646429
+  0.36107114 -0.52525645]
+SPS: 5165
+Epoch: 12, global_step=337920
+SPS: 5221
+Epoch: 13, global_step=368640
+SPS: 5264
+Epoch: 14, global_step=399360
+SPS: 5301
+Epoch: 15, global_step=430080
+SPS: 5334
+Epoch: 16, global_step=460800
+SPS: 5358
+Epoch: 17, global_step=491520
+SPS: 5380
+Epoch: 18, global_step=522240
+SPS: 5399
+Epoch: 19, global_step=552960
+SPS: 5413
+Epoch: 20, global_step=583680
+SPS: 5427
+Epoch: 21, global_step=614400
+Original action range: [-2.096, 2.399]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.2107282  -0.14452988  0.30996135  0.3536976   0.3967713  -0.12726408
+ -0.38826376  0.43372503]
+Sample clipped actions:  [-0.2107282  -0.14452988  0.30996135  0.3536976   0.3967713  -0.12726408
+ -0.38826376  0.43372503]
+SPS: 5440
+Epoch: 22, global_step=645120
+SPS: 5450
+Epoch: 23, global_step=675840
+SPS: 5459
+Epoch: 24, global_step=706560
+SPS: 5469
+Epoch: 25, global_step=737280
+SPS: 5476
+Epoch: 26, global_step=768000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8750[0m
+[32mEvaluation Metric: return[0m | [36mMean: 24.3453[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4058[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6250[0m
+SPS: 5206
+Epoch: 27, global_step=798720
+SPS: 5223
+Epoch: 28, global_step=829440
+SPS: 5236
+Epoch: 29, global_step=860160
+SPS: 5250
+Epoch: 30, global_step=890880
+SPS: 5263
+Epoch: 31, global_step=921600
+Original action range: [-2.062, 2.426]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.33634016  0.8884135  -0.6655178  -0.8849979   0.7260318   0.36986545
+ -0.27772054 -0.82896364]
+Sample clipped actions:  [-0.33634016  0.8884135  -0.6655178  -0.8849979   0.7260318   0.36986545
+ -0.27772054 -0.82896364]
+SPS: 5273
+Epoch: 32, global_step=952320
+SPS: 5285
+Epoch: 33, global_step=983040
+SPS: 5296
+Epoch: 34, global_step=1013760
+SPS: 5306
+Epoch: 35, global_step=1044480
+SPS: 5315
+Epoch: 36, global_step=1075200
+SPS: 5323
+Epoch: 37, global_step=1105920
+SPS: 5331
+Epoch: 38, global_step=1136640
+SPS: 5338
+Epoch: 39, global_step=1167360
+SPS: 5346
+Epoch: 40, global_step=1198080
+SPS: 5352
+Epoch: 41, global_step=1228800
+Original action range: [-2.269, 2.492]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.9720738   0.50007856 -0.26743892 -0.3164637  -0.26010042 -0.42063475
+ -0.23601629  0.06709932]
+Sample clipped actions:  [-0.9720738   0.50007856 -0.26743892 -0.3164637  -0.26010042 -0.42063475
+ -0.23601629  0.06709932]
+SPS: 5357
+Epoch: 42, global_step=1259520
+SPS: 5363
+Epoch: 43, global_step=1290240
+SPS: 5368
+Epoch: 44, global_step=1320960
+SPS: 5372
+Epoch: 45, global_step=1351680
+SPS: 5375
+Epoch: 46, global_step=1382400
+SPS: 5380
+Epoch: 47, global_step=1413120
+SPS: 5384
+Epoch: 48, global_step=1443840
+SPS: 5388
+Epoch: 49, global_step=1474560
+SPS: 5392
+Epoch: 50, global_step=1505280
+SPS: 5396
+Epoch: 51, global_step=1536000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9375[0m
+[32mEvaluation Metric: return[0m | [36mMean: 22.4653[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3744[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.8750[0m
+Original action range: [-2.095, 2.054]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.2733949   0.679228   -0.8582713  -0.9847694  -0.587807   -0.08694109
+  0.01283574 -0.8791533 ]
+Sample clipped actions:  [ 0.2733949   0.679228   -0.8582713  -0.9847694  -0.587807   -0.08694109
+  0.01283574 -0.8791533 ]
+SPS: 5258
+Epoch: 52, global_step=1566720
+SPS: 5264
+Epoch: 53, global_step=1597440
+SPS: 5270
+Epoch: 54, global_step=1628160
+SPS: 5276
+Epoch: 55, global_step=1658880
+SPS: 5281
+Epoch: 56, global_step=1689600
+SPS: 5285
+Epoch: 57, global_step=1720320
+SPS: 5291
+Epoch: 58, global_step=1751040
+SPS: 5295
+Epoch: 59, global_step=1781760
+SPS: 5300
+Epoch: 60, global_step=1812480
+SPS: 5306
+Epoch: 61, global_step=1843200
+Original action range: [-2.045, 2.064]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.63614696  0.7991731  -0.6900044  -1.3251841   1.1163377   0.7827948
+ -0.44882715 -0.43280238]
+Sample clipped actions:  [-0.63614696  0.7991731  -0.6900044  -1.          1.          0.7827948
+ -0.44882715 -0.43280238]
+SPS: 5310
+Epoch: 62, global_step=1873920
+SPS: 5315
+Epoch: 63, global_step=1904640
+SPS: 5319
+Epoch: 64, global_step=1935360
+SPS: 5323
+Epoch: 65, global_step=1966080
+SPS: 5328
+Epoch: 66, global_step=1996800
+SPS: 5332
+Epoch: 67, global_step=2027520
+SPS: 5336
+Epoch: 68, global_step=2058240
+SPS: 5339
+Epoch: 69, global_step=2088960
+SPS: 5343
+Epoch: 70, global_step=2119680
+SPS: 5347
+Epoch: 71, global_step=2150400
+Original action range: [-2.108, 2.316]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.07573532  0.7000427   0.33247396 -0.78084826  0.06231007 -0.01377785
+ -0.18894476  0.51995575]
+Sample clipped actions:  [-0.07573532  0.7000427   0.33247396 -0.78084826  0.06231007 -0.01377785
+ -0.18894476  0.51995575]
+SPS: 5350
+Epoch: 72, global_step=2181120
+SPS: 5354
+Epoch: 73, global_step=2211840
+SPS: 5357
+Epoch: 74, global_step=2242560
+SPS: 5360
+Epoch: 75, global_step=2273280
+SPS: 5363
+Epoch: 76, global_step=2304000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8125[0m
+[32mEvaluation Metric: return[0m | [36mMean: 25.1329[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4189[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6875[0m
+SPS: 5268
+Epoch: 77, global_step=2334720
+SPS: 5272
+Epoch: 78, global_step=2365440
+SPS: 5276
+Epoch: 79, global_step=2396160
+SPS: 5280
+Epoch: 80, global_step=2426880
+SPS: 5284
+Epoch: 81, global_step=2457600
+Original action range: [-1.978, 1.938]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.21040758  0.80869687 -0.29255128 -1.2685453   0.55061674  0.05560282
+  0.18598709 -0.9538069 ]
+Sample clipped actions:  [-0.21040758  0.80869687 -0.29255128 -1.          0.55061674  0.05560282
+  0.18598709 -0.9538069 ]
+SPS: 5287
+Epoch: 82, global_step=2488320
+SPS: 5290
+Epoch: 83, global_step=2519040
+SPS: 5293
+Epoch: 84, global_step=2549760
+SPS: 5297
+Epoch: 85, global_step=2580480
+SPS: 5300
+Epoch: 86, global_step=2611200
+SPS: 5303
+Epoch: 87, global_step=2641920
+SPS: 5306
+Epoch: 88, global_step=2672640
+SPS: 5309
+Epoch: 89, global_step=2703360
+SPS: 5312
+Epoch: 90, global_step=2734080
+SPS: 5315
+Epoch: 91, global_step=2764800
+Original action range: [-1.753, 1.804]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.2087453   1.3868377  -0.6081424  -0.82446766  0.00851178  0.14583048
+  0.4505037  -0.14288482]
+Sample clipped actions:  [-0.2087453   1.         -0.6081424  -0.82446766  0.00851178  0.14583048
+  0.4505037  -0.14288482]
+SPS: 5319
+Epoch: 92, global_step=2795520
+SPS: 5322
+Epoch: 93, global_step=2826240
+SPS: 5325
+Epoch: 94, global_step=2856960
+SPS: 5329
+Epoch: 95, global_step=2887680
+SPS: 5332
+Epoch: 96, global_step=2918400
+SPS: 5335
+Epoch: 97, global_step=2949120
+SPS: 5338
+Epoch: 98, global_step=2979840
+SPS: 5342
+Epoch: 99, global_step=3010560
+SPS: 5345
+Epoch: 100, global_step=3041280
+SPS: 5348
+Epoch: 101, global_step=3072000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8750[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.5554[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5593[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.8125[0m
+Original action range: [-1.879, 1.685]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.30041295  1.2314163  -0.05743483 -0.71602154  0.44336814  0.02545941
+  0.14856574 -0.82701963]
+Sample clipped actions:  [-0.30041295  1.         -0.05743483 -0.71602154  0.44336814  0.02545941
+  0.14856574 -0.82701963]
+SPS: 5279
+Epoch: 102, global_step=3102720
+SPS: 5283
+Epoch: 103, global_step=3133440
+SPS: 5287
+Epoch: 104, global_step=3164160
+SPS: 5291
+Epoch: 105, global_step=3194880
+SPS: 5294
+Epoch: 106, global_step=3225600
+SPS: 5297
+Epoch: 107, global_step=3256320
+SPS: 5301
+Epoch: 108, global_step=3287040
+SPS: 5305
+Epoch: 109, global_step=3317760
+SPS: 5308
+Epoch: 110, global_step=3348480
+SPS: 5311
+Epoch: 111, global_step=3379200
+Original action range: [-1.825, 1.489]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.11596647  0.808244    0.08548124 -0.6470182  -0.08263256  0.10703508
+  0.14204824 -0.51004857]
+Sample clipped actions:  [-0.11596647  0.808244    0.08548124 -0.6470182  -0.08263256  0.10703508
+  0.14204824 -0.51004857]
+SPS: 5315
+Epoch: 112, global_step=3409920
+SPS: 5318
+Epoch: 113, global_step=3440640
+SPS: 5322
+Epoch: 114, global_step=3471360
+SPS: 5325
+Epoch: 115, global_step=3502080
+SPS: 5328
+Epoch: 116, global_step=3532800
+SPS: 5332
+Epoch: 117, global_step=3563520
+SPS: 5335
+Epoch: 118, global_step=3594240
+SPS: 5338
+Epoch: 119, global_step=3624960
+SPS: 5342
+Epoch: 120, global_step=3655680
+SPS: 5345
+Epoch: 121, global_step=3686400
+Original action range: [-1.767, 1.371]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.1803782   1.0149591   0.04904839 -0.5991697   0.3979538   0.74258494
+ -0.08199377 -1.0029379 ]
+Sample clipped actions:  [-0.1803782   1.          0.04904839 -0.5991697   0.3979538   0.74258494
+ -0.08199377 -1.        ]
+SPS: 5348
+Epoch: 122, global_step=3717120
+SPS: 5352
+Epoch: 123, global_step=3747840
+SPS: 5355
+Epoch: 124, global_step=3778560
+SPS: 5358
+Epoch: 125, global_step=3809280
+SPS: 5361
+Epoch: 126, global_step=3840000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 1.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.7110[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.6785[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 1.0000[0m
+
+[32mSuccess rate threshold reached! Stopping training...[0m
+Final successful model saved to oracle_checkpoints/ppo_memtasks/state/normalized_dense/RememberColor9-v0/ppo-mlp-state-dense-remember-color-9-v0__123__state__20251101_193512/20251101_193512/final_success_ckpt.pt
+Collecting data for RememberColor9-v0 from ./oracle_checkpoints/ppo_memtasks/state/normalized_dense/RememberColor9-v0/ppo-mlp-state-dense-remember-color-9-v0__123__state__20251101_193512/20251101_193512/final_success_ckpt.pt
+self.list_of_obs_keys=['state']
+state: 53
+Total length: 53
+envs.single_observation_space=Dict('state': Box(-inf, inf, (53,), float32))
+Generating 1000 episodes in 4 batches (batched with batch size 250)
+
+Dataset saved to data/MIKASA-Robo/batched/RememberColor9-v0
+Unbatching data/MIKASA-Robo/batched/RememberColor9-v0, 4 batches
+Deleted batched data for RememberColor9-v0 at data/MIKASA-Robo/batched/RememberColor9-v0
+Saved 859 trajectories to /local/s4176650/ReinFlow/data/mikasa/RememberColor9-v0/RememberColor9-v0_clipped_tanh.npz
+Merged dataset saved to: /local/s4176650/ReinFlow/data/mikasa/RememberColor9-v0/RememberColor9-v0_clipped_tanh.npz

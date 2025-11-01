@@ -8,6 +8,7 @@ import tyro
 from dataclasses import dataclass
 from typing import Optional
 
+
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../')))
 
@@ -239,6 +240,13 @@ def collect_batched_data_from_ckpt(
     agent.load_state_dict(torch.load(checkpoint_path, map_location=device))
     agent.eval()
 
+    # Add ManiSkill-style action clipping setup (same as in training code)
+    action_space_low = torch.tensor(env_state.single_action_space.low, device=device, dtype=torch.float32)
+    action_space_high = torch.tensor(env_state.single_action_space.high, device=device, dtype=torch.float32)
+    
+    def clip_action(action: torch.Tensor):
+        """Clip action to valid range with detach to avoid gradient issues"""
+        return torch.clamp(action.detach(), action_space_low, action_space_high)
 
     # save_dir = f'data/MIKASA-Robo/batched/{env_id}'
     save_dir = f'{path_to_save_data}/MIKASA-Robo/batched/{env_id}'
@@ -264,14 +272,17 @@ def collect_batched_data_from_ckpt(
                 for key, value in obs_state.items():
                     obs_state[key] = value.to(device)
                 action = agent.get_action(obs_state, deterministic=True)
+                # Apply the same clipping as in training
+                clipped_action = clip_action(action)
             
-            # Make a step in both environments with the same action
-            obs_state, reward_state, term_state, trunc_state, info_state = env_state.step(action)
-            obs_rgb, reward_rgb, term_rgb, trunc_rgb, info_rgb = env_rgb.step(action)
+            # Make a step in both environments with the clipped action
+            obs_state, reward_state, term_state, trunc_state, info_state = env_state.step(clipped_action)
+            obs_rgb, reward_rgb, term_rgb, trunc_rgb, info_rgb = env_rgb.step(clipped_action)
 
             rewList.append(reward_rgb.cpu().numpy())
             succList.append(info_rgb['success'].cpu().numpy().astype(int))
-            actList.append(action.cpu().numpy())
+            # Save the clipped action (same as what was actually executed)
+            actList.append(clipped_action.cpu().numpy())
             done = torch.logical_or(term_rgb, trunc_rgb)
             doneList.append(done.cpu().numpy().astype(int))
             

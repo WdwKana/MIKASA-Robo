@@ -37,196 +37,196 @@
 
 ENVS_CONFIG = {
 # * id: [env_id, success_once_threshold, parameters]
-    0: ["ShellGameTouch-v0",            0.95, {
+    0: ["ShellGameTouch-v0",            0.99, {
         "exp_name": "ppo-mlp-state-dense-shell-game-touch-v0",
         "num_steps": 90,
         "num_eval_steps": 90,
     }],
-    1: ["ShellGamePush-v0",             0.95, {
+    1: ["ShellGamePush-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-shell-game-push-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    2: ["ShellGamePick-v0",             0.95, {
+    2: ["ShellGamePick-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-shell-game-pick-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    3: ["InterceptSlow-v0",             0.95, {
+    3: ["InterceptSlow-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-slow-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    4: ["InterceptMedium-v0",           0.95, {
+    4: ["InterceptMedium-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-medium-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    5: ["InterceptFast-v0",             0.95, {
+    5: ["InterceptFast-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-fast-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    6: ["InterceptGrabSlow-v0",         0.95, {
+    6: ["InterceptGrabSlow-v0",         0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-grab-slow-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    7: ["InterceptGrabMedium-v0",       0.95, {
+    7: ["InterceptGrabMedium-v0",       0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-grab-medium-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    8: ["InterceptGrabFast-v0",         0.95, {
+    8: ["InterceptGrabFast-v0",         0.99, {
         "exp_name": "ppo-mlp-state-dense-intercept-grab-fast-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    9: ["RotateLenientPos-v0",          0.95, {
+    9: ["RotateLenientPos-v0",          0.99, {
         "exp_name": "ppo-mlp-state-dense-rotate-lenient-pos-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    10: ["RotateLenientPosNeg-v0",      0.95, {
+    10: ["RotateLenientPosNeg-v0",      0.99, {
         "exp_name": "ppo-mlp-state-dense-rotate-lenient-pos-neg-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    11: ["RotateStrictPos-v0",          0.95, {
+    11: ["RotateStrictPos-v0",          0.99, {
         "exp_name": "ppo-mlp-state-dense-rotate-strict-pos-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    12: ["RotateStrictPosNeg-v0",       0.95, {
+    12: ["RotateStrictPosNeg-v0",       0.99, {
         "exp_name": "ppo-mlp-state-dense-rotate-strict-pos-neg-v0",
         "num_steps": 90,
         "num_eval_steps": 90
     }],
-    13: ["TakeItBack-v0",               0.95, {
+    13: ["TakeItBack-v0",               0.99, {
         "exp_name": "ppo-mlp-state-dense-take-it-back-v0",
         "num_steps": 180,
         "num_eval_steps": 180
     }],
-    14: ["RememberColor3-v0",           0.95, {
+    14: ["RememberColor3-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-color-3-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    15: ["RememberColor5-v0",           0.95, {
+    15: ["RememberColor5-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-color-5-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    16: ["RememberColor9-v0",           0.95, {
+    16: ["RememberColor9-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-color-9-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    17: ["RememberShape3-v0",           0.95, {
+    17: ["RememberShape3-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-3-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    18: ["RememberShape5-v0",           0.95, {
+    18: ["RememberShape5-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-5-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    19: ["RememberShape9-v0",           0.95, {
+    19: ["RememberShape9-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-9-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    20: ["RememberShapeAndColor3x2-v0", 0.95, {
+    20: ["RememberShapeAndColor3x2-v0", 0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-and-color-3x2-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    21: ["RememberShapeAndColor3x3-v0", 0.95, {
+    21: ["RememberShapeAndColor3x3-v0", 0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-and-color-3x3-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    22: ["RememberShapeAndColor5x3-v0", 0.95, {
+    22: ["RememberShapeAndColor5x3-v0", 0.99, {
         "exp_name": "ppo-mlp-state-dense-remember-shape-and-color-5x3-v0",
         "num_steps": 60,
         "num_eval_steps": 60,
         "gae_lambda": 0.9,
         "gamma": 0.8
     }],
-    23: ["BunchOfColors3-v0",           0.95, {
+    23: ["BunchOfColors3-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-bunch-of-colors-3-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    24: ["BunchOfColors5-v0",           0.95, {
+    24: ["BunchOfColors5-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-bunch-of-colors-5-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    25: ["BunchOfColors7-v0",           0.95, {
+    25: ["BunchOfColors7-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-bunch-of-colors-7-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    26: ["SeqOfColors3-v0",             0.95, {
+    26: ["SeqOfColors3-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-seq-of-colors-3-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    27: ["SeqOfColors5-v0",             0.95, {
+    27: ["SeqOfColors5-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-seq-of-colors-5-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    28: ["SeqOfColors7-v0",             0.95, {
+    28: ["SeqOfColors7-v0",             0.99, {
         "exp_name": "ppo-mlp-state-dense-seq-of-colors-7-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    29: ["ChainOfColors3-v0",           0.95, {
+    29: ["ChainOfColors3-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-chain-of-colors-3-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    30: ["ChainOfColors5-v0",           0.95, {
+    30: ["ChainOfColors5-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-chain-of-colors-5-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
         "gae_lambda": 0.95,
         "gamma": 0.9
     }],
-    31: ["ChainOfColors7-v0",           0.95, {
+    31: ["ChainOfColors7-v0",           0.99, {
         "exp_name": "ppo-mlp-state-dense-chain-of-colors-7-v0",
         "num_steps": 120,
         "num_eval_steps": 120,
@@ -400,6 +400,9 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
         return ret
 
 
+
+
+
 @dataclass
 class Args:
     exp_name: Optional[str] = None
@@ -436,7 +439,7 @@ class Args:
     """total timesteps of the experiments"""
     learning_rate: float = 3e-4
     """the learning rate of the optimizer"""
-    num_envs: int = 1024 # 512 | *256
+    num_envs: int = 512 # 512 | *256
     """the number of parallel environments"""
     num_eval_envs: int = 16
     """the number of parallel evaluation environments"""
@@ -664,6 +667,7 @@ class Agent(nn.Module):
             layer_init(nn.Linear(latent_size, 512)),
             nn.ReLU(inplace=True),
             layer_init(nn.Linear(512, np.prod(envs.unwrapped.single_action_space.shape)), std=0.01*np.sqrt(2)),
+            nn.Tanh(),
         )
         self.actor_logstd = nn.Parameter(torch.ones(1, np.prod(envs.unwrapped.single_action_space.shape)) * -0.5)
     def get_features(self, x):
@@ -723,6 +727,7 @@ class AgentStateOnly(nn.Module):
             layer_init(nn.Linear(256, 256)),
             nn.Tanh(),
             layer_init(nn.Linear(256, np.prod(envs.single_action_space.shape)), std=0.01*np.sqrt(2)),
+            nn.Tanh(),
         )
         self.actor_logstd = nn.Parameter(torch.ones(1, np.prod(envs.single_action_space.shape)) * -0.5)
 
@@ -820,7 +825,7 @@ if __name__ == "__main__":
     args.wandb_project_name = "MIKASA-Robo-dataset-collectors"
     args.seed = 123
     args.include_state = True
-    args.track = True
+    args.track = False
     args.capture_video = True
     args.save_model = True
     args.total_timesteps = 150_000_000
@@ -1109,6 +1114,14 @@ if __name__ == "__main__":
     print(f"args.minibatch_size={args.minibatch_size} args.batch_size={args.batch_size} args.update_epochs={args.update_epochs}")
     print(f"####\n")
 
+    # ManiSkill-style action clipping setup
+    action_space_low = torch.tensor(envs.single_action_space.low, device=device, dtype=torch.float32)
+    action_space_high = torch.tensor(envs.single_action_space.high, device=device, dtype=torch.float32)
+    
+    def clip_action(action: torch.Tensor):
+        """Clip action to valid range with detach to avoid gradient issues"""
+        return torch.clamp(action.detach(), action_space_low, action_space_high)
+
     if MODE not in ['state', 'state_oracle']:
         agent = Agent(envs, sample_obs=next_obs).to(device)
     else:
@@ -1130,7 +1143,7 @@ if __name__ == "__main__":
             num_episodes = 0
             for _ in range(args.num_eval_steps):
                 with torch.no_grad():
-                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(agent.get_action(eval_obs, deterministic=True))
+                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(clip_action(agent.get_action(eval_obs, deterministic=True)))
                     if "final_info" in eval_infos:
                         mask = eval_infos["_final_info"]
                         num_episodes += mask.sum()
@@ -1146,7 +1159,7 @@ if __name__ == "__main__":
                 # !!!!!!!!!!!!!!!!
 
                 # Check if success_once >= 0.95 and stop training
-                if k == "success_once" and mean >= success_once_threshold:
+                if k == "success_at_end" and mean >= success_once_threshold:
                     print(f"\n{Fore.GREEN}Success rate threshold reached! Stopping training...{Style.RESET_ALL}")
                     # Save final checkpoint
                     if args.save_model:
@@ -1192,9 +1205,18 @@ if __name__ == "__main__":
                 values[step] = value.flatten()
             actions[step] = action
             logprobs[step] = logprob
+            
+            # Print action range and action_space for debugging
+            if step == 0 and iteration % 10 == 1:  # Print every 10 iterations, only at first step
+                clipped_action = clip_action(action)
+                print(f"Original action range: [{action.min().item():.3f}, {action.max().item():.3f}]")
+                print(f"Clipped action range:  [{clipped_action.min().item():.3f}, {clipped_action.max().item():.3f}]")
+                print(f"Action space: {envs.single_action_space}")
+                print(f"Sample original actions: {action[0].cpu().numpy()}")  # Print first environment's action
+                print(f"Sample clipped actions:  {clipped_action[0].cpu().numpy()}")  # Print first environment's clipped action
 
             # TRY NOT TO MODIFY: execute the game and log data.
-            next_obs, reward, terminations, truncations, infos = envs.step(action)
+            next_obs, reward, terminations, truncations, infos = envs.step(clip_action(action))
             next_done = torch.logical_or(terminations, truncations).to(torch.float32)
             rewards[step] = reward.view(-1) * args.reward_scale
 
@@ -1338,7 +1360,12 @@ if __name__ == "__main__":
         logger.add_scalar("time/update_time", update_time, global_step)
         logger.add_scalar("time/rollout_time", rollout_time, global_step)
         logger.add_scalar("time/rollout_fps", args.num_envs * args.num_steps / rollout_time, global_step)
-        del mb_advantages, newvalue, ratio, logratio
+        #del mb_advantages, newvalue, ratio, logratio
+        # Clean up variables if they exist
+        variables_to_delete = ['mb_advantages', 'newvalue', 'ratio', 'logratio']
+        for var_name in variables_to_delete:
+            if var_name in locals():
+                del locals()[var_name]
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
 

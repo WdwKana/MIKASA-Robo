@@ -1,0 +1,116 @@
+Enabling podman.socket for user: s4176650
+Running RememberShape5-v0 with seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__42__rgb_joints__20251025_230554/20251025_230554/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+Running RememberShape5-v0 with seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShape5-v0/ppo-mlp-dense-remember-shape-5-v0__33__rgb_joints__20251025_230641/20251025_230641/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+Running InterceptGrabMedium-v0 with seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptGrabMedium-v0                                  ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       True  │ state will be used                    ║
+║ include_rgb:         False │ rgb images will not be used           ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      False │ joints will not be used               ║
+===========================================================================
+
+MODE='state'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/state/normalized_dense/InterceptGrabMedium-v0/ppo-mlp-state-dense-intercept-grab-medium-v0__42__state__20251025_230656/20251025_230656/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Running training
+
+####
+args.num_iterations=1128 args.num_envs=128 args.num_eval_envs=16
+args.minibatch_size=360 args.batch_size=11520 args.update_epochs=4
+####
+
+self.list_of_obs_keys=['state']
+state: 49
+Total length: 49
+envs.single_observation_space=Dict('state': Box(-inf, inf, (49,), float32))
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 4320 steps resulting in 48 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 0.2535[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0028[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/state/normalized_dense/InterceptGrabMedium-v0/ppo-mlp-state-dense-intercept-grab-medium-v0__42__state__20251025_230656/20251025_230656/ckpt_0_1.pt
+SPS: 455
+Epoch: 2, global_step=11520
+SPS: 831
+Epoch: 3, global_step=23040
+SPS: 1143
+Epoch: 4, global_step=34560
+SPS: 1404
+Epoch: 5, global_step=46080
+SPS: 1610
+Epoch: 6, global_step=57600

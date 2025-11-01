@@ -1,0 +1,1963 @@
+Enabling podman.socket for user: s4176650
+
+Configuration:
+{ 'anneal_lr': False,
+  'batch_size': 46080,
+  'capture_video': True,
+  'checkpoint': None,
+  'clip_coef': 0.2,
+  'clip_vloss': False,
+  'cuda': True,
+  'ent_coef': 0.0,
+  'env_id': 'InterceptGrabMedium-v0',
+  'eval_freq': 25,
+  'eval_partial_reset': False,
+  'eval_reconfiguration_freq': 1,
+  'evaluate': False,
+  'exp_name': 'ppo-mlp-state-dense-intercept-grab-medium-v0',
+  'finite_horizon_gae': True,
+  'gae_lambda': 0.95,
+  'gamma': 0.99,
+  'include_joints': False,
+  'include_oracle': False,
+  'include_rgb': False,
+  'include_state': True,
+  'learning_rate': 0.0003,
+  'max_grad_norm': 0.5,
+  'minibatch_size': 1440,
+  'noop_steps': 1,
+  'norm_adv': True,
+  'num_envs': 512,
+  'num_eval_envs': 16,
+  'num_eval_steps': 90,
+  'num_iterations': 3255,
+  'num_minibatches': 32,
+  'num_steps': 90,
+  'partial_reset': False,
+  'reconfiguration_freq': None,
+  'render_mode': 'all',
+  'reward_mode': 'normalized_dense',
+  'reward_scale': 1.0,
+  'save_model': True,
+  'save_train_video_freq': None,
+  'seed': 123,
+  'target_kl': 0.2,
+  'torch_deterministic': True,
+  'total_timesteps': 150000000,
+  'track': False,
+  'update_epochs': 4,
+  'vf_coef': 0.5,
+  'wandb_entity': None,
+  'wandb_project_name': 'MIKASA-Robo-dataset-collectors'}
+
+
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptGrabMedium-v0                                  ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       True  │ state will be used                    ║
+║ include_rgb:         False │ rgb images will not be used           ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      False │ joints will not be used               ║
+===========================================================================
+
+MODE='state'
+prompt_info=None
+Saving eval videos to oracle_checkpoints/ppo_memtasks/state/normalized_dense/InterceptGrabMedium-v0/ppo-mlp-state-dense-intercept-grab-medium-v0__123__state__20251030_061039/20251030_061039/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Running training
+
+####
+args.num_iterations=3255 args.num_envs=512 args.num_eval_envs=16
+args.minibatch_size=1440 args.batch_size=46080 args.update_epochs=4
+####
+
+self.list_of_obs_keys=['state']
+state: 49
+Total length: 49
+envs.single_observation_space=Dict('state': Box(-inf, inf, (49,), float32))
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 0.2795[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0031[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.139, 2.340]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.46696156  0.2927961  -0.04511542  0.19948615 -0.7550367  -0.47498325
+  0.43178612 -0.6041995 ]
+Sample clipped actions:  [ 0.46696156  0.2927961  -0.04511542  0.19948615 -0.7550367  -0.47498325
+  0.43178612 -0.6041995 ]
+SPS: 3434
+Epoch: 2, global_step=46080
+SPS: 5714
+Epoch: 3, global_step=92160
+SPS: 7283
+Epoch: 4, global_step=138240
+SPS: 8228
+Epoch: 5, global_step=184320
+SPS: 8905
+Epoch: 6, global_step=230400
+SPS: 9310
+Epoch: 7, global_step=276480
+SPS: 9633
+Epoch: 8, global_step=322560
+SPS: 9864
+Epoch: 9, global_step=368640
+SPS: 10009
+Epoch: 10, global_step=414720
+SPS: 10156
+Epoch: 11, global_step=460800
+Original action range: [-2.180, 2.138]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.07450049 -0.65076864  0.06690094 -0.39215082 -0.28059757  0.49489594
+  0.00273635 -0.7321683 ]
+Sample clipped actions:  [-0.07450049 -0.65076864  0.06690094 -0.39215082 -0.28059757  0.49489594
+  0.00273635 -0.7321683 ]
+SPS: 10253
+Epoch: 12, global_step=506880
+SPS: 10348
+Epoch: 13, global_step=552960
+SPS: 10424
+Epoch: 14, global_step=599040
+SPS: 10499
+Epoch: 15, global_step=645120
+SPS: 10566
+Epoch: 16, global_step=691200
+SPS: 10615
+Epoch: 17, global_step=737280
+SPS: 10661
+Epoch: 18, global_step=783360
+SPS: 10715
+Epoch: 19, global_step=829440
+SPS: 10744
+Epoch: 20, global_step=875520
+SPS: 10765
+Epoch: 21, global_step=921600
+Original action range: [-2.292, 2.057]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 1.104935    0.24352375 -0.8982717  -0.7018103   0.62802887  0.59044415
+  0.36866358 -0.2408964 ]
+Sample clipped actions:  [ 1.          0.24352375 -0.8982717  -0.7018103   0.62802887  0.59044415
+  0.36866358 -0.2408964 ]
+SPS: 10777
+Epoch: 22, global_step=967680
+SPS: 10788
+Epoch: 23, global_step=1013760
+SPS: 10810
+Epoch: 24, global_step=1059840
+SPS: 10817
+Epoch: 25, global_step=1105920
+SPS: 10835
+Epoch: 26, global_step=1152000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 3.2387[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0360[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 9942
+Epoch: 27, global_step=1198080
+SPS: 9988
+Epoch: 28, global_step=1244160
+SPS: 10022
+Epoch: 29, global_step=1290240
+SPS: 10057
+Epoch: 30, global_step=1336320
+SPS: 10084
+Epoch: 31, global_step=1382400
+Original action range: [-2.148, 1.963]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.85826653  0.39398888 -0.1529873  -1.011772   -1.1152883   0.6116138
+  0.06446602  0.60912853]
+Sample clipped actions:  [-0.85826653  0.39398888 -0.1529873  -1.         -1.          0.6116138
+  0.06446602  0.60912853]
+SPS: 10104
+Epoch: 32, global_step=1428480
+SPS: 10123
+Epoch: 33, global_step=1474560
+SPS: 10136
+Epoch: 34, global_step=1520640
+SPS: 10143
+Epoch: 35, global_step=1566720
+SPS: 10162
+Epoch: 36, global_step=1612800
+SPS: 10180
+Epoch: 37, global_step=1658880
+SPS: 10190
+Epoch: 38, global_step=1704960
+SPS: 10205
+Epoch: 39, global_step=1751040
+SPS: 10212
+Epoch: 40, global_step=1797120
+SPS: 10219
+Epoch: 41, global_step=1843200
+Original action range: [-2.471, 2.132]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.29659986 -0.1924665   0.57619834 -0.08229203 -0.5059028  -0.41686448
+ -0.37722674 -0.16300021]
+Sample clipped actions:  [ 0.29659986 -0.1924665   0.57619834 -0.08229203 -0.5059028  -0.41686448
+ -0.37722674 -0.16300021]
+SPS: 10226
+Epoch: 42, global_step=1889280
+SPS: 10231
+Epoch: 43, global_step=1935360
+SPS: 10236
+Epoch: 44, global_step=1981440
+SPS: 10244
+Epoch: 45, global_step=2027520
+SPS: 10250
+Epoch: 46, global_step=2073600
+SPS: 10255
+Epoch: 47, global_step=2119680
+SPS: 10261
+Epoch: 48, global_step=2165760
+SPS: 10268
+Epoch: 49, global_step=2211840
+SPS: 10265
+Epoch: 50, global_step=2257920
+SPS: 10267
+Epoch: 51, global_step=2304000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4375[0m
+[32mEvaluation Metric: return[0m | [36mMean: 24.7953[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2755[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2500[0m
+Original action range: [-2.416, 1.986]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.67373914  0.84482276 -1.4114373   0.32930136 -0.89549875  0.729634
+  0.04703519  0.66290325]
+Sample clipped actions:  [-0.67373914  0.84482276 -1.          0.32930136 -0.89549875  0.729634
+  0.04703519  0.66290325]
+SPS: 9852
+Epoch: 52, global_step=2350080
+SPS: 9858
+Epoch: 53, global_step=2396160
+SPS: 9865
+Epoch: 54, global_step=2442240
+SPS: 9872
+Epoch: 55, global_step=2488320
+SPS: 9877
+Epoch: 56, global_step=2534400
+SPS: 9885
+Epoch: 57, global_step=2580480
+SPS: 9892
+Epoch: 58, global_step=2626560
+SPS: 9901
+Epoch: 59, global_step=2672640
+SPS: 9908
+Epoch: 60, global_step=2718720
+SPS: 9916
+Epoch: 61, global_step=2764800
+Original action range: [-2.241, 2.249]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.8202149   0.6190209  -0.628176   -0.7179308  -0.93542045 -0.82811093
+ -1.2285633  -0.75478435]
+Sample clipped actions:  [-0.8202149   0.6190209  -0.628176   -0.7179308  -0.93542045 -0.82811093
+ -1.         -0.75478435]
+SPS: 9924
+Epoch: 62, global_step=2810880
+SPS: 9932
+Epoch: 63, global_step=2856960
+SPS: 9939
+Epoch: 64, global_step=2903040
+SPS: 9946
+Epoch: 65, global_step=2949120
+SPS: 9953
+Epoch: 66, global_step=2995200
+SPS: 9961
+Epoch: 67, global_step=3041280
+SPS: 9968
+Epoch: 68, global_step=3087360
+SPS: 9975
+Epoch: 69, global_step=3133440
+SPS: 9985
+Epoch: 70, global_step=3179520
+SPS: 9993
+Epoch: 71, global_step=3225600
+Original action range: [-2.606, 2.181]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.49183828  0.8503571  -1.0428201  -0.22879523 -1.5198932   0.23267882
+ -0.68686867  0.89200187]
+Sample clipped actions:  [-0.49183828  0.8503571  -1.         -0.22879523 -1.          0.23267882
+ -0.68686867  0.89200187]
+SPS: 10001
+Epoch: 72, global_step=3271680
+SPS: 10008
+Epoch: 73, global_step=3317760
+SPS: 10015
+Epoch: 74, global_step=3363840
+SPS: 10025
+Epoch: 75, global_step=3409920
+SPS: 10034
+Epoch: 76, global_step=3456000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9375[0m
+[32mEvaluation Metric: return[0m | [36mMean: 39.6292[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4403[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.3750[0m
+SPS: 9758
+Epoch: 77, global_step=3502080
+SPS: 9770
+Epoch: 78, global_step=3548160
+SPS: 9782
+Epoch: 79, global_step=3594240
+SPS: 9792
+Epoch: 80, global_step=3640320
+SPS: 9803
+Epoch: 81, global_step=3686400
+Original action range: [-2.841, 2.136]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0748547   1.3769196  -1.0061748   0.7619259  -0.1950252   0.7135849
+ -1.2131624  -0.06341761]
+Sample clipped actions:  [-1.          1.         -1.          0.7619259  -0.1950252   0.7135849
+ -1.         -0.06341761]
+SPS: 9815
+Epoch: 82, global_step=3732480
+SPS: 9826
+Epoch: 83, global_step=3778560
+SPS: 9836
+Epoch: 84, global_step=3824640
+SPS: 9843
+Epoch: 85, global_step=3870720
+SPS: 9851
+Epoch: 86, global_step=3916800
+SPS: 9857
+Epoch: 87, global_step=3962880
+SPS: 9865
+Epoch: 88, global_step=4008960
+SPS: 9874
+Epoch: 89, global_step=4055040
+SPS: 9882
+Epoch: 90, global_step=4101120
+SPS: 9889
+Epoch: 91, global_step=4147200
+Original action range: [-2.623, 2.236]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.9288397   0.91882557 -1.4904022  -0.2939662  -1.2904226  -0.7343467
+ -1.0843773   0.45825273]
+Sample clipped actions:  [-0.9288397   0.91882557 -1.         -0.2939662  -1.         -0.7343467
+ -1.          0.45825273]
+SPS: 9909
+Epoch: 92, global_step=4193280
+SPS: 9916
+Epoch: 93, global_step=4239360
+SPS: 9927
+Epoch: 94, global_step=4285440
+SPS: 9936
+Epoch: 95, global_step=4331520
+SPS: 9946
+Epoch: 96, global_step=4377600
+SPS: 9960
+Epoch: 97, global_step=4423680
+SPS: 9969
+Epoch: 98, global_step=4469760
+SPS: 9980
+Epoch: 99, global_step=4515840
+SPS: 9991
+Epoch: 100, global_step=4561920
+SPS: 10003
+Epoch: 101, global_step=4608000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 32.9129[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3657[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.683, 1.825]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0033168   0.34282786 -0.28511262 -0.27296132 -1.8568494   0.05789211
+ -1.694088    0.6590903 ]
+Sample clipped actions:  [-1.          0.34282786 -0.28511262 -0.27296132 -1.          0.05789211
+ -1.          0.6590903 ]
+SPS: 9807
+Epoch: 102, global_step=4654080
+SPS: 9816
+Epoch: 103, global_step=4700160
+SPS: 9827
+Epoch: 104, global_step=4746240
+SPS: 9836
+Epoch: 105, global_step=4792320
+SPS: 9840
+Epoch: 106, global_step=4838400
+SPS: 9852
+Epoch: 107, global_step=4884480
+SPS: 9865
+Epoch: 108, global_step=4930560
+SPS: 9878
+Epoch: 109, global_step=4976640
+SPS: 9896
+Epoch: 110, global_step=5022720
+SPS: 9904
+Epoch: 111, global_step=5068800
+Original action range: [-2.686, 1.876]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.7757683   0.96345687 -0.1694743   0.42549586 -0.5708353   0.20778301
+ -1.2605108  -0.481479  ]
+Sample clipped actions:  [-0.7757683   0.96345687 -0.1694743   0.42549586 -0.5708353   0.20778301
+ -1.         -0.481479  ]
+SPS: 9912
+Epoch: 112, global_step=5114880
+SPS: 9921
+Epoch: 113, global_step=5160960
+SPS: 9928
+Epoch: 114, global_step=5207040
+SPS: 9936
+Epoch: 115, global_step=5253120
+SPS: 9944
+Epoch: 116, global_step=5299200
+SPS: 9953
+Epoch: 117, global_step=5345280
+SPS: 9960
+Epoch: 118, global_step=5391360
+SPS: 9968
+Epoch: 119, global_step=5437440
+SPS: 9975
+Epoch: 120, global_step=5483520
+SPS: 9981
+Epoch: 121, global_step=5529600
+Original action range: [-2.810, 1.994]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0309819   0.141999   -1.5002704   0.15020065 -1.4426471   0.42396784
+ -1.5448993   0.9579302 ]
+Sample clipped actions:  [-1.          0.141999   -1.          0.15020065 -1.          0.42396784
+ -1.          0.9579302 ]
+SPS: 9988
+Epoch: 122, global_step=5575680
+SPS: 9995
+Epoch: 123, global_step=5621760
+SPS: 9998
+Epoch: 124, global_step=5667840
+SPS: 10002
+Epoch: 125, global_step=5713920
+SPS: 10006
+Epoch: 126, global_step=5760000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 34.5778[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3842[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 9842
+Epoch: 127, global_step=5806080
+SPS: 9849
+Epoch: 128, global_step=5852160
+SPS: 9856
+Epoch: 129, global_step=5898240
+SPS: 9863
+Epoch: 130, global_step=5944320
+SPS: 9877
+Epoch: 131, global_step=5990400
+Original action range: [-2.723, 1.975]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-4.7036225e-01  1.1578065e-01 -7.3431933e-01  6.8718195e-04
+ -8.2758069e-01  1.1347923e-01 -1.4957774e+00  4.6199694e-01]
+Sample clipped actions:  [-4.7036225e-01  1.1578065e-01 -7.3431933e-01  6.8718195e-04
+ -8.2758069e-01  1.1347923e-01 -1.0000000e+00  4.6199694e-01]
+SPS: 9884
+Epoch: 132, global_step=6036480
+SPS: 9890
+Epoch: 133, global_step=6082560
+SPS: 9898
+Epoch: 134, global_step=6128640
+SPS: 9904
+Epoch: 135, global_step=6174720
+SPS: 9912
+Epoch: 136, global_step=6220800
+SPS: 9925
+Epoch: 137, global_step=6266880
+SPS: 9929
+Epoch: 138, global_step=6312960
+SPS: 9934
+Epoch: 139, global_step=6359040
+SPS: 9939
+Epoch: 140, global_step=6405120
+SPS: 9944
+Epoch: 141, global_step=6451200
+Original action range: [-2.538, 2.069]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.8290648   0.46116388 -0.15433222 -0.46063054 -1.6823437   1.031773
+ -1.2816933   0.39573   ]
+Sample clipped actions:  [-0.8290648   0.46116388 -0.15433222 -0.46063054 -1.          1.
+ -1.          0.39573   ]
+SPS: 9951
+Epoch: 142, global_step=6497280
+SPS: 9963
+Epoch: 143, global_step=6543360
+SPS: 9967
+Epoch: 144, global_step=6589440
+SPS: 9973
+Epoch: 145, global_step=6635520
+SPS: 9980
+Epoch: 146, global_step=6681600
+SPS: 9984
+Epoch: 147, global_step=6727680
+SPS: 9989
+Epoch: 148, global_step=6773760
+SPS: 9994
+Epoch: 149, global_step=6819840
+SPS: 9998
+Epoch: 150, global_step=6865920
+SPS: 10003
+Epoch: 151, global_step=6912000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 37.3139[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4146[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.347, 2.054]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.53833914  0.35205895 -0.9036167  -0.6839432  -0.90741974  0.06292599
+ -1.252399   -0.5352918 ]
+Sample clipped actions:  [-0.53833914  0.35205895 -0.9036167  -0.6839432  -0.90741974  0.06292599
+ -1.         -0.5352918 ]
+SPS: 9869
+Epoch: 152, global_step=6958080
+SPS: 9875
+Epoch: 153, global_step=7004160
+SPS: 9882
+Epoch: 154, global_step=7050240
+SPS: 9888
+Epoch: 155, global_step=7096320
+SPS: 9893
+Epoch: 156, global_step=7142400
+SPS: 9899
+Epoch: 157, global_step=7188480
+SPS: 9905
+Epoch: 158, global_step=7234560
+SPS: 9909
+Epoch: 159, global_step=7280640
+SPS: 9914
+Epoch: 160, global_step=7326720
+SPS: 9919
+Epoch: 161, global_step=7372800
+Original action range: [-2.491, 2.113]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.36032146  1.2775378  -1.4569786   0.08163002 -0.9031478  -0.14531669
+ -0.42287332  0.2873219 ]
+Sample clipped actions:  [-0.36032146  1.         -1.          0.08163002 -0.9031478  -0.14531669
+ -0.42287332  0.2873219 ]
+SPS: 9927
+Epoch: 162, global_step=7418880
+SPS: 9934
+Epoch: 163, global_step=7464960
+SPS: 9940
+Epoch: 164, global_step=7511040
+SPS: 9947
+Epoch: 165, global_step=7557120
+SPS: 9952
+Epoch: 166, global_step=7603200
+SPS: 9959
+Epoch: 167, global_step=7649280
+SPS: 9962
+Epoch: 168, global_step=7695360
+SPS: 9967
+Epoch: 169, global_step=7741440
+SPS: 9974
+Epoch: 170, global_step=7787520
+SPS: 9984
+Epoch: 171, global_step=7833600
+Original action range: [-2.490, 1.856]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0877936   0.84114224 -1.4994648   0.19124578 -1.5225327   0.6194868
+ -1.2674953   0.07929453]
+Sample clipped actions:  [-1.          0.84114224 -1.          0.19124578 -1.          0.6194868
+ -1.          0.07929453]
+SPS: 9988
+Epoch: 172, global_step=7879680
+SPS: 9992
+Epoch: 173, global_step=7925760
+SPS: 9995
+Epoch: 174, global_step=7971840
+SPS: 10001
+Epoch: 175, global_step=8017920
+SPS: 10004
+Epoch: 176, global_step=8064000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.8275[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3759[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 9895
+Epoch: 177, global_step=8110080
+SPS: 9900
+Epoch: 178, global_step=8156160
+SPS: 9907
+Epoch: 179, global_step=8202240
+SPS: 9914
+Epoch: 180, global_step=8248320
+SPS: 9920
+Epoch: 181, global_step=8294400
+Original action range: [-2.460, 1.992]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.79203296  1.1683784  -1.2199978  -0.6889384  -1.6726332   0.15051025
+ -0.9257196  -0.06970979]
+Sample clipped actions:  [-0.79203296  1.         -1.         -0.6889384  -1.          0.15051025
+ -0.9257196  -0.06970979]
+SPS: 9926
+Epoch: 182, global_step=8340480
+SPS: 9931
+Epoch: 183, global_step=8386560
+SPS: 9939
+Epoch: 184, global_step=8432640
+SPS: 9945
+Epoch: 185, global_step=8478720
+SPS: 9951
+Epoch: 186, global_step=8524800
+SPS: 9958
+Epoch: 187, global_step=8570880
+SPS: 9963
+Epoch: 188, global_step=8616960
+SPS: 9968
+Epoch: 189, global_step=8663040
+SPS: 9974
+Epoch: 190, global_step=8709120
+SPS: 9977
+Epoch: 191, global_step=8755200
+Original action range: [-2.409, 1.946]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0081483   0.48497698 -0.40693027 -0.10104443 -1.1096501   0.40786722
+ -1.6524822   0.05107051]
+Sample clipped actions:  [-1.          0.48497698 -0.40693027 -0.10104443 -1.          0.40786722
+ -1.          0.05107051]
+SPS: 9982
+Epoch: 192, global_step=8801280
+SPS: 9987
+Epoch: 193, global_step=8847360
+SPS: 9992
+Epoch: 194, global_step=8893440
+SPS: 9997
+Epoch: 195, global_step=8939520
+SPS: 10002
+Epoch: 196, global_step=8985600
+SPS: 10011
+Epoch: 197, global_step=9031680
+SPS: 10019
+Epoch: 198, global_step=9077760
+SPS: 10019
+Epoch: 199, global_step=9123840
+SPS: 10019
+Epoch: 200, global_step=9169920
+SPS: 10021
+Epoch: 201, global_step=9216000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 41.1248[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4569[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.686, 1.767]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.1442143  0.5381508 -1.9702592 -0.6637279 -0.9127803  0.6909324
+ -1.2297959  0.4121533]
+Sample clipped actions:  [-1.         0.5381508 -1.        -0.6637279 -0.9127803  0.6909324
+ -1.         0.4121533]
+SPS: 9918
+Epoch: 202, global_step=9262080
+SPS: 9922
+Epoch: 203, global_step=9308160
+SPS: 9927
+Epoch: 204, global_step=9354240
+SPS: 9928
+Epoch: 205, global_step=9400320
+SPS: 9930
+Epoch: 206, global_step=9446400
+SPS: 9934
+Epoch: 207, global_step=9492480
+SPS: 9936
+Epoch: 208, global_step=9538560
+SPS: 9942
+Epoch: 209, global_step=9584640
+SPS: 9947
+Epoch: 210, global_step=9630720
+SPS: 9952
+Epoch: 211, global_step=9676800
+Original action range: [-2.575, 1.880]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.90125746  0.79056895 -1.711031   -0.31172204 -1.2363694   0.59505916
+ -0.5785168   0.0496197 ]
+Sample clipped actions:  [-0.90125746  0.79056895 -1.         -0.31172204 -1.          0.59505916
+ -0.5785168   0.0496197 ]
+SPS: 9957
+Epoch: 212, global_step=9722880
+SPS: 9962
+Epoch: 213, global_step=9768960
+SPS: 9968
+Epoch: 214, global_step=9815040
+SPS: 9972
+Epoch: 215, global_step=9861120
+SPS: 9980
+Epoch: 216, global_step=9907200
+SPS: 9989
+Epoch: 217, global_step=9953280
+SPS: 9993
+Epoch: 218, global_step=9999360
+SPS: 9996
+Epoch: 219, global_step=10045440
+SPS: 9998
+Epoch: 220, global_step=10091520
+SPS: 10000
+Epoch: 221, global_step=10137600
+Original action range: [-2.697, 1.833]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.28699467  1.2225238  -1.3010798   0.6058909  -0.4378243   0.83137155
+ -1.5120827   0.6453369 ]
+Sample clipped actions:  [-0.28699467  1.         -1.          0.6058909  -0.4378243   0.83137155
+ -1.          0.6453369 ]
+SPS: 10001
+Epoch: 222, global_step=10183680
+SPS: 10003
+Epoch: 223, global_step=10229760
+SPS: 10006
+Epoch: 224, global_step=10275840
+SPS: 10009
+Epoch: 225, global_step=10321920
+SPS: 10012
+Epoch: 226, global_step=10368000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1875[0m
+[32mEvaluation Metric: return[0m | [36mMean: 39.6584[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4406[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 9919
+Epoch: 227, global_step=10414080
+SPS: 9924
+Epoch: 228, global_step=10460160
+SPS: 9928
+Epoch: 229, global_step=10506240
+SPS: 9933
+Epoch: 230, global_step=10552320
+SPS: 9938
+Epoch: 231, global_step=10598400
+Original action range: [-2.623, 1.712]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.1744795   0.52205914 -0.91788536  0.3666991  -0.63162637  0.515752
+ -0.86124164  0.53740776]
+Sample clipped actions:  [-1.          0.52205914 -0.91788536  0.3666991  -0.63162637  0.515752
+ -0.86124164  0.53740776]
+SPS: 9942
+Epoch: 232, global_step=10644480
+SPS: 9945
+Epoch: 233, global_step=10690560
+SPS: 9949
+Epoch: 234, global_step=10736640
+SPS: 9957
+Epoch: 235, global_step=10782720
+SPS: 9960
+Epoch: 236, global_step=10828800
+SPS: 9965
+Epoch: 237, global_step=10874880
+SPS: 9970
+Epoch: 238, global_step=10920960
+SPS: 9973
+Epoch: 239, global_step=10967040
+SPS: 9981
+Epoch: 240, global_step=11013120
+SPS: 9982
+Epoch: 241, global_step=11059200
+Original action range: [-2.841, 1.563]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.96491224  0.60600007 -1.2944419  -0.03656955 -1.319191    0.7195171
+ -0.86739117  0.30931747]
+Sample clipped actions:  [-0.96491224  0.60600007 -1.         -0.03656955 -1.          0.7195171
+ -0.86739117  0.30931747]
+SPS: 9986
+Epoch: 242, global_step=11105280
+SPS: 9989
+Epoch: 243, global_step=11151360
+SPS: 9993
+Epoch: 244, global_step=11197440
+SPS: 9997
+Epoch: 245, global_step=11243520
+SPS: 10004
+Epoch: 246, global_step=11289600
+SPS: 10011
+Epoch: 247, global_step=11335680
+SPS: 10013
+Epoch: 248, global_step=11381760
+SPS: 10015
+Epoch: 249, global_step=11427840
+SPS: 10019
+Epoch: 250, global_step=11473920
+SPS: 10025
+Epoch: 251, global_step=11520000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 37.7984[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4200[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.640, 1.571]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.3986506   0.14377922 -1.5975411  -0.72747123 -0.73259413  0.49283487
+ -0.62082696  0.38416526]
+Sample clipped actions:  [-1.          0.14377922 -1.         -0.72747123 -0.73259413  0.49283487
+ -0.62082696  0.38416526]
+SPS: 9942
+Epoch: 252, global_step=11566080
+SPS: 9946
+Epoch: 253, global_step=11612160
+SPS: 9950
+Epoch: 254, global_step=11658240
+SPS: 9955
+Epoch: 255, global_step=11704320
+SPS: 9960
+Epoch: 256, global_step=11750400
+SPS: 9964
+Epoch: 257, global_step=11796480
+SPS: 9971
+Epoch: 258, global_step=11842560
+SPS: 9975
+Epoch: 259, global_step=11888640
+SPS: 9979
+Epoch: 260, global_step=11934720
+SPS: 9984
+Epoch: 261, global_step=11980800
+Original action range: [-2.527, 1.519]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.30028743  1.2843874  -0.9279175   0.59322816 -0.80460274  0.43014288
+ -1.460668    0.5828924 ]
+Sample clipped actions:  [ 0.30028743  1.         -0.9279175   0.59322816 -0.80460274  0.43014288
+ -1.          0.5828924 ]
+SPS: 9991
+Epoch: 262, global_step=12026880
+SPS: 9994
+Epoch: 263, global_step=12072960
+SPS: 10001
+Epoch: 264, global_step=12119040
+SPS: 10010
+Epoch: 265, global_step=12165120
+SPS: 10016
+Epoch: 266, global_step=12211200
+SPS: 10020
+Epoch: 267, global_step=12257280
+SPS: 10022
+Epoch: 268, global_step=12303360
+SPS: 10024
+Epoch: 269, global_step=12349440
+SPS: 10026
+Epoch: 270, global_step=12395520
+SPS: 10029
+Epoch: 271, global_step=12441600
+Original action range: [-2.391, 1.830]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.8510921   1.4417968  -1.0627325   0.26663753 -1.0442545   1.2207723
+ -1.4850966   0.7805403 ]
+Sample clipped actions:  [-0.8510921   1.         -1.          0.26663753 -1.          1.
+ -1.          0.7805403 ]
+SPS: 10032
+Epoch: 272, global_step=12487680
+SPS: 10035
+Epoch: 273, global_step=12533760
+SPS: 10038
+Epoch: 274, global_step=12579840
+SPS: 10041
+Epoch: 275, global_step=12625920
+SPS: 10044
+Epoch: 276, global_step=12672000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 39.8896[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4432[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 9971
+Epoch: 277, global_step=12718080
+SPS: 9973
+Epoch: 278, global_step=12764160
+SPS: 9974
+Epoch: 279, global_step=12810240
+SPS: 9975
+Epoch: 280, global_step=12856320
+SPS: 9978
+Epoch: 281, global_step=12902400
+Original action range: [-2.403, 1.732]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.6838054   0.0288614  -1.7980902  -0.08451021 -1.5708017   0.9172753
+ -0.60800093  0.48228437]
+Sample clipped actions:  [-0.6838054   0.0288614  -1.         -0.08451021 -1.          0.9172753
+ -0.60800093  0.48228437]
+SPS: 9982
+Epoch: 282, global_step=12948480
+SPS: 9985
+Epoch: 283, global_step=12994560
+SPS: 9987
+Epoch: 284, global_step=13040640
+SPS: 9993
+Epoch: 285, global_step=13086720
+SPS: 9995
+Epoch: 286, global_step=13132800
+SPS: 9998
+Epoch: 287, global_step=13178880
+SPS: 10002
+Epoch: 288, global_step=13224960
+SPS: 10005
+Epoch: 289, global_step=13271040
+SPS: 10012
+Epoch: 290, global_step=13317120
+SPS: 10014
+Epoch: 291, global_step=13363200
+Original action range: [-2.420, 1.690]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.9838785   0.24356133 -1.3519626  -0.36328053 -1.421778    0.40272734
+ -0.30936086  0.6936104 ]
+Sample clipped actions:  [-0.9838785   0.24356133 -1.         -0.36328053 -1.          0.40272734
+ -0.30936086  0.6936104 ]
+SPS: 10017
+Epoch: 292, global_step=13409280
+SPS: 10021
+Epoch: 293, global_step=13455360
+SPS: 10024
+Epoch: 294, global_step=13501440
+SPS: 10030
+Epoch: 295, global_step=13547520
+SPS: 10034
+Epoch: 296, global_step=13593600
+SPS: 10041
+Epoch: 297, global_step=13639680
+SPS: 10048
+Epoch: 298, global_step=13685760
+SPS: 10049
+Epoch: 299, global_step=13731840
+SPS: 10051
+Epoch: 300, global_step=13777920
+SPS: 10055
+Epoch: 301, global_step=13824000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.5522[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4506[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.485, 1.691]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.52075243  0.74446315 -1.2849431  -0.24079604 -1.1603612   0.61442155
+ -0.7890135   0.554275  ]
+Sample clipped actions:  [-0.52075243  0.74446315 -1.         -0.24079604 -1.          0.61442155
+ -0.7890135   0.554275  ]
+SPS: 9989
+Epoch: 302, global_step=13870080
+SPS: 9993
+Epoch: 303, global_step=13916160
+SPS: 9996
+Epoch: 304, global_step=13962240
+SPS: 10001
+Epoch: 305, global_step=14008320
+SPS: 10007
+Epoch: 306, global_step=14054400
+SPS: 10009
+Epoch: 307, global_step=14100480
+SPS: 10011
+Epoch: 308, global_step=14146560
+SPS: 10013
+Epoch: 309, global_step=14192640
+SPS: 10017
+Epoch: 310, global_step=14238720
+SPS: 10021
+Epoch: 311, global_step=14284800
+Original action range: [-2.460, 1.679]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.99931145  1.1259549  -2.0983195  -0.08591977 -1.249263   -0.01220763
+ -0.9427977   0.26259166]
+Sample clipped actions:  [-0.99931145  1.         -1.         -0.08591977 -1.         -0.01220763
+ -0.9427977   0.26259166]
+SPS: 10022
+Epoch: 312, global_step=14330880
+SPS: 10026
+Epoch: 313, global_step=14376960
+SPS: 10030
+Epoch: 314, global_step=14423040
+SPS: 10032
+Epoch: 315, global_step=14469120
+SPS: 10035
+Epoch: 316, global_step=14515200
+SPS: 10038
+Epoch: 317, global_step=14561280
+SPS: 10040
+Epoch: 318, global_step=14607360
+SPS: 10041
+Epoch: 319, global_step=14653440
+SPS: 10044
+Epoch: 320, global_step=14699520
+SPS: 10049
+Epoch: 321, global_step=14745600
+Original action range: [-2.510, 1.628]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.0666558   0.6739296  -1.5577735   0.33796397 -1.3570739   0.9195583
+ -0.37196544  0.09150465]
+Sample clipped actions:  [-1.          0.6739296  -1.          0.33796397 -1.          0.9195583
+ -0.37196544  0.09150465]
+SPS: 10050
+Epoch: 322, global_step=14791680
+SPS: 10052
+Epoch: 323, global_step=14837760
+SPS: 10054
+Epoch: 324, global_step=14883840
+SPS: 10059
+Epoch: 325, global_step=14929920
+SPS: 10066
+Epoch: 326, global_step=14976000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 39.5998[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4400[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10005
+Epoch: 327, global_step=15022080
+SPS: 10006
+Epoch: 328, global_step=15068160
+SPS: 10008
+Epoch: 329, global_step=15114240
+SPS: 10009
+Epoch: 330, global_step=15160320
+SPS: 10012
+Epoch: 331, global_step=15206400
+Original action range: [-2.325, 1.754]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.1082509   0.848966   -1.498738    0.6263021  -1.1876644   1.0370406
+ -1.405257    0.60577404]
+Sample clipped actions:  [-1.          0.848966   -1.          0.6263021  -1.          1.
+ -1.          0.60577404]
+SPS: 10014
+Epoch: 332, global_step=15252480
+SPS: 10021
+Epoch: 333, global_step=15298560
+SPS: 10028
+Epoch: 334, global_step=15344640
+SPS: 10034
+Epoch: 335, global_step=15390720
+SPS: 10038
+Epoch: 336, global_step=15436800
+SPS: 10041
+Epoch: 337, global_step=15482880
+SPS: 10047
+Epoch: 338, global_step=15528960
+SPS: 10053
+Epoch: 339, global_step=15575040
+SPS: 10059
+Epoch: 340, global_step=15621120
+SPS: 10063
+Epoch: 341, global_step=15667200
+Original action range: [-2.377, 1.509]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.49033868  0.09647459 -1.509218   -0.2405003  -1.5649972   0.36079872
+ -1.5767825   0.31240335]
+Sample clipped actions:  [-0.49033868  0.09647459 -1.         -0.2405003  -1.          0.36079872
+ -1.          0.31240335]
+SPS: 10066
+Epoch: 342, global_step=15713280
+SPS: 10068
+Epoch: 343, global_step=15759360
+SPS: 10074
+Epoch: 344, global_step=15805440
+SPS: 10079
+Epoch: 345, global_step=15851520
+SPS: 10083
+Epoch: 346, global_step=15897600
+SPS: 10086
+Epoch: 347, global_step=15943680
+SPS: 10088
+Epoch: 348, global_step=15989760
+SPS: 10091
+Epoch: 349, global_step=16035840
+SPS: 10094
+Epoch: 350, global_step=16081920
+SPS: 10097
+Epoch: 351, global_step=16128000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.7669[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4530[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.464, 1.742]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.7619951   0.7861016  -1.4276912   0.6043445  -1.2248553   1.0569223
+ -1.4807062   0.48486415]
+Sample clipped actions:  [-0.7619951   0.7861016  -1.          0.6043445  -1.          1.
+ -1.          0.48486415]
+SPS: 10040
+Epoch: 352, global_step=16174080
+SPS: 10042
+Epoch: 353, global_step=16220160
+SPS: 10043
+Epoch: 354, global_step=16266240
+SPS: 10048
+Epoch: 355, global_step=16312320
+SPS: 10055
+Epoch: 356, global_step=16358400
+SPS: 10060
+Epoch: 357, global_step=16404480
+SPS: 10066
+Epoch: 358, global_step=16450560
+SPS: 10071
+Epoch: 359, global_step=16496640
+SPS: 10076
+Epoch: 360, global_step=16542720
+SPS: 10077
+Epoch: 361, global_step=16588800
+Original action range: [-2.775, 1.682]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.2462804   1.0798981  -1.4084276   0.5644108  -1.0996823   0.49299696
+ -0.39969125  0.3488056 ]
+Sample clipped actions:  [-1.          1.         -1.          0.5644108  -1.          0.49299696
+ -0.39969125  0.3488056 ]
+SPS: 10082
+Epoch: 362, global_step=16634880
+SPS: 10083
+Epoch: 363, global_step=16680960
+SPS: 10087
+Epoch: 364, global_step=16727040
+SPS: 10088
+Epoch: 365, global_step=16773120
+SPS: 10092
+Epoch: 366, global_step=16819200
+SPS: 10095
+Epoch: 367, global_step=16865280
+SPS: 10099
+Epoch: 368, global_step=16911360
+SPS: 10104
+Epoch: 369, global_step=16957440
+SPS: 10108
+Epoch: 370, global_step=17003520
+SPS: 10109
+Epoch: 371, global_step=17049600
+Original action range: [-2.541, 2.077]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.194678    0.69511086 -1.633534   -0.00421904 -1.2625059   1.2154512
+ -0.45867413  0.17401458]
+Sample clipped actions:  [-1.          0.69511086 -1.         -0.00421904 -1.          1.
+ -0.45867413  0.17401458]
+SPS: 10110
+Epoch: 372, global_step=17095680
+SPS: 10112
+Epoch: 373, global_step=17141760
+SPS: 10114
+Epoch: 374, global_step=17187840
+SPS: 10117
+Epoch: 375, global_step=17233920
+SPS: 10119
+Epoch: 376, global_step=17280000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.9195[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4547[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10064
+Epoch: 377, global_step=17326080
+SPS: 10069
+Epoch: 378, global_step=17372160
+SPS: 10071
+Epoch: 379, global_step=17418240
+SPS: 10074
+Epoch: 380, global_step=17464320
+SPS: 10075
+Epoch: 381, global_step=17510400
+Original action range: [-2.461, 2.095]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.2902913   1.0028727  -1.7603438   0.02366757 -1.8228476   1.07823
+ -0.892985    0.16953039]
+Sample clipped actions:  [-1.          1.         -1.          0.02366757 -1.          1.
+ -0.892985    0.16953039]
+SPS: 10077
+Epoch: 382, global_step=17556480
+SPS: 10079
+Epoch: 383, global_step=17602560
+SPS: 10080
+Epoch: 384, global_step=17648640
+SPS: 10084
+Epoch: 385, global_step=17694720
+SPS: 10086
+Epoch: 386, global_step=17740800
+SPS: 10089
+Epoch: 387, global_step=17786880
+SPS: 10095
+Epoch: 388, global_step=17832960
+SPS: 10099
+Epoch: 389, global_step=17879040
+SPS: 10102
+Epoch: 390, global_step=17925120
+SPS: 10104
+Epoch: 391, global_step=17971200
+Original action range: [-2.436, 2.045]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-1.6738111   0.7027792  -1.6807865   0.58437085 -1.5470846   1.5199339
+ -0.6821895   0.02396874]
+Sample clipped actions:  [-1.          0.7027792  -1.          0.58437085 -1.          1.
+ -0.6821895   0.02396874]
+SPS: 10105
+Epoch: 392, global_step=18017280
+SPS: 10106
+Epoch: 393, global_step=18063360
+SPS: 10108
+Epoch: 394, global_step=18109440
+SPS: 10109
+Epoch: 395, global_step=18155520
+SPS: 10111
+Epoch: 396, global_step=18201600
+SPS: 10113
+Epoch: 397, global_step=18247680
+SPS: 10115
+Epoch: 398, global_step=18293760
+SPS: 10120
+Epoch: 399, global_step=18339840
+SPS: 10124
+Epoch: 400, global_step=18385920
+SPS: 10126
+Epoch: 401, global_step=18432000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.9844[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4554[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.617, 2.082]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.95155805  1.707849   -0.948519    0.08279663 -1.6974869   1.2482908
+ -1.2772926   0.51708305]
+Sample clipped actions:  [-0.95155805  1.         -0.948519    0.08279663 -1.          1.
+ -1.          0.51708305]
+SPS: 10072
+Epoch: 402, global_step=18478080
+SPS: 10075
+Epoch: 403, global_step=18524160
+SPS: 10076
+Epoch: 404, global_step=18570240
+SPS: 10078
+Epoch: 405, global_step=18616320
+SPS: 10081
+Epoch: 406, global_step=18662400
+SPS: 10082
+Epoch: 407, global_step=18708480
+SPS: 10084
+Epoch: 408, global_step=18754560
+SPS: 10086
+Epoch: 409, global_step=18800640
+SPS: 10089
+Epoch: 410, global_step=18846720
+SPS: 10091
+Epoch: 411, global_step=18892800
+Original action range: [-2.504, 2.235]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.9845468   1.166295   -1.5210056   0.3000664  -1.3891857   0.7418424
+ -1.0899453   0.32424277]
+Sample clipped actions:  [-0.9845468   1.         -1.          0.3000664  -1.          0.7418424
+ -1.          0.32424277]
+SPS: 10093
+Epoch: 412, global_step=18938880
+SPS: 10094
+Epoch: 413, global_step=18984960
+SPS: 10097
+Epoch: 414, global_step=19031040
+SPS: 10100
+Epoch: 415, global_step=19077120
+SPS: 10102
+Epoch: 416, global_step=19123200
+SPS: 10104
+Epoch: 417, global_step=19169280
+SPS: 10106
+Epoch: 418, global_step=19215360
+SPS: 10108
+Epoch: 419, global_step=19261440
+SPS: 10113
+Epoch: 420, global_step=19307520
+SPS: 10114
+Epoch: 421, global_step=19353600
+Original action range: [-2.554, 1.982]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.47419062  0.9298195  -1.3364973  -0.53980315 -1.9636374   0.8028873
+ -0.76391816  0.03555297]
+Sample clipped actions:  [-0.47419062  0.9298195  -1.         -0.53980315 -1.          0.8028873
+ -0.76391816  0.03555297]
+SPS: 10115
+Epoch: 422, global_step=19399680
+SPS: 10117
+Epoch: 423, global_step=19445760
+SPS: 10122
+Epoch: 424, global_step=19491840
+SPS: 10127
+Epoch: 425, global_step=19537920
+SPS: 10131
+Epoch: 426, global_step=19584000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 37.2672[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4141[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10077
+Epoch: 427, global_step=19630080
+SPS: 10082
+Epoch: 428, global_step=19676160
+SPS: 10086
+Epoch: 429, global_step=19722240
+SPS: 10089
+Epoch: 430, global_step=19768320
+SPS: 10092
+Epoch: 431, global_step=19814400
+Original action range: [-2.557, 2.075]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.58881634  0.7587042  -1.5785494  -0.02163547 -1.5607606   1.0887405
+ -0.38615727  0.32245192]
+Sample clipped actions:  [-0.58881634  0.7587042  -1.         -0.02163547 -1.          1.
+ -0.38615727  0.32245192]
+SPS: 10095
+Epoch: 432, global_step=19860480
+SPS: 10098
+Epoch: 433, global_step=19906560
+SPS: 10102
+Epoch: 434, global_step=19952640
+SPS: 10105
+Epoch: 435, global_step=19998720
+SPS: 10110
+Epoch: 436, global_step=20044800
+SPS: 10112
+Epoch: 437, global_step=20090880
+SPS: 10117
+Epoch: 438, global_step=20136960
+SPS: 10122
+Epoch: 439, global_step=20183040
+SPS: 10127
+Epoch: 440, global_step=20229120
+SPS: 10131
+Epoch: 441, global_step=20275200
+Original action range: [-2.344, 2.175]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.3865925   0.9229592  -1.4276422  -0.68616086 -1.7410511   0.46898258
+ -0.85847515  0.02354108]
+Sample clipped actions:  [-0.3865925   0.9229592  -1.         -0.68616086 -1.          0.46898258
+ -0.85847515  0.02354108]
+SPS: 10136
+Epoch: 442, global_step=20321280
+SPS: 10140
+Epoch: 443, global_step=20367360
+SPS: 10144
+Epoch: 444, global_step=20413440
+SPS: 10149
+Epoch: 445, global_step=20459520
+SPS: 10154
+Epoch: 446, global_step=20505600
+SPS: 10158
+Epoch: 447, global_step=20551680
+SPS: 10162
+Epoch: 448, global_step=20597760
+SPS: 10163
+Epoch: 449, global_step=20643840
+SPS: 10165
+Epoch: 450, global_step=20689920
+SPS: 10167
+Epoch: 451, global_step=20736000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 40.1850[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4465[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.577, 2.298]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.8326529   1.0834339  -1.8642373  -0.25763664 -1.6950477   0.52336013
+ -0.831044   -0.02173255]
+Sample clipped actions:  [-0.8326529   1.         -1.         -0.25763664 -1.          0.52336013
+ -0.831044   -0.02173255]
+SPS: 10120
+Epoch: 452, global_step=20782080
+SPS: 10122
+Epoch: 453, global_step=20828160
+SPS: 10126
+Epoch: 454, global_step=20874240
+SPS: 10130
+Epoch: 455, global_step=20920320
+SPS: 10131
+Epoch: 456, global_step=20966400
+SPS: 10133
+Epoch: 457, global_step=21012480
+SPS: 10134
+Epoch: 458, global_step=21058560
+SPS: 10135
+Epoch: 459, global_step=21104640
+SPS: 10137
+Epoch: 460, global_step=21150720
+SPS: 10138
+Epoch: 461, global_step=21196800
+Original action range: [-2.643, 2.218]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.04242581  1.3000681  -1.0273418   0.08715426 -1.7322832   0.4284065
+ -0.36003464 -0.19247591]
+Sample clipped actions:  [-0.04242581  1.         -1.          0.08715426 -1.          0.4284065
+ -0.36003464 -0.19247591]
+SPS: 10139
+Epoch: 462, global_step=21242880
+SPS: 10141
+Epoch: 463, global_step=21288960
+SPS: 10146
+Epoch: 464, global_step=21335040
+SPS: 10147
+Epoch: 465, global_step=21381120
+SPS: 10151
+Epoch: 466, global_step=21427200
+SPS: 10154
+Epoch: 467, global_step=21473280
+SPS: 10155
+Epoch: 468, global_step=21519360
+SPS: 10155
+Epoch: 469, global_step=21565440
+SPS: 10156
+Epoch: 470, global_step=21611520
+SPS: 10156
+Epoch: 471, global_step=21657600
+Original action range: [-2.902, 2.665]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.9181591   1.3908808  -1.5550025   0.58033836 -2.30571     0.94485974
+ -1.3842744   0.28351846]
+Sample clipped actions:  [-0.9181591   1.         -1.          0.58033836 -1.          0.94485974
+ -1.          0.28351846]
+SPS: 10158
+Epoch: 472, global_step=21703680
+SPS: 10159
+Epoch: 473, global_step=21749760
+SPS: 10161
+Epoch: 474, global_step=21795840
+SPS: 10164
+Epoch: 475, global_step=21841920
+SPS: 10163
+Epoch: 476, global_step=21888000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 17.7616[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1974[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10115
+Epoch: 477, global_step=21934080
+SPS: 10115
+Epoch: 478, global_step=21980160
+SPS: 10115
+Epoch: 479, global_step=22026240
+SPS: 10115
+Epoch: 480, global_step=22072320
+SPS: 10115
+Epoch: 481, global_step=22118400
+Original action range: [-2.966, 2.443]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.57007384  1.3253484  -1.0920225   0.22798936 -2.2125263   0.32212922
+ -0.8224467  -0.16589701]
+Sample clipped actions:  [-0.57007384  1.         -1.          0.22798936 -1.          0.32212922
+ -0.8224467  -0.16589701]
+SPS: 10116
+Epoch: 482, global_step=22164480
+SPS: 10117
+Epoch: 483, global_step=22210560
+SPS: 10119
+Epoch: 484, global_step=22256640
+SPS: 10123
+Epoch: 485, global_step=22302720
+SPS: 10127
+Epoch: 486, global_step=22348800
+SPS: 10132
+Epoch: 487, global_step=22394880
+SPS: 10137
+Epoch: 488, global_step=22440960
+SPS: 10140
+Epoch: 489, global_step=22487040
+SPS: 10144
+Epoch: 490, global_step=22533120
+SPS: 10148
+Epoch: 491, global_step=22579200
+Original action range: [-3.128, 2.681]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.77722967  1.6686766  -0.9822958   0.8516035  -2.4069264   0.57286495
+ -0.7936365   0.01960562]
+Sample clipped actions:  [-0.77722967  1.         -0.9822958   0.8516035  -1.          0.57286495
+ -0.7936365   0.01960562]
+SPS: 10152
+Epoch: 492, global_step=22625280
+SPS: 10153
+Epoch: 493, global_step=22671360
+SPS: 10157
+Epoch: 494, global_step=22717440
+SPS: 10160
+Epoch: 495, global_step=22763520
+SPS: 10163
+Epoch: 496, global_step=22809600
+SPS: 10164
+Epoch: 497, global_step=22855680
+SPS: 10164
+Epoch: 498, global_step=22901760
+SPS: 10165
+Epoch: 499, global_step=22947840
+SPS: 10166
+Epoch: 500, global_step=22993920
+SPS: 10167
+Epoch: 501, global_step=23040000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 30.6003[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3400[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.899, 2.354]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.5272981   1.0749468  -0.7143677   0.01663991 -2.0279706   0.6291088
+ -1.5369359  -0.09361073]
+Sample clipped actions:  [-0.5272981   1.         -0.7143677   0.01663991 -1.          0.6291088
+ -1.         -0.09361073]
+SPS: 10125
+Epoch: 502, global_step=23086080
+SPS: 10126
+Epoch: 503, global_step=23132160
+SPS: 10127
+Epoch: 504, global_step=23178240
+SPS: 10128
+Epoch: 505, global_step=23224320
+SPS: 10130
+Epoch: 506, global_step=23270400
+SPS: 10134
+Epoch: 507, global_step=23316480
+SPS: 10138
+Epoch: 508, global_step=23362560
+SPS: 10140
+Epoch: 509, global_step=23408640
+SPS: 10144
+Epoch: 510, global_step=23454720
+SPS: 10147
+Epoch: 511, global_step=23500800
+Original action range: [-3.147, 2.417]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.42916876  1.2736079  -1.2696625   0.16439317 -1.7713232   1.2106967
+ -1.4573851  -0.20116776]
+Sample clipped actions:  [-0.42916876  1.         -1.          0.16439317 -1.          1.
+ -1.         -0.20116776]
+SPS: 10150
+Epoch: 512, global_step=23546880
+SPS: 10154
+Epoch: 513, global_step=23592960
+SPS: 10159
+Epoch: 514, global_step=23639040
+SPS: 10162
+Epoch: 515, global_step=23685120
+SPS: 10166
+Epoch: 516, global_step=23731200
+SPS: 10169
+Epoch: 517, global_step=23777280
+SPS: 10171
+Epoch: 518, global_step=23823360
+SPS: 10175
+Epoch: 519, global_step=23869440
+SPS: 10177
+Epoch: 520, global_step=23915520
+SPS: 10179
+Epoch: 521, global_step=23961600
+Original action range: [-2.996, 2.137]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.30869818  1.3195739  -0.95966876  0.24213907 -2.3400793   0.6811384
+ -1.8370882  -0.1152975 ]
+Sample clipped actions:  [-0.30869818  1.         -0.95966876  0.24213907 -1.          0.6811384
+ -1.         -0.1152975 ]
+SPS: 10182
+Epoch: 522, global_step=24007680
+SPS: 10186
+Epoch: 523, global_step=24053760
+SPS: 10190
+Epoch: 524, global_step=24099840
+SPS: 10193
+Epoch: 525, global_step=24145920
+SPS: 10195
+Epoch: 526, global_step=24192000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 39.1403[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4349[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10153
+Epoch: 527, global_step=24238080
+SPS: 10155
+Epoch: 528, global_step=24284160
+SPS: 10157
+Epoch: 529, global_step=24330240
+SPS: 10159
+Epoch: 530, global_step=24376320
+SPS: 10161
+Epoch: 531, global_step=24422400
+Original action range: [-2.916, 2.132]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.57596636  0.71736217 -0.96311665  0.31446728 -1.4198872   1.0492213
+ -1.7408316  -0.4761787 ]
+Sample clipped actions:  [-0.57596636  0.71736217 -0.96311665  0.31446728 -1.          1.
+ -1.         -0.4761787 ]
+SPS: 10163
+Epoch: 532, global_step=24468480
+SPS: 10166
+Epoch: 533, global_step=24514560
+SPS: 10167
+Epoch: 534, global_step=24560640
+SPS: 10170
+Epoch: 535, global_step=24606720
+SPS: 10171
+Epoch: 536, global_step=24652800
+SPS: 10172
+Epoch: 537, global_step=24698880
+SPS: 10174
+Epoch: 538, global_step=24744960
+SPS: 10176
+Epoch: 539, global_step=24791040
+SPS: 10178
+Epoch: 540, global_step=24837120
+SPS: 10180
+Epoch: 541, global_step=24883200
+Original action range: [-2.879, 1.995]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.24080276  1.0195541  -0.54965675  1.0505787  -2.3589206   0.6671666
+ -1.8069714  -0.14042316]
+Sample clipped actions:  [-0.24080276  1.         -0.54965675  1.         -1.          0.6671666
+ -1.         -0.14042316]
+SPS: 10184
+Epoch: 542, global_step=24929280
+SPS: 10186
+Epoch: 543, global_step=24975360
+SPS: 10189
+Epoch: 544, global_step=25021440
+SPS: 10193
+Epoch: 545, global_step=25067520
+SPS: 10192
+Epoch: 546, global_step=25113600
+SPS: 10193
+Epoch: 547, global_step=25159680
+SPS: 10194
+Epoch: 548, global_step=25205760
+SPS: 10196
+Epoch: 549, global_step=25251840
+SPS: 10197
+Epoch: 550, global_step=25297920
+SPS: 10199
+Epoch: 551, global_step=25344000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 42.1213[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4680[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.790, 2.091]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.0651253   1.1173807  -1.1855239   0.7634971  -2.1090207   0.7467444
+ -1.2203488   0.08812048]
+Sample clipped actions:  [-0.0651253   1.         -1.          0.7634971  -1.          0.7467444
+ -1.          0.08812048]
+SPS: 10159
+Epoch: 552, global_step=25390080
+SPS: 10162
+Epoch: 553, global_step=25436160
+SPS: 10163
+Epoch: 554, global_step=25482240
+SPS: 10165
+Epoch: 555, global_step=25528320
+SPS: 10167
+Epoch: 556, global_step=25574400
+SPS: 10169
+Epoch: 557, global_step=25620480
+SPS: 10171
+Epoch: 558, global_step=25666560
+SPS: 10172
+Epoch: 559, global_step=25712640
+SPS: 10175
+Epoch: 560, global_step=25758720
+SPS: 10177
+Epoch: 561, global_step=25804800
+Original action range: [-2.762, 1.940]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.00236596  1.2121371  -0.6415764   0.5385901  -1.0968096   1.1789031
+ -2.0249224  -0.10563812]
+Sample clipped actions:  [-0.00236596  1.         -0.6415764   0.5385901  -1.          1.
+ -1.         -0.10563812]
+SPS: 10180
+Epoch: 562, global_step=25850880
+SPS: 10181
+Epoch: 563, global_step=25896960
+SPS: 10183
+Epoch: 564, global_step=25943040
+SPS: 10185
+Epoch: 565, global_step=25989120
+SPS: 10187
+Epoch: 566, global_step=26035200
+SPS: 10190
+Epoch: 567, global_step=26081280
+SPS: 10191
+Epoch: 568, global_step=26127360
+SPS: 10192
+Epoch: 569, global_step=26173440
+SPS: 10194
+Epoch: 570, global_step=26219520
+SPS: 10196
+Epoch: 571, global_step=26265600
+Original action range: [-2.974, 1.763]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.60650015  1.2069503  -1.0457172   0.27826902 -1.5241562   0.8424686
+ -2.0516987  -0.10428981]
+Sample clipped actions:  [-0.60650015  1.         -1.          0.27826902 -1.          0.8424686
+ -1.         -0.10428981]
+SPS: 10197
+Epoch: 572, global_step=26311680
+SPS: 10199
+Epoch: 573, global_step=26357760
+SPS: 10201
+Epoch: 574, global_step=26403840
+SPS: 10203
+Epoch: 575, global_step=26449920
+SPS: 10205
+Epoch: 576, global_step=26496000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 41.3040[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4589[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 10168
+Epoch: 577, global_step=26542080
+SPS: 10172
+Epoch: 578, global_step=26588160
+SPS: 10173
+Epoch: 579, global_step=26634240
+SPS: 10175
+Epoch: 580, global_step=26680320
+SPS: 10176
+Epoch: 581, global_step=26726400
+Original action range: [-3.107, 1.936]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.01209995  0.89402175 -1.0778944   0.7305225  -1.6102172   0.69117457
+ -1.679719    0.07713397]
+Sample clipped actions:  [ 0.01209995  0.89402175 -1.          0.7305225  -1.          0.69117457
+ -1.          0.07713397]
+SPS: 10178
+Epoch: 582, global_step=26772480
+SPS: 10179
+Epoch: 583, global_step=26818560
+SPS: 10181
+Epoch: 584, global_step=26864640
+SPS: 10182
+Epoch: 585, global_step=26910720
+SPS: 10184
+Epoch: 586, global_step=26956800
+SPS: 10188
+Epoch: 587, global_step=27002880
+SPS: 10189
+Epoch: 588, global_step=27048960
+SPS: 10189
+Epoch: 589, global_step=27095040
+SPS: 10189
+Epoch: 590, global_step=27141120
+SPS: 10189
+Epoch: 591, global_step=27187200
+Original action range: [-3.467, 2.191]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.2986971   1.236036   -0.47906262  1.0236403  -2.3262844   0.95434266
+ -1.7922015  -0.14005129]
+Sample clipped actions:  [ 0.2986971   1.         -0.47906262  1.         -1.          0.95434266
+ -1.         -0.14005129]
+SPS: 10189
+Epoch: 592, global_step=27233280
+SPS: 10189
+Epoch: 593, global_step=27279360
+SPS: 10190
+Epoch: 594, global_step=27325440
+SPS: 10190
+Epoch: 595, global_step=27371520
+SPS: 10192
+Epoch: 596, global_step=27417600
+SPS: 10193
+Epoch: 597, global_step=27463680
+SPS: 10195
+Epoch: 598, global_step=27509760
+SPS: 10197
+Epoch: 599, global_step=27555840
+SPS: 10199
+Epoch: 600, global_step=27601920
+SPS: 10201
+Epoch: 601, global_step=27648000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.2500[0m
+[32mEvaluation Metric: return[0m | [36mMean: 42.7496[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4750[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2500[0m
+Original action range: [-3.137, 2.099]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.20381108  0.9071139  -0.533282    0.66448843 -1.9303485   0.69543993
+ -1.7877887  -0.12840632]
+Sample clipped actions:  [ 0.20381108  0.9071139  -0.533282    0.66448843 -1.          0.69543993
+ -1.         -0.12840632]
+SPS: 10166
+Epoch: 602, global_step=27694080
+SPS: 10168
+Epoch: 603, global_step=27740160
+SPS: 10170
+Epoch: 604, global_step=27786240
+SPS: 10172
+Epoch: 605, global_step=27832320
+SPS: 10174
+Epoch: 606, global_step=27878400
+SPS: 10176
+Epoch: 607, global_step=27924480
+SPS: 10178
+Epoch: 608, global_step=27970560
+SPS: 10180
+Epoch: 609, global_step=28016640
+SPS: 10181
+Epoch: 610, global_step=28062720
+SPS: 10182
+Epoch: 611, global_step=28108800
+Original action range: [-2.836, 1.947]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.19078447  1.3259876  -0.79870033  0.51974833 -1.7597721   1.0819113
+ -1.1882721  -0.44602886]
+Sample clipped actions:  [-0.19078447  1.         -0.79870033  0.51974833 -1.          1.
+ -1.         -0.44602886]
+SPS: 10183
+Epoch: 612, global_step=28154880
+SPS: 10184
+Epoch: 613, global_step=28200960
+SPS: 10186
+Epoch: 614, global_step=28247040
+SPS: 10187
+Epoch: 615, global_step=28293120
+SPS: 10188
+Epoch: 616, global_step=28339200
+SPS: 10189
+Epoch: 617, global_step=28385280
+SPS: 10191
+Epoch: 618, global_step=28431360
+SPS: 10193
+Epoch: 619, global_step=28477440
+SPS: 10195
+Epoch: 620, global_step=28523520
+SPS: 10195
+Epoch: 621, global_step=28569600
+Original action range: [-2.668, 1.993]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.0603196   1.122508   -0.88983494  0.5813851  -1.6304567   0.9429478
+ -1.9137942  -0.08860369]
+Sample clipped actions:  [ 0.0603196   1.         -0.88983494  0.5813851  -1.          0.9429478
+ -1.         -0.08860369]
+SPS: 10197
+Epoch: 622, global_step=28615680
+SPS: 10199
+Epoch: 623, global_step=28661760
+SPS: 10201
+Epoch: 624, global_step=28707840
+SPS: 10203
+Epoch: 625, global_step=28753920
+SPS: 10204
+Epoch: 626, global_step=28800000
+Evaluating
+Evaluated 1440 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 1.0000[0m
+
+[32mSuccess rate threshold reached! Stopping training...[0m
+Final successful model saved to oracle_checkpoints/ppo_memtasks/state/normalized_dense/InterceptGrabMedium-v0/ppo-mlp-state-dense-intercept-grab-medium-v0__123__state__20251030_061039/20251030_061039/final_success_ckpt.pt

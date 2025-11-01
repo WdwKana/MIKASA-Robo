@@ -1,0 +1,327 @@
+Enabling podman.socket for user: s4176650
+
+Configuration:
+{ 'anneal_lr': False,
+  'batch_size': 30720,
+  'capture_video': True,
+  'checkpoint': None,
+  'clip_coef': 0.2,
+  'clip_vloss': False,
+  'cuda': True,
+  'ent_coef': 0.0,
+  'env_id': 'RememberShapeAndColor3x2-v0',
+  'eval_freq': 25,
+  'eval_partial_reset': False,
+  'eval_reconfiguration_freq': 1,
+  'evaluate': False,
+  'exp_name': 'ppo-mlp-state-dense-remember-shape-and-color-3x2-v0',
+  'finite_horizon_gae': True,
+  'gae_lambda': 0.9,
+  'gamma': 0.8,
+  'include_joints': False,
+  'include_oracle': False,
+  'include_rgb': False,
+  'include_state': True,
+  'learning_rate': 0.0003,
+  'max_grad_norm': 0.5,
+  'minibatch_size': 960,
+  'noop_steps': 1,
+  'norm_adv': True,
+  'num_envs': 512,
+  'num_eval_envs': 16,
+  'num_eval_steps': 60,
+  'num_iterations': 4882,
+  'num_minibatches': 32,
+  'num_steps': 60,
+  'partial_reset': False,
+  'reconfiguration_freq': None,
+  'render_mode': 'all',
+  'reward_mode': 'normalized_dense',
+  'reward_scale': 1.0,
+  'save_model': True,
+  'save_train_video_freq': None,
+  'seed': 123,
+  'target_kl': 0.2,
+  'torch_deterministic': True,
+  'total_timesteps': 150000000,
+  'track': False,
+  'update_epochs': 4,
+  'vf_coef': 0.5,
+  'wandb_entity': None,
+  'wandb_project_name': 'MIKASA-Robo-dataset-collectors'}
+
+
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShapeAndColor3x2-v0                             ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeAndColorInfoWrapper                                 ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       True  │ state will be used                    ║
+║ include_rgb:         False │ rgb images will not be used           ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      False │ joints will not be used               ║
+===========================================================================
+
+MODE='state'
+prompt_info=None
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+Saving eval videos to oracle_checkpoints/ppo_memtasks/state/normalized_dense/RememberShapeAndColor3x2-v0/ppo-mlp-state-dense-remember-shape-and-color-3x2-v0__123__state__20251030_012023/20251030_012023/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+
+####
+args.num_iterations=4882 args.num_envs=512 args.num_eval_envs=16
+args.minibatch_size=960 args.batch_size=30720 args.update_epochs=4
+####
+
+self.list_of_obs_keys=['state']
+state: 45
+Total length: 45
+envs.single_observation_space=Dict('state': Box(-inf, inf, (45,), float32))
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.6411[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1607[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+Original action range: [-2.168, 2.331]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.43943465 -0.8874883   0.35595033  0.5930997  -0.7576116   0.3818025
+  0.43019924 -0.77787316]
+Sample clipped actions:  [ 0.43943465 -0.8874883   0.35595033  0.5930997  -0.7576116   0.3818025
+  0.43019924 -0.77787316]
+SPS: 851
+Epoch: 2, global_step=30720
+SPS: 1583
+Epoch: 3, global_step=61440
+SPS: 2217
+Epoch: 4, global_step=92160
+SPS: 2772
+Epoch: 5, global_step=122880
+SPS: 3253
+Epoch: 6, global_step=153600
+SPS: 3678
+Epoch: 7, global_step=184320
+SPS: 4052
+Epoch: 8, global_step=215040
+SPS: 4381
+Epoch: 9, global_step=245760
+SPS: 4665
+Epoch: 10, global_step=276480
+SPS: 4914
+Epoch: 11, global_step=307200
+Original action range: [-1.984, 2.235]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.26983023  0.35088536 -0.12586427  1.1763921   0.42457885 -0.52102447
+  0.46500543  0.08347477]
+Sample clipped actions:  [-0.26983023  0.35088536 -0.12586427  1.          0.42457885 -0.52102447
+  0.46500543  0.08347477]
+SPS: 5136
+Epoch: 12, global_step=337920
+SPS: 5331
+Epoch: 13, global_step=368640
+SPS: 5504
+Epoch: 14, global_step=399360
+SPS: 5662
+Epoch: 15, global_step=430080
+SPS: 5800
+Epoch: 16, global_step=460800
+SPS: 5927
+Epoch: 17, global_step=491520
+SPS: 6042
+Epoch: 18, global_step=522240
+SPS: 6148
+Epoch: 19, global_step=552960
+SPS: 6239
+Epoch: 20, global_step=583680
+SPS: 6323
+Epoch: 21, global_step=614400
+Original action range: [-2.212, 2.559]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.17868163  1.1440288   0.12220135 -0.27523765 -1.1085671   0.05992267
+  0.13601238  0.8131049 ]
+Sample clipped actions:  [ 0.17868163  1.          0.12220135 -0.27523765 -1.          0.05992267
+  0.13601238  0.8131049 ]
+SPS: 6394
+Epoch: 22, global_step=645120
+SPS: 6463
+Epoch: 23, global_step=675840
+SPS: 6531
+Epoch: 24, global_step=706560
+SPS: 6596
+Epoch: 25, global_step=737280
+SPS: 6656
+Epoch: 26, global_step=768000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.7555[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1959[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+SPS: 6280
+Epoch: 27, global_step=798720
+SPS: 6339
+Epoch: 28, global_step=829440
+SPS: 6393
+Epoch: 29, global_step=860160
+SPS: 6445
+Epoch: 30, global_step=890880
+SPS: 6495
+Epoch: 31, global_step=921600
+Original action range: [-1.799, 2.757]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.50083274  1.7984018   0.18923798 -0.6240893  -0.2563758   1.474395
+ -0.12986088  0.6069385 ]
+Sample clipped actions:  [ 0.50083274  1.          0.18923798 -0.6240893  -0.2563758   1.
+ -0.12986088  0.6069385 ]
+SPS: 6541
+Epoch: 32, global_step=952320
+SPS: 6586
+Epoch: 33, global_step=983040
+SPS: 6629
+Epoch: 34, global_step=1013760
+SPS: 6671
+Epoch: 35, global_step=1044480
+SPS: 6710
+Epoch: 36, global_step=1075200
+SPS: 6746
+Epoch: 37, global_step=1105920
+SPS: 6780
+Epoch: 38, global_step=1136640
+SPS: 6813
+Epoch: 39, global_step=1167360
+SPS: 6845
+Epoch: 40, global_step=1198080
+SPS: 6875
+Epoch: 41, global_step=1228800
+Original action range: [-1.576, 3.231]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.05146137  1.8345098   0.00333411  0.11500361  0.23648567  1.0406222
+ -1.0617976  -1.2931314 ]
+Sample clipped actions:  [ 0.05146137  1.          0.00333411  0.11500361  0.23648567  1.
+ -1.         -1.        ]
+SPS: 6903
+Epoch: 42, global_step=1259520
+SPS: 6931
+Epoch: 43, global_step=1290240
+SPS: 6959
+Epoch: 44, global_step=1320960
+SPS: 6985
+Epoch: 45, global_step=1351680
+SPS: 7010
+Epoch: 46, global_step=1382400
+SPS: 7035
+Epoch: 47, global_step=1413120
+SPS: 7058
+Epoch: 48, global_step=1443840
+SPS: 7079
+Epoch: 49, global_step=1474560
+SPS: 7097
+Epoch: 50, global_step=1505280
+SPS: 7117
+Epoch: 51, global_step=1536000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8125[0m
+[32mEvaluation Metric: return[0m | [36mMean: 24.6496[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4108[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4375[0m
+Original action range: [-1.849, 2.977]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [-0.22751105  1.7710268   0.11270952 -0.92416906  0.6552831   0.6068346
+ -0.7878721   0.3735308 ]
+Sample clipped actions:  [-0.22751105  1.          0.11270952 -0.92416906  0.6552831   0.6068346
+ -0.7878721   0.3735308 ]
+SPS: 6885
+Epoch: 52, global_step=1566720
+SPS: 6908
+Epoch: 53, global_step=1597440
+SPS: 6931
+Epoch: 54, global_step=1628160
+SPS: 6953
+Epoch: 55, global_step=1658880
+SPS: 6975
+Epoch: 56, global_step=1689600
+SPS: 6996
+Epoch: 57, global_step=1720320
+SPS: 7016
+Epoch: 58, global_step=1751040
+SPS: 7035
+Epoch: 59, global_step=1781760
+SPS: 7054
+Epoch: 60, global_step=1812480
+SPS: 7072
+Epoch: 61, global_step=1843200
+Original action range: [-1.681, 2.712]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.11056328  1.3245273   0.02364664 -0.41287977 -0.2713102   0.08848092
+  0.64384747 -0.32950237]
+Sample clipped actions:  [ 0.11056328  1.          0.02364664 -0.41287977 -0.2713102   0.08848092
+  0.64384747 -0.32950237]
+SPS: 7089
+Epoch: 62, global_step=1873920
+SPS: 7106
+Epoch: 63, global_step=1904640
+SPS: 7122
+Epoch: 64, global_step=1935360
+SPS: 7138
+Epoch: 65, global_step=1966080
+SPS: 7153
+Epoch: 66, global_step=1996800
+SPS: 7169
+Epoch: 67, global_step=2027520
+SPS: 7182
+Epoch: 68, global_step=2058240
+SPS: 7197
+Epoch: 69, global_step=2088960
+SPS: 7211
+Epoch: 70, global_step=2119680
+SPS: 7225
+Epoch: 71, global_step=2150400
+Original action range: [-1.692, 2.624]
+Clipped action range:  [-1.000, 1.000]
+Action space: Box(-1.0, 1.0, (8,), float32)
+Sample original actions: [ 0.2895065   1.6373622  -0.49381658 -0.5244651   0.2531103   0.68487805
+  0.0782107   0.7216288 ]
+Sample clipped actions:  [ 0.2895065   1.         -0.49381658 -0.5244651   0.2531103   0.68487805
+  0.0782107   0.7216288 ]
+SPS: 7239
+Epoch: 72, global_step=2181120
+SPS: 7252
+Epoch: 73, global_step=2211840
+SPS: 7264
+Epoch: 74, global_step=2242560
+SPS: 7277
+Epoch: 75, global_step=2273280
+SPS: 7289
+Epoch: 76, global_step=2304000
+Evaluating
+Evaluated 960 steps resulting in 16 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 1.0000[0m
+
+[32mSuccess rate threshold reached! Stopping training...[0m
+Final successful model saved to oracle_checkpoints/ppo_memtasks/state/normalized_dense/RememberShapeAndColor3x2-v0/ppo-mlp-state-dense-remember-shape-and-color-3x2-v0__123__state__20251030_012023/20251030_012023/final_success_ckpt.pt
