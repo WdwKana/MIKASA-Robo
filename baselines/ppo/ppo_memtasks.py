@@ -474,6 +474,7 @@ class AgentStateOnly(nn.Module):
             layer_init(nn.Linear(256, 256)),
             nn.Tanh(),
             layer_init(nn.Linear(256, np.prod(envs.single_action_space.shape)), std=0.01*np.sqrt(2)),
+            nn.Tanh(),
         )
         self.actor_logstd = nn.Parameter(torch.ones(1, np.prod(envs.single_action_space.shape)) * -0.5)
 
@@ -755,6 +756,12 @@ if __name__ == "__main__":
     eval_envs = ManiSkillVectorEnv(eval_envs, args.num_eval_envs, ignore_terminations=not args.eval_partial_reset, record_metrics=True)
     assert isinstance(envs.single_action_space, gym.spaces.Box), "only continuous action space is supported"
 
+    action_space_low = torch.tensor(envs.single_action_space.low, device=device, dtype=torch.float32)
+    action_space_high = torch.tensor(envs.single_action_space.high, device=device, dtype=torch.float32)
+
+    def clip_action(action: torch.Tensor) -> torch.Tensor:
+        return torch.clamp(action, action_space_low, action_space_high)
+
     max_episode_steps = gym_utils.find_max_episode_steps_value(envs._env)
     print('='*70)
     print(f"Max Episode Steps: {max_episode_steps}")
@@ -829,7 +836,9 @@ if __name__ == "__main__":
             num_episodes = 0
             for _ in range(args.num_eval_steps):
                 with torch.no_grad():
-                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(agent.get_action(eval_obs, deterministic=True))
+                    eval_action = agent.get_action(eval_obs, deterministic=True)
+                    eval_action = clip_action(eval_action)
+                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(eval_action)
                     if "final_info" in eval_infos:
                         mask = eval_infos["_final_info"]
                         num_episodes += mask.sum()
@@ -883,7 +892,7 @@ if __name__ == "__main__":
             logprobs[step] = logprob
 
             # TRY NOT TO MODIFY: execute the game and log data.
-            next_obs, reward, terminations, truncations, infos = envs.step(action)
+            next_obs, reward, terminations, truncations, infos = envs.step(clip_action(action))
             next_done = torch.logical_or(terminations, truncations).to(torch.float32)
             rewards[step] = reward.view(-1) * args.reward_scale
 
