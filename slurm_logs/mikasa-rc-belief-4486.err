@@ -1,0 +1,13 @@
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_back2.py", line 742, in <module>
+    assert not (args.include_belief and args.belief_path is None), "belief_path must be provided when include_belief is True"
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: belief_path must be provided when include_belief is True
+/var/spool/slurmd/job04486/slurm_script: line 35: --belief-path=/local/s4176650/sphinx/storage/RememberShapeAndColor5x3-v0_vae_mikasa_new_10/final_vae_model.pt: No such file or directory

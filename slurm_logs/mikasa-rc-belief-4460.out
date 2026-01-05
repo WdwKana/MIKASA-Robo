@@ -1,0 +1,256 @@
+Enabling podman.socket for user: s4176650
+Running RememberShapeAndColor5x3-v0 with belief, seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShapeAndColor3x2-v0                             ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeAndColorInfoWrapper                                 ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-mlp-dense-remember-shape-color-3x2-v0-belief__42__rgb_joints_belief__20260104_162225/20260104_162225/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage/RememberShapeAndColor3x2-v0_vae_mikasa_new_2/final_vae_model.pt
+  phi_dim=16, latent_dim=64
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.9216[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1654[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-mlp-dense-remember-shape-color-3x2-v0-belief__42__rgb_joints_belief__20260104_162225/20260104_162225/ckpt_0_1.pt
+SPS: 152
+Epoch: 2, global_step=12000
+SPS: 276
+Epoch: 3, global_step=24000
+SPS: 377
+Epoch: 4, global_step=36000
+SPS: 460
+Epoch: 5, global_step=48000
+SPS: 533
+Epoch: 6, global_step=60000
+SPS: 595
+Epoch: 7, global_step=72000
+SPS: 650
+Epoch: 8, global_step=84000
+SPS: 694
+Epoch: 9, global_step=96000
+SPS: 734
+Epoch: 10, global_step=108000
+SPS: 769
+Epoch: 11, global_step=120000
+SPS: 799
+Epoch: 12, global_step=132000
+SPS: 827
+Epoch: 13, global_step=144000
+SPS: 852
+Epoch: 14, global_step=156000
+SPS: 873
+Epoch: 15, global_step=168000
+SPS: 893
+Epoch: 16, global_step=180000
+SPS: 911
+Epoch: 17, global_step=192000
+SPS: 927
+Epoch: 18, global_step=204000
+SPS: 941
+Epoch: 19, global_step=216000
+SPS: 955
+Epoch: 20, global_step=228000
+SPS: 967
+Epoch: 21, global_step=240000
+SPS: 978
+Epoch: 22, global_step=252000
+SPS: 990
+Epoch: 23, global_step=264000
+SPS: 1001
+Epoch: 24, global_step=276000
+SPS: 1010
+Epoch: 25, global_step=288000
+SPS: 1019
+Epoch: 26, global_step=300000
+SPS: 1027
+Epoch: 27, global_step=312000
+SPS: 1035
+Epoch: 28, global_step=324000
+SPS: 1041
+Epoch: 29, global_step=336000
+SPS: 1048
+Epoch: 30, global_step=348000
+SPS: 1054
+Epoch: 31, global_step=360000
+SPS: 1060
+Epoch: 32, global_step=372000
+SPS: 1066
+Epoch: 33, global_step=384000
+SPS: 1071
+Epoch: 34, global_step=396000
+SPS: 1076
+Epoch: 35, global_step=408000
+SPS: 1081
+Epoch: 36, global_step=420000
+SPS: 1085
+Epoch: 37, global_step=432000
+SPS: 1089
+Epoch: 38, global_step=444000
+SPS: 1093
+Epoch: 39, global_step=456000
+SPS: 1097
+Epoch: 40, global_step=468000
+SPS: 1101
+Epoch: 41, global_step=480000
+SPS: 1105
+Epoch: 42, global_step=492000
+SPS: 1108
+Epoch: 43, global_step=504000
+SPS: 1112
+Epoch: 44, global_step=516000
+SPS: 1115
+Epoch: 45, global_step=528000
+SPS: 1118
+Epoch: 46, global_step=540000
+SPS: 1121
+Epoch: 47, global_step=552000
+SPS: 1124
+Epoch: 48, global_step=564000
+SPS: 1127
+Epoch: 49, global_step=576000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.2083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 5.1450[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0858[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0260[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-mlp-dense-remember-shape-color-3x2-v0-belief__42__rgb_joints_belief__20260104_162225/20260104_162225/ckpt_1_49.pt
+SPS: 969
+Epoch: 50, global_step=588000
+SPS: 974
+Epoch: 51, global_step=600000
+SPS: 979
+Epoch: 52, global_step=612000
+SPS: 983
+Epoch: 53, global_step=624000
+SPS: 988
+Epoch: 54, global_step=636000
+SPS: 992
+Epoch: 55, global_step=648000
+SPS: 996
+Epoch: 56, global_step=660000
+SPS: 1000
+Epoch: 57, global_step=672000
+SPS: 1003
+Epoch: 58, global_step=684000
+SPS: 1007
+Epoch: 59, global_step=696000
+SPS: 1010
+Epoch: 60, global_step=708000
+SPS: 1013
+Epoch: 61, global_step=720000
+SPS: 1017
+Epoch: 62, global_step=732000
+SPS: 1020
+Epoch: 63, global_step=744000
+SPS: 1022
+Epoch: 64, global_step=756000
+SPS: 1025
+Epoch: 65, global_step=768000
+SPS: 1028
+Epoch: 66, global_step=780000
+SPS: 1031
+Epoch: 67, global_step=792000
+SPS: 1034
+Epoch: 68, global_step=804000
+SPS: 1036
+Epoch: 69, global_step=816000
+SPS: 1038
+Epoch: 70, global_step=828000
+SPS: 1041
+Epoch: 71, global_step=840000
+SPS: 1043
+Epoch: 72, global_step=852000
+SPS: 1046
+Epoch: 73, global_step=864000
+SPS: 1049
+Epoch: 74, global_step=876000
+SPS: 1052
+Epoch: 75, global_step=888000
+SPS: 1054
+Epoch: 76, global_step=900000
+SPS: 1057
+Epoch: 77, global_step=912000
+SPS: 1059
+Epoch: 78, global_step=924000
+SPS: 1061
+Epoch: 79, global_step=936000
+SPS: 1063
+Epoch: 80, global_step=948000
+SPS: 1064
+Epoch: 81, global_step=960000
+SPS: 1066
+Epoch: 82, global_step=972000
+SPS: 1068
+Epoch: 83, global_step=984000
+SPS: 1070
+Epoch: 84, global_step=996000
+SPS: 1072
+Epoch: 85, global_step=1008000
+SPS: 1073
+Epoch: 86, global_step=1020000
+SPS: 1075
+Epoch: 87, global_step=1032000
+SPS: 1077
+Epoch: 88, global_step=1044000
+SPS: 1078
+Epoch: 89, global_step=1056000
+SPS: 1080
+Epoch: 90, global_step=1068000
+SPS: 1081
+Epoch: 91, global_step=1080000
+SPS: 1083
+Epoch: 92, global_step=1092000
+SPS: 1084
+Epoch: 93, global_step=1104000
+SPS: 1086
+Epoch: 94, global_step=1116000
+SPS: 1087
+Epoch: 95, global_step=1128000
+SPS: 1089
+Epoch: 96, global_step=1140000
+SPS: 1091
+Epoch: 97, global_step=1152000
+Evaluating

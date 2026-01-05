@@ -1,0 +1,46 @@
+Enabling podman.socket for user: s4176650
+Running RememberShapeAndColor5x3-v0 with belief, seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShapeAndColor3x2-v0                             ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeAndColorInfoWrapper                                 ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-baseline-42__33__rgb_joints_belief__20260105_150449/20260105_150449/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage/RememberShapeAndColor3x2-v0_vae_mikasa_test/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
