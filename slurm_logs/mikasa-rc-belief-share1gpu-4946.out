@@ -1,0 +1,5 @@
+Enabling podman.socket for user: s4176650
+netherite
+GPU 0: NVIDIA L40S (UUID: GPU-0a98f2c0-ec13-ec89-0408-e261ea610cf3)
+[Sat Jan 10 03:07:28 PM CET 2026] CUDA_VISIBLE_DEVICES=0
+[Sat Jan 10 03:07:28 PM CET 2026] logs: /local/s4176650/MIKASA-Robo/slurm_logs/mikasa-rc-belief-share1gpu-4946

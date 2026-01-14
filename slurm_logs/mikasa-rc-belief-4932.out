@@ -1,0 +1,46 @@
+Enabling podman.socket for user: s4176650
+Running RememberColor9-v0 with belief, seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberColor9-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberColorInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor9-v0/ppo-baseline-final-33__33__rgb_joints_belief__20260110_130210/20260110_130210/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage/RememberColor9-v0_vae_mikasa_final5/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating

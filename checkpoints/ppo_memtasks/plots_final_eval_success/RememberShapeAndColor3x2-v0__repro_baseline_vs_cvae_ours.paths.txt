@@ -1,0 +1,5 @@
+CSV paths used:
+- baseline seed 33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-repro-baseline-33__33__rgb_joints_belief__20260110_180446/20260110_180446/training_metrics.csv
+- baseline seed 42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-repro-baseline-42__42__rgb_joints_belief__20260110_153332/20260110_153332/training_metrics.csv
+- cvae (ours) seed 33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-fianl-cvae-33__33__rgb_joints_belief__20260110_232714/20260110_232714/training_metrics.csv
+- cvae (ours) seed 42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-fianl-cvae-42__42__rgb_joints_belief__20260110_204433/20260110_204433/training_metrics.csv
