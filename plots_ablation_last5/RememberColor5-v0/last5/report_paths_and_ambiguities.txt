@@ -1,0 +1,37 @@
+### Used paths for RememberColor5-v0 last5 4-way ablation plot (baseline/cvae/ablation-nonaction/ablation-bc)
+NOTE: For this task, ablation-none is treated as ablation-nonaction.
+Excluded runs containing v1/expert/test and also excluded v2 variants.
+
+## Used CSVs
+
+[baseline] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-baseline-last5-33__33__rgb_joints_belief__20260115_003453/20260115_003453/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-baseline-last5-42__42__rgb_joints_belief__20260115_024435/20260115_024435/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-baseline-last5-99__99__rgb_joints_belief__20260116_020432/20260116_020432/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-baseline-last5-100__100__rgb_joints_belief__20260116_042047/20260116_042047/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-baseline-last5-123__123__rgb_joints_belief__20260116_065240/20260116_065240/training_metrics.csv
+
+[cvae] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-33__33__rgb_joints_belief__20260115_071804/20260115_071804/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-42__42__rgb_joints_belief__20260115_095305/20260115_095305/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-99__99__rgb_joints_belief__20260116_071513/20260116_071513/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-100__100__rgb_joints_belief__20260116_095310/20260116_095310/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-123__123__rgb_joints_belief__20260116_123112/20260116_123112/training_metrics.csv
+
+[ablation-nonaction] seeds=['99', '100', '123']
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-none-99__99__rgb_joints_belief__20260117_021423/20260117_021423/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-none-100__100__rgb_joints_belief__20260117_045136/20260117_045136/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-none-123__123__rgb_joints_belief__20260117_072942/20260117_072942/training_metrics.csv
+
+[ablation-bc] seeds=['99', '100', '123']
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-bc-99__99__rgb_joints_belief__20260117_021844/20260117_021844/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-bc-100__100__rgb_joints_belief__20260117_043836/20260117_043836/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-ablation-bc-123__123__rgb_joints_belief__20260117_065823/20260117_065823/training_metrics.csv
+
+
+## Ignored other ablation variants (if any)
+None
+
+
+## Ambiguities / multiple candidates
+None

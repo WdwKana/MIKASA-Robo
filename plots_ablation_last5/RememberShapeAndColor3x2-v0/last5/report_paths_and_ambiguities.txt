@@ -1,0 +1,40 @@
+### Used paths for RememberShapeAndColor3x2-v0 last5 4-way ablation plot (baseline/cvae/ablation-nonaction/ablation-bc)
+NOTE: excluded runs containing v1/expert/test and also excluded v2 variants. Ignored other ablations (e.g. ablation-none) unless requested.
+
+## Used CSVs
+
+[baseline] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-33__33__rgb_joints_belief__20260114_215945/20260114_215945/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-42__42__rgb_joints_belief__20260114_194232/20260114_194232/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-99__99__rgb_joints_belief__20260116_004708/20260116_004708/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-100__100__rgb_joints_belief__20260116_032157/20260116_032157/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-123__123__rgb_joints_belief__20260116_055141/20260116_055141/training_metrics.csv
+
+[cvae] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-33__33__rgb_joints_belief__20260115_045619/20260115_045619/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-42__42__rgb_joints_belief__20260115_021259/20260115_021259/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-99__99__rgb_joints_belief__20260116_004654/20260116_004654/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-100__100__rgb_joints_belief__20260116_032724/20260116_032724/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-123__123__rgb_joints_belief__20260116_055128/20260116_055128/training_metrics.csv
+
+[ablation-nonaction] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-nonaction-33__33__rgb_joints_belief__20260117_010231/20260117_010231/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-nonaction-42__42__rgb_joints_belief__20260117_034040/20260117_034040/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-nonaction-99__99__rgb_joints_belief__20260117_061942/20260117_061942/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-nonaction-100__100__rgb_joints_belief__20260117_090123/20260117_090123/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-nonaction-123__123__rgb_joints_belief__20260117_114153/20260117_114153/training_metrics.csv
+
+[ablation-bc] seeds=['33', '42', '99', '100', '123']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-bc-33__33__rgb_joints_belief__20260117_010815/20260117_010815/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-bc-42__42__rgb_joints_belief__20260117_034455/20260117_034455/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-bc-99__99__rgb_joints_belief__20260117_062603/20260117_062603/training_metrics.csv
+  seed100: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-bc-100__100__rgb_joints_belief__20260117_090347/20260117_090347/training_metrics.csv
+  seed123: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-ablation-bc-123__123__rgb_joints_belief__20260117_112814/20260117_112814/training_metrics.csv
+
+
+## Missing
+None
+
+
+## Ambiguities / multiple candidates
+None
