@@ -1,0 +1,103 @@
+Enabling podman.socket for user: s4176650
+Running Intercept-Medium (BELIEF), seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptMedium-v0                                      ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v2-interceptmedium-33__33__rgb_joints_belief__20260126_211920/20260126_211920/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/InterceptMedium-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=434 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=720 args.batch_size=23040 args.update_epochs=2
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 1.0475[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0116[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v2-interceptmedium-33__33__rgb_joints_belief__20260126_211920/20260126_211920/ckpt_0_1.pt
+SPS: 170
+Epoch: 2, global_step=23040
+SPS: 317
+Epoch: 3, global_step=46080
+SPS: 445
+Epoch: 4, global_step=69120
+SPS: 556
+Epoch: 5, global_step=92160
+SPS: 653
+Epoch: 6, global_step=115200
+SPS: 737
+Epoch: 7, global_step=138240
+SPS: 811
+Epoch: 8, global_step=161280
+SPS: 877
+Epoch: 9, global_step=184320
+SPS: 936
+Epoch: 10, global_step=207360
+SPS: 990
+Epoch: 11, global_step=230400
+SPS: 1040
+Epoch: 12, global_step=253440
+SPS: 1085
+Epoch: 13, global_step=276480
+SPS: 1127
+Epoch: 14, global_step=299520
+SPS: 1165
+Epoch: 15, global_step=322560
+SPS: 1200
+Epoch: 16, global_step=345600
+SPS: 1233
+Epoch: 17, global_step=368640
+SPS: 1263
+Epoch: 18, global_step=391680
+SPS: 1292
+Epoch: 19, global_step=414720
+SPS: 1318
+Epoch: 20, global_step=437760
+SPS: 1344
+Epoch: 21, global_step=460800
+SPS: 1367
+Epoch: 22, global_step=483840
+SPS: 1389
+Epoch: 23, global_step=506880
+SPS: 1410
+Epoch: 24, global_step=529920
+SPS: 1429
+Epoch: 25, global_step=552960
+SPS: 1448
+Epoch: 26, global_step=576000
+Evaluating

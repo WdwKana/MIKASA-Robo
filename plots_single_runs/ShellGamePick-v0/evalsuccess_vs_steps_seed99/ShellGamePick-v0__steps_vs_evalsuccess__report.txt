@@ -1,0 +1,14 @@
+### 2-run plot: x=steps, y=eval success
+task_name: ShellGamePick-v0
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/evalsuccess_vs_steps_seed99
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_two_runs_evalsuccess_vs_steps.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_two_runs_evalsuccess_vs_steps.py --task-name ShellGamePick-v0 --baseline-run /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-99__99__rgb_joints_belief__20260126_065952 --aib-run /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-99__99__rgb_joints_belief__20260125_234235 --out-dir /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/evalsuccess_vs_steps_seed99
+
+paths:
+  baseline_run: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-99__99__rgb_joints_belief__20260126_065952
+  baseline_csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-99__99__rgb_joints_belief__20260126_065952/20260126_065952/training_metrics.csv
+  aib_run: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-99__99__rgb_joints_belief__20260125_234235
+  aib_csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-99__99__rgb_joints_belief__20260125_234235/20260125_234235/training_metrics.csv
+
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/evalsuccess_vs_steps_seed99/ShellGamePick-v0__steps_vs_evalsuccess__success_once.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/evalsuccess_vs_steps_seed99/ShellGamePick-v0__steps_vs_evalsuccess__success_at_end.png

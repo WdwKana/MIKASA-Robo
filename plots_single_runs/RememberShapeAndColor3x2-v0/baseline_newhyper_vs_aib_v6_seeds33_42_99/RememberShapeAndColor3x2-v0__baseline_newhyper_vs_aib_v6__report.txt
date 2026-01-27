@@ -1,0 +1,23 @@
+### baseline newhyper vs AIB v6 (last5)
+task_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0
+task_name: RememberShapeAndColor3x2-v0
+requested_seeds: ['33', '42', '99']
+baseline seeds used: ['33', '42', '99']
+AIB seeds used: ['33', '42', '99']
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/baseline_newhyper_vs_aib_v6_seeds33_42_99
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py
+curve_labels:
+  - baseline: ppo+believer
+  - aib: ppo+AIB (ours)
+
+paths:
+  baseline seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-newhyper-lr1e-4-33__33__rgb_joints_belief__20260124_025315/20260124_025315/training_metrics.csv
+  baseline seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-newhyper-lr1e-4-42__42__rgb_joints_belief__20260124_051543/20260124_051543/training_metrics.csv
+  baseline seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-baseline-newhyper-lr1e-4-99__99__rgb_joints_belief__20260124_073705/20260124_073705/training_metrics.csv
+  AIB seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-33__33__rgb_joints_belief__20260124_025525/20260124_025525/training_metrics.csv
+  AIB seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-42__42__rgb_joints_belief__20260123_224544/20260123_224544/training_metrics.csv
+  AIB seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-99__99__rgb_joints_belief__20260124_051828/20260124_051828/training_metrics.csv
+
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/baseline_newhyper_vs_aib_v6_seeds33_42_99/RememberShapeAndColor3x2-v0__baseline_newhyper_vs_aib_v6__success_once__seeds_33_42_99.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/baseline_newhyper_vs_aib_v6_seeds33_42_99/RememberShapeAndColor3x2-v0__baseline_newhyper_vs_aib_v6__success_at_end__seeds_33_42_99.png

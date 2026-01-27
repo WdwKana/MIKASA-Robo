@@ -1,0 +1,26 @@
+task: ShellGamePick-v0
+seedset requested: ['33', '42', '99']
+belief_root: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/baseline_newhyper_vs_aib_v6_seedset_33_42_99
+script: /local/s4176650/MIKASA-Robo/tools/plot_belief_two_algos_seedset.py
+command: /local/s4176650/MIKASA-Robo/tools/plot_belief_two_algos_seedset.py --task ShellGamePick-v0 --seedset 33 42 99 --baseline-substr ppo-last5-baseline-newhyper --aib-substr ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4 --out-dir /local/s4176650/MIKASA-Robo/plots_single_runs/ShellGamePick-v0/baseline_newhyper_vs_aib_v6_seedset_33_42_99
+
+baseline (ppo+believer) seeds used: ['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-33__33__rgb_joints_belief__20260126_015743/20260126_015743/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.9896, success_at_end=0.9792
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-42__42__rgb_joints_belief__20260126_043047/20260126_043047/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.5885, success_at_end=0.4948
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-baseline-newhyper-99__99__rgb_joints_belief__20260126_065952/20260126_065952/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.6406, success_at_end=0.6146
+
+aib (ppo+AIB (ours)) seeds used: ['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-33__33__rgb_joints_belief__20260125_183648/20260125_183648/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.8073, success_at_end=0.7188
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-42__42__rgb_joints_belief__20260125_211154/20260125_211154/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.2396, success_at_end=0.1458
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-99__99__rgb_joints_belief__20260125_234235/20260125_234235/training_metrics.csv
+    last_eval: steps=9792000.0, success_once=0.7188, success_at_end=0.5781
+
+ambiguities:
+  - (aib, seed=33) chose /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/ShellGamePick-v0/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-33__33__rgb_joints_belief__20260125_183648/20260125_183648/training_metrics.csv from 2 candidates
+

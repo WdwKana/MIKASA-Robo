@@ -1,0 +1,165 @@
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Training:   0%|          | 0/865 [00:00<?, ?it/s]Training:   0%|          | 0/865 [01:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_lstm.py", line 1059, in <module>
+    assert args.num_envs % args.num_minibatches == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Exception ignored in: <function VectorEnv.__del__ at 0x7fb44709c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 7 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7fb44709c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Training:   0%|          | 0/865 [00:00<?, ?it/s]Training:   0%|          | 0/865 [01:02<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_lstm.py", line 1059, in <module>
+    assert args.num_envs % args.num_minibatches == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Exception ignored in: <function VectorEnv.__del__ at 0x7fc89cd9c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 7 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7fc89cd9c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Training:   0%|          | 0/865 [00:00<?, ?it/s]Training:   0%|          | 0/865 [01:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_lstm.py", line 1059, in <module>
+    assert args.num_envs % args.num_minibatches == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Exception ignored in: <function VectorEnv.__del__ at 0x7fe3881a8360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 7 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7fe3881a8360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Training:   0%|          | 0/865 [00:00<?, ?it/s]Training:   0%|          | 0/865 [01:04<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_lstm.py", line 1059, in <module>
+    assert args.num_envs % args.num_minibatches == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Exception ignored in: <function VectorEnv.__del__ at 0x7fa46826c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 7 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7fa46826c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Training:   0%|          | 0/865 [00:00<?, ?it/s]Training:   0%|          | 0/865 [01:05<?, ?it/s]
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_lstm.py", line 1059, in <module>
+    assert args.num_envs % args.num_minibatches == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Exception ignored in: <function VectorEnv.__del__ at 0x7f794484c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 7 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7f794484c360>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable

@@ -1,0 +1,22 @@
+### RememberShape5 newhyper: 4-curve comparison
+task_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0
+task_name: RememberShape5-v0
+group: 'norm200'
+requested_seeds: ['33', '42', '99']
+used_common_seeds: ['33', '42', '99']
+PARTIAL: missing_curves=['v6-01', 'v6-001']
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/newhyper_compare_v6_1_01_001_groups/norm200
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_shape5_newhyper_4curves_groups.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_shape5_newhyper_4curves_groups.py --task-dir /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0 --task-name RememberShape5-v0 --seeds 33,42,99 --out-root /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/newhyper_compare_v6_1_01_001_groups --plot-train-reward --allow-partial
+curves:
+  - baseline: ppo+believer
+  - v6-1: ppo+AIB(v6-1)
+missing_curves: ['v6-01', 'v6-001']
+
+paths:
+  baseline seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/training_metrics.csv
+  baseline seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073114/20260125_073114/training_metrics.csv
+  baseline seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_095656/20260125_095656/training_metrics.csv
+  v6-1 seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/training_metrics.csv
+  v6-1 seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/training_metrics.csv
+  v6-1 seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/training_metrics.csv

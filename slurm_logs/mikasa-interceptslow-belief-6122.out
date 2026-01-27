@@ -1,0 +1,3166 @@
+Enabling podman.socket for user: s4176650
+Running Intercept-Slow (BELIEF), seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptSlow-v0                                        ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=434 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=720 args.batch_size=23040 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0781[0m
+[32mEvaluation Metric: return[0m | [36mMean: 2.0305[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0226[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_0_1.pt
+SPS: 226
+Epoch: 2, global_step=23040
+SPS: 406
+Epoch: 3, global_step=46080
+SPS: 547
+Epoch: 4, global_step=69120
+SPS: 662
+Epoch: 5, global_step=92160
+SPS: 756
+Epoch: 6, global_step=115200
+SPS: 834
+Epoch: 7, global_step=138240
+SPS: 902
+Epoch: 8, global_step=161280
+SPS: 958
+Epoch: 9, global_step=184320
+SPS: 1009
+Epoch: 10, global_step=207360
+SPS: 1055
+Epoch: 11, global_step=230400
+SPS: 1093
+Epoch: 12, global_step=253440
+SPS: 1130
+Epoch: 13, global_step=276480
+SPS: 1161
+Epoch: 14, global_step=299520
+SPS: 1190
+Epoch: 15, global_step=322560
+SPS: 1215
+Epoch: 16, global_step=345600
+SPS: 1238
+Epoch: 17, global_step=368640
+SPS: 1260
+Epoch: 18, global_step=391680
+SPS: 1281
+Epoch: 19, global_step=414720
+SPS: 1297
+Epoch: 20, global_step=437760
+SPS: 1313
+Epoch: 21, global_step=460800
+SPS: 1327
+Epoch: 22, global_step=483840
+SPS: 1340
+Epoch: 23, global_step=506880
+SPS: 1354
+Epoch: 24, global_step=529920
+SPS: 1366
+Epoch: 25, global_step=552960
+SPS: 1376
+Epoch: 26, global_step=576000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1667[0m
+[32mEvaluation Metric: return[0m | [36mMean: 5.7927[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0644[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0833[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_1_26.pt
+SPS: 1117
+Epoch: 27, global_step=599040
+SPS: 1132
+Epoch: 28, global_step=622080
+SPS: 1147
+Epoch: 29, global_step=645120
+SPS: 1160
+Epoch: 30, global_step=668160
+SPS: 1172
+Epoch: 31, global_step=691200
+SPS: 1184
+Epoch: 32, global_step=714240
+SPS: 1195
+Epoch: 33, global_step=737280
+SPS: 1206
+Epoch: 34, global_step=760320
+SPS: 1217
+Epoch: 35, global_step=783360
+SPS: 1228
+Epoch: 36, global_step=806400
+SPS: 1237
+Epoch: 37, global_step=829440
+SPS: 1247
+Epoch: 38, global_step=852480
+SPS: 1255
+Epoch: 39, global_step=875520
+SPS: 1263
+Epoch: 40, global_step=898560
+SPS: 1272
+Epoch: 41, global_step=921600
+SPS: 1280
+Epoch: 42, global_step=944640
+SPS: 1288
+Epoch: 43, global_step=967680
+SPS: 1296
+Epoch: 44, global_step=990720
+SPS: 1304
+Epoch: 45, global_step=1013760
+SPS: 1311
+Epoch: 46, global_step=1036800
+SPS: 1319
+Epoch: 47, global_step=1059840
+SPS: 1325
+Epoch: 48, global_step=1082880
+SPS: 1331
+Epoch: 49, global_step=1105920
+SPS: 1337
+Epoch: 50, global_step=1128960
+SPS: 1343
+Epoch: 51, global_step=1152000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1771[0m
+[32mEvaluation Metric: return[0m | [36mMean: 7.3880[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0821[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0781[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_2_51.pt
+SPS: 1209
+Epoch: 52, global_step=1175040
+SPS: 1216
+Epoch: 53, global_step=1198080
+SPS: 1223
+Epoch: 54, global_step=1221120
+SPS: 1229
+Epoch: 55, global_step=1244160
+SPS: 1235
+Epoch: 56, global_step=1267200
+SPS: 1241
+Epoch: 57, global_step=1290240
+SPS: 1247
+Epoch: 58, global_step=1313280
+SPS: 1254
+Epoch: 59, global_step=1336320
+SPS: 1259
+Epoch: 60, global_step=1359360
+SPS: 1265
+Epoch: 61, global_step=1382400
+SPS: 1270
+Epoch: 62, global_step=1405440
+SPS: 1275
+Epoch: 63, global_step=1428480
+SPS: 1281
+Epoch: 64, global_step=1451520
+SPS: 1285
+Epoch: 65, global_step=1474560
+SPS: 1290
+Epoch: 66, global_step=1497600
+SPS: 1295
+Epoch: 67, global_step=1520640
+SPS: 1299
+Epoch: 68, global_step=1543680
+SPS: 1305
+Epoch: 69, global_step=1566720
+SPS: 1309
+Epoch: 70, global_step=1589760
+SPS: 1314
+Epoch: 71, global_step=1612800
+SPS: 1318
+Epoch: 72, global_step=1635840
+SPS: 1322
+Epoch: 73, global_step=1658880
+SPS: 1326
+Epoch: 74, global_step=1681920
+SPS: 1330
+Epoch: 75, global_step=1704960
+SPS: 1334
+Epoch: 76, global_step=1728000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.2135[0m
+[32mEvaluation Metric: return[0m | [36mMean: 7.2512[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0806[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0573[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_3_76.pt
+SPS: 1242
+Epoch: 77, global_step=1751040
+SPS: 1247
+Epoch: 78, global_step=1774080
+SPS: 1251
+Epoch: 79, global_step=1797120
+SPS: 1256
+Epoch: 80, global_step=1820160
+SPS: 1260
+Epoch: 81, global_step=1843200
+SPS: 1264
+Epoch: 82, global_step=1866240
+SPS: 1268
+Epoch: 83, global_step=1889280
+SPS: 1273
+Epoch: 84, global_step=1912320
+SPS: 1277
+Epoch: 85, global_step=1935360
+SPS: 1280
+Epoch: 86, global_step=1958400
+SPS: 1284
+Epoch: 87, global_step=1981440
+SPS: 1287
+Epoch: 88, global_step=2004480
+SPS: 1291
+Epoch: 89, global_step=2027520
+SPS: 1294
+Epoch: 90, global_step=2050560
+SPS: 1298
+Epoch: 91, global_step=2073600
+SPS: 1301
+Epoch: 92, global_step=2096640
+SPS: 1305
+Epoch: 93, global_step=2119680
+SPS: 1308
+Epoch: 94, global_step=2142720
+SPS: 1311
+Epoch: 95, global_step=2165760
+SPS: 1314
+Epoch: 96, global_step=2188800
+SPS: 1318
+Epoch: 97, global_step=2211840
+SPS: 1321
+Epoch: 98, global_step=2234880
+SPS: 1323
+Epoch: 99, global_step=2257920
+SPS: 1326
+Epoch: 100, global_step=2280960
+SPS: 1329
+Epoch: 101, global_step=2304000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1927[0m
+[32mEvaluation Metric: return[0m | [36mMean: 7.2244[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0803[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0573[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_4_101.pt
+SPS: 1258
+Epoch: 102, global_step=2327040
+SPS: 1261
+Epoch: 103, global_step=2350080
+SPS: 1265
+Epoch: 104, global_step=2373120
+SPS: 1268
+Epoch: 105, global_step=2396160
+SPS: 1271
+Epoch: 106, global_step=2419200
+SPS: 1274
+Epoch: 107, global_step=2442240
+SPS: 1277
+Epoch: 108, global_step=2465280
+SPS: 1280
+Epoch: 109, global_step=2488320
+SPS: 1283
+Epoch: 110, global_step=2511360
+SPS: 1286
+Epoch: 111, global_step=2534400
+SPS: 1289
+Epoch: 112, global_step=2557440
+SPS: 1292
+Epoch: 113, global_step=2580480
+SPS: 1295
+Epoch: 114, global_step=2603520
+SPS: 1298
+Epoch: 115, global_step=2626560
+SPS: 1300
+Epoch: 116, global_step=2649600
+SPS: 1303
+Epoch: 117, global_step=2672640
+SPS: 1305
+Epoch: 118, global_step=2695680
+SPS: 1308
+Epoch: 119, global_step=2718720
+SPS: 1310
+Epoch: 120, global_step=2741760
+SPS: 1313
+Epoch: 121, global_step=2764800
+SPS: 1315
+Epoch: 122, global_step=2787840
+SPS: 1318
+Epoch: 123, global_step=2810880
+SPS: 1321
+Epoch: 124, global_step=2833920
+SPS: 1323
+Epoch: 125, global_step=2856960
+SPS: 1326
+Epoch: 126, global_step=2880000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.2396[0m
+[32mEvaluation Metric: return[0m | [36mMean: 8.6665[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0963[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_5_126.pt
+SPS: 1269
+Epoch: 127, global_step=2903040
+SPS: 1272
+Epoch: 128, global_step=2926080
+SPS: 1274
+Epoch: 129, global_step=2949120
+SPS: 1277
+Epoch: 130, global_step=2972160
+SPS: 1280
+Epoch: 131, global_step=2995200
+SPS: 1282
+Epoch: 132, global_step=3018240
+SPS: 1285
+Epoch: 133, global_step=3041280
+SPS: 1287
+Epoch: 134, global_step=3064320
+SPS: 1290
+Epoch: 135, global_step=3087360
+SPS: 1292
+Epoch: 136, global_step=3110400
+SPS: 1295
+Epoch: 137, global_step=3133440
+SPS: 1297
+Epoch: 138, global_step=3156480
+SPS: 1299
+Epoch: 139, global_step=3179520
+SPS: 1302
+Epoch: 140, global_step=3202560
+SPS: 1304
+Epoch: 141, global_step=3225600
+SPS: 1307
+Epoch: 142, global_step=3248640
+SPS: 1309
+Epoch: 143, global_step=3271680
+SPS: 1311
+Epoch: 144, global_step=3294720
+SPS: 1313
+Epoch: 145, global_step=3317760
+SPS: 1315
+Epoch: 146, global_step=3340800
+SPS: 1317
+Epoch: 147, global_step=3363840
+SPS: 1319
+Epoch: 148, global_step=3386880
+SPS: 1322
+Epoch: 149, global_step=3409920
+SPS: 1323
+Epoch: 150, global_step=3432960
+SPS: 1326
+Epoch: 151, global_step=3456000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3490[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.5402[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1171[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0469[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_6_151.pt
+SPS: 1279
+Epoch: 152, global_step=3479040
+SPS: 1281
+Epoch: 153, global_step=3502080
+SPS: 1283
+Epoch: 154, global_step=3525120
+SPS: 1286
+Epoch: 155, global_step=3548160
+SPS: 1288
+Epoch: 156, global_step=3571200
+SPS: 1290
+Epoch: 157, global_step=3594240
+SPS: 1292
+Epoch: 158, global_step=3617280
+SPS: 1294
+Epoch: 159, global_step=3640320
+SPS: 1296
+Epoch: 160, global_step=3663360
+SPS: 1298
+Epoch: 161, global_step=3686400
+SPS: 1300
+Epoch: 162, global_step=3709440
+SPS: 1302
+Epoch: 163, global_step=3732480
+SPS: 1304
+Epoch: 164, global_step=3755520
+SPS: 1306
+Epoch: 165, global_step=3778560
+SPS: 1308
+Epoch: 166, global_step=3801600
+SPS: 1310
+Epoch: 167, global_step=3824640
+SPS: 1312
+Epoch: 168, global_step=3847680
+SPS: 1313
+Epoch: 169, global_step=3870720
+SPS: 1316
+Epoch: 170, global_step=3893760
+SPS: 1318
+Epoch: 171, global_step=3916800
+SPS: 1320
+Epoch: 172, global_step=3939840
+SPS: 1321
+Epoch: 173, global_step=3962880
+SPS: 1323
+Epoch: 174, global_step=3985920
+SPS: 1325
+Epoch: 175, global_step=4008960
+SPS: 1327
+Epoch: 176, global_step=4032000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3594[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.6006[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1178[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0469[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_7_176.pt
+SPS: 1287
+Epoch: 177, global_step=4055040
+SPS: 1288
+Epoch: 178, global_step=4078080
+SPS: 1290
+Epoch: 179, global_step=4101120
+SPS: 1292
+Epoch: 180, global_step=4124160
+SPS: 1294
+Epoch: 181, global_step=4147200
+SPS: 1296
+Epoch: 182, global_step=4170240
+SPS: 1298
+Epoch: 183, global_step=4193280
+SPS: 1299
+Epoch: 184, global_step=4216320
+SPS: 1301
+Epoch: 185, global_step=4239360
+SPS: 1303
+Epoch: 186, global_step=4262400
+SPS: 1305
+Epoch: 187, global_step=4285440
+SPS: 1306
+Epoch: 188, global_step=4308480
+SPS: 1308
+Epoch: 189, global_step=4331520
+SPS: 1309
+Epoch: 190, global_step=4354560
+SPS: 1311
+Epoch: 191, global_step=4377600
+SPS: 1313
+Epoch: 192, global_step=4400640
+SPS: 1314
+Epoch: 193, global_step=4423680
+SPS: 1316
+Epoch: 194, global_step=4446720
+SPS: 1318
+Epoch: 195, global_step=4469760
+SPS: 1319
+Epoch: 196, global_step=4492800
+SPS: 1321
+Epoch: 197, global_step=4515840
+SPS: 1323
+Epoch: 198, global_step=4538880
+SPS: 1324
+Epoch: 199, global_step=4561920
+SPS: 1326
+Epoch: 200, global_step=4584960
+SPS: 1328
+Epoch: 201, global_step=4608000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4479[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.3570[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1151[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0260[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_8_201.pt
+SPS: 1293
+Epoch: 202, global_step=4631040
+SPS: 1295
+Epoch: 203, global_step=4654080
+SPS: 1298
+Epoch: 204, global_step=4677120
+SPS: 1300
+Epoch: 205, global_step=4700160
+SPS: 1302
+Epoch: 206, global_step=4723200
+SPS: 1304
+Epoch: 207, global_step=4746240
+SPS: 1306
+Epoch: 208, global_step=4769280
+SPS: 1308
+Epoch: 209, global_step=4792320
+SPS: 1310
+Epoch: 210, global_step=4815360
+SPS: 1312
+Epoch: 211, global_step=4838400
+SPS: 1314
+Epoch: 212, global_step=4861440
+SPS: 1316
+Epoch: 213, global_step=4884480
+SPS: 1318
+Epoch: 214, global_step=4907520
+SPS: 1320
+Epoch: 215, global_step=4930560
+SPS: 1322
+Epoch: 216, global_step=4953600
+SPS: 1324
+Epoch: 217, global_step=4976640
+SPS: 1326
+Epoch: 218, global_step=4999680
+SPS: 1328
+Epoch: 219, global_step=5022720
+SPS: 1330
+Epoch: 220, global_step=5045760
+SPS: 1332
+Epoch: 221, global_step=5068800
+SPS: 1334
+Epoch: 222, global_step=5091840
+SPS: 1336
+Epoch: 223, global_step=5114880
+SPS: 1338
+Epoch: 224, global_step=5137920
+SPS: 1340
+Epoch: 225, global_step=5160960
+SPS: 1342
+Epoch: 226, global_step=5184000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5677[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.1522[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1239[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0260[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_9_226.pt
+SPS: 1310
+Epoch: 227, global_step=5207040
+SPS: 1311
+Epoch: 228, global_step=5230080
+SPS: 1313
+Epoch: 229, global_step=5253120
+SPS: 1315
+Epoch: 230, global_step=5276160
+SPS: 1316
+Epoch: 231, global_step=5299200
+SPS: 1318
+Epoch: 232, global_step=5322240
+SPS: 1319
+Epoch: 233, global_step=5345280
+SPS: 1321
+Epoch: 234, global_step=5368320
+SPS: 1322
+Epoch: 235, global_step=5391360
+SPS: 1323
+Epoch: 236, global_step=5414400
+SPS: 1324
+Epoch: 237, global_step=5437440
+SPS: 1326
+Epoch: 238, global_step=5460480
+SPS: 1327
+Epoch: 239, global_step=5483520
+SPS: 1329
+Epoch: 240, global_step=5506560
+SPS: 1330
+Epoch: 241, global_step=5529600
+SPS: 1331
+Epoch: 242, global_step=5552640
+SPS: 1333
+Epoch: 243, global_step=5575680
+SPS: 1334
+Epoch: 244, global_step=5598720
+SPS: 1335
+Epoch: 245, global_step=5621760
+SPS: 1337
+Epoch: 246, global_step=5644800
+SPS: 1338
+Epoch: 247, global_step=5667840
+SPS: 1340
+Epoch: 248, global_step=5690880
+SPS: 1342
+Epoch: 249, global_step=5713920
+SPS: 1343
+Epoch: 250, global_step=5736960
+SPS: 1344
+Epoch: 251, global_step=5760000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6719[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.1044[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1234[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0156[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_10_251.pt
+SPS: 1314
+Epoch: 252, global_step=5783040
+SPS: 1316
+Epoch: 253, global_step=5806080
+SPS: 1318
+Epoch: 254, global_step=5829120
+SPS: 1319
+Epoch: 255, global_step=5852160
+SPS: 1321
+Epoch: 256, global_step=5875200
+SPS: 1322
+Epoch: 257, global_step=5898240
+SPS: 1323
+Epoch: 258, global_step=5921280
+SPS: 1324
+Epoch: 259, global_step=5944320
+SPS: 1325
+Epoch: 260, global_step=5967360
+SPS: 1327
+Epoch: 261, global_step=5990400
+SPS: 1328
+Epoch: 262, global_step=6013440
+SPS: 1330
+Epoch: 263, global_step=6036480
+SPS: 1331
+Epoch: 264, global_step=6059520
+SPS: 1333
+Epoch: 265, global_step=6082560
+SPS: 1334
+Epoch: 266, global_step=6105600
+SPS: 1335
+Epoch: 267, global_step=6128640
+SPS: 1337
+Epoch: 268, global_step=6151680
+SPS: 1338
+Epoch: 269, global_step=6174720
+SPS: 1339
+Epoch: 270, global_step=6197760
+SPS: 1341
+Epoch: 271, global_step=6220800
+SPS: 1342
+Epoch: 272, global_step=6243840
+SPS: 1343
+Epoch: 273, global_step=6266880
+SPS: 1345
+Epoch: 274, global_step=6289920
+SPS: 1346
+Epoch: 275, global_step=6312960
+SPS: 1347
+Epoch: 276, global_step=6336000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6510[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.8689[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1208[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0052[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_11_276.pt
+SPS: 1321
+Epoch: 277, global_step=6359040
+SPS: 1322
+Epoch: 278, global_step=6382080
+SPS: 1324
+Epoch: 279, global_step=6405120
+SPS: 1325
+Epoch: 280, global_step=6428160
+SPS: 1326
+Epoch: 281, global_step=6451200
+SPS: 1327
+Epoch: 282, global_step=6474240
+SPS: 1329
+Epoch: 283, global_step=6497280
+SPS: 1330
+Epoch: 284, global_step=6520320
+SPS: 1331
+Epoch: 285, global_step=6543360
+SPS: 1332
+Epoch: 286, global_step=6566400
+SPS: 1334
+Epoch: 287, global_step=6589440
+SPS: 1335
+Epoch: 288, global_step=6612480
+SPS: 1336
+Epoch: 289, global_step=6635520
+SPS: 1338
+Epoch: 290, global_step=6658560
+SPS: 1339
+Epoch: 291, global_step=6681600
+SPS: 1340
+Epoch: 292, global_step=6704640
+SPS: 1341
+Epoch: 293, global_step=6727680
+SPS: 1343
+Epoch: 294, global_step=6750720
+SPS: 1344
+Epoch: 295, global_step=6773760
+SPS: 1346
+Epoch: 296, global_step=6796800
+SPS: 1347
+Epoch: 297, global_step=6819840
+SPS: 1348
+Epoch: 298, global_step=6842880
+SPS: 1350
+Epoch: 299, global_step=6865920
+SPS: 1351
+Epoch: 300, global_step=6888960
+SPS: 1352
+Epoch: 301, global_step=6912000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7240[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.0441[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1227[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0104[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_12_301.pt
+SPS: 1327
+Epoch: 302, global_step=6935040
+SPS: 1328
+Epoch: 303, global_step=6958080
+SPS: 1329
+Epoch: 304, global_step=6981120
+SPS: 1330
+Epoch: 305, global_step=7004160
+SPS: 1332
+Epoch: 306, global_step=7027200
+SPS: 1334
+Epoch: 307, global_step=7050240
+SPS: 1335
+Epoch: 308, global_step=7073280
+SPS: 1336
+Epoch: 309, global_step=7096320
+SPS: 1337
+Epoch: 310, global_step=7119360
+SPS: 1338
+Epoch: 311, global_step=7142400
+SPS: 1340
+Epoch: 312, global_step=7165440
+SPS: 1341
+Epoch: 313, global_step=7188480
+SPS: 1342
+Epoch: 314, global_step=7211520
+SPS: 1343
+Epoch: 315, global_step=7234560
+SPS: 1344
+Epoch: 316, global_step=7257600
+SPS: 1346
+Epoch: 317, global_step=7280640
+SPS: 1347
+Epoch: 318, global_step=7303680
+SPS: 1348
+Epoch: 319, global_step=7326720
+SPS: 1350
+Epoch: 320, global_step=7349760
+SPS: 1351
+Epoch: 321, global_step=7372800
+SPS: 1352
+Epoch: 322, global_step=7395840
+SPS: 1353
+Epoch: 323, global_step=7418880
+SPS: 1354
+Epoch: 324, global_step=7441920
+SPS: 1356
+Epoch: 325, global_step=7464960
+SPS: 1357
+Epoch: 326, global_step=7488000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7344[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.8262[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1203[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_13_326.pt
+SPS: 1334
+Epoch: 327, global_step=7511040
+SPS: 1335
+Epoch: 328, global_step=7534080
+SPS: 1336
+Epoch: 329, global_step=7557120
+SPS: 1337
+Epoch: 330, global_step=7580160
+SPS: 1339
+Epoch: 331, global_step=7603200
+SPS: 1340
+Epoch: 332, global_step=7626240
+SPS: 1341
+Epoch: 333, global_step=7649280
+SPS: 1342
+Epoch: 334, global_step=7672320
+SPS: 1344
+Epoch: 335, global_step=7695360
+SPS: 1345
+Epoch: 336, global_step=7718400
+SPS: 1346
+Epoch: 337, global_step=7741440
+SPS: 1347
+Epoch: 338, global_step=7764480
+SPS: 1348
+Epoch: 339, global_step=7787520
+SPS: 1349
+Epoch: 340, global_step=7810560
+SPS: 1350
+Epoch: 341, global_step=7833600
+SPS: 1351
+Epoch: 342, global_step=7856640
+SPS: 1353
+Epoch: 343, global_step=7879680
+SPS: 1354
+Epoch: 344, global_step=7902720
+SPS: 1355
+Epoch: 345, global_step=7925760
+SPS: 1356
+Epoch: 346, global_step=7948800
+SPS: 1357
+Epoch: 347, global_step=7971840
+SPS: 1359
+Epoch: 348, global_step=7994880
+SPS: 1360
+Epoch: 349, global_step=8017920
+SPS: 1361
+Epoch: 350, global_step=8040960
+SPS: 1362
+Epoch: 351, global_step=8064000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8438[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.1853[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1243[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_14_351.pt
+SPS: 1340
+Epoch: 352, global_step=8087040
+SPS: 1342
+Epoch: 353, global_step=8110080
+SPS: 1343
+Epoch: 354, global_step=8133120
+SPS: 1344
+Epoch: 355, global_step=8156160
+SPS: 1346
+Epoch: 356, global_step=8179200
+SPS: 1347
+Epoch: 357, global_step=8202240
+SPS: 1348
+Epoch: 358, global_step=8225280
+SPS: 1349
+Epoch: 359, global_step=8248320
+SPS: 1350
+Epoch: 360, global_step=8271360
+SPS: 1351
+Epoch: 361, global_step=8294400
+SPS: 1352
+Epoch: 362, global_step=8317440
+SPS: 1353
+Epoch: 363, global_step=8340480
+SPS: 1354
+Epoch: 364, global_step=8363520
+SPS: 1355
+Epoch: 365, global_step=8386560
+SPS: 1356
+Epoch: 366, global_step=8409600
+SPS: 1357
+Epoch: 367, global_step=8432640
+SPS: 1358
+Epoch: 368, global_step=8455680
+SPS: 1359
+Epoch: 369, global_step=8478720
+SPS: 1360
+Epoch: 370, global_step=8501760
+SPS: 1361
+Epoch: 371, global_step=8524800
+SPS: 1362
+Epoch: 372, global_step=8547840
+SPS: 1363
+Epoch: 373, global_step=8570880
+SPS: 1364
+Epoch: 374, global_step=8593920
+SPS: 1365
+Epoch: 375, global_step=8616960
+SPS: 1366
+Epoch: 376, global_step=8640000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8073[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.2600[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1140[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0156[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_15_376.pt
+SPS: 1346
+Epoch: 377, global_step=8663040
+SPS: 1347
+Epoch: 378, global_step=8686080
+SPS: 1348
+Epoch: 379, global_step=8709120
+SPS: 1349
+Epoch: 380, global_step=8732160
+SPS: 1351
+Epoch: 381, global_step=8755200
+SPS: 1352
+Epoch: 382, global_step=8778240
+SPS: 1353
+Epoch: 383, global_step=8801280
+SPS: 1354
+Epoch: 384, global_step=8824320
+SPS: 1354
+Epoch: 385, global_step=8847360
+SPS: 1355
+Epoch: 386, global_step=8870400
+SPS: 1356
+Epoch: 387, global_step=8893440
+SPS: 1357
+Epoch: 388, global_step=8916480
+SPS: 1358
+Epoch: 389, global_step=8939520
+SPS: 1359
+Epoch: 390, global_step=8962560
+SPS: 1360
+Epoch: 391, global_step=8985600
+SPS: 1361
+Epoch: 392, global_step=9008640
+SPS: 1362
+Epoch: 393, global_step=9031680
+SPS: 1363
+Epoch: 394, global_step=9054720
+SPS: 1364
+Epoch: 395, global_step=9077760
+SPS: 1365
+Epoch: 396, global_step=9100800
+SPS: 1366
+Epoch: 397, global_step=9123840
+SPS: 1367
+Epoch: 398, global_step=9146880
+SPS: 1368
+Epoch: 399, global_step=9169920
+SPS: 1368
+Epoch: 400, global_step=9192960
+SPS: 1369
+Epoch: 401, global_step=9216000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8333[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.5341[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1170[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0052[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_16_401.pt
+SPS: 1351
+Epoch: 402, global_step=9239040
+SPS: 1352
+Epoch: 403, global_step=9262080
+SPS: 1353
+Epoch: 404, global_step=9285120
+SPS: 1354
+Epoch: 405, global_step=9308160
+SPS: 1355
+Epoch: 406, global_step=9331200
+SPS: 1356
+Epoch: 407, global_step=9354240
+SPS: 1357
+Epoch: 408, global_step=9377280
+SPS: 1358
+Epoch: 409, global_step=9400320
+SPS: 1358
+Epoch: 410, global_step=9423360
+SPS: 1359
+Epoch: 411, global_step=9446400
+SPS: 1360
+Epoch: 412, global_step=9469440
+SPS: 1362
+Epoch: 413, global_step=9492480
+SPS: 1363
+Epoch: 414, global_step=9515520
+SPS: 1364
+Epoch: 415, global_step=9538560
+SPS: 1365
+Epoch: 416, global_step=9561600
+SPS: 1366
+Epoch: 417, global_step=9584640
+SPS: 1366
+Epoch: 418, global_step=9607680
+SPS: 1367
+Epoch: 419, global_step=9630720
+SPS: 1368
+Epoch: 420, global_step=9653760
+SPS: 1369
+Epoch: 421, global_step=9676800
+SPS: 1370
+Epoch: 422, global_step=9699840
+SPS: 1371
+Epoch: 423, global_step=9722880
+SPS: 1372
+Epoch: 424, global_step=9745920
+SPS: 1372
+Epoch: 425, global_step=9768960
+SPS: 1373
+Epoch: 426, global_step=9792000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8542[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.2829[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1143[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0104[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/ckpt_17_426.pt
+SPS: 1356
+Epoch: 427, global_step=9815040
+SPS: 1357
+Epoch: 428, global_step=9838080
+SPS: 1357
+Epoch: 429, global_step=9861120
+SPS: 1358
+Epoch: 430, global_step=9884160
+SPS: 1359
+Epoch: 431, global_step=9907200
+SPS: 1360
+Epoch: 432, global_step=9930240
+SPS: 1361
+Epoch: 433, global_step=9953280
+SPS: 1362
+Epoch: 434, global_step=9976320
+SPS: 1363
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-33__33__rgb_joints_belief__20260126_121459/20260126_121459/final_ckpt.pt
+Running Intercept-Slow (BELIEF), seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptSlow-v0                                        ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=434 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=720 args.batch_size=23040 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0833[0m
+[32mEvaluation Metric: return[0m | [36mMean: 2.0999[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0233[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0104[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_0_1.pt
+SPS: 236
+Epoch: 2, global_step=23040
+SPS: 422
+Epoch: 3, global_step=46080
+SPS: 567
+Epoch: 4, global_step=69120
+SPS: 686
+Epoch: 5, global_step=92160
+SPS: 784
+Epoch: 6, global_step=115200
+SPS: 863
+Epoch: 7, global_step=138240
+SPS: 929
+Epoch: 8, global_step=161280
+SPS: 986
+Epoch: 9, global_step=184320
+SPS: 1036
+Epoch: 10, global_step=207360
+SPS: 1081
+Epoch: 11, global_step=230400
+SPS: 1120
+Epoch: 12, global_step=253440
+SPS: 1153
+Epoch: 13, global_step=276480
+SPS: 1183
+Epoch: 14, global_step=299520
+SPS: 1209
+Epoch: 15, global_step=322560
+SPS: 1235
+Epoch: 16, global_step=345600
+SPS: 1258
+Epoch: 17, global_step=368640
+SPS: 1277
+Epoch: 18, global_step=391680
+SPS: 1295
+Epoch: 19, global_step=414720
+SPS: 1312
+Epoch: 20, global_step=437760
+SPS: 1329
+Epoch: 21, global_step=460800
+SPS: 1345
+Epoch: 22, global_step=483840
+SPS: 1358
+Epoch: 23, global_step=506880
+SPS: 1370
+Epoch: 24, global_step=529920
+SPS: 1381
+Epoch: 25, global_step=552960
+SPS: 1392
+Epoch: 26, global_step=576000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1250[0m
+[32mEvaluation Metric: return[0m | [36mMean: 5.1337[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0570[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0573[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_1_26.pt
+SPS: 1140
+Epoch: 27, global_step=599040
+SPS: 1153
+Epoch: 28, global_step=622080
+SPS: 1166
+Epoch: 29, global_step=645120
+SPS: 1179
+Epoch: 30, global_step=668160
+SPS: 1191
+Epoch: 31, global_step=691200
+SPS: 1204
+Epoch: 32, global_step=714240
+SPS: 1215
+Epoch: 33, global_step=737280
+SPS: 1227
+Epoch: 34, global_step=760320
+SPS: 1237
+Epoch: 35, global_step=783360
+SPS: 1246
+Epoch: 36, global_step=806400
+SPS: 1257
+Epoch: 37, global_step=829440
+SPS: 1266
+Epoch: 38, global_step=852480
+SPS: 1275
+Epoch: 39, global_step=875520
+SPS: 1284
+Epoch: 40, global_step=898560
+SPS: 1291
+Epoch: 41, global_step=921600
+SPS: 1299
+Epoch: 42, global_step=944640
+SPS: 1306
+Epoch: 43, global_step=967680
+SPS: 1314
+Epoch: 44, global_step=990720
+SPS: 1321
+Epoch: 45, global_step=1013760
+SPS: 1327
+Epoch: 46, global_step=1036800
+SPS: 1334
+Epoch: 47, global_step=1059840
+SPS: 1340
+Epoch: 48, global_step=1082880
+SPS: 1346
+Epoch: 49, global_step=1105920
+SPS: 1352
+Epoch: 50, global_step=1128960
+SPS: 1358
+Epoch: 51, global_step=1152000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.2396[0m
+[32mEvaluation Metric: return[0m | [36mMean: 7.2469[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0805[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0625[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_2_51.pt
+SPS: 1219
+Epoch: 52, global_step=1175040
+SPS: 1226
+Epoch: 53, global_step=1198080
+SPS: 1233
+Epoch: 54, global_step=1221120
+SPS: 1238
+Epoch: 55, global_step=1244160
+SPS: 1245
+Epoch: 56, global_step=1267200
+SPS: 1252
+Epoch: 57, global_step=1290240
+SPS: 1257
+Epoch: 58, global_step=1313280
+SPS: 1264
+Epoch: 59, global_step=1336320
+SPS: 1269
+Epoch: 60, global_step=1359360
+SPS: 1275
+Epoch: 61, global_step=1382400
+SPS: 1280
+Epoch: 62, global_step=1405440
+SPS: 1285
+Epoch: 63, global_step=1428480
+SPS: 1291
+Epoch: 64, global_step=1451520
+SPS: 1296
+Epoch: 65, global_step=1474560
+SPS: 1301
+Epoch: 66, global_step=1497600
+SPS: 1306
+Epoch: 67, global_step=1520640
+SPS: 1311
+Epoch: 68, global_step=1543680
+SPS: 1316
+Epoch: 69, global_step=1566720
+SPS: 1320
+Epoch: 70, global_step=1589760
+SPS: 1324
+Epoch: 71, global_step=1612800
+SPS: 1329
+Epoch: 72, global_step=1635840
+SPS: 1333
+Epoch: 73, global_step=1658880
+SPS: 1337
+Epoch: 74, global_step=1681920
+SPS: 1341
+Epoch: 75, global_step=1704960
+SPS: 1345
+Epoch: 76, global_step=1728000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4323[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.4528[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1161[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1094[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_3_76.pt
+SPS: 1252
+Epoch: 77, global_step=1751040
+SPS: 1256
+Epoch: 78, global_step=1774080
+SPS: 1260
+Epoch: 79, global_step=1797120
+SPS: 1264
+Epoch: 80, global_step=1820160
+SPS: 1268
+Epoch: 81, global_step=1843200
+SPS: 1273
+Epoch: 82, global_step=1866240
+SPS: 1277
+Epoch: 83, global_step=1889280
+SPS: 1281
+Epoch: 84, global_step=1912320
+SPS: 1284
+Epoch: 85, global_step=1935360
+SPS: 1288
+Epoch: 86, global_step=1958400
+SPS: 1292
+Epoch: 87, global_step=1981440
+SPS: 1296
+Epoch: 88, global_step=2004480
+SPS: 1300
+Epoch: 89, global_step=2027520
+SPS: 1303
+Epoch: 90, global_step=2050560
+SPS: 1306
+Epoch: 91, global_step=2073600
+SPS: 1310
+Epoch: 92, global_step=2096640
+SPS: 1313
+Epoch: 93, global_step=2119680
+SPS: 1317
+Epoch: 94, global_step=2142720
+SPS: 1320
+Epoch: 95, global_step=2165760
+SPS: 1323
+Epoch: 96, global_step=2188800
+SPS: 1326
+Epoch: 97, global_step=2211840
+SPS: 1329
+Epoch: 98, global_step=2234880
+SPS: 1332
+Epoch: 99, global_step=2257920
+SPS: 1335
+Epoch: 100, global_step=2280960
+SPS: 1339
+Epoch: 101, global_step=2304000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5208[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.2503[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1361[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1198[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_4_101.pt
+SPS: 1268
+Epoch: 102, global_step=2327040
+SPS: 1271
+Epoch: 103, global_step=2350080
+SPS: 1274
+Epoch: 104, global_step=2373120
+SPS: 1277
+Epoch: 105, global_step=2396160
+SPS: 1280
+Epoch: 106, global_step=2419200
+SPS: 1283
+Epoch: 107, global_step=2442240
+SPS: 1287
+Epoch: 108, global_step=2465280
+SPS: 1290
+Epoch: 109, global_step=2488320
+SPS: 1293
+Epoch: 110, global_step=2511360
+SPS: 1295
+Epoch: 111, global_step=2534400
+SPS: 1298
+Epoch: 112, global_step=2557440
+SPS: 1301
+Epoch: 113, global_step=2580480
+SPS: 1304
+Epoch: 114, global_step=2603520
+SPS: 1307
+Epoch: 115, global_step=2626560
+SPS: 1309
+Epoch: 116, global_step=2649600
+SPS: 1312
+Epoch: 117, global_step=2672640
+SPS: 1315
+Epoch: 118, global_step=2695680
+SPS: 1317
+Epoch: 119, global_step=2718720
+SPS: 1320
+Epoch: 120, global_step=2741760
+SPS: 1322
+Epoch: 121, global_step=2764800
+SPS: 1325
+Epoch: 122, global_step=2787840
+SPS: 1328
+Epoch: 123, global_step=2810880
+SPS: 1330
+Epoch: 124, global_step=2833920
+SPS: 1332
+Epoch: 125, global_step=2856960
+SPS: 1335
+Epoch: 126, global_step=2880000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5573[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.5309[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1392[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0469[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_5_126.pt
+SPS: 1278
+Epoch: 127, global_step=2903040
+SPS: 1281
+Epoch: 128, global_step=2926080
+SPS: 1283
+Epoch: 129, global_step=2949120
+SPS: 1286
+Epoch: 130, global_step=2972160
+SPS: 1288
+Epoch: 131, global_step=2995200
+SPS: 1291
+Epoch: 132, global_step=3018240
+SPS: 1293
+Epoch: 133, global_step=3041280
+SPS: 1296
+Epoch: 134, global_step=3064320
+SPS: 1298
+Epoch: 135, global_step=3087360
+SPS: 1301
+Epoch: 136, global_step=3110400
+SPS: 1303
+Epoch: 137, global_step=3133440
+SPS: 1306
+Epoch: 138, global_step=3156480
+SPS: 1309
+Epoch: 139, global_step=3179520
+SPS: 1311
+Epoch: 140, global_step=3202560
+SPS: 1314
+Epoch: 141, global_step=3225600
+SPS: 1316
+Epoch: 142, global_step=3248640
+SPS: 1318
+Epoch: 143, global_step=3271680
+SPS: 1321
+Epoch: 144, global_step=3294720
+SPS: 1323
+Epoch: 145, global_step=3317760
+SPS: 1325
+Epoch: 146, global_step=3340800
+SPS: 1327
+Epoch: 147, global_step=3363840
+SPS: 1330
+Epoch: 148, global_step=3386880
+SPS: 1332
+Epoch: 149, global_step=3409920
+SPS: 1334
+Epoch: 150, global_step=3432960
+SPS: 1336
+Epoch: 151, global_step=3456000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7031[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.8169[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1424[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_6_151.pt
+SPS: 1289
+Epoch: 152, global_step=3479040
+SPS: 1291
+Epoch: 153, global_step=3502080
+SPS: 1294
+Epoch: 154, global_step=3525120
+SPS: 1296
+Epoch: 155, global_step=3548160
+SPS: 1298
+Epoch: 156, global_step=3571200
+SPS: 1300
+Epoch: 157, global_step=3594240
+SPS: 1302
+Epoch: 158, global_step=3617280
+SPS: 1304
+Epoch: 159, global_step=3640320
+SPS: 1306
+Epoch: 160, global_step=3663360
+SPS: 1308
+Epoch: 161, global_step=3686400
+SPS: 1310
+Epoch: 162, global_step=3709440
+SPS: 1312
+Epoch: 163, global_step=3732480
+SPS: 1314
+Epoch: 164, global_step=3755520
+SPS: 1316
+Epoch: 165, global_step=3778560
+SPS: 1318
+Epoch: 166, global_step=3801600
+SPS: 1320
+Epoch: 167, global_step=3824640
+SPS: 1322
+Epoch: 168, global_step=3847680
+SPS: 1324
+Epoch: 169, global_step=3870720
+SPS: 1326
+Epoch: 170, global_step=3893760
+SPS: 1327
+Epoch: 171, global_step=3916800
+SPS: 1329
+Epoch: 172, global_step=3939840
+SPS: 1331
+Epoch: 173, global_step=3962880
+SPS: 1333
+Epoch: 174, global_step=3985920
+SPS: 1335
+Epoch: 175, global_step=4008960
+SPS: 1337
+Epoch: 176, global_step=4032000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.5391[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1393[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0104[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_7_176.pt
+SPS: 1296
+Epoch: 177, global_step=4055040
+SPS: 1298
+Epoch: 178, global_step=4078080
+SPS: 1300
+Epoch: 179, global_step=4101120
+SPS: 1302
+Epoch: 180, global_step=4124160
+SPS: 1304
+Epoch: 181, global_step=4147200
+SPS: 1306
+Epoch: 182, global_step=4170240
+SPS: 1308
+Epoch: 183, global_step=4193280
+SPS: 1310
+Epoch: 184, global_step=4216320
+SPS: 1312
+Epoch: 185, global_step=4239360
+SPS: 1314
+Epoch: 186, global_step=4262400
+SPS: 1315
+Epoch: 187, global_step=4285440
+SPS: 1317
+Epoch: 188, global_step=4308480
+SPS: 1319
+Epoch: 189, global_step=4331520
+SPS: 1320
+Epoch: 190, global_step=4354560
+SPS: 1322
+Epoch: 191, global_step=4377600
+SPS: 1324
+Epoch: 192, global_step=4400640
+SPS: 1326
+Epoch: 193, global_step=4423680
+SPS: 1327
+Epoch: 194, global_step=4446720
+SPS: 1329
+Epoch: 195, global_step=4469760
+SPS: 1330
+Epoch: 196, global_step=4492800
+SPS: 1332
+Epoch: 197, global_step=4515840
+SPS: 1334
+Epoch: 198, global_step=4538880
+SPS: 1335
+Epoch: 199, global_step=4561920
+SPS: 1337
+Epoch: 200, global_step=4584960
+SPS: 1339
+Epoch: 201, global_step=4608000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8594[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.6532[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1406[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_8_201.pt
+SPS: 1303
+Epoch: 202, global_step=4631040
+SPS: 1305
+Epoch: 203, global_step=4654080
+SPS: 1307
+Epoch: 204, global_step=4677120
+SPS: 1309
+Epoch: 205, global_step=4700160
+SPS: 1310
+Epoch: 206, global_step=4723200
+SPS: 1312
+Epoch: 207, global_step=4746240
+SPS: 1313
+Epoch: 208, global_step=4769280
+SPS: 1316
+Epoch: 209, global_step=4792320
+SPS: 1318
+Epoch: 210, global_step=4815360
+SPS: 1319
+Epoch: 211, global_step=4838400
+SPS: 1321
+Epoch: 212, global_step=4861440
+SPS: 1323
+Epoch: 213, global_step=4884480
+SPS: 1324
+Epoch: 214, global_step=4907520
+SPS: 1326
+Epoch: 215, global_step=4930560
+SPS: 1327
+Epoch: 216, global_step=4953600
+SPS: 1329
+Epoch: 217, global_step=4976640
+SPS: 1330
+Epoch: 218, global_step=4999680
+SPS: 1332
+Epoch: 219, global_step=5022720
+SPS: 1333
+Epoch: 220, global_step=5045760
+SPS: 1335
+Epoch: 221, global_step=5068800
+SPS: 1337
+Epoch: 222, global_step=5091840
+SPS: 1338
+Epoch: 223, global_step=5114880
+SPS: 1340
+Epoch: 224, global_step=5137920
+SPS: 1341
+Epoch: 225, global_step=5160960
+SPS: 1343
+Epoch: 226, global_step=5184000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8906[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.6699[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1297[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_9_226.pt
+SPS: 1311
+Epoch: 227, global_step=5207040
+SPS: 1313
+Epoch: 228, global_step=5230080
+SPS: 1314
+Epoch: 229, global_step=5253120
+SPS: 1316
+Epoch: 230, global_step=5276160
+SPS: 1317
+Epoch: 231, global_step=5299200
+SPS: 1319
+Epoch: 232, global_step=5322240
+SPS: 1320
+Epoch: 233, global_step=5345280
+SPS: 1321
+Epoch: 234, global_step=5368320
+SPS: 1323
+Epoch: 235, global_step=5391360
+SPS: 1324
+Epoch: 236, global_step=5414400
+SPS: 1326
+Epoch: 237, global_step=5437440
+SPS: 1327
+Epoch: 238, global_step=5460480
+SPS: 1328
+Epoch: 239, global_step=5483520
+SPS: 1330
+Epoch: 240, global_step=5506560
+SPS: 1331
+Epoch: 241, global_step=5529600
+SPS: 1332
+Epoch: 242, global_step=5552640
+SPS: 1334
+Epoch: 243, global_step=5575680
+SPS: 1335
+Epoch: 244, global_step=5598720
+SPS: 1336
+Epoch: 245, global_step=5621760
+SPS: 1338
+Epoch: 246, global_step=5644800
+SPS: 1340
+Epoch: 247, global_step=5667840
+SPS: 1341
+Epoch: 248, global_step=5690880
+SPS: 1342
+Epoch: 249, global_step=5713920
+SPS: 1343
+Epoch: 250, global_step=5736960
+SPS: 1345
+Epoch: 251, global_step=5760000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8958[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.5962[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1288[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0104[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_10_251.pt
+SPS: 1317
+Epoch: 252, global_step=5783040
+SPS: 1318
+Epoch: 253, global_step=5806080
+SPS: 1319
+Epoch: 254, global_step=5829120
+SPS: 1320
+Epoch: 255, global_step=5852160
+SPS: 1322
+Epoch: 256, global_step=5875200
+SPS: 1323
+Epoch: 257, global_step=5898240
+SPS: 1324
+Epoch: 258, global_step=5921280
+SPS: 1326
+Epoch: 259, global_step=5944320
+SPS: 1327
+Epoch: 260, global_step=5967360
+SPS: 1328
+Epoch: 261, global_step=5990400
+SPS: 1329
+Epoch: 262, global_step=6013440
+SPS: 1331
+Epoch: 263, global_step=6036480
+SPS: 1332
+Epoch: 264, global_step=6059520
+SPS: 1334
+Epoch: 265, global_step=6082560
+SPS: 1335
+Epoch: 266, global_step=6105600
+SPS: 1337
+Epoch: 267, global_step=6128640
+SPS: 1338
+Epoch: 268, global_step=6151680
+SPS: 1339
+Epoch: 269, global_step=6174720
+SPS: 1341
+Epoch: 270, global_step=6197760
+SPS: 1342
+Epoch: 271, global_step=6220800
+SPS: 1343
+Epoch: 272, global_step=6243840
+SPS: 1345
+Epoch: 273, global_step=6266880
+SPS: 1346
+Epoch: 274, global_step=6289920
+SPS: 1348
+Epoch: 275, global_step=6312960
+SPS: 1349
+Epoch: 276, global_step=6336000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9115[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.6364[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1293[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0156[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_11_276.pt
+SPS: 1322
+Epoch: 277, global_step=6359040
+SPS: 1323
+Epoch: 278, global_step=6382080
+SPS: 1324
+Epoch: 279, global_step=6405120
+SPS: 1326
+Epoch: 280, global_step=6428160
+SPS: 1327
+Epoch: 281, global_step=6451200
+SPS: 1328
+Epoch: 282, global_step=6474240
+SPS: 1330
+Epoch: 283, global_step=6497280
+SPS: 1332
+Epoch: 284, global_step=6520320
+SPS: 1333
+Epoch: 285, global_step=6543360
+SPS: 1335
+Epoch: 286, global_step=6566400
+SPS: 1336
+Epoch: 287, global_step=6589440
+SPS: 1337
+Epoch: 288, global_step=6612480
+SPS: 1339
+Epoch: 289, global_step=6635520
+SPS: 1340
+Epoch: 290, global_step=6658560
+SPS: 1342
+Epoch: 291, global_step=6681600
+SPS: 1343
+Epoch: 292, global_step=6704640
+SPS: 1344
+Epoch: 293, global_step=6727680
+SPS: 1345
+Epoch: 294, global_step=6750720
+SPS: 1346
+Epoch: 295, global_step=6773760
+SPS: 1347
+Epoch: 296, global_step=6796800
+SPS: 1348
+Epoch: 297, global_step=6819840
+SPS: 1349
+Epoch: 298, global_step=6842880
+SPS: 1350
+Epoch: 299, global_step=6865920
+SPS: 1351
+Epoch: 300, global_step=6888960
+SPS: 1352
+Epoch: 301, global_step=6912000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9219[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.9643[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1329[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_12_301.pt
+SPS: 1329
+Epoch: 302, global_step=6935040
+SPS: 1330
+Epoch: 303, global_step=6958080
+SPS: 1331
+Epoch: 304, global_step=6981120
+SPS: 1332
+Epoch: 305, global_step=7004160
+SPS: 1333
+Epoch: 306, global_step=7027200
+SPS: 1334
+Epoch: 307, global_step=7050240
+SPS: 1336
+Epoch: 308, global_step=7073280
+SPS: 1337
+Epoch: 309, global_step=7096320
+SPS: 1338
+Epoch: 310, global_step=7119360
+SPS: 1339
+Epoch: 311, global_step=7142400
+SPS: 1340
+Epoch: 312, global_step=7165440
+SPS: 1342
+Epoch: 313, global_step=7188480
+SPS: 1343
+Epoch: 314, global_step=7211520
+SPS: 1344
+Epoch: 315, global_step=7234560
+SPS: 1345
+Epoch: 316, global_step=7257600
+SPS: 1346
+Epoch: 317, global_step=7280640
+SPS: 1348
+Epoch: 318, global_step=7303680
+SPS: 1349
+Epoch: 319, global_step=7326720
+SPS: 1351
+Epoch: 320, global_step=7349760
+SPS: 1352
+Epoch: 321, global_step=7372800
+SPS: 1353
+Epoch: 322, global_step=7395840
+SPS: 1354
+Epoch: 323, global_step=7418880
+SPS: 1355
+Epoch: 324, global_step=7441920
+SPS: 1357
+Epoch: 325, global_step=7464960
+SPS: 1358
+Epoch: 326, global_step=7488000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9635[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.3003[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1256[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0052[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_13_326.pt
+SPS: 1336
+Epoch: 327, global_step=7511040
+SPS: 1338
+Epoch: 328, global_step=7534080
+SPS: 1339
+Epoch: 329, global_step=7557120
+SPS: 1340
+Epoch: 330, global_step=7580160
+SPS: 1341
+Epoch: 331, global_step=7603200
+SPS: 1342
+Epoch: 332, global_step=7626240
+SPS: 1343
+Epoch: 333, global_step=7649280
+SPS: 1344
+Epoch: 334, global_step=7672320
+SPS: 1345
+Epoch: 335, global_step=7695360
+SPS: 1346
+Epoch: 336, global_step=7718400
+SPS: 1347
+Epoch: 337, global_step=7741440
+SPS: 1348
+Epoch: 338, global_step=7764480
+SPS: 1349
+Epoch: 339, global_step=7787520
+SPS: 1350
+Epoch: 340, global_step=7810560
+SPS: 1351
+Epoch: 341, global_step=7833600
+SPS: 1352
+Epoch: 342, global_step=7856640
+SPS: 1353
+Epoch: 343, global_step=7879680
+SPS: 1354
+Epoch: 344, global_step=7902720
+SPS: 1356
+Epoch: 345, global_step=7925760
+SPS: 1357
+Epoch: 346, global_step=7948800
+SPS: 1358
+Epoch: 347, global_step=7971840
+SPS: 1359
+Epoch: 348, global_step=7994880
+SPS: 1360
+Epoch: 349, global_step=8017920
+SPS: 1361
+Epoch: 350, global_step=8040960
+SPS: 1362
+Epoch: 351, global_step=8064000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9740[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.3664[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1263[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_14_351.pt
+SPS: 1341
+Epoch: 352, global_step=8087040
+SPS: 1343
+Epoch: 353, global_step=8110080
+SPS: 1344
+Epoch: 354, global_step=8133120
+SPS: 1345
+Epoch: 355, global_step=8156160
+SPS: 1346
+Epoch: 356, global_step=8179200
+SPS: 1347
+Epoch: 357, global_step=8202240
+SPS: 1348
+Epoch: 358, global_step=8225280
+SPS: 1349
+Epoch: 359, global_step=8248320
+SPS: 1350
+Epoch: 360, global_step=8271360
+SPS: 1351
+Epoch: 361, global_step=8294400
+SPS: 1352
+Epoch: 362, global_step=8317440
+SPS: 1354
+Epoch: 363, global_step=8340480
+SPS: 1355
+Epoch: 364, global_step=8363520
+SPS: 1356
+Epoch: 365, global_step=8386560
+SPS: 1357
+Epoch: 366, global_step=8409600
+SPS: 1358
+Epoch: 367, global_step=8432640
+SPS: 1359
+Epoch: 368, global_step=8455680
+SPS: 1361
+Epoch: 369, global_step=8478720
+SPS: 1362
+Epoch: 370, global_step=8501760
+SPS: 1363
+Epoch: 371, global_step=8524800
+SPS: 1364
+Epoch: 372, global_step=8547840
+SPS: 1365
+Epoch: 373, global_step=8570880
+SPS: 1366
+Epoch: 374, global_step=8593920
+SPS: 1367
+Epoch: 375, global_step=8616960
+SPS: 1368
+Epoch: 376, global_step=8640000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9271[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.6691[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1297[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_15_376.pt
+SPS: 1349
+Epoch: 377, global_step=8663040
+SPS: 1350
+Epoch: 378, global_step=8686080
+SPS: 1351
+Epoch: 379, global_step=8709120
+SPS: 1352
+Epoch: 380, global_step=8732160
+SPS: 1353
+Epoch: 381, global_step=8755200
+SPS: 1354
+Epoch: 382, global_step=8778240
+SPS: 1354
+Epoch: 383, global_step=8801280
+SPS: 1355
+Epoch: 384, global_step=8824320
+SPS: 1356
+Epoch: 385, global_step=8847360
+SPS: 1358
+Epoch: 386, global_step=8870400
+SPS: 1359
+Epoch: 387, global_step=8893440
+SPS: 1359
+Epoch: 388, global_step=8916480
+SPS: 1361
+Epoch: 389, global_step=8939520
+SPS: 1362
+Epoch: 390, global_step=8962560
+SPS: 1363
+Epoch: 391, global_step=8985600
+SPS: 1364
+Epoch: 392, global_step=9008640
+SPS: 1365
+Epoch: 393, global_step=9031680
+SPS: 1366
+Epoch: 394, global_step=9054720
+SPS: 1367
+Epoch: 395, global_step=9077760
+SPS: 1368
+Epoch: 396, global_step=9100800
+SPS: 1369
+Epoch: 397, global_step=9123840
+SPS: 1370
+Epoch: 398, global_step=9146880
+SPS: 1371
+Epoch: 399, global_step=9169920
+SPS: 1372
+Epoch: 400, global_step=9192960
+SPS: 1373
+Epoch: 401, global_step=9216000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9479[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.0566[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1229[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_16_401.pt
+SPS: 1355
+Epoch: 402, global_step=9239040
+SPS: 1356
+Epoch: 403, global_step=9262080
+SPS: 1357
+Epoch: 404, global_step=9285120
+SPS: 1358
+Epoch: 405, global_step=9308160
+SPS: 1359
+Epoch: 406, global_step=9331200
+SPS: 1360
+Epoch: 407, global_step=9354240
+SPS: 1361
+Epoch: 408, global_step=9377280
+SPS: 1362
+Epoch: 409, global_step=9400320
+SPS: 1363
+Epoch: 410, global_step=9423360
+SPS: 1364
+Epoch: 411, global_step=9446400
+SPS: 1365
+Epoch: 412, global_step=9469440
+SPS: 1367
+Epoch: 413, global_step=9492480
+SPS: 1367
+Epoch: 414, global_step=9515520
+SPS: 1368
+Epoch: 415, global_step=9538560
+SPS: 1370
+Epoch: 416, global_step=9561600
+SPS: 1371
+Epoch: 417, global_step=9584640
+SPS: 1372
+Epoch: 418, global_step=9607680
+SPS: 1373
+Epoch: 419, global_step=9630720
+SPS: 1374
+Epoch: 420, global_step=9653760
+SPS: 1375
+Epoch: 421, global_step=9676800
+SPS: 1376
+Epoch: 422, global_step=9699840
+SPS: 1376
+Epoch: 423, global_step=9722880
+SPS: 1377
+Epoch: 424, global_step=9745920
+SPS: 1378
+Epoch: 425, global_step=9768960
+SPS: 1379
+Epoch: 426, global_step=9792000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.9167[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.7172[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1302[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0156[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/ckpt_17_426.pt
+SPS: 1361
+Epoch: 427, global_step=9815040
+SPS: 1362
+Epoch: 428, global_step=9838080
+SPS: 1363
+Epoch: 429, global_step=9861120
+SPS: 1364
+Epoch: 430, global_step=9884160
+SPS: 1365
+Epoch: 431, global_step=9907200
+SPS: 1366
+Epoch: 432, global_step=9930240
+SPS: 1367
+Epoch: 433, global_step=9953280
+SPS: 1368
+Epoch: 434, global_step=9976320
+SPS: 1369
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-42__42__rgb_joints_belief__20260126_141725/20260126_141725/final_ckpt.pt
+Running Intercept-Slow (BELIEF), seed 99
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: InterceptSlow-v0                                        ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=434 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=720 args.batch_size=23040 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0729[0m
+[32mEvaluation Metric: return[0m | [36mMean: 2.0097[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0223[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_0_1.pt
+SPS: 228
+Epoch: 2, global_step=23040
+SPS: 408
+Epoch: 3, global_step=46080
+SPS: 549
+Epoch: 4, global_step=69120
+SPS: 665
+Epoch: 5, global_step=92160
+SPS: 761
+Epoch: 6, global_step=115200
+SPS: 839
+Epoch: 7, global_step=138240
+SPS: 907
+Epoch: 8, global_step=161280
+SPS: 964
+Epoch: 9, global_step=184320
+SPS: 1013
+Epoch: 10, global_step=207360
+SPS: 1057
+Epoch: 11, global_step=230400
+SPS: 1093
+Epoch: 12, global_step=253440
+SPS: 1127
+Epoch: 13, global_step=276480
+SPS: 1157
+Epoch: 14, global_step=299520
+SPS: 1184
+Epoch: 15, global_step=322560
+SPS: 1209
+Epoch: 16, global_step=345600
+SPS: 1232
+Epoch: 17, global_step=368640
+SPS: 1254
+Epoch: 18, global_step=391680
+SPS: 1273
+Epoch: 19, global_step=414720
+SPS: 1292
+Epoch: 20, global_step=437760
+SPS: 1309
+Epoch: 21, global_step=460800
+SPS: 1323
+Epoch: 22, global_step=483840
+SPS: 1339
+Epoch: 23, global_step=506880
+SPS: 1353
+Epoch: 24, global_step=529920
+SPS: 1364
+Epoch: 25, global_step=552960
+SPS: 1375
+Epoch: 26, global_step=576000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.1354[0m
+[32mEvaluation Metric: return[0m | [36mMean: 5.3390[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0593[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0521[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_1_26.pt
+SPS: 1123
+Epoch: 27, global_step=599040
+SPS: 1139
+Epoch: 28, global_step=622080
+SPS: 1152
+Epoch: 29, global_step=645120
+SPS: 1165
+Epoch: 30, global_step=668160
+SPS: 1178
+Epoch: 31, global_step=691200
+SPS: 1189
+Epoch: 32, global_step=714240
+SPS: 1201
+Epoch: 33, global_step=737280
+SPS: 1212
+Epoch: 34, global_step=760320
+SPS: 1223
+Epoch: 35, global_step=783360
+SPS: 1233
+Epoch: 36, global_step=806400
+SPS: 1242
+Epoch: 37, global_step=829440
+SPS: 1252
+Epoch: 38, global_step=852480
+SPS: 1260
+Epoch: 39, global_step=875520
+SPS: 1269
+Epoch: 40, global_step=898560
+SPS: 1278
+Epoch: 41, global_step=921600
+SPS: 1286
+Epoch: 42, global_step=944640
+SPS: 1294
+Epoch: 43, global_step=967680
+SPS: 1301
+Epoch: 44, global_step=990720
+SPS: 1308
+Epoch: 45, global_step=1013760
+SPS: 1316
+Epoch: 46, global_step=1036800
+SPS: 1323
+Epoch: 47, global_step=1059840
+SPS: 1330
+Epoch: 48, global_step=1082880
+SPS: 1336
+Epoch: 49, global_step=1105920
+SPS: 1342
+Epoch: 50, global_step=1128960
+SPS: 1349
+Epoch: 51, global_step=1152000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4271[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.2934[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1255[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1250[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_2_51.pt
+SPS: 1217
+Epoch: 52, global_step=1175040
+SPS: 1225
+Epoch: 53, global_step=1198080
+SPS: 1232
+Epoch: 54, global_step=1221120
+SPS: 1239
+Epoch: 55, global_step=1244160
+SPS: 1246
+Epoch: 56, global_step=1267200
+SPS: 1252
+Epoch: 57, global_step=1290240
+SPS: 1257
+Epoch: 58, global_step=1313280
+SPS: 1264
+Epoch: 59, global_step=1336320
+SPS: 1270
+Epoch: 60, global_step=1359360
+SPS: 1275
+Epoch: 61, global_step=1382400
+SPS: 1280
+Epoch: 62, global_step=1405440
+SPS: 1285
+Epoch: 63, global_step=1428480
+SPS: 1291
+Epoch: 64, global_step=1451520
+SPS: 1296
+Epoch: 65, global_step=1474560
+SPS: 1300
+Epoch: 66, global_step=1497600
+SPS: 1306
+Epoch: 67, global_step=1520640
+SPS: 1310
+Epoch: 68, global_step=1543680
+SPS: 1315
+Epoch: 69, global_step=1566720
+SPS: 1319
+Epoch: 70, global_step=1589760
+SPS: 1324
+Epoch: 71, global_step=1612800
+SPS: 1328
+Epoch: 72, global_step=1635840
+SPS: 1332
+Epoch: 73, global_step=1658880
+SPS: 1336
+Epoch: 74, global_step=1681920
+SPS: 1340
+Epoch: 75, global_step=1704960
+SPS: 1344
+Epoch: 76, global_step=1728000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3906[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.4273[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1047[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1094[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_3_76.pt
+SPS: 1253
+Epoch: 77, global_step=1751040
+SPS: 1258
+Epoch: 78, global_step=1774080
+SPS: 1262
+Epoch: 79, global_step=1797120
+SPS: 1267
+Epoch: 80, global_step=1820160
+SPS: 1271
+Epoch: 81, global_step=1843200
+SPS: 1275
+Epoch: 82, global_step=1866240
+SPS: 1279
+Epoch: 83, global_step=1889280
+SPS: 1283
+Epoch: 84, global_step=1912320
+SPS: 1287
+Epoch: 85, global_step=1935360
+SPS: 1290
+Epoch: 86, global_step=1958400
+SPS: 1294
+Epoch: 87, global_step=1981440
+SPS: 1298
+Epoch: 88, global_step=2004480
+SPS: 1302
+Epoch: 89, global_step=2027520
+SPS: 1305
+Epoch: 90, global_step=2050560
+SPS: 1309
+Epoch: 91, global_step=2073600
+SPS: 1312
+Epoch: 92, global_step=2096640
+SPS: 1316
+Epoch: 93, global_step=2119680
+SPS: 1319
+Epoch: 94, global_step=2142720
+SPS: 1323
+Epoch: 95, global_step=2165760
+SPS: 1326
+Epoch: 96, global_step=2188800
+SPS: 1329
+Epoch: 97, global_step=2211840
+SPS: 1332
+Epoch: 98, global_step=2234880
+SPS: 1335
+Epoch: 99, global_step=2257920
+SPS: 1338
+Epoch: 100, global_step=2280960
+SPS: 1341
+Epoch: 101, global_step=2304000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5729[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.0469[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1450[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0625[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_4_101.pt
+SPS: 1272
+Epoch: 102, global_step=2327040
+SPS: 1276
+Epoch: 103, global_step=2350080
+SPS: 1279
+Epoch: 104, global_step=2373120
+SPS: 1282
+Epoch: 105, global_step=2396160
+SPS: 1286
+Epoch: 106, global_step=2419200
+SPS: 1289
+Epoch: 107, global_step=2442240
+SPS: 1292
+Epoch: 108, global_step=2465280
+SPS: 1295
+Epoch: 109, global_step=2488320
+SPS: 1298
+Epoch: 110, global_step=2511360
+SPS: 1301
+Epoch: 111, global_step=2534400
+SPS: 1304
+Epoch: 112, global_step=2557440
+SPS: 1306
+Epoch: 113, global_step=2580480
+SPS: 1309
+Epoch: 114, global_step=2603520
+SPS: 1312
+Epoch: 115, global_step=2626560
+SPS: 1314
+Epoch: 116, global_step=2649600
+SPS: 1317
+Epoch: 117, global_step=2672640
+SPS: 1320
+Epoch: 118, global_step=2695680
+SPS: 1322
+Epoch: 119, global_step=2718720
+SPS: 1325
+Epoch: 120, global_step=2741760
+SPS: 1328
+Epoch: 121, global_step=2764800
+SPS: 1330
+Epoch: 122, global_step=2787840
+SPS: 1333
+Epoch: 123, global_step=2810880
+SPS: 1335
+Epoch: 124, global_step=2833920
+SPS: 1338
+Epoch: 125, global_step=2856960
+SPS: 1340
+Epoch: 126, global_step=2880000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4844[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.4799[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1387[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0885[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_5_126.pt
+SPS: 1284
+Epoch: 127, global_step=2903040
+SPS: 1287
+Epoch: 128, global_step=2926080
+SPS: 1289
+Epoch: 129, global_step=2949120
+SPS: 1292
+Epoch: 130, global_step=2972160
+SPS: 1294
+Epoch: 131, global_step=2995200
+SPS: 1297
+Epoch: 132, global_step=3018240
+SPS: 1299
+Epoch: 133, global_step=3041280
+SPS: 1302
+Epoch: 134, global_step=3064320
+SPS: 1304
+Epoch: 135, global_step=3087360
+SPS: 1307
+Epoch: 136, global_step=3110400
+SPS: 1309
+Epoch: 137, global_step=3133440
+SPS: 1311
+Epoch: 138, global_step=3156480
+SPS: 1314
+Epoch: 139, global_step=3179520
+SPS: 1316
+Epoch: 140, global_step=3202560
+SPS: 1318
+Epoch: 141, global_step=3225600
+SPS: 1320
+Epoch: 142, global_step=3248640
+SPS: 1322
+Epoch: 143, global_step=3271680
+SPS: 1325
+Epoch: 144, global_step=3294720
+SPS: 1327
+Epoch: 145, global_step=3317760
+SPS: 1329
+Epoch: 146, global_step=3340800
+SPS: 1331
+Epoch: 147, global_step=3363840
+SPS: 1333
+Epoch: 148, global_step=3386880
+SPS: 1335
+Epoch: 149, global_step=3409920
+SPS: 1338
+Epoch: 150, global_step=3432960
+SPS: 1340
+Epoch: 151, global_step=3456000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6354[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.7042[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1523[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0521[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_6_151.pt
+SPS: 1291
+Epoch: 152, global_step=3479040
+SPS: 1293
+Epoch: 153, global_step=3502080
+SPS: 1296
+Epoch: 154, global_step=3525120
+SPS: 1298
+Epoch: 155, global_step=3548160
+SPS: 1300
+Epoch: 156, global_step=3571200
+SPS: 1302
+Epoch: 157, global_step=3594240
+SPS: 1304
+Epoch: 158, global_step=3617280
+SPS: 1306
+Epoch: 159, global_step=3640320
+SPS: 1308
+Epoch: 160, global_step=3663360
+SPS: 1310
+Epoch: 161, global_step=3686400
+SPS: 1312
+Epoch: 162, global_step=3709440
+SPS: 1314
+Epoch: 163, global_step=3732480
+SPS: 1316
+Epoch: 164, global_step=3755520
+SPS: 1318
+Epoch: 165, global_step=3778560
+SPS: 1320
+Epoch: 166, global_step=3801600
+SPS: 1322
+Epoch: 167, global_step=3824640
+SPS: 1323
+Epoch: 168, global_step=3847680
+SPS: 1325
+Epoch: 169, global_step=3870720
+SPS: 1327
+Epoch: 170, global_step=3893760
+SPS: 1329
+Epoch: 171, global_step=3916800
+SPS: 1330
+Epoch: 172, global_step=3939840
+SPS: 1332
+Epoch: 173, global_step=3962880
+SPS: 1334
+Epoch: 174, global_step=3985920
+SPS: 1336
+Epoch: 175, global_step=4008960
+SPS: 1338
+Epoch: 176, global_step=4032000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6615[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.9790[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1553[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0365[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_7_176.pt
+SPS: 1297
+Epoch: 177, global_step=4055040
+SPS: 1299
+Epoch: 178, global_step=4078080
+SPS: 1301
+Epoch: 179, global_step=4101120
+SPS: 1303
+Epoch: 180, global_step=4124160
+SPS: 1305
+Epoch: 181, global_step=4147200
+SPS: 1307
+Epoch: 182, global_step=4170240
+SPS: 1309
+Epoch: 183, global_step=4193280
+SPS: 1310
+Epoch: 184, global_step=4216320
+SPS: 1312
+Epoch: 185, global_step=4239360
+SPS: 1314
+Epoch: 186, global_step=4262400
+SPS: 1316
+Epoch: 187, global_step=4285440
+SPS: 1317
+Epoch: 188, global_step=4308480
+SPS: 1319
+Epoch: 189, global_step=4331520
+SPS: 1321
+Epoch: 190, global_step=4354560
+SPS: 1322
+Epoch: 191, global_step=4377600
+SPS: 1324
+Epoch: 192, global_step=4400640
+SPS: 1325
+Epoch: 193, global_step=4423680
+SPS: 1327
+Epoch: 194, global_step=4446720
+SPS: 1329
+Epoch: 195, global_step=4469760
+SPS: 1330
+Epoch: 196, global_step=4492800
+SPS: 1332
+Epoch: 197, global_step=4515840
+SPS: 1334
+Epoch: 198, global_step=4538880
+SPS: 1335
+Epoch: 199, global_step=4561920
+SPS: 1337
+Epoch: 200, global_step=4584960
+SPS: 1338
+Epoch: 201, global_step=4608000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6146[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.2901[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1477[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0365[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_8_201.pt
+SPS: 1302
+Epoch: 202, global_step=4631040
+SPS: 1304
+Epoch: 203, global_step=4654080
+SPS: 1306
+Epoch: 204, global_step=4677120
+SPS: 1307
+Epoch: 205, global_step=4700160
+SPS: 1309
+Epoch: 206, global_step=4723200
+SPS: 1310
+Epoch: 207, global_step=4746240
+SPS: 1312
+Epoch: 208, global_step=4769280
+SPS: 1314
+Epoch: 209, global_step=4792320
+SPS: 1315
+Epoch: 210, global_step=4815360
+SPS: 1317
+Epoch: 211, global_step=4838400
+SPS: 1318
+Epoch: 212, global_step=4861440
+SPS: 1320
+Epoch: 213, global_step=4884480
+SPS: 1322
+Epoch: 214, global_step=4907520
+SPS: 1323
+Epoch: 215, global_step=4930560
+SPS: 1325
+Epoch: 216, global_step=4953600
+SPS: 1326
+Epoch: 217, global_step=4976640
+SPS: 1327
+Epoch: 218, global_step=4999680
+SPS: 1329
+Epoch: 219, global_step=5022720
+SPS: 1330
+Epoch: 220, global_step=5045760
+SPS: 1332
+Epoch: 221, global_step=5068800
+SPS: 1333
+Epoch: 222, global_step=5091840
+SPS: 1335
+Epoch: 223, global_step=5114880
+SPS: 1336
+Epoch: 224, global_step=5137920
+SPS: 1337
+Epoch: 225, global_step=5160960
+SPS: 1339
+Epoch: 226, global_step=5184000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7031[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.3953[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1488[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0625[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_9_226.pt
+SPS: 1307
+Epoch: 227, global_step=5207040
+SPS: 1309
+Epoch: 228, global_step=5230080
+SPS: 1310
+Epoch: 229, global_step=5253120
+SPS: 1312
+Epoch: 230, global_step=5276160
+SPS: 1313
+Epoch: 231, global_step=5299200
+SPS: 1314
+Epoch: 232, global_step=5322240
+SPS: 1316
+Epoch: 233, global_step=5345280
+SPS: 1318
+Epoch: 234, global_step=5368320
+SPS: 1319
+Epoch: 235, global_step=5391360
+SPS: 1320
+Epoch: 236, global_step=5414400
+SPS: 1321
+Epoch: 237, global_step=5437440
+SPS: 1323
+Epoch: 238, global_step=5460480
+SPS: 1324
+Epoch: 239, global_step=5483520
+SPS: 1325
+Epoch: 240, global_step=5506560
+SPS: 1327
+Epoch: 241, global_step=5529600
+SPS: 1328
+Epoch: 242, global_step=5552640
+SPS: 1329
+Epoch: 243, global_step=5575680
+SPS: 1331
+Epoch: 244, global_step=5598720
+SPS: 1332
+Epoch: 245, global_step=5621760
+SPS: 1333
+Epoch: 246, global_step=5644800
+SPS: 1334
+Epoch: 247, global_step=5667840
+SPS: 1336
+Epoch: 248, global_step=5690880
+SPS: 1337
+Epoch: 249, global_step=5713920
+SPS: 1338
+Epoch: 250, global_step=5736960
+SPS: 1339
+Epoch: 251, global_step=5760000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7344[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.7830[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1531[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0521[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_10_251.pt
+SPS: 1310
+Epoch: 252, global_step=5783040
+SPS: 1312
+Epoch: 253, global_step=5806080
+SPS: 1313
+Epoch: 254, global_step=5829120
+SPS: 1314
+Epoch: 255, global_step=5852160
+SPS: 1315
+Epoch: 256, global_step=5875200
+SPS: 1317
+Epoch: 257, global_step=5898240
+SPS: 1318
+Epoch: 258, global_step=5921280
+SPS: 1319
+Epoch: 259, global_step=5944320
+SPS: 1320
+Epoch: 260, global_step=5967360
+SPS: 1321
+Epoch: 261, global_step=5990400
+SPS: 1323
+Epoch: 262, global_step=6013440
+SPS: 1324
+Epoch: 263, global_step=6036480
+SPS: 1325
+Epoch: 264, global_step=6059520
+SPS: 1326
+Epoch: 265, global_step=6082560
+SPS: 1327
+Epoch: 266, global_step=6105600
+SPS: 1328
+Epoch: 267, global_step=6128640
+SPS: 1329
+Epoch: 268, global_step=6151680
+SPS: 1330
+Epoch: 269, global_step=6174720
+SPS: 1332
+Epoch: 270, global_step=6197760
+SPS: 1333
+Epoch: 271, global_step=6220800
+SPS: 1334
+Epoch: 272, global_step=6243840
+SPS: 1335
+Epoch: 273, global_step=6266880
+SPS: 1336
+Epoch: 274, global_step=6289920
+SPS: 1337
+Epoch: 275, global_step=6312960
+SPS: 1338
+Epoch: 276, global_step=6336000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7448[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.0883[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1454[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0260[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_11_276.pt
+SPS: 1312
+Epoch: 277, global_step=6359040
+SPS: 1313
+Epoch: 278, global_step=6382080
+SPS: 1314
+Epoch: 279, global_step=6405120
+SPS: 1315
+Epoch: 280, global_step=6428160
+SPS: 1316
+Epoch: 281, global_step=6451200
+SPS: 1317
+Epoch: 282, global_step=6474240
+SPS: 1319
+Epoch: 283, global_step=6497280
+SPS: 1320
+Epoch: 284, global_step=6520320
+SPS: 1321
+Epoch: 285, global_step=6543360
+SPS: 1322
+Epoch: 286, global_step=6566400
+SPS: 1323
+Epoch: 287, global_step=6589440
+SPS: 1324
+Epoch: 288, global_step=6612480
+SPS: 1326
+Epoch: 289, global_step=6635520
+SPS: 1327
+Epoch: 290, global_step=6658560
+SPS: 1328
+Epoch: 291, global_step=6681600
+SPS: 1329
+Epoch: 292, global_step=6704640
+SPS: 1330
+Epoch: 293, global_step=6727680
+SPS: 1332
+Epoch: 294, global_step=6750720
+SPS: 1333
+Epoch: 295, global_step=6773760
+SPS: 1334
+Epoch: 296, global_step=6796800
+SPS: 1335
+Epoch: 297, global_step=6819840
+SPS: 1336
+Epoch: 298, global_step=6842880
+SPS: 1337
+Epoch: 299, global_step=6865920
+SPS: 1338
+Epoch: 300, global_step=6888960
+SPS: 1339
+Epoch: 301, global_step=6912000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7760[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.9618[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1440[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_12_301.pt
+SPS: 1315
+Epoch: 302, global_step=6935040
+SPS: 1316
+Epoch: 303, global_step=6958080
+SPS: 1317
+Epoch: 304, global_step=6981120
+SPS: 1319
+Epoch: 305, global_step=7004160
+SPS: 1320
+Epoch: 306, global_step=7027200
+SPS: 1321
+Epoch: 307, global_step=7050240
+SPS: 1322
+Epoch: 308, global_step=7073280
+SPS: 1323
+Epoch: 309, global_step=7096320
+SPS: 1324
+Epoch: 310, global_step=7119360
+SPS: 1325
+Epoch: 311, global_step=7142400
+SPS: 1326
+Epoch: 312, global_step=7165440
+SPS: 1328
+Epoch: 313, global_step=7188480
+SPS: 1329
+Epoch: 314, global_step=7211520
+SPS: 1330
+Epoch: 315, global_step=7234560
+SPS: 1331
+Epoch: 316, global_step=7257600
+SPS: 1331
+Epoch: 317, global_step=7280640
+SPS: 1332
+Epoch: 318, global_step=7303680
+SPS: 1333
+Epoch: 319, global_step=7326720
+SPS: 1334
+Epoch: 320, global_step=7349760
+SPS: 1335
+Epoch: 321, global_step=7372800
+SPS: 1337
+Epoch: 322, global_step=7395840
+SPS: 1338
+Epoch: 323, global_step=7418880
+SPS: 1339
+Epoch: 324, global_step=7441920
+SPS: 1340
+Epoch: 325, global_step=7464960
+SPS: 1341
+Epoch: 326, global_step=7488000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7552[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.6110[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1401[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_13_326.pt
+SPS: 1319
+Epoch: 327, global_step=7511040
+SPS: 1320
+Epoch: 328, global_step=7534080
+SPS: 1321
+Epoch: 329, global_step=7557120
+SPS: 1322
+Epoch: 330, global_step=7580160
+SPS: 1323
+Epoch: 331, global_step=7603200
+SPS: 1324
+Epoch: 332, global_step=7626240
+SPS: 1325
+Epoch: 333, global_step=7649280
+SPS: 1326
+Epoch: 334, global_step=7672320
+SPS: 1327
+Epoch: 335, global_step=7695360
+SPS: 1328
+Epoch: 336, global_step=7718400
+SPS: 1329
+Epoch: 337, global_step=7741440
+SPS: 1330
+Epoch: 338, global_step=7764480
+SPS: 1331
+Epoch: 339, global_step=7787520
+SPS: 1332
+Epoch: 340, global_step=7810560
+SPS: 1333
+Epoch: 341, global_step=7833600
+SPS: 1334
+Epoch: 342, global_step=7856640
+SPS: 1335
+Epoch: 343, global_step=7879680
+SPS: 1336
+Epoch: 344, global_step=7902720
+SPS: 1337
+Epoch: 345, global_step=7925760
+SPS: 1338
+Epoch: 346, global_step=7948800
+SPS: 1339
+Epoch: 347, global_step=7971840
+SPS: 1340
+Epoch: 348, global_step=7994880
+SPS: 1341
+Epoch: 349, global_step=8017920
+SPS: 1342
+Epoch: 350, global_step=8040960
+SPS: 1343
+Epoch: 351, global_step=8064000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7708[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.0787[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1453[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0052[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_14_351.pt
+SPS: 1323
+Epoch: 352, global_step=8087040
+SPS: 1324
+Epoch: 353, global_step=8110080
+SPS: 1325
+Epoch: 354, global_step=8133120
+SPS: 1326
+Epoch: 355, global_step=8156160
+SPS: 1327
+Epoch: 356, global_step=8179200
+SPS: 1328
+Epoch: 357, global_step=8202240
+SPS: 1329
+Epoch: 358, global_step=8225280
+SPS: 1331
+Epoch: 359, global_step=8248320
+SPS: 1332
+Epoch: 360, global_step=8271360
+SPS: 1333
+Epoch: 361, global_step=8294400
+SPS: 1334
+Epoch: 362, global_step=8317440
+SPS: 1335
+Epoch: 363, global_step=8340480
+SPS: 1336
+Epoch: 364, global_step=8363520
+SPS: 1337
+Epoch: 365, global_step=8386560
+SPS: 1339
+Epoch: 366, global_step=8409600
+SPS: 1339
+Epoch: 367, global_step=8432640
+SPS: 1340
+Epoch: 368, global_step=8455680
+SPS: 1341
+Epoch: 369, global_step=8478720
+SPS: 1342
+Epoch: 370, global_step=8501760
+SPS: 1343
+Epoch: 371, global_step=8524800
+SPS: 1344
+Epoch: 372, global_step=8547840
+SPS: 1345
+Epoch: 373, global_step=8570880
+SPS: 1346
+Epoch: 374, global_step=8593920
+SPS: 1347
+Epoch: 375, global_step=8616960
+SPS: 1348
+Epoch: 376, global_step=8640000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7708[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.5191[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1502[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0260[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_15_376.pt
+SPS: 1329
+Epoch: 377, global_step=8663040
+SPS: 1330
+Epoch: 378, global_step=8686080
+SPS: 1331
+Epoch: 379, global_step=8709120
+SPS: 1332
+Epoch: 380, global_step=8732160
+SPS: 1333
+Epoch: 381, global_step=8755200
+SPS: 1334
+Epoch: 382, global_step=8778240
+SPS: 1335
+Epoch: 383, global_step=8801280
+SPS: 1336
+Epoch: 384, global_step=8824320
+SPS: 1338
+Epoch: 385, global_step=8847360
+SPS: 1339
+Epoch: 386, global_step=8870400
+SPS: 1340
+Epoch: 387, global_step=8893440
+SPS: 1341
+Epoch: 388, global_step=8916480
+SPS: 1342
+Epoch: 389, global_step=8939520
+SPS: 1343
+Epoch: 390, global_step=8962560
+SPS: 1344
+Epoch: 391, global_step=8985600
+SPS: 1345
+Epoch: 392, global_step=9008640
+SPS: 1346
+Epoch: 393, global_step=9031680
+SPS: 1348
+Epoch: 394, global_step=9054720
+SPS: 1349
+Epoch: 395, global_step=9077760
+SPS: 1350
+Epoch: 396, global_step=9100800
+SPS: 1351
+Epoch: 397, global_step=9123840
+SPS: 1352
+Epoch: 398, global_step=9146880
+SPS: 1353
+Epoch: 399, global_step=9169920
+SPS: 1354
+Epoch: 400, global_step=9192960
+SPS: 1355
+Epoch: 401, global_step=9216000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8281[0m
+[32mEvaluation Metric: return[0m | [36mMean: 13.1057[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1456[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0365[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_16_401.pt
+SPS: 1335
+Epoch: 402, global_step=9239040
+SPS: 1336
+Epoch: 403, global_step=9262080
+SPS: 1337
+Epoch: 404, global_step=9285120
+SPS: 1338
+Epoch: 405, global_step=9308160
+SPS: 1339
+Epoch: 406, global_step=9331200
+SPS: 1340
+Epoch: 407, global_step=9354240
+SPS: 1341
+Epoch: 408, global_step=9377280
+SPS: 1342
+Epoch: 409, global_step=9400320
+SPS: 1343
+Epoch: 410, global_step=9423360
+SPS: 1344
+Epoch: 411, global_step=9446400
+SPS: 1345
+Epoch: 412, global_step=9469440
+SPS: 1346
+Epoch: 413, global_step=9492480
+SPS: 1347
+Epoch: 414, global_step=9515520
+SPS: 1348
+Epoch: 415, global_step=9538560
+SPS: 1349
+Epoch: 416, global_step=9561600
+SPS: 1350
+Epoch: 417, global_step=9584640
+SPS: 1351
+Epoch: 418, global_step=9607680
+SPS: 1352
+Epoch: 419, global_step=9630720
+SPS: 1353
+Epoch: 420, global_step=9653760
+SPS: 1354
+Epoch: 421, global_step=9676800
+SPS: 1355
+Epoch: 422, global_step=9699840
+SPS: 1356
+Epoch: 423, global_step=9722880
+SPS: 1358
+Epoch: 424, global_step=9745920
+SPS: 1359
+Epoch: 425, global_step=9768960
+SPS: 1360
+Epoch: 426, global_step=9792000
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8750[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.8392[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1427[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0365[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/ckpt_17_426.pt
+SPS: 1342
+Epoch: 427, global_step=9815040
+SPS: 1343
+Epoch: 428, global_step=9838080
+SPS: 1344
+Epoch: 429, global_step=9861120
+SPS: 1345
+Epoch: 430, global_step=9884160
+SPS: 1346
+Epoch: 431, global_step=9907200
+SPS: 1347
+Epoch: 432, global_step=9930240
+SPS: 1348
+Epoch: 433, global_step=9953280
+SPS: 1349
+Epoch: 434, global_step=9976320
+SPS: 1350
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptSlow-v0/ppo-cave-interceptslow-99__99__rgb_joints_belief__20260126_161919/20260126_161919/final_ckpt.pt

@@ -1,0 +1,8 @@
+compare 3 runs (cvae versions)
+env: RememberShapeAndColor3x2-v0
+curves:
+  - v5-1: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v5-1-33__33__rgb_joints_belief__20260121_224904/20260121_224904/training_metrics.csv
+  - v6-1: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v6-1-33__33__rgb_joints_belief__20260122_002339/20260122_002339/training_metrics.csv
+  - v7-1: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v7-1-33__33__rgb_joints_belief__20260122_015716/20260122_015716/training_metrics.csv
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/cvae_versions_seed33/RememberShapeAndColor3x2-v0__cvae_versions_seed33__success_once.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/cvae_versions_seed33/RememberShapeAndColor3x2-v0__cvae_versions_seed33__success_at_end.png

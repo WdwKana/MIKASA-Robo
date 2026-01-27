@@ -1,0 +1,132 @@
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_cvae.py", line 880, in <module>
+    checkpoint = torch.load(args.belief_path, map_location=device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 998, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 445, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 426, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5/final_vae_model.pt'
+Exception ignored in: <function VectorEnv.__del__ at 0x7fcdc0f24680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7fcdc0f24680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 5 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_cvae.py", line 880, in <module>
+    checkpoint = torch.load(args.belief_path, map_location=device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 998, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 445, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 426, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5/final_vae_model.pt'
+Exception ignored in: <function VectorEnv.__del__ at 0x7f47e7eb4680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7f47e7eb4680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 5 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/cuda/__init__.py:54: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/sapien/_vulkan_tricks.py:37: UserWarning: Failed to find Vulkan ICD file. This is probably due to an incorrect or partial installation of the NVIDIA driver. SAPIEN will attempt to provide an ICD file anyway but it may not work.
+  warn(
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Traceback (most recent call last):
+  File "/local/s4176650/MIKASA-Robo/baselines/ppo/ppo_memtasks_cvae.py", line 880, in <module>
+    checkpoint = torch.load(args.belief_path, map_location=device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 998, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 445, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/torch/serialization.py", line 426, in __init__
+    super().__init__(open(name, mode))
+                     ^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/local/s4176650/sphinx/storage_cvae/InterceptSlow-v0_cvae_mikasa_last5/final_vae_model.pt'
+Exception ignored in: <function VectorEnv.__del__ at 0x7f4dd9cec680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/utils/wrappers/record.py", line 825, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 6 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable
+Exception ignored in: <function VectorEnv.__del__ at 0x7f4dd9cec680>
+Traceback (most recent call last):
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/vector/vector_env.py", line 330, in __del__
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/vector/wrappers/gymnasium.py", line 159, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/gymnasium/core.py", line 475, in close
+  [Previous line repeated 5 more times]
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1133, in close
+  File "/home/s4176650/.conda/envs/mikasa/lib/python3.11/site-packages/mani_skill/envs/sapien_env.py", line 1130, in _clear
+TypeError: 'NoneType' object is not callable

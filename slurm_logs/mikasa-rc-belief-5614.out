@@ -9583,3 +9583,49 @@ SPS: 1128
 Epoch: 846, global_step=10140000
 SPS: 1128
 Epoch: 847, global_step=10152000
+SPS: 1128
+Epoch: 848, global_step=10164000
+SPS: 1128
+Epoch: 849, global_step=10176000
+SPS: 1128
+Epoch: 850, global_step=10188000
+SPS: 1128
+Epoch: 851, global_step=10200000
+SPS: 1128
+Epoch: 852, global_step=10212000
+SPS: 1129
+Epoch: 853, global_step=10224000
+SPS: 1129
+Epoch: 854, global_step=10236000
+SPS: 1129
+Epoch: 855, global_step=10248000
+SPS: 1130
+Epoch: 856, global_step=10260000
+SPS: 1130
+Epoch: 857, global_step=10272000
+SPS: 1130
+Epoch: 858, global_step=10284000
+SPS: 1130
+Epoch: 859, global_step=10296000
+SPS: 1130
+Epoch: 860, global_step=10308000
+SPS: 1130
+Epoch: 861, global_step=10320000
+SPS: 1131
+Epoch: 862, global_step=10332000
+SPS: 1131
+Epoch: 863, global_step=10344000
+SPS: 1131
+Epoch: 864, global_step=10356000
+SPS: 1131
+Epoch: 865, global_step=10368000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8646[0m
+[32mEvaluation Metric: return[0m | [36mMean: 35.3519[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5892[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.8333[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-v2-123__123__rgb_joints_belief__20260117_195916/20260117_195916/ckpt_18_865.pt
+SPS: 1122
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberColor5-v0/ppo-cvae-last5-v2-123__123__rgb_joints_belief__20260117_195916/20260117_195916/final_ckpt.pt

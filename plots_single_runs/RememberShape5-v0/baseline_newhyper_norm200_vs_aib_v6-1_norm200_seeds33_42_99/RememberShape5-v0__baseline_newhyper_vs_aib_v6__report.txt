@@ -1,0 +1,26 @@
+### baseline newhyper vs AIB v6 (last5)
+task_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0
+task_name: RememberShape5-v0
+requested_seeds: ['33', '42', '99']
+baseline_glob: **/baseline-last5-newhyper1e-4-norm200-{seed}__{seed}__*/**/training_metrics.csv
+aib_glob: **/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-{seed}__{seed}__*/**/training_metrics.csv
+baseline seeds used: ['33', '42', '99']
+AIB seeds used: ['33', '42', '99']
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/baseline_newhyper_norm200_vs_aib_v6-1_norm200_seeds33_42_99
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py --task-dir /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0 --task-name RememberShape5-v0 --seeds 33,42,99 --baseline-glob '**/baseline-last5-newhyper1e-4-norm200-{seed}__{seed}__*/**/training_metrics.csv' --aib-glob '**/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-{seed}__{seed}__*/**/training_metrics.csv' --out-dir /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/baseline_newhyper_norm200_vs_aib_v6-1_norm200_seeds33_42_99 --plot-train-reward
+curve_labels:
+  - baseline: ppo+believer
+  - aib: ppo+AIB (ours)
+
+paths:
+  baseline seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/training_metrics.csv
+  baseline seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073114/20260125_073114/training_metrics.csv
+  baseline seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/baseline-last5-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_095656/20260125_095656/training_metrics.csv
+  AIB seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/training_metrics.csv
+  AIB seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/training_metrics.csv
+  AIB seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/training_metrics.csv
+
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/baseline_newhyper_norm200_vs_aib_v6-1_norm200_seeds33_42_99/RememberShape5-v0__baseline_newhyper_vs_aib_v6__success_once__seeds_33_42_99.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/baseline_newhyper_norm200_vs_aib_v6-1_norm200_seeds33_42_99/RememberShape5-v0__baseline_newhyper_vs_aib_v6__success_at_end__seeds_33_42_99.png
+out_train_reward: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShape5-v0/baseline_newhyper_norm200_vs_aib_v6-1_norm200_seeds33_42_99/RememberShape5-v0__baseline_newhyper_vs_aib_v6__train_reward__seeds_33_42_99.png

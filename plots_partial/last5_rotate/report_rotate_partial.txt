@@ -1,0 +1,21 @@
+### Rotate tasks partial plots (updated scan; only seeds completed for all 3 algos)
+Ignore filter uses delimiter-separated tokens to avoid false-positive on RotateStrict*.
+Output dir: /local/s4176650/MIKASA-Robo/plots_partial/last5_rotate
+
+## TASK RotateLenientPos-v0
+baseline seeds: ['33', '42', '99']
+cvae seeds: ['33', '42']
+nonbelief seeds: ['33', '42', '99']
+COMMON seeds used: ['33', '42']
+
+## TASK RotateLenientPosNeg-v0
+baseline seeds: ['33', '42', '99']
+cvae seeds: ['33', '42', '99']
+nonbelief seeds: ['33', '42', '99']
+COMMON seeds used: ['33', '42', '99']
+
+## TASK RotateStrictPos-v0
+baseline seeds: ['33', '42', '99']
+cvae seeds: ['33', '42', '99']
+nonbelief seeds: ['33', '42']
+COMMON seeds used: ['33', '42']

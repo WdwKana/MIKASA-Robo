@@ -1,0 +1,3 @@
+Previous scan mistakenly filtered RotateStrict* runs because substring "teSt" appears across "Rota"+"teSt"+"rict".
+We now treat ignore tokens as delimiter-separated (e.g. -test-, /test/), so Strict is no longer excluded.
+Common seeds used for RotateStrictPos-v0: ['33', '42']

@@ -1,0 +1,88 @@
+Enabling podman.socket for user: s4176650
+Running RememberShapeAndColor3x2-v0 with belief, seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RotateStrictPosNeg-v0                                   ║
+║ Oracle Info:    angle_diff                                              ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ RotateRenderAngleInfoWrapper                                     ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info='target_angle'
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v1-cvae-33__33__rgb_joints_belief__20260120_135735/20260120_135735/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RotateStrictPosNeg-v0_cvae_mikasa_last5_v1/final_vae_model.pt
+Running RememberShapeAndColor3x2-v0 with belief, seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RotateStrictPosNeg-v0                                   ║
+║ Oracle Info:    angle_diff                                              ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ RotateRenderAngleInfoWrapper                                     ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info='target_angle'
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v1-cvae-42__42__rgb_joints_belief__20260120_135753/20260120_135753/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RotateStrictPosNeg-v0_cvae_mikasa_last5_v1/final_vae_model.pt
+Running RememberShapeAndColor3x2-v0 with belief, seed 99
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RotateStrictPosNeg-v0                                   ║
+║ Oracle Info:    angle_diff                                              ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ RotateRenderAngleInfoWrapper                                     ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info='target_angle'
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v1-cvae-99__99__rgb_joints_belief__20260120_135806/20260120_135806/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RotateStrictPosNeg-v0_cvae_mikasa_last5_v1/final_vae_model.pt

@@ -1,0 +1,7 @@
+single-run plot
+env: RememberShapeAndColor3x2-v0
+run_name: ppo-last5-cvae-v6-1-33__33__rgb_joints_belief__20260122_002339
+timestamp_dir: 20260122_002339
+csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0/ppo-last5-cvae-v6-1-33__33__rgb_joints_belief__20260122_002339/20260122_002339/training_metrics.csv
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/RememberShapeAndColor3x2-v0__ppo-last5-cvae-v6-1-33__33__rgb_joints_belief__20260122_002339__success_once.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/RememberShapeAndColor3x2-v0/RememberShapeAndColor3x2-v0__ppo-last5-cvae-v6-1-33__33__rgb_joints_belief__20260122_002339__success_at_end.png

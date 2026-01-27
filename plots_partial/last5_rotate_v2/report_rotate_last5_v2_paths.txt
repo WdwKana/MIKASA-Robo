@@ -1,0 +1,52 @@
+### Rotate tasks last5 v2 plots (baseline-v2 vs cvae-v2 vs nonbelief)
+Common seeds are the intersection across the 3 curves.
+Output dir: /local/s4176650/MIKASA-Robo/plots_partial/last5_rotate_v2
+
+## TASK RotateLenientPos-v0
+baseline-v2 seeds: ['33', '42', '99']
+cvae-v2 seeds: ['33', '42', '99']
+nonbelief seeds: ['33', '42', '99']
+COMMON seeds used: ['33', '42', '99']
+  baseline-v2 seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-baseline-33__33__rgb_joints_belief__20260120_213019/20260120_213019/training_metrics.csv
+  cvae-v2     seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-cvae-33__33__rgb_joints_belief__20260121_083441/20260121_083441/training_metrics.csv
+  nonbelief   seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-33__33__rgb_joints__20260118_191837/20260118_191837/training_metrics.csv
+  baseline-v2 seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-baseline-42__42__rgb_joints_belief__20260121_011137/20260121_011137/training_metrics.csv
+  cvae-v2     seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-cvae-42__42__rgb_joints_belief__20260121_122402/20260121_122402/training_metrics.csv
+  nonbelief   seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-42__42__rgb_joints__20260118_160214/20260118_160214/training_metrics.csv
+  baseline-v2 seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-baseline-99__99__rgb_joints_belief__20260121_045227/20260121_045227/training_metrics.csv
+  cvae-v2     seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPos-v0/ppo-last5-v2-cvae-99__99__rgb_joints_belief__20260121_161404/20260121_161404/training_metrics.csv
+  nonbelief   seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-99__99__rgb_joints__20260120_040008/20260120_040008/training_metrics.csv
+
+Ambiguities (chosen latest/preferred):
+  GROUP ('RotateLenientPos-v0', 'nonbelief', '42') chose /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-42__42__rgb_joints__20260118_160214/20260118_160214/training_metrics.csv from 2 candidates
+
+## TASK RotateLenientPosNeg-v0
+baseline-v2 seeds: ['33', '42', '99']
+cvae-v2 seeds: ['33', '42', '99']
+nonbelief seeds: ['33', '42', '99']
+COMMON seeds used: ['33', '42', '99']
+  baseline-v2 seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-baseline-33__33__rgb_joints_belief__20260120_212640/20260120_212640/training_metrics.csv
+  cvae-v2     seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-cvae-33__33__rgb_joints_belief__20260121_082820/20260121_082820/training_metrics.csv
+  nonbelief   seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPosNeg-v0/ppo-nonbelief-33__33__rgb_joints__20260118_190835/20260118_190835/training_metrics.csv
+  baseline-v2 seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-baseline-42__42__rgb_joints_belief__20260121_010750/20260121_010750/training_metrics.csv
+  cvae-v2     seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-cvae-42__42__rgb_joints_belief__20260121_121527/20260121_121527/training_metrics.csv
+  nonbelief   seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPosNeg-v0/ppo-nonbelief-42__42__rgb_joints__20260118_155612/20260118_155612/training_metrics.csv
+  baseline-v2 seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-baseline-99__99__rgb_joints_belief__20260121_044809/20260121_044809/training_metrics.csv
+  cvae-v2     seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateLenientPosNeg-v0/ppo-last5-v2-cvae-99__99__rgb_joints_belief__20260121_160307/20260121_160307/training_metrics.csv
+  nonbelief   seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPosNeg-v0/ppo-nonbelief-99__99__rgb_joints__20260120_034154/20260120_034154/training_metrics.csv
+
+## TASK RotateStrictPosNeg-v0
+baseline-v2 seeds: ['33', '42', '99']
+cvae-v2 seeds: ['33', '42', '99']
+nonbelief seeds: ['33', '42', '99']
+COMMON seeds used: ['33', '42', '99']
+  baseline-v2 seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-baseline-33__33__rgb_joints_belief__20260120_213333/20260120_213333/training_metrics.csv
+  cvae-v2     seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-cvae-33__33__rgb_joints_belief__20260121_084152/20260121_084152/training_metrics.csv
+  nonbelief   seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateStrictPosNeg-v0/ppo-nonbelief-33__33__rgb_joints__20260119_012946/20260119_012946/training_metrics.csv
+  baseline-v2 seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-baseline-42__42__rgb_joints_belief__20260121_011551/20260121_011551/training_metrics.csv
+  cvae-v2     seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-cvae-42__42__rgb_joints_belief__20260121_123048/20260121_123048/training_metrics.csv
+  nonbelief   seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateStrictPosNeg-v0/ppo-nonbelief-42__42__rgb_joints__20260118_220738/20260118_220738/training_metrics.csv
+  baseline-v2 seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-baseline-99__99__rgb_joints_belief__20260121_045924/20260121_045924/training_metrics.csv
+  cvae-v2     seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RotateStrictPosNeg-v0/ppo-last5-v2-cvae-99__99__rgb_joints_belief__20260121_161903/20260121_161903/training_metrics.csv
+  nonbelief   seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateStrictPosNeg-v0/ppo-nonbelief-99__99__rgb_joints__20260120_065528/20260120_065528/training_metrics.csv
+

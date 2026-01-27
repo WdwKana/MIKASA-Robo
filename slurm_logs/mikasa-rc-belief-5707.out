@@ -1,0 +1,102 @@
+Enabling podman.socket for user: s4176650
+Running Intercept-Slow, seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RotateLenientPos-v0                                     ║
+║ Oracle Info:    angle_diff                                              ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ RotateRenderAngleInfoWrapper                                     ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info='target_angle'
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-42__42__rgb_joints__20260118_155402/20260118_155402/videos
+======================================================================
+Max Episode Steps: 90
+======================================================================
+
+Running training
+
+####
+args.num_iterations=868 args.num_envs=256 args.num_eval_envs=16
+args.minibatch_size=2880 args.batch_size=23040 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['prompt', 'joints', 'rgb'])
+prompt: torch.Size([256, 1])
+joints: torch.Size([256, 25])
+rgb: torch.Size([256, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 17280 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 0.7937[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 90.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.0088[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RotateLenientPos-v0/ppo-nonbelief-42__42__rgb_joints__20260118_155402/20260118_155402/ckpt_0_1.pt
+SPS: 229
+Epoch: 2, global_step=23040
+SPS: 422
+Epoch: 3, global_step=46080
+SPS: 585
+Epoch: 4, global_step=69120
+SPS: 724
+Epoch: 5, global_step=92160
+SPS: 843
+Epoch: 6, global_step=115200
+SPS: 947
+Epoch: 7, global_step=138240
+SPS: 1039
+Epoch: 8, global_step=161280
+SPS: 1119
+Epoch: 9, global_step=184320
+SPS: 1190
+Epoch: 10, global_step=207360
+SPS: 1254
+Epoch: 11, global_step=230400
+SPS: 1311
+Epoch: 12, global_step=253440
+SPS: 1364
+Epoch: 13, global_step=276480
+SPS: 1411
+Epoch: 14, global_step=299520
+SPS: 1454
+Epoch: 15, global_step=322560
+SPS: 1494
+Epoch: 16, global_step=345600
+SPS: 1530
+Epoch: 17, global_step=368640
+SPS: 1564
+Epoch: 18, global_step=391680
+SPS: 1595
+Epoch: 19, global_step=414720
+SPS: 1624
+Epoch: 20, global_step=437760
+SPS: 1650
+Epoch: 21, global_step=460800
+SPS: 1675
+Epoch: 22, global_step=483840
+SPS: 1698
+Epoch: 23, global_step=506880
+SPS: 1720
+Epoch: 24, global_step=529920
+SPS: 1740
+Epoch: 25, global_step=552960
+SPS: 1759
+Epoch: 26, global_step=576000
+Evaluating

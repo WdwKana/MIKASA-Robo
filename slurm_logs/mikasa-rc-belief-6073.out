@@ -1,0 +1,5779 @@
+Enabling podman.socket for user: s4176650
+Running RememberShape5-v0 with belief, seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RememberShape5-v0_cvae_mikasa_last5_v6_1_norm200/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.8689[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1645[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_0_1.pt
+SPS: 108
+Epoch: 2, global_step=12000
+SPS: 201
+Epoch: 3, global_step=24000
+SPS: 281
+Epoch: 4, global_step=36000
+SPS: 349
+Epoch: 5, global_step=48000
+SPS: 409
+Epoch: 6, global_step=60000
+SPS: 461
+Epoch: 7, global_step=72000
+SPS: 507
+Epoch: 8, global_step=84000
+SPS: 548
+Epoch: 9, global_step=96000
+SPS: 584
+Epoch: 10, global_step=108000
+SPS: 616
+Epoch: 11, global_step=120000
+SPS: 645
+Epoch: 12, global_step=132000
+SPS: 671
+Epoch: 13, global_step=144000
+SPS: 695
+Epoch: 14, global_step=156000
+SPS: 718
+Epoch: 15, global_step=168000
+SPS: 738
+Epoch: 16, global_step=180000
+SPS: 757
+Epoch: 17, global_step=192000
+SPS: 774
+Epoch: 18, global_step=204000
+SPS: 790
+Epoch: 19, global_step=216000
+SPS: 805
+Epoch: 20, global_step=228000
+SPS: 819
+Epoch: 21, global_step=240000
+SPS: 832
+Epoch: 22, global_step=252000
+SPS: 844
+Epoch: 23, global_step=264000
+SPS: 855
+Epoch: 24, global_step=276000
+SPS: 866
+Epoch: 25, global_step=288000
+SPS: 875
+Epoch: 26, global_step=300000
+SPS: 885
+Epoch: 27, global_step=312000
+SPS: 895
+Epoch: 28, global_step=324000
+SPS: 902
+Epoch: 29, global_step=336000
+SPS: 911
+Epoch: 30, global_step=348000
+SPS: 919
+Epoch: 31, global_step=360000
+SPS: 925
+Epoch: 32, global_step=372000
+SPS: 932
+Epoch: 33, global_step=384000
+SPS: 939
+Epoch: 34, global_step=396000
+SPS: 946
+Epoch: 35, global_step=408000
+SPS: 951
+Epoch: 36, global_step=420000
+SPS: 957
+Epoch: 37, global_step=432000
+SPS: 962
+Epoch: 38, global_step=444000
+SPS: 967
+Epoch: 39, global_step=456000
+SPS: 972
+Epoch: 40, global_step=468000
+SPS: 977
+Epoch: 41, global_step=480000
+SPS: 982
+Epoch: 42, global_step=492000
+SPS: 986
+Epoch: 43, global_step=504000
+SPS: 991
+Epoch: 44, global_step=516000
+SPS: 995
+Epoch: 45, global_step=528000
+SPS: 999
+Epoch: 46, global_step=540000
+SPS: 1003
+Epoch: 47, global_step=552000
+SPS: 1007
+Epoch: 48, global_step=564000
+SPS: 1010
+Epoch: 49, global_step=576000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4167[0m
+[32mEvaluation Metric: return[0m | [36mMean: 12.8310[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2138[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1979[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_1_49.pt
+SPS: 888
+Epoch: 50, global_step=588000
+SPS: 894
+Epoch: 51, global_step=600000
+SPS: 899
+Epoch: 52, global_step=612000
+SPS: 903
+Epoch: 53, global_step=624000
+SPS: 907
+Epoch: 54, global_step=636000
+SPS: 911
+Epoch: 55, global_step=648000
+SPS: 914
+Epoch: 56, global_step=660000
+SPS: 918
+Epoch: 57, global_step=672000
+SPS: 922
+Epoch: 58, global_step=684000
+SPS: 925
+Epoch: 59, global_step=696000
+SPS: 929
+Epoch: 60, global_step=708000
+SPS: 933
+Epoch: 61, global_step=720000
+SPS: 936
+Epoch: 62, global_step=732000
+SPS: 940
+Epoch: 63, global_step=744000
+SPS: 943
+Epoch: 64, global_step=756000
+SPS: 946
+Epoch: 65, global_step=768000
+SPS: 949
+Epoch: 66, global_step=780000
+SPS: 952
+Epoch: 67, global_step=792000
+SPS: 955
+Epoch: 68, global_step=804000
+SPS: 958
+Epoch: 69, global_step=816000
+SPS: 961
+Epoch: 70, global_step=828000
+SPS: 964
+Epoch: 71, global_step=840000
+SPS: 967
+Epoch: 72, global_step=852000
+SPS: 970
+Epoch: 73, global_step=864000
+SPS: 972
+Epoch: 74, global_step=876000
+SPS: 975
+Epoch: 75, global_step=888000
+SPS: 977
+Epoch: 76, global_step=900000
+SPS: 980
+Epoch: 77, global_step=912000
+SPS: 983
+Epoch: 78, global_step=924000
+SPS: 986
+Epoch: 79, global_step=936000
+SPS: 988
+Epoch: 80, global_step=948000
+SPS: 990
+Epoch: 81, global_step=960000
+SPS: 993
+Epoch: 82, global_step=972000
+SPS: 995
+Epoch: 83, global_step=984000
+SPS: 997
+Epoch: 84, global_step=996000
+SPS: 999
+Epoch: 85, global_step=1008000
+SPS: 1001
+Epoch: 86, global_step=1020000
+SPS: 1003
+Epoch: 87, global_step=1032000
+SPS: 1005
+Epoch: 88, global_step=1044000
+SPS: 1007
+Epoch: 89, global_step=1056000
+SPS: 1010
+Epoch: 90, global_step=1068000
+SPS: 1011
+Epoch: 91, global_step=1080000
+SPS: 1013
+Epoch: 92, global_step=1092000
+SPS: 1015
+Epoch: 93, global_step=1104000
+SPS: 1017
+Epoch: 94, global_step=1116000
+SPS: 1018
+Epoch: 95, global_step=1128000
+SPS: 1020
+Epoch: 96, global_step=1140000
+SPS: 1022
+Epoch: 97, global_step=1152000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6146[0m
+[32mEvaluation Metric: return[0m | [36mMean: 20.1852[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3364[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4115[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_2_97.pt
+SPS: 954
+Epoch: 98, global_step=1164000
+SPS: 957
+Epoch: 99, global_step=1176000
+SPS: 959
+Epoch: 100, global_step=1188000
+SPS: 961
+Epoch: 101, global_step=1200000
+SPS: 964
+Epoch: 102, global_step=1212000
+SPS: 965
+Epoch: 103, global_step=1224000
+SPS: 967
+Epoch: 104, global_step=1236000
+SPS: 969
+Epoch: 105, global_step=1248000
+SPS: 971
+Epoch: 106, global_step=1260000
+SPS: 973
+Epoch: 107, global_step=1272000
+SPS: 975
+Epoch: 108, global_step=1284000
+SPS: 976
+Epoch: 109, global_step=1296000
+SPS: 978
+Epoch: 110, global_step=1308000
+SPS: 980
+Epoch: 111, global_step=1320000
+SPS: 982
+Epoch: 112, global_step=1332000
+SPS: 983
+Epoch: 113, global_step=1344000
+SPS: 985
+Epoch: 114, global_step=1356000
+SPS: 987
+Epoch: 115, global_step=1368000
+SPS: 988
+Epoch: 116, global_step=1380000
+SPS: 990
+Epoch: 117, global_step=1392000
+SPS: 991
+Epoch: 118, global_step=1404000
+SPS: 993
+Epoch: 119, global_step=1416000
+SPS: 994
+Epoch: 120, global_step=1428000
+SPS: 997
+Epoch: 121, global_step=1440000
+SPS: 999
+Epoch: 122, global_step=1452000
+SPS: 1000
+Epoch: 123, global_step=1464000
+SPS: 1003
+Epoch: 124, global_step=1476000
+SPS: 1004
+Epoch: 125, global_step=1488000
+SPS: 1007
+Epoch: 126, global_step=1500000
+SPS: 1009
+Epoch: 127, global_step=1512000
+SPS: 1010
+Epoch: 128, global_step=1524000
+SPS: 1011
+Epoch: 129, global_step=1536000
+SPS: 1013
+Epoch: 130, global_step=1548000
+SPS: 1014
+Epoch: 131, global_step=1560000
+SPS: 1015
+Epoch: 132, global_step=1572000
+SPS: 1016
+Epoch: 133, global_step=1584000
+SPS: 1018
+Epoch: 134, global_step=1596000
+SPS: 1019
+Epoch: 135, global_step=1608000
+SPS: 1021
+Epoch: 136, global_step=1620000
+SPS: 1023
+Epoch: 137, global_step=1632000
+SPS: 1024
+Epoch: 138, global_step=1644000
+SPS: 1026
+Epoch: 139, global_step=1656000
+SPS: 1027
+Epoch: 140, global_step=1668000
+SPS: 1028
+Epoch: 141, global_step=1680000
+SPS: 1030
+Epoch: 142, global_step=1692000
+SPS: 1031
+Epoch: 143, global_step=1704000
+SPS: 1032
+Epoch: 144, global_step=1716000
+SPS: 1033
+Epoch: 145, global_step=1728000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3438[0m
+[32mEvaluation Metric: return[0m | [36mMean: 10.9807[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1830[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2031[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_3_145.pt
+SPS: 986
+Epoch: 146, global_step=1740000
+SPS: 987
+Epoch: 147, global_step=1752000
+SPS: 989
+Epoch: 148, global_step=1764000
+SPS: 990
+Epoch: 149, global_step=1776000
+SPS: 992
+Epoch: 150, global_step=1788000
+SPS: 994
+Epoch: 151, global_step=1800000
+SPS: 996
+Epoch: 152, global_step=1812000
+SPS: 997
+Epoch: 153, global_step=1824000
+SPS: 999
+Epoch: 154, global_step=1836000
+SPS: 1000
+Epoch: 155, global_step=1848000
+SPS: 1001
+Epoch: 156, global_step=1860000
+SPS: 1002
+Epoch: 157, global_step=1872000
+SPS: 1003
+Epoch: 158, global_step=1884000
+SPS: 1004
+Epoch: 159, global_step=1896000
+SPS: 1006
+Epoch: 160, global_step=1908000
+SPS: 1007
+Epoch: 161, global_step=1920000
+SPS: 1009
+Epoch: 162, global_step=1932000
+SPS: 1010
+Epoch: 163, global_step=1944000
+SPS: 1012
+Epoch: 164, global_step=1956000
+SPS: 1014
+Epoch: 165, global_step=1968000
+SPS: 1015
+Epoch: 166, global_step=1980000
+SPS: 1016
+Epoch: 167, global_step=1992000
+SPS: 1018
+Epoch: 168, global_step=2004000
+SPS: 1019
+Epoch: 169, global_step=2016000
+SPS: 1020
+Epoch: 170, global_step=2028000
+SPS: 1020
+Epoch: 171, global_step=2040000
+SPS: 1021
+Epoch: 172, global_step=2052000
+SPS: 1023
+Epoch: 173, global_step=2064000
+SPS: 1024
+Epoch: 174, global_step=2076000
+SPS: 1026
+Epoch: 175, global_step=2088000
+SPS: 1027
+Epoch: 176, global_step=2100000
+SPS: 1028
+Epoch: 177, global_step=2112000
+SPS: 1029
+Epoch: 178, global_step=2124000
+SPS: 1031
+Epoch: 179, global_step=2136000
+SPS: 1032
+Epoch: 180, global_step=2148000
+SPS: 1034
+Epoch: 181, global_step=2160000
+SPS: 1036
+Epoch: 182, global_step=2172000
+SPS: 1037
+Epoch: 183, global_step=2184000
+SPS: 1038
+Epoch: 184, global_step=2196000
+SPS: 1039
+Epoch: 185, global_step=2208000
+SPS: 1041
+Epoch: 186, global_step=2220000
+SPS: 1041
+Epoch: 187, global_step=2232000
+SPS: 1042
+Epoch: 188, global_step=2244000
+SPS: 1043
+Epoch: 189, global_step=2256000
+SPS: 1044
+Epoch: 190, global_step=2268000
+SPS: 1045
+Epoch: 191, global_step=2280000
+SPS: 1047
+Epoch: 192, global_step=2292000
+SPS: 1048
+Epoch: 193, global_step=2304000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4427[0m
+[32mEvaluation Metric: return[0m | [36mMean: 14.6262[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2438[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2969[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_4_193.pt
+SPS: 1012
+Epoch: 194, global_step=2316000
+SPS: 1014
+Epoch: 195, global_step=2328000
+SPS: 1015
+Epoch: 196, global_step=2340000
+SPS: 1016
+Epoch: 197, global_step=2352000
+SPS: 1017
+Epoch: 198, global_step=2364000
+SPS: 1018
+Epoch: 199, global_step=2376000
+SPS: 1019
+Epoch: 200, global_step=2388000
+SPS: 1020
+Epoch: 201, global_step=2400000
+SPS: 1021
+Epoch: 202, global_step=2412000
+SPS: 1022
+Epoch: 203, global_step=2424000
+SPS: 1023
+Epoch: 204, global_step=2436000
+SPS: 1024
+Epoch: 205, global_step=2448000
+SPS: 1025
+Epoch: 206, global_step=2460000
+SPS: 1026
+Epoch: 207, global_step=2472000
+SPS: 1027
+Epoch: 208, global_step=2484000
+SPS: 1028
+Epoch: 209, global_step=2496000
+SPS: 1029
+Epoch: 210, global_step=2508000
+SPS: 1029
+Epoch: 211, global_step=2520000
+SPS: 1031
+Epoch: 212, global_step=2532000
+SPS: 1032
+Epoch: 213, global_step=2544000
+SPS: 1032
+Epoch: 214, global_step=2556000
+SPS: 1034
+Epoch: 215, global_step=2568000
+SPS: 1034
+Epoch: 216, global_step=2580000
+SPS: 1035
+Epoch: 217, global_step=2592000
+SPS: 1037
+Epoch: 218, global_step=2604000
+SPS: 1038
+Epoch: 219, global_step=2616000
+SPS: 1039
+Epoch: 220, global_step=2628000
+SPS: 1040
+Epoch: 221, global_step=2640000
+SPS: 1041
+Epoch: 222, global_step=2652000
+SPS: 1042
+Epoch: 223, global_step=2664000
+SPS: 1043
+Epoch: 224, global_step=2676000
+SPS: 1044
+Epoch: 225, global_step=2688000
+SPS: 1045
+Epoch: 226, global_step=2700000
+SPS: 1046
+Epoch: 227, global_step=2712000
+SPS: 1047
+Epoch: 228, global_step=2724000
+SPS: 1049
+Epoch: 229, global_step=2736000
+SPS: 1050
+Epoch: 230, global_step=2748000
+SPS: 1051
+Epoch: 231, global_step=2760000
+SPS: 1052
+Epoch: 232, global_step=2772000
+SPS: 1052
+Epoch: 233, global_step=2784000
+SPS: 1053
+Epoch: 234, global_step=2796000
+SPS: 1054
+Epoch: 235, global_step=2808000
+SPS: 1056
+Epoch: 236, global_step=2820000
+SPS: 1057
+Epoch: 237, global_step=2832000
+SPS: 1058
+Epoch: 238, global_step=2844000
+SPS: 1058
+Epoch: 239, global_step=2856000
+SPS: 1059
+Epoch: 240, global_step=2868000
+SPS: 1060
+Epoch: 241, global_step=2880000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5312[0m
+[32mEvaluation Metric: return[0m | [36mMean: 19.1115[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3185[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.3854[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_5_241.pt
+SPS: 1029
+Epoch: 242, global_step=2892000
+SPS: 1030
+Epoch: 243, global_step=2904000
+SPS: 1032
+Epoch: 244, global_step=2916000
+SPS: 1033
+Epoch: 245, global_step=2928000
+SPS: 1034
+Epoch: 246, global_step=2940000
+SPS: 1036
+Epoch: 247, global_step=2952000
+SPS: 1037
+Epoch: 248, global_step=2964000
+SPS: 1037
+Epoch: 249, global_step=2976000
+SPS: 1038
+Epoch: 250, global_step=2988000
+SPS: 1039
+Epoch: 251, global_step=3000000
+SPS: 1040
+Epoch: 252, global_step=3012000
+SPS: 1041
+Epoch: 253, global_step=3024000
+SPS: 1042
+Epoch: 254, global_step=3036000
+SPS: 1043
+Epoch: 255, global_step=3048000
+SPS: 1044
+Epoch: 256, global_step=3060000
+SPS: 1044
+Epoch: 257, global_step=3072000
+SPS: 1045
+Epoch: 258, global_step=3084000
+SPS: 1046
+Epoch: 259, global_step=3096000
+SPS: 1046
+Epoch: 260, global_step=3108000
+SPS: 1047
+Epoch: 261, global_step=3120000
+SPS: 1048
+Epoch: 262, global_step=3132000
+SPS: 1049
+Epoch: 263, global_step=3144000
+SPS: 1049
+Epoch: 264, global_step=3156000
+SPS: 1050
+Epoch: 265, global_step=3168000
+SPS: 1051
+Epoch: 266, global_step=3180000
+SPS: 1051
+Epoch: 267, global_step=3192000
+SPS: 1052
+Epoch: 268, global_step=3204000
+SPS: 1053
+Epoch: 269, global_step=3216000
+SPS: 1054
+Epoch: 270, global_step=3228000
+SPS: 1055
+Epoch: 271, global_step=3240000
+SPS: 1056
+Epoch: 272, global_step=3252000
+SPS: 1057
+Epoch: 273, global_step=3264000
+SPS: 1057
+Epoch: 274, global_step=3276000
+SPS: 1058
+Epoch: 275, global_step=3288000
+SPS: 1058
+Epoch: 276, global_step=3300000
+SPS: 1059
+Epoch: 277, global_step=3312000
+SPS: 1061
+Epoch: 278, global_step=3324000
+SPS: 1061
+Epoch: 279, global_step=3336000
+SPS: 1062
+Epoch: 280, global_step=3348000
+SPS: 1062
+Epoch: 281, global_step=3360000
+SPS: 1063
+Epoch: 282, global_step=3372000
+SPS: 1063
+Epoch: 283, global_step=3384000
+SPS: 1064
+Epoch: 284, global_step=3396000
+SPS: 1065
+Epoch: 285, global_step=3408000
+SPS: 1067
+Epoch: 286, global_step=3420000
+SPS: 1068
+Epoch: 287, global_step=3432000
+SPS: 1068
+Epoch: 288, global_step=3444000
+SPS: 1070
+Epoch: 289, global_step=3456000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6302[0m
+[32mEvaluation Metric: return[0m | [36mMean: 20.2979[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3383[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4948[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_6_289.pt
+SPS: 1045
+Epoch: 290, global_step=3468000
+SPS: 1046
+Epoch: 291, global_step=3480000
+SPS: 1047
+Epoch: 292, global_step=3492000
+SPS: 1048
+Epoch: 293, global_step=3504000
+SPS: 1048
+Epoch: 294, global_step=3516000
+SPS: 1049
+Epoch: 295, global_step=3528000
+SPS: 1049
+Epoch: 296, global_step=3540000
+SPS: 1049
+Epoch: 297, global_step=3552000
+SPS: 1050
+Epoch: 298, global_step=3564000
+SPS: 1051
+Epoch: 299, global_step=3576000
+SPS: 1052
+Epoch: 300, global_step=3588000
+SPS: 1053
+Epoch: 301, global_step=3600000
+SPS: 1053
+Epoch: 302, global_step=3612000
+SPS: 1054
+Epoch: 303, global_step=3624000
+SPS: 1055
+Epoch: 304, global_step=3636000
+SPS: 1056
+Epoch: 305, global_step=3648000
+SPS: 1057
+Epoch: 306, global_step=3660000
+SPS: 1057
+Epoch: 307, global_step=3672000
+SPS: 1058
+Epoch: 308, global_step=3684000
+SPS: 1059
+Epoch: 309, global_step=3696000
+SPS: 1060
+Epoch: 310, global_step=3708000
+SPS: 1061
+Epoch: 311, global_step=3720000
+SPS: 1062
+Epoch: 312, global_step=3732000
+SPS: 1062
+Epoch: 313, global_step=3744000
+SPS: 1063
+Epoch: 314, global_step=3756000
+SPS: 1063
+Epoch: 315, global_step=3768000
+SPS: 1064
+Epoch: 316, global_step=3780000
+SPS: 1065
+Epoch: 317, global_step=3792000
+SPS: 1066
+Epoch: 318, global_step=3804000
+SPS: 1067
+Epoch: 319, global_step=3816000
+SPS: 1068
+Epoch: 320, global_step=3828000
+SPS: 1069
+Epoch: 321, global_step=3840000
+SPS: 1070
+Epoch: 322, global_step=3852000
+SPS: 1070
+Epoch: 323, global_step=3864000
+SPS: 1071
+Epoch: 324, global_step=3876000
+SPS: 1072
+Epoch: 325, global_step=3888000
+SPS: 1072
+Epoch: 326, global_step=3900000
+SPS: 1073
+Epoch: 327, global_step=3912000
+SPS: 1074
+Epoch: 328, global_step=3924000
+SPS: 1075
+Epoch: 329, global_step=3936000
+SPS: 1076
+Epoch: 330, global_step=3948000
+SPS: 1076
+Epoch: 331, global_step=3960000
+SPS: 1077
+Epoch: 332, global_step=3972000
+SPS: 1078
+Epoch: 333, global_step=3984000
+SPS: 1078
+Epoch: 334, global_step=3996000
+SPS: 1079
+Epoch: 335, global_step=4008000
+SPS: 1080
+Epoch: 336, global_step=4020000
+SPS: 1081
+Epoch: 337, global_step=4032000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5781[0m
+[32mEvaluation Metric: return[0m | [36mMean: 19.8133[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3302[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4427[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_7_337.pt
+SPS: 1059
+Epoch: 338, global_step=4044000
+SPS: 1060
+Epoch: 339, global_step=4056000
+SPS: 1061
+Epoch: 340, global_step=4068000
+SPS: 1061
+Epoch: 341, global_step=4080000
+SPS: 1062
+Epoch: 342, global_step=4092000
+SPS: 1063
+Epoch: 343, global_step=4104000
+SPS: 1064
+Epoch: 344, global_step=4116000
+SPS: 1065
+Epoch: 345, global_step=4128000
+SPS: 1065
+Epoch: 346, global_step=4140000
+SPS: 1066
+Epoch: 347, global_step=4152000
+SPS: 1067
+Epoch: 348, global_step=4164000
+SPS: 1067
+Epoch: 349, global_step=4176000
+SPS: 1068
+Epoch: 350, global_step=4188000
+SPS: 1069
+Epoch: 351, global_step=4200000
+SPS: 1070
+Epoch: 352, global_step=4212000
+SPS: 1070
+Epoch: 353, global_step=4224000
+SPS: 1071
+Epoch: 354, global_step=4236000
+SPS: 1072
+Epoch: 355, global_step=4248000
+SPS: 1073
+Epoch: 356, global_step=4260000
+SPS: 1074
+Epoch: 357, global_step=4272000
+SPS: 1075
+Epoch: 358, global_step=4284000
+SPS: 1076
+Epoch: 359, global_step=4296000
+SPS: 1077
+Epoch: 360, global_step=4308000
+SPS: 1077
+Epoch: 361, global_step=4320000
+SPS: 1078
+Epoch: 362, global_step=4332000
+SPS: 1078
+Epoch: 363, global_step=4344000
+SPS: 1079
+Epoch: 364, global_step=4356000
+SPS: 1080
+Epoch: 365, global_step=4368000
+SPS: 1080
+Epoch: 366, global_step=4380000
+SPS: 1081
+Epoch: 367, global_step=4392000
+SPS: 1081
+Epoch: 368, global_step=4404000
+SPS: 1082
+Epoch: 369, global_step=4416000
+SPS: 1083
+Epoch: 370, global_step=4428000
+SPS: 1084
+Epoch: 371, global_step=4440000
+SPS: 1084
+Epoch: 372, global_step=4452000
+SPS: 1085
+Epoch: 373, global_step=4464000
+SPS: 1086
+Epoch: 374, global_step=4476000
+SPS: 1086
+Epoch: 375, global_step=4488000
+SPS: 1087
+Epoch: 376, global_step=4500000
+SPS: 1088
+Epoch: 377, global_step=4512000
+SPS: 1089
+Epoch: 378, global_step=4524000
+SPS: 1090
+Epoch: 379, global_step=4536000
+SPS: 1090
+Epoch: 380, global_step=4548000
+SPS: 1091
+Epoch: 381, global_step=4560000
+SPS: 1092
+Epoch: 382, global_step=4572000
+SPS: 1092
+Epoch: 383, global_step=4584000
+SPS: 1093
+Epoch: 384, global_step=4596000
+SPS: 1093
+Epoch: 385, global_step=4608000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6302[0m
+[32mEvaluation Metric: return[0m | [36mMean: 21.2290[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3538[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.5208[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_8_385.pt
+SPS: 1073
+Epoch: 386, global_step=4620000
+SPS: 1074
+Epoch: 387, global_step=4632000
+SPS: 1075
+Epoch: 388, global_step=4644000
+SPS: 1075
+Epoch: 389, global_step=4656000
+SPS: 1076
+Epoch: 390, global_step=4668000
+SPS: 1077
+Epoch: 391, global_step=4680000
+SPS: 1077
+Epoch: 392, global_step=4692000
+SPS: 1078
+Epoch: 393, global_step=4704000
+SPS: 1079
+Epoch: 394, global_step=4716000
+SPS: 1080
+Epoch: 395, global_step=4728000
+SPS: 1080
+Epoch: 396, global_step=4740000
+SPS: 1081
+Epoch: 397, global_step=4752000
+SPS: 1082
+Epoch: 398, global_step=4764000
+SPS: 1083
+Epoch: 399, global_step=4776000
+SPS: 1084
+Epoch: 400, global_step=4788000
+SPS: 1085
+Epoch: 401, global_step=4800000
+SPS: 1085
+Epoch: 402, global_step=4812000
+SPS: 1086
+Epoch: 403, global_step=4824000
+SPS: 1087
+Epoch: 404, global_step=4836000
+SPS: 1088
+Epoch: 405, global_step=4848000
+SPS: 1088
+Epoch: 406, global_step=4860000
+SPS: 1089
+Epoch: 407, global_step=4872000
+SPS: 1090
+Epoch: 408, global_step=4884000
+SPS: 1090
+Epoch: 409, global_step=4896000
+SPS: 1091
+Epoch: 410, global_step=4908000
+SPS: 1092
+Epoch: 411, global_step=4920000
+SPS: 1093
+Epoch: 412, global_step=4932000
+SPS: 1093
+Epoch: 413, global_step=4944000
+SPS: 1094
+Epoch: 414, global_step=4956000
+SPS: 1094
+Epoch: 415, global_step=4968000
+SPS: 1095
+Epoch: 416, global_step=4980000
+SPS: 1096
+Epoch: 417, global_step=4992000
+SPS: 1097
+Epoch: 418, global_step=5004000
+SPS: 1097
+Epoch: 419, global_step=5016000
+SPS: 1098
+Epoch: 420, global_step=5028000
+SPS: 1099
+Epoch: 421, global_step=5040000
+SPS: 1099
+Epoch: 422, global_step=5052000
+SPS: 1100
+Epoch: 423, global_step=5064000
+SPS: 1101
+Epoch: 424, global_step=5076000
+SPS: 1102
+Epoch: 425, global_step=5088000
+SPS: 1102
+Epoch: 426, global_step=5100000
+SPS: 1103
+Epoch: 427, global_step=5112000
+SPS: 1104
+Epoch: 428, global_step=5124000
+SPS: 1104
+Epoch: 429, global_step=5136000
+SPS: 1105
+Epoch: 430, global_step=5148000
+SPS: 1105
+Epoch: 431, global_step=5160000
+SPS: 1106
+Epoch: 432, global_step=5172000
+SPS: 1107
+Epoch: 433, global_step=5184000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6302[0m
+[32mEvaluation Metric: return[0m | [36mMean: 18.7794[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3130[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4271[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_9_433.pt
+SPS: 1089
+Epoch: 434, global_step=5196000
+SPS: 1089
+Epoch: 435, global_step=5208000
+SPS: 1090
+Epoch: 436, global_step=5220000
+SPS: 1091
+Epoch: 437, global_step=5232000
+SPS: 1091
+Epoch: 438, global_step=5244000
+SPS: 1092
+Epoch: 439, global_step=5256000
+SPS: 1093
+Epoch: 440, global_step=5268000
+SPS: 1093
+Epoch: 441, global_step=5280000
+SPS: 1094
+Epoch: 442, global_step=5292000
+SPS: 1095
+Epoch: 443, global_step=5304000
+SPS: 1095
+Epoch: 444, global_step=5316000
+SPS: 1096
+Epoch: 445, global_step=5328000
+SPS: 1096
+Epoch: 446, global_step=5340000
+SPS: 1097
+Epoch: 447, global_step=5352000
+SPS: 1097
+Epoch: 448, global_step=5364000
+SPS: 1098
+Epoch: 449, global_step=5376000
+SPS: 1099
+Epoch: 450, global_step=5388000
+SPS: 1100
+Epoch: 451, global_step=5400000
+SPS: 1100
+Epoch: 452, global_step=5412000
+SPS: 1101
+Epoch: 453, global_step=5424000
+SPS: 1101
+Epoch: 454, global_step=5436000
+SPS: 1101
+Epoch: 455, global_step=5448000
+SPS: 1102
+Epoch: 456, global_step=5460000
+SPS: 1103
+Epoch: 457, global_step=5472000
+SPS: 1104
+Epoch: 458, global_step=5484000
+SPS: 1104
+Epoch: 459, global_step=5496000
+SPS: 1105
+Epoch: 460, global_step=5508000
+SPS: 1105
+Epoch: 461, global_step=5520000
+SPS: 1106
+Epoch: 462, global_step=5532000
+SPS: 1107
+Epoch: 463, global_step=5544000
+SPS: 1107
+Epoch: 464, global_step=5556000
+SPS: 1108
+Epoch: 465, global_step=5568000
+SPS: 1109
+Epoch: 466, global_step=5580000
+SPS: 1109
+Epoch: 467, global_step=5592000
+SPS: 1109
+Epoch: 468, global_step=5604000
+SPS: 1110
+Epoch: 469, global_step=5616000
+SPS: 1110
+Epoch: 470, global_step=5628000
+SPS: 1111
+Epoch: 471, global_step=5640000
+SPS: 1111
+Epoch: 472, global_step=5652000
+SPS: 1111
+Epoch: 473, global_step=5664000
+SPS: 1112
+Epoch: 474, global_step=5676000
+SPS: 1113
+Epoch: 475, global_step=5688000
+SPS: 1113
+Epoch: 476, global_step=5700000
+SPS: 1114
+Epoch: 477, global_step=5712000
+SPS: 1114
+Epoch: 478, global_step=5724000
+SPS: 1115
+Epoch: 479, global_step=5736000
+SPS: 1116
+Epoch: 480, global_step=5748000
+SPS: 1116
+Epoch: 481, global_step=5760000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5990[0m
+[32mEvaluation Metric: return[0m | [36mMean: 20.0795[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3347[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4323[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_10_481.pt
+SPS: 1100
+Epoch: 482, global_step=5772000
+SPS: 1101
+Epoch: 483, global_step=5784000
+SPS: 1101
+Epoch: 484, global_step=5796000
+SPS: 1102
+Epoch: 485, global_step=5808000
+SPS: 1102
+Epoch: 486, global_step=5820000
+SPS: 1103
+Epoch: 487, global_step=5832000
+SPS: 1104
+Epoch: 488, global_step=5844000
+SPS: 1104
+Epoch: 489, global_step=5856000
+SPS: 1105
+Epoch: 490, global_step=5868000
+SPS: 1105
+Epoch: 491, global_step=5880000
+SPS: 1106
+Epoch: 492, global_step=5892000
+SPS: 1107
+Epoch: 493, global_step=5904000
+SPS: 1107
+Epoch: 494, global_step=5916000
+SPS: 1108
+Epoch: 495, global_step=5928000
+SPS: 1109
+Epoch: 496, global_step=5940000
+SPS: 1109
+Epoch: 497, global_step=5952000
+SPS: 1110
+Epoch: 498, global_step=5964000
+SPS: 1110
+Epoch: 499, global_step=5976000
+SPS: 1111
+Epoch: 500, global_step=5988000
+SPS: 1111
+Epoch: 501, global_step=6000000
+SPS: 1112
+Epoch: 502, global_step=6012000
+SPS: 1112
+Epoch: 503, global_step=6024000
+SPS: 1113
+Epoch: 504, global_step=6036000
+SPS: 1113
+Epoch: 505, global_step=6048000
+SPS: 1114
+Epoch: 506, global_step=6060000
+SPS: 1114
+Epoch: 507, global_step=6072000
+SPS: 1115
+Epoch: 508, global_step=6084000
+SPS: 1115
+Epoch: 509, global_step=6096000
+SPS: 1116
+Epoch: 510, global_step=6108000
+SPS: 1117
+Epoch: 511, global_step=6120000
+SPS: 1117
+Epoch: 512, global_step=6132000
+SPS: 1118
+Epoch: 513, global_step=6144000
+SPS: 1119
+Epoch: 514, global_step=6156000
+SPS: 1119
+Epoch: 515, global_step=6168000
+SPS: 1120
+Epoch: 516, global_step=6180000
+SPS: 1120
+Epoch: 517, global_step=6192000
+SPS: 1120
+Epoch: 518, global_step=6204000
+SPS: 1120
+Epoch: 519, global_step=6216000
+SPS: 1121
+Epoch: 520, global_step=6228000
+SPS: 1121
+Epoch: 521, global_step=6240000
+SPS: 1122
+Epoch: 522, global_step=6252000
+SPS: 1122
+Epoch: 523, global_step=6264000
+SPS: 1123
+Epoch: 524, global_step=6276000
+SPS: 1124
+Epoch: 525, global_step=6288000
+SPS: 1124
+Epoch: 526, global_step=6300000
+SPS: 1125
+Epoch: 527, global_step=6312000
+SPS: 1125
+Epoch: 528, global_step=6324000
+SPS: 1126
+Epoch: 529, global_step=6336000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6719[0m
+[32mEvaluation Metric: return[0m | [36mMean: 23.3328[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3889[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.5885[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_11_529.pt
+SPS: 1111
+Epoch: 530, global_step=6348000
+SPS: 1111
+Epoch: 531, global_step=6360000
+SPS: 1112
+Epoch: 532, global_step=6372000
+SPS: 1112
+Epoch: 533, global_step=6384000
+SPS: 1113
+Epoch: 534, global_step=6396000
+SPS: 1114
+Epoch: 535, global_step=6408000
+SPS: 1114
+Epoch: 536, global_step=6420000
+SPS: 1115
+Epoch: 537, global_step=6432000
+SPS: 1115
+Epoch: 538, global_step=6444000
+SPS: 1115
+Epoch: 539, global_step=6456000
+SPS: 1116
+Epoch: 540, global_step=6468000
+SPS: 1116
+Epoch: 541, global_step=6480000
+SPS: 1117
+Epoch: 542, global_step=6492000
+SPS: 1117
+Epoch: 543, global_step=6504000
+SPS: 1117
+Epoch: 544, global_step=6516000
+SPS: 1118
+Epoch: 545, global_step=6528000
+SPS: 1119
+Epoch: 546, global_step=6540000
+SPS: 1119
+Epoch: 547, global_step=6552000
+SPS: 1120
+Epoch: 548, global_step=6564000
+SPS: 1120
+Epoch: 549, global_step=6576000
+SPS: 1121
+Epoch: 550, global_step=6588000
+SPS: 1121
+Epoch: 551, global_step=6600000
+SPS: 1122
+Epoch: 552, global_step=6612000
+SPS: 1122
+Epoch: 553, global_step=6624000
+SPS: 1122
+Epoch: 554, global_step=6636000
+SPS: 1123
+Epoch: 555, global_step=6648000
+SPS: 1123
+Epoch: 556, global_step=6660000
+SPS: 1124
+Epoch: 557, global_step=6672000
+SPS: 1124
+Epoch: 558, global_step=6684000
+SPS: 1124
+Epoch: 559, global_step=6696000
+SPS: 1124
+Epoch: 560, global_step=6708000
+SPS: 1125
+Epoch: 561, global_step=6720000
+SPS: 1126
+Epoch: 562, global_step=6732000
+SPS: 1126
+Epoch: 563, global_step=6744000
+SPS: 1127
+Epoch: 564, global_step=6756000
+SPS: 1127
+Epoch: 565, global_step=6768000
+SPS: 1128
+Epoch: 566, global_step=6780000
+SPS: 1128
+Epoch: 567, global_step=6792000
+SPS: 1128
+Epoch: 568, global_step=6804000
+SPS: 1129
+Epoch: 569, global_step=6816000
+SPS: 1129
+Epoch: 570, global_step=6828000
+SPS: 1130
+Epoch: 571, global_step=6840000
+SPS: 1130
+Epoch: 572, global_step=6852000
+SPS: 1130
+Epoch: 573, global_step=6864000
+SPS: 1131
+Epoch: 574, global_step=6876000
+SPS: 1131
+Epoch: 575, global_step=6888000
+SPS: 1132
+Epoch: 576, global_step=6900000
+SPS: 1132
+Epoch: 577, global_step=6912000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7031[0m
+[32mEvaluation Metric: return[0m | [36mMean: 24.9291[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4155[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6510[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_12_577.pt
+SPS: 1118
+Epoch: 578, global_step=6924000
+SPS: 1118
+Epoch: 579, global_step=6936000
+SPS: 1119
+Epoch: 580, global_step=6948000
+SPS: 1120
+Epoch: 581, global_step=6960000
+SPS: 1120
+Epoch: 582, global_step=6972000
+SPS: 1120
+Epoch: 583, global_step=6984000
+SPS: 1121
+Epoch: 584, global_step=6996000
+SPS: 1121
+Epoch: 585, global_step=7008000
+SPS: 1121
+Epoch: 586, global_step=7020000
+SPS: 1122
+Epoch: 587, global_step=7032000
+SPS: 1122
+Epoch: 588, global_step=7044000
+SPS: 1123
+Epoch: 589, global_step=7056000
+SPS: 1124
+Epoch: 590, global_step=7068000
+SPS: 1124
+Epoch: 591, global_step=7080000
+SPS: 1125
+Epoch: 592, global_step=7092000
+SPS: 1125
+Epoch: 593, global_step=7104000
+SPS: 1126
+Epoch: 594, global_step=7116000
+SPS: 1126
+Epoch: 595, global_step=7128000
+SPS: 1127
+Epoch: 596, global_step=7140000
+SPS: 1127
+Epoch: 597, global_step=7152000
+SPS: 1128
+Epoch: 598, global_step=7164000
+SPS: 1129
+Epoch: 599, global_step=7176000
+SPS: 1129
+Epoch: 600, global_step=7188000
+SPS: 1129
+Epoch: 601, global_step=7200000
+SPS: 1130
+Epoch: 602, global_step=7212000
+SPS: 1130
+Epoch: 603, global_step=7224000
+SPS: 1131
+Epoch: 604, global_step=7236000
+SPS: 1131
+Epoch: 605, global_step=7248000
+SPS: 1131
+Epoch: 606, global_step=7260000
+SPS: 1132
+Epoch: 607, global_step=7272000
+SPS: 1132
+Epoch: 608, global_step=7284000
+SPS: 1132
+Epoch: 609, global_step=7296000
+SPS: 1133
+Epoch: 610, global_step=7308000
+SPS: 1134
+Epoch: 611, global_step=7320000
+SPS: 1134
+Epoch: 612, global_step=7332000
+SPS: 1135
+Epoch: 613, global_step=7344000
+SPS: 1135
+Epoch: 614, global_step=7356000
+SPS: 1135
+Epoch: 615, global_step=7368000
+SPS: 1136
+Epoch: 616, global_step=7380000
+SPS: 1136
+Epoch: 617, global_step=7392000
+SPS: 1137
+Epoch: 618, global_step=7404000
+SPS: 1137
+Epoch: 619, global_step=7416000
+SPS: 1137
+Epoch: 620, global_step=7428000
+SPS: 1138
+Epoch: 621, global_step=7440000
+SPS: 1138
+Epoch: 622, global_step=7452000
+SPS: 1139
+Epoch: 623, global_step=7464000
+SPS: 1139
+Epoch: 624, global_step=7476000
+SPS: 1140
+Epoch: 625, global_step=7488000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7344[0m
+[32mEvaluation Metric: return[0m | [36mMean: 28.1032[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4684[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7083[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_13_625.pt
+SPS: 1127
+Epoch: 626, global_step=7500000
+SPS: 1127
+Epoch: 627, global_step=7512000
+SPS: 1128
+Epoch: 628, global_step=7524000
+SPS: 1128
+Epoch: 629, global_step=7536000
+SPS: 1129
+Epoch: 630, global_step=7548000
+SPS: 1129
+Epoch: 631, global_step=7560000
+SPS: 1129
+Epoch: 632, global_step=7572000
+SPS: 1130
+Epoch: 633, global_step=7584000
+SPS: 1130
+Epoch: 634, global_step=7596000
+SPS: 1131
+Epoch: 635, global_step=7608000
+SPS: 1131
+Epoch: 636, global_step=7620000
+SPS: 1131
+Epoch: 637, global_step=7632000
+SPS: 1132
+Epoch: 638, global_step=7644000
+SPS: 1132
+Epoch: 639, global_step=7656000
+SPS: 1132
+Epoch: 640, global_step=7668000
+SPS: 1133
+Epoch: 641, global_step=7680000
+SPS: 1133
+Epoch: 642, global_step=7692000
+SPS: 1134
+Epoch: 643, global_step=7704000
+SPS: 1134
+Epoch: 644, global_step=7716000
+SPS: 1134
+Epoch: 645, global_step=7728000
+SPS: 1135
+Epoch: 646, global_step=7740000
+SPS: 1135
+Epoch: 647, global_step=7752000
+SPS: 1136
+Epoch: 648, global_step=7764000
+SPS: 1136
+Epoch: 649, global_step=7776000
+SPS: 1136
+Epoch: 650, global_step=7788000
+SPS: 1137
+Epoch: 651, global_step=7800000
+SPS: 1137
+Epoch: 652, global_step=7812000
+SPS: 1137
+Epoch: 653, global_step=7824000
+SPS: 1138
+Epoch: 654, global_step=7836000
+SPS: 1138
+Epoch: 655, global_step=7848000
+SPS: 1138
+Epoch: 656, global_step=7860000
+SPS: 1139
+Epoch: 657, global_step=7872000
+SPS: 1139
+Epoch: 658, global_step=7884000
+SPS: 1140
+Epoch: 659, global_step=7896000
+SPS: 1140
+Epoch: 660, global_step=7908000
+SPS: 1141
+Epoch: 661, global_step=7920000
+SPS: 1141
+Epoch: 662, global_step=7932000
+SPS: 1141
+Epoch: 663, global_step=7944000
+SPS: 1142
+Epoch: 664, global_step=7956000
+SPS: 1142
+Epoch: 665, global_step=7968000
+SPS: 1142
+Epoch: 666, global_step=7980000
+SPS: 1143
+Epoch: 667, global_step=7992000
+SPS: 1143
+Epoch: 668, global_step=8004000
+SPS: 1143
+Epoch: 669, global_step=8016000
+SPS: 1144
+Epoch: 670, global_step=8028000
+SPS: 1144
+Epoch: 671, global_step=8040000
+SPS: 1145
+Epoch: 672, global_step=8052000
+SPS: 1145
+Epoch: 673, global_step=8064000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7656[0m
+[32mEvaluation Metric: return[0m | [36mMean: 30.0225[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5004[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7500[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_14_673.pt
+SPS: 1133
+Epoch: 674, global_step=8076000
+SPS: 1133
+Epoch: 675, global_step=8088000
+SPS: 1134
+Epoch: 676, global_step=8100000
+SPS: 1134
+Epoch: 677, global_step=8112000
+SPS: 1135
+Epoch: 678, global_step=8124000
+SPS: 1135
+Epoch: 679, global_step=8136000
+SPS: 1135
+Epoch: 680, global_step=8148000
+SPS: 1135
+Epoch: 681, global_step=8160000
+SPS: 1136
+Epoch: 682, global_step=8172000
+SPS: 1136
+Epoch: 683, global_step=8184000
+SPS: 1137
+Epoch: 684, global_step=8196000
+SPS: 1137
+Epoch: 685, global_step=8208000
+SPS: 1137
+Epoch: 686, global_step=8220000
+SPS: 1138
+Epoch: 687, global_step=8232000
+SPS: 1138
+Epoch: 688, global_step=8244000
+SPS: 1139
+Epoch: 689, global_step=8256000
+SPS: 1139
+Epoch: 690, global_step=8268000
+SPS: 1140
+Epoch: 691, global_step=8280000
+SPS: 1140
+Epoch: 692, global_step=8292000
+SPS: 1141
+Epoch: 693, global_step=8304000
+SPS: 1141
+Epoch: 694, global_step=8316000
+SPS: 1142
+Epoch: 695, global_step=8328000
+SPS: 1142
+Epoch: 696, global_step=8340000
+SPS: 1142
+Epoch: 697, global_step=8352000
+SPS: 1143
+Epoch: 698, global_step=8364000
+SPS: 1143
+Epoch: 699, global_step=8376000
+SPS: 1144
+Epoch: 700, global_step=8388000
+SPS: 1144
+Epoch: 701, global_step=8400000
+SPS: 1144
+Epoch: 702, global_step=8412000
+SPS: 1145
+Epoch: 703, global_step=8424000
+SPS: 1145
+Epoch: 704, global_step=8436000
+SPS: 1145
+Epoch: 705, global_step=8448000
+SPS: 1146
+Epoch: 706, global_step=8460000
+SPS: 1146
+Epoch: 707, global_step=8472000
+SPS: 1146
+Epoch: 708, global_step=8484000
+SPS: 1147
+Epoch: 709, global_step=8496000
+SPS: 1147
+Epoch: 710, global_step=8508000
+SPS: 1147
+Epoch: 711, global_step=8520000
+SPS: 1148
+Epoch: 712, global_step=8532000
+SPS: 1148
+Epoch: 713, global_step=8544000
+SPS: 1149
+Epoch: 714, global_step=8556000
+SPS: 1149
+Epoch: 715, global_step=8568000
+SPS: 1149
+Epoch: 716, global_step=8580000
+SPS: 1149
+Epoch: 717, global_step=8592000
+SPS: 1149
+Epoch: 718, global_step=8604000
+SPS: 1149
+Epoch: 719, global_step=8616000
+SPS: 1150
+Epoch: 720, global_step=8628000
+SPS: 1150
+Epoch: 721, global_step=8640000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7240[0m
+[32mEvaluation Metric: return[0m | [36mMean: 29.2517[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4875[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7188[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_15_721.pt
+SPS: 1138
+Epoch: 722, global_step=8652000
+SPS: 1139
+Epoch: 723, global_step=8664000
+SPS: 1139
+Epoch: 724, global_step=8676000
+SPS: 1139
+Epoch: 725, global_step=8688000
+SPS: 1140
+Epoch: 726, global_step=8700000
+SPS: 1140
+Epoch: 727, global_step=8712000
+SPS: 1140
+Epoch: 728, global_step=8724000
+SPS: 1141
+Epoch: 729, global_step=8736000
+SPS: 1141
+Epoch: 730, global_step=8748000
+SPS: 1142
+Epoch: 731, global_step=8760000
+SPS: 1142
+Epoch: 732, global_step=8772000
+SPS: 1142
+Epoch: 733, global_step=8784000
+SPS: 1143
+Epoch: 734, global_step=8796000
+SPS: 1143
+Epoch: 735, global_step=8808000
+SPS: 1143
+Epoch: 736, global_step=8820000
+SPS: 1144
+Epoch: 737, global_step=8832000
+SPS: 1144
+Epoch: 738, global_step=8844000
+SPS: 1144
+Epoch: 739, global_step=8856000
+SPS: 1145
+Epoch: 740, global_step=8868000
+SPS: 1145
+Epoch: 741, global_step=8880000
+SPS: 1146
+Epoch: 742, global_step=8892000
+SPS: 1146
+Epoch: 743, global_step=8904000
+SPS: 1146
+Epoch: 744, global_step=8916000
+SPS: 1147
+Epoch: 745, global_step=8928000
+SPS: 1147
+Epoch: 746, global_step=8940000
+SPS: 1147
+Epoch: 747, global_step=8952000
+SPS: 1148
+Epoch: 748, global_step=8964000
+SPS: 1148
+Epoch: 749, global_step=8976000
+SPS: 1148
+Epoch: 750, global_step=8988000
+SPS: 1149
+Epoch: 751, global_step=9000000
+SPS: 1149
+Epoch: 752, global_step=9012000
+SPS: 1149
+Epoch: 753, global_step=9024000
+SPS: 1150
+Epoch: 754, global_step=9036000
+SPS: 1150
+Epoch: 755, global_step=9048000
+SPS: 1151
+Epoch: 756, global_step=9060000
+SPS: 1151
+Epoch: 757, global_step=9072000
+SPS: 1151
+Epoch: 758, global_step=9084000
+SPS: 1151
+Epoch: 759, global_step=9096000
+SPS: 1152
+Epoch: 760, global_step=9108000
+SPS: 1152
+Epoch: 761, global_step=9120000
+SPS: 1153
+Epoch: 762, global_step=9132000
+SPS: 1153
+Epoch: 763, global_step=9144000
+SPS: 1153
+Epoch: 764, global_step=9156000
+SPS: 1154
+Epoch: 765, global_step=9168000
+SPS: 1154
+Epoch: 766, global_step=9180000
+SPS: 1155
+Epoch: 767, global_step=9192000
+SPS: 1155
+Epoch: 768, global_step=9204000
+SPS: 1155
+Epoch: 769, global_step=9216000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7604[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.7061[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5284[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7604[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_16_769.pt
+SPS: 1144
+Epoch: 770, global_step=9228000
+SPS: 1144
+Epoch: 771, global_step=9240000
+SPS: 1144
+Epoch: 772, global_step=9252000
+SPS: 1145
+Epoch: 773, global_step=9264000
+SPS: 1145
+Epoch: 774, global_step=9276000
+SPS: 1145
+Epoch: 775, global_step=9288000
+SPS: 1146
+Epoch: 776, global_step=9300000
+SPS: 1146
+Epoch: 777, global_step=9312000
+SPS: 1146
+Epoch: 778, global_step=9324000
+SPS: 1147
+Epoch: 779, global_step=9336000
+SPS: 1147
+Epoch: 780, global_step=9348000
+SPS: 1147
+Epoch: 781, global_step=9360000
+SPS: 1148
+Epoch: 782, global_step=9372000
+SPS: 1148
+Epoch: 783, global_step=9384000
+SPS: 1149
+Epoch: 784, global_step=9396000
+SPS: 1149
+Epoch: 785, global_step=9408000
+SPS: 1150
+Epoch: 786, global_step=9420000
+SPS: 1150
+Epoch: 787, global_step=9432000
+SPS: 1150
+Epoch: 788, global_step=9444000
+SPS: 1151
+Epoch: 789, global_step=9456000
+SPS: 1151
+Epoch: 790, global_step=9468000
+SPS: 1152
+Epoch: 791, global_step=9480000
+SPS: 1152
+Epoch: 792, global_step=9492000
+SPS: 1152
+Epoch: 793, global_step=9504000
+SPS: 1153
+Epoch: 794, global_step=9516000
+SPS: 1153
+Epoch: 795, global_step=9528000
+SPS: 1153
+Epoch: 796, global_step=9540000
+SPS: 1154
+Epoch: 797, global_step=9552000
+SPS: 1154
+Epoch: 798, global_step=9564000
+SPS: 1155
+Epoch: 799, global_step=9576000
+SPS: 1155
+Epoch: 800, global_step=9588000
+SPS: 1155
+Epoch: 801, global_step=9600000
+SPS: 1156
+Epoch: 802, global_step=9612000
+SPS: 1156
+Epoch: 803, global_step=9624000
+SPS: 1156
+Epoch: 804, global_step=9636000
+SPS: 1157
+Epoch: 805, global_step=9648000
+SPS: 1157
+Epoch: 806, global_step=9660000
+SPS: 1157
+Epoch: 807, global_step=9672000
+SPS: 1158
+Epoch: 808, global_step=9684000
+SPS: 1158
+Epoch: 809, global_step=9696000
+SPS: 1158
+Epoch: 810, global_step=9708000
+SPS: 1158
+Epoch: 811, global_step=9720000
+SPS: 1159
+Epoch: 812, global_step=9732000
+SPS: 1159
+Epoch: 813, global_step=9744000
+SPS: 1160
+Epoch: 814, global_step=9756000
+SPS: 1160
+Epoch: 815, global_step=9768000
+SPS: 1160
+Epoch: 816, global_step=9780000
+SPS: 1161
+Epoch: 817, global_step=9792000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7500[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.9800[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5330[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7448[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_17_817.pt
+SPS: 1150
+Epoch: 818, global_step=9804000
+SPS: 1151
+Epoch: 819, global_step=9816000
+SPS: 1151
+Epoch: 820, global_step=9828000
+SPS: 1151
+Epoch: 821, global_step=9840000
+SPS: 1152
+Epoch: 822, global_step=9852000
+SPS: 1152
+Epoch: 823, global_step=9864000
+SPS: 1152
+Epoch: 824, global_step=9876000
+SPS: 1153
+Epoch: 825, global_step=9888000
+SPS: 1153
+Epoch: 826, global_step=9900000
+SPS: 1154
+Epoch: 827, global_step=9912000
+SPS: 1154
+Epoch: 828, global_step=9924000
+SPS: 1154
+Epoch: 829, global_step=9936000
+SPS: 1155
+Epoch: 830, global_step=9948000
+SPS: 1155
+Epoch: 831, global_step=9960000
+SPS: 1155
+Epoch: 832, global_step=9972000
+SPS: 1156
+Epoch: 833, global_step=9984000
+SPS: 1156
+Epoch: 834, global_step=9996000
+SPS: 1157
+Epoch: 835, global_step=10008000
+SPS: 1157
+Epoch: 836, global_step=10020000
+SPS: 1157
+Epoch: 837, global_step=10032000
+SPS: 1158
+Epoch: 838, global_step=10044000
+SPS: 1158
+Epoch: 839, global_step=10056000
+SPS: 1159
+Epoch: 840, global_step=10068000
+SPS: 1159
+Epoch: 841, global_step=10080000
+SPS: 1159
+Epoch: 842, global_step=10092000
+SPS: 1160
+Epoch: 843, global_step=10104000
+SPS: 1160
+Epoch: 844, global_step=10116000
+SPS: 1160
+Epoch: 845, global_step=10128000
+SPS: 1161
+Epoch: 846, global_step=10140000
+SPS: 1161
+Epoch: 847, global_step=10152000
+SPS: 1161
+Epoch: 848, global_step=10164000
+SPS: 1162
+Epoch: 849, global_step=10176000
+SPS: 1162
+Epoch: 850, global_step=10188000
+SPS: 1163
+Epoch: 851, global_step=10200000
+SPS: 1163
+Epoch: 852, global_step=10212000
+SPS: 1163
+Epoch: 853, global_step=10224000
+SPS: 1164
+Epoch: 854, global_step=10236000
+SPS: 1164
+Epoch: 855, global_step=10248000
+SPS: 1164
+Epoch: 856, global_step=10260000
+SPS: 1165
+Epoch: 857, global_step=10272000
+SPS: 1165
+Epoch: 858, global_step=10284000
+SPS: 1166
+Epoch: 859, global_step=10296000
+SPS: 1166
+Epoch: 860, global_step=10308000
+SPS: 1166
+Epoch: 861, global_step=10320000
+SPS: 1167
+Epoch: 862, global_step=10332000
+SPS: 1167
+Epoch: 863, global_step=10344000
+SPS: 1167
+Epoch: 864, global_step=10356000
+SPS: 1168
+Epoch: 865, global_step=10368000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.4233[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5237[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7031[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/ckpt_18_865.pt
+SPS: 1157
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-33__33__rgb_joints_belief__20260125_050321/20260125_050321/final_ckpt.pt
+Running RememberShape5-v0 with belief, seed 42
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RememberShape5-v0_cvae_mikasa_last5_v6_1_norm200/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.8817[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1647[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_0_1.pt
+SPS: 151
+Epoch: 2, global_step=12000
+SPS: 273
+Epoch: 3, global_step=24000
+SPS: 371
+Epoch: 4, global_step=36000
+SPS: 451
+Epoch: 5, global_step=48000
+SPS: 517
+Epoch: 6, global_step=60000
+SPS: 572
+Epoch: 7, global_step=72000
+SPS: 619
+Epoch: 8, global_step=84000
+SPS: 660
+Epoch: 9, global_step=96000
+SPS: 695
+Epoch: 10, global_step=108000
+SPS: 726
+Epoch: 11, global_step=120000
+SPS: 753
+Epoch: 12, global_step=132000
+SPS: 778
+Epoch: 13, global_step=144000
+SPS: 800
+Epoch: 14, global_step=156000
+SPS: 819
+Epoch: 15, global_step=168000
+SPS: 837
+Epoch: 16, global_step=180000
+SPS: 853
+Epoch: 17, global_step=192000
+SPS: 868
+Epoch: 18, global_step=204000
+SPS: 880
+Epoch: 19, global_step=216000
+SPS: 895
+Epoch: 20, global_step=228000
+SPS: 908
+Epoch: 21, global_step=240000
+SPS: 919
+Epoch: 22, global_step=252000
+SPS: 928
+Epoch: 23, global_step=264000
+SPS: 937
+Epoch: 24, global_step=276000
+SPS: 944
+Epoch: 25, global_step=288000
+SPS: 951
+Epoch: 26, global_step=300000
+SPS: 958
+Epoch: 27, global_step=312000
+SPS: 965
+Epoch: 28, global_step=324000
+SPS: 971
+Epoch: 29, global_step=336000
+SPS: 977
+Epoch: 30, global_step=348000
+SPS: 983
+Epoch: 31, global_step=360000
+SPS: 988
+Epoch: 32, global_step=372000
+SPS: 993
+Epoch: 33, global_step=384000
+SPS: 998
+Epoch: 34, global_step=396000
+SPS: 1002
+Epoch: 35, global_step=408000
+SPS: 1007
+Epoch: 36, global_step=420000
+SPS: 1011
+Epoch: 37, global_step=432000
+SPS: 1014
+Epoch: 38, global_step=444000
+SPS: 1018
+Epoch: 39, global_step=456000
+SPS: 1022
+Epoch: 40, global_step=468000
+SPS: 1025
+Epoch: 41, global_step=480000
+SPS: 1028
+Epoch: 42, global_step=492000
+SPS: 1030
+Epoch: 43, global_step=504000
+SPS: 1033
+Epoch: 44, global_step=516000
+SPS: 1036
+Epoch: 45, global_step=528000
+SPS: 1039
+Epoch: 46, global_step=540000
+SPS: 1042
+Epoch: 47, global_step=552000
+SPS: 1044
+Epoch: 48, global_step=564000
+SPS: 1047
+Epoch: 49, global_step=576000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4219[0m
+[32mEvaluation Metric: return[0m | [36mMean: 14.4981[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2416[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1927[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_1_49.pt
+SPS: 921
+Epoch: 50, global_step=588000
+SPS: 926
+Epoch: 51, global_step=600000
+SPS: 930
+Epoch: 52, global_step=612000
+SPS: 933
+Epoch: 53, global_step=624000
+SPS: 938
+Epoch: 54, global_step=636000
+SPS: 942
+Epoch: 55, global_step=648000
+SPS: 947
+Epoch: 56, global_step=660000
+SPS: 950
+Epoch: 57, global_step=672000
+SPS: 953
+Epoch: 58, global_step=684000
+SPS: 956
+Epoch: 59, global_step=696000
+SPS: 959
+Epoch: 60, global_step=708000
+SPS: 962
+Epoch: 61, global_step=720000
+SPS: 965
+Epoch: 62, global_step=732000
+SPS: 968
+Epoch: 63, global_step=744000
+SPS: 971
+Epoch: 64, global_step=756000
+SPS: 974
+Epoch: 65, global_step=768000
+SPS: 977
+Epoch: 66, global_step=780000
+SPS: 981
+Epoch: 67, global_step=792000
+SPS: 984
+Epoch: 68, global_step=804000
+SPS: 986
+Epoch: 69, global_step=816000
+SPS: 989
+Epoch: 70, global_step=828000
+SPS: 991
+Epoch: 71, global_step=840000
+SPS: 994
+Epoch: 72, global_step=852000
+SPS: 996
+Epoch: 73, global_step=864000
+SPS: 998
+Epoch: 74, global_step=876000
+SPS: 1001
+Epoch: 75, global_step=888000
+SPS: 1003
+Epoch: 76, global_step=900000
+SPS: 1005
+Epoch: 77, global_step=912000
+SPS: 1007
+Epoch: 78, global_step=924000
+SPS: 1009
+Epoch: 79, global_step=936000
+SPS: 1011
+Epoch: 80, global_step=948000
+SPS: 1013
+Epoch: 81, global_step=960000
+SPS: 1015
+Epoch: 82, global_step=972000
+SPS: 1017
+Epoch: 83, global_step=984000
+SPS: 1019
+Epoch: 84, global_step=996000
+SPS: 1021
+Epoch: 85, global_step=1008000
+SPS: 1022
+Epoch: 86, global_step=1020000
+SPS: 1024
+Epoch: 87, global_step=1032000
+SPS: 1026
+Epoch: 88, global_step=1044000
+SPS: 1027
+Epoch: 89, global_step=1056000
+SPS: 1029
+Epoch: 90, global_step=1068000
+SPS: 1030
+Epoch: 91, global_step=1080000
+SPS: 1032
+Epoch: 92, global_step=1092000
+SPS: 1033
+Epoch: 93, global_step=1104000
+SPS: 1035
+Epoch: 94, global_step=1116000
+SPS: 1037
+Epoch: 95, global_step=1128000
+SPS: 1038
+Epoch: 96, global_step=1140000
+SPS: 1040
+Epoch: 97, global_step=1152000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.4844[0m
+[32mEvaluation Metric: return[0m | [36mMean: 14.8586[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2476[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2344[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_2_97.pt
+SPS: 973
+Epoch: 98, global_step=1164000
+SPS: 975
+Epoch: 99, global_step=1176000
+SPS: 977
+Epoch: 100, global_step=1188000
+SPS: 979
+Epoch: 101, global_step=1200000
+SPS: 981
+Epoch: 102, global_step=1212000
+SPS: 983
+Epoch: 103, global_step=1224000
+SPS: 984
+Epoch: 104, global_step=1236000
+SPS: 986
+Epoch: 105, global_step=1248000
+SPS: 988
+Epoch: 106, global_step=1260000
+SPS: 989
+Epoch: 107, global_step=1272000
+SPS: 991
+Epoch: 108, global_step=1284000
+SPS: 992
+Epoch: 109, global_step=1296000
+SPS: 994
+Epoch: 110, global_step=1308000
+SPS: 995
+Epoch: 111, global_step=1320000
+SPS: 997
+Epoch: 112, global_step=1332000
+SPS: 998
+Epoch: 113, global_step=1344000
+SPS: 1000
+Epoch: 114, global_step=1356000
+SPS: 1001
+Epoch: 115, global_step=1368000
+SPS: 1002
+Epoch: 116, global_step=1380000
+SPS: 1004
+Epoch: 117, global_step=1392000
+SPS: 1005
+Epoch: 118, global_step=1404000
+SPS: 1006
+Epoch: 119, global_step=1416000
+SPS: 1008
+Epoch: 120, global_step=1428000
+SPS: 1009
+Epoch: 121, global_step=1440000
+SPS: 1010
+Epoch: 122, global_step=1452000
+SPS: 1012
+Epoch: 123, global_step=1464000
+SPS: 1013
+Epoch: 124, global_step=1476000
+SPS: 1014
+Epoch: 125, global_step=1488000
+SPS: 1015
+Epoch: 126, global_step=1500000
+SPS: 1017
+Epoch: 127, global_step=1512000
+SPS: 1018
+Epoch: 128, global_step=1524000
+SPS: 1019
+Epoch: 129, global_step=1536000
+SPS: 1020
+Epoch: 130, global_step=1548000
+SPS: 1021
+Epoch: 131, global_step=1560000
+SPS: 1022
+Epoch: 132, global_step=1572000
+SPS: 1023
+Epoch: 133, global_step=1584000
+SPS: 1024
+Epoch: 134, global_step=1596000
+SPS: 1025
+Epoch: 135, global_step=1608000
+SPS: 1026
+Epoch: 136, global_step=1620000
+SPS: 1027
+Epoch: 137, global_step=1632000
+SPS: 1028
+Epoch: 138, global_step=1644000
+SPS: 1030
+Epoch: 139, global_step=1656000
+SPS: 1031
+Epoch: 140, global_step=1668000
+SPS: 1032
+Epoch: 141, global_step=1680000
+SPS: 1033
+Epoch: 142, global_step=1692000
+SPS: 1034
+Epoch: 143, global_step=1704000
+SPS: 1035
+Epoch: 144, global_step=1716000
+SPS: 1036
+Epoch: 145, global_step=1728000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3229[0m
+[32mEvaluation Metric: return[0m | [36mMean: 11.5298[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1922[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1146[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_3_145.pt
+SPS: 990
+Epoch: 146, global_step=1740000
+SPS: 992
+Epoch: 147, global_step=1752000
+SPS: 993
+Epoch: 148, global_step=1764000
+SPS: 994
+Epoch: 149, global_step=1776000
+SPS: 995
+Epoch: 150, global_step=1788000
+SPS: 996
+Epoch: 151, global_step=1800000
+SPS: 997
+Epoch: 152, global_step=1812000
+SPS: 999
+Epoch: 153, global_step=1824000
+SPS: 1000
+Epoch: 154, global_step=1836000
+SPS: 1001
+Epoch: 155, global_step=1848000
+SPS: 1002
+Epoch: 156, global_step=1860000
+SPS: 1003
+Epoch: 157, global_step=1872000
+SPS: 1004
+Epoch: 158, global_step=1884000
+SPS: 1005
+Epoch: 159, global_step=1896000
+SPS: 1006
+Epoch: 160, global_step=1908000
+SPS: 1007
+Epoch: 161, global_step=1920000
+SPS: 1008
+Epoch: 162, global_step=1932000
+SPS: 1009
+Epoch: 163, global_step=1944000
+SPS: 1010
+Epoch: 164, global_step=1956000
+SPS: 1011
+Epoch: 165, global_step=1968000
+SPS: 1012
+Epoch: 166, global_step=1980000
+SPS: 1013
+Epoch: 167, global_step=1992000
+SPS: 1014
+Epoch: 168, global_step=2004000
+SPS: 1015
+Epoch: 169, global_step=2016000
+SPS: 1016
+Epoch: 170, global_step=2028000
+SPS: 1017
+Epoch: 171, global_step=2040000
+SPS: 1018
+Epoch: 172, global_step=2052000
+SPS: 1019
+Epoch: 173, global_step=2064000
+SPS: 1019
+Epoch: 174, global_step=2076000
+SPS: 1020
+Epoch: 175, global_step=2088000
+SPS: 1021
+Epoch: 176, global_step=2100000
+SPS: 1022
+Epoch: 177, global_step=2112000
+SPS: 1023
+Epoch: 178, global_step=2124000
+SPS: 1024
+Epoch: 179, global_step=2136000
+SPS: 1024
+Epoch: 180, global_step=2148000
+SPS: 1025
+Epoch: 181, global_step=2160000
+SPS: 1026
+Epoch: 182, global_step=2172000
+SPS: 1027
+Epoch: 183, global_step=2184000
+SPS: 1028
+Epoch: 184, global_step=2196000
+SPS: 1029
+Epoch: 185, global_step=2208000
+SPS: 1030
+Epoch: 186, global_step=2220000
+SPS: 1031
+Epoch: 187, global_step=2232000
+SPS: 1033
+Epoch: 188, global_step=2244000
+SPS: 1033
+Epoch: 189, global_step=2256000
+SPS: 1035
+Epoch: 190, global_step=2268000
+SPS: 1036
+Epoch: 191, global_step=2280000
+SPS: 1037
+Epoch: 192, global_step=2292000
+SPS: 1038
+Epoch: 193, global_step=2304000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5625[0m
+[32mEvaluation Metric: return[0m | [36mMean: 15.2638[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2544[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.3177[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_4_193.pt
+SPS: 1003
+Epoch: 194, global_step=2316000
+SPS: 1004
+Epoch: 195, global_step=2328000
+SPS: 1005
+Epoch: 196, global_step=2340000
+SPS: 1006
+Epoch: 197, global_step=2352000
+SPS: 1007
+Epoch: 198, global_step=2364000
+SPS: 1008
+Epoch: 199, global_step=2376000
+SPS: 1008
+Epoch: 200, global_step=2388000
+SPS: 1009
+Epoch: 201, global_step=2400000
+SPS: 1010
+Epoch: 202, global_step=2412000
+SPS: 1011
+Epoch: 203, global_step=2424000
+SPS: 1012
+Epoch: 204, global_step=2436000
+SPS: 1013
+Epoch: 205, global_step=2448000
+SPS: 1014
+Epoch: 206, global_step=2460000
+SPS: 1015
+Epoch: 207, global_step=2472000
+SPS: 1015
+Epoch: 208, global_step=2484000
+SPS: 1016
+Epoch: 209, global_step=2496000
+SPS: 1017
+Epoch: 210, global_step=2508000
+SPS: 1018
+Epoch: 211, global_step=2520000
+SPS: 1019
+Epoch: 212, global_step=2532000
+SPS: 1019
+Epoch: 213, global_step=2544000
+SPS: 1020
+Epoch: 214, global_step=2556000
+SPS: 1021
+Epoch: 215, global_step=2568000
+SPS: 1022
+Epoch: 216, global_step=2580000
+SPS: 1022
+Epoch: 217, global_step=2592000
+SPS: 1023
+Epoch: 218, global_step=2604000
+SPS: 1024
+Epoch: 219, global_step=2616000
+SPS: 1024
+Epoch: 220, global_step=2628000
+SPS: 1025
+Epoch: 221, global_step=2640000
+SPS: 1026
+Epoch: 222, global_step=2652000
+SPS: 1026
+Epoch: 223, global_step=2664000
+SPS: 1027
+Epoch: 224, global_step=2676000
+SPS: 1028
+Epoch: 225, global_step=2688000
+SPS: 1028
+Epoch: 226, global_step=2700000
+SPS: 1029
+Epoch: 227, global_step=2712000
+SPS: 1030
+Epoch: 228, global_step=2724000
+SPS: 1030
+Epoch: 229, global_step=2736000
+SPS: 1031
+Epoch: 230, global_step=2748000
+SPS: 1032
+Epoch: 231, global_step=2760000
+SPS: 1032
+Epoch: 232, global_step=2772000
+SPS: 1033
+Epoch: 233, global_step=2784000
+SPS: 1034
+Epoch: 234, global_step=2796000
+SPS: 1034
+Epoch: 235, global_step=2808000
+SPS: 1035
+Epoch: 236, global_step=2820000
+SPS: 1036
+Epoch: 237, global_step=2832000
+SPS: 1036
+Epoch: 238, global_step=2844000
+SPS: 1037
+Epoch: 239, global_step=2856000
+SPS: 1038
+Epoch: 240, global_step=2868000
+SPS: 1038
+Epoch: 241, global_step=2880000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6927[0m
+[32mEvaluation Metric: return[0m | [36mMean: 24.9053[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4151[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.5625[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_5_241.pt
+SPS: 1010
+Epoch: 242, global_step=2892000
+SPS: 1011
+Epoch: 243, global_step=2904000
+SPS: 1012
+Epoch: 244, global_step=2916000
+SPS: 1012
+Epoch: 245, global_step=2928000
+SPS: 1013
+Epoch: 246, global_step=2940000
+SPS: 1014
+Epoch: 247, global_step=2952000
+SPS: 1014
+Epoch: 248, global_step=2964000
+SPS: 1015
+Epoch: 249, global_step=2976000
+SPS: 1015
+Epoch: 250, global_step=2988000
+SPS: 1016
+Epoch: 251, global_step=3000000
+SPS: 1016
+Epoch: 252, global_step=3012000
+SPS: 1017
+Epoch: 253, global_step=3024000
+SPS: 1018
+Epoch: 254, global_step=3036000
+SPS: 1019
+Epoch: 255, global_step=3048000
+SPS: 1020
+Epoch: 256, global_step=3060000
+SPS: 1020
+Epoch: 257, global_step=3072000
+SPS: 1021
+Epoch: 258, global_step=3084000
+SPS: 1022
+Epoch: 259, global_step=3096000
+SPS: 1023
+Epoch: 260, global_step=3108000
+SPS: 1023
+Epoch: 261, global_step=3120000
+SPS: 1024
+Epoch: 262, global_step=3132000
+SPS: 1024
+Epoch: 263, global_step=3144000
+SPS: 1026
+Epoch: 264, global_step=3156000
+SPS: 1026
+Epoch: 265, global_step=3168000
+SPS: 1027
+Epoch: 266, global_step=3180000
+SPS: 1027
+Epoch: 267, global_step=3192000
+SPS: 1028
+Epoch: 268, global_step=3204000
+SPS: 1029
+Epoch: 269, global_step=3216000
+SPS: 1029
+Epoch: 270, global_step=3228000
+SPS: 1030
+Epoch: 271, global_step=3240000
+SPS: 1031
+Epoch: 272, global_step=3252000
+SPS: 1031
+Epoch: 273, global_step=3264000
+SPS: 1032
+Epoch: 274, global_step=3276000
+SPS: 1032
+Epoch: 275, global_step=3288000
+SPS: 1033
+Epoch: 276, global_step=3300000
+SPS: 1033
+Epoch: 277, global_step=3312000
+SPS: 1034
+Epoch: 278, global_step=3324000
+SPS: 1035
+Epoch: 279, global_step=3336000
+SPS: 1036
+Epoch: 280, global_step=3348000
+SPS: 1036
+Epoch: 281, global_step=3360000
+SPS: 1037
+Epoch: 282, global_step=3372000
+SPS: 1037
+Epoch: 283, global_step=3384000
+SPS: 1038
+Epoch: 284, global_step=3396000
+SPS: 1038
+Epoch: 285, global_step=3408000
+SPS: 1039
+Epoch: 286, global_step=3420000
+SPS: 1039
+Epoch: 287, global_step=3432000
+SPS: 1040
+Epoch: 288, global_step=3444000
+SPS: 1040
+Epoch: 289, global_step=3456000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 25.4874[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4248[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6198[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_6_289.pt
+SPS: 1016
+Epoch: 290, global_step=3468000
+SPS: 1017
+Epoch: 291, global_step=3480000
+SPS: 1017
+Epoch: 292, global_step=3492000
+SPS: 1018
+Epoch: 293, global_step=3504000
+SPS: 1019
+Epoch: 294, global_step=3516000
+SPS: 1019
+Epoch: 295, global_step=3528000
+SPS: 1020
+Epoch: 296, global_step=3540000
+SPS: 1021
+Epoch: 297, global_step=3552000
+SPS: 1021
+Epoch: 298, global_step=3564000
+SPS: 1022
+Epoch: 299, global_step=3576000
+SPS: 1023
+Epoch: 300, global_step=3588000
+SPS: 1023
+Epoch: 301, global_step=3600000
+SPS: 1024
+Epoch: 302, global_step=3612000
+SPS: 1025
+Epoch: 303, global_step=3624000
+SPS: 1026
+Epoch: 304, global_step=3636000
+SPS: 1026
+Epoch: 305, global_step=3648000
+SPS: 1027
+Epoch: 306, global_step=3660000
+SPS: 1028
+Epoch: 307, global_step=3672000
+SPS: 1028
+Epoch: 308, global_step=3684000
+SPS: 1029
+Epoch: 309, global_step=3696000
+SPS: 1030
+Epoch: 310, global_step=3708000
+SPS: 1031
+Epoch: 311, global_step=3720000
+SPS: 1031
+Epoch: 312, global_step=3732000
+SPS: 1032
+Epoch: 313, global_step=3744000
+SPS: 1033
+Epoch: 314, global_step=3756000
+SPS: 1033
+Epoch: 315, global_step=3768000
+SPS: 1034
+Epoch: 316, global_step=3780000
+SPS: 1034
+Epoch: 317, global_step=3792000
+SPS: 1035
+Epoch: 318, global_step=3804000
+SPS: 1035
+Epoch: 319, global_step=3816000
+SPS: 1036
+Epoch: 320, global_step=3828000
+SPS: 1036
+Epoch: 321, global_step=3840000
+SPS: 1037
+Epoch: 322, global_step=3852000
+SPS: 1038
+Epoch: 323, global_step=3864000
+SPS: 1038
+Epoch: 324, global_step=3876000
+SPS: 1039
+Epoch: 325, global_step=3888000
+SPS: 1039
+Epoch: 326, global_step=3900000
+SPS: 1040
+Epoch: 327, global_step=3912000
+SPS: 1040
+Epoch: 328, global_step=3924000
+SPS: 1041
+Epoch: 329, global_step=3936000
+SPS: 1041
+Epoch: 330, global_step=3948000
+SPS: 1042
+Epoch: 331, global_step=3960000
+SPS: 1043
+Epoch: 332, global_step=3972000
+SPS: 1044
+Epoch: 333, global_step=3984000
+SPS: 1045
+Epoch: 334, global_step=3996000
+SPS: 1046
+Epoch: 335, global_step=4008000
+SPS: 1046
+Epoch: 336, global_step=4020000
+SPS: 1047
+Epoch: 337, global_step=4032000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 26.4015[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4400[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6562[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_7_337.pt
+SPS: 1026
+Epoch: 338, global_step=4044000
+SPS: 1027
+Epoch: 339, global_step=4056000
+SPS: 1028
+Epoch: 340, global_step=4068000
+SPS: 1028
+Epoch: 341, global_step=4080000
+SPS: 1029
+Epoch: 342, global_step=4092000
+SPS: 1029
+Epoch: 343, global_step=4104000
+SPS: 1030
+Epoch: 344, global_step=4116000
+SPS: 1030
+Epoch: 345, global_step=4128000
+SPS: 1031
+Epoch: 346, global_step=4140000
+SPS: 1031
+Epoch: 347, global_step=4152000
+SPS: 1031
+Epoch: 348, global_step=4164000
+SPS: 1033
+Epoch: 349, global_step=4176000
+SPS: 1033
+Epoch: 350, global_step=4188000
+SPS: 1034
+Epoch: 351, global_step=4200000
+SPS: 1034
+Epoch: 352, global_step=4212000
+SPS: 1035
+Epoch: 353, global_step=4224000
+SPS: 1036
+Epoch: 354, global_step=4236000
+SPS: 1037
+Epoch: 355, global_step=4248000
+SPS: 1037
+Epoch: 356, global_step=4260000
+SPS: 1038
+Epoch: 357, global_step=4272000
+SPS: 1038
+Epoch: 358, global_step=4284000
+SPS: 1039
+Epoch: 359, global_step=4296000
+SPS: 1039
+Epoch: 360, global_step=4308000
+SPS: 1040
+Epoch: 361, global_step=4320000
+SPS: 1040
+Epoch: 362, global_step=4332000
+SPS: 1041
+Epoch: 363, global_step=4344000
+SPS: 1041
+Epoch: 364, global_step=4356000
+SPS: 1042
+Epoch: 365, global_step=4368000
+SPS: 1042
+Epoch: 366, global_step=4380000
+SPS: 1043
+Epoch: 367, global_step=4392000
+SPS: 1044
+Epoch: 368, global_step=4404000
+SPS: 1044
+Epoch: 369, global_step=4416000
+SPS: 1045
+Epoch: 370, global_step=4428000
+SPS: 1046
+Epoch: 371, global_step=4440000
+SPS: 1046
+Epoch: 372, global_step=4452000
+SPS: 1047
+Epoch: 373, global_step=4464000
+SPS: 1048
+Epoch: 374, global_step=4476000
+SPS: 1049
+Epoch: 375, global_step=4488000
+SPS: 1049
+Epoch: 376, global_step=4500000
+SPS: 1050
+Epoch: 377, global_step=4512000
+SPS: 1050
+Epoch: 378, global_step=4524000
+SPS: 1051
+Epoch: 379, global_step=4536000
+SPS: 1051
+Epoch: 380, global_step=4548000
+SPS: 1052
+Epoch: 381, global_step=4560000
+SPS: 1052
+Epoch: 382, global_step=4572000
+SPS: 1053
+Epoch: 383, global_step=4584000
+SPS: 1054
+Epoch: 384, global_step=4596000
+SPS: 1054
+Epoch: 385, global_step=4608000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6875[0m
+[32mEvaluation Metric: return[0m | [36mMean: 27.7814[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4630[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6667[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_8_385.pt
+SPS: 1036
+Epoch: 386, global_step=4620000
+SPS: 1037
+Epoch: 387, global_step=4632000
+SPS: 1037
+Epoch: 388, global_step=4644000
+SPS: 1038
+Epoch: 389, global_step=4656000
+SPS: 1038
+Epoch: 390, global_step=4668000
+SPS: 1038
+Epoch: 391, global_step=4680000
+SPS: 1039
+Epoch: 392, global_step=4692000
+SPS: 1040
+Epoch: 393, global_step=4704000
+SPS: 1040
+Epoch: 394, global_step=4716000
+SPS: 1041
+Epoch: 395, global_step=4728000
+SPS: 1041
+Epoch: 396, global_step=4740000
+SPS: 1042
+Epoch: 397, global_step=4752000
+SPS: 1043
+Epoch: 398, global_step=4764000
+SPS: 1043
+Epoch: 399, global_step=4776000
+SPS: 1044
+Epoch: 400, global_step=4788000
+SPS: 1044
+Epoch: 401, global_step=4800000
+SPS: 1044
+Epoch: 402, global_step=4812000
+SPS: 1045
+Epoch: 403, global_step=4824000
+SPS: 1046
+Epoch: 404, global_step=4836000
+SPS: 1046
+Epoch: 405, global_step=4848000
+SPS: 1047
+Epoch: 406, global_step=4860000
+SPS: 1047
+Epoch: 407, global_step=4872000
+SPS: 1048
+Epoch: 408, global_step=4884000
+SPS: 1048
+Epoch: 409, global_step=4896000
+SPS: 1049
+Epoch: 410, global_step=4908000
+SPS: 1049
+Epoch: 411, global_step=4920000
+SPS: 1050
+Epoch: 412, global_step=4932000
+SPS: 1050
+Epoch: 413, global_step=4944000
+SPS: 1051
+Epoch: 414, global_step=4956000
+SPS: 1051
+Epoch: 415, global_step=4968000
+SPS: 1052
+Epoch: 416, global_step=4980000
+SPS: 1052
+Epoch: 417, global_step=4992000
+SPS: 1053
+Epoch: 418, global_step=5004000
+SPS: 1053
+Epoch: 419, global_step=5016000
+SPS: 1054
+Epoch: 420, global_step=5028000
+SPS: 1054
+Epoch: 421, global_step=5040000
+SPS: 1055
+Epoch: 422, global_step=5052000
+SPS: 1055
+Epoch: 423, global_step=5064000
+SPS: 1056
+Epoch: 424, global_step=5076000
+SPS: 1056
+Epoch: 425, global_step=5088000
+SPS: 1057
+Epoch: 426, global_step=5100000
+SPS: 1058
+Epoch: 427, global_step=5112000
+SPS: 1058
+Epoch: 428, global_step=5124000
+SPS: 1059
+Epoch: 429, global_step=5136000
+SPS: 1059
+Epoch: 430, global_step=5148000
+SPS: 1060
+Epoch: 431, global_step=5160000
+SPS: 1060
+Epoch: 432, global_step=5172000
+SPS: 1061
+Epoch: 433, global_step=5184000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7865[0m
+[32mEvaluation Metric: return[0m | [36mMean: 30.0896[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5015[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7083[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_9_433.pt
+SPS: 1044
+Epoch: 434, global_step=5196000
+SPS: 1045
+Epoch: 435, global_step=5208000
+SPS: 1046
+Epoch: 436, global_step=5220000
+SPS: 1047
+Epoch: 437, global_step=5232000
+SPS: 1047
+Epoch: 438, global_step=5244000
+SPS: 1048
+Epoch: 439, global_step=5256000
+SPS: 1048
+Epoch: 440, global_step=5268000
+SPS: 1049
+Epoch: 441, global_step=5280000
+SPS: 1049
+Epoch: 442, global_step=5292000
+SPS: 1050
+Epoch: 443, global_step=5304000
+SPS: 1051
+Epoch: 444, global_step=5316000
+SPS: 1051
+Epoch: 445, global_step=5328000
+SPS: 1052
+Epoch: 446, global_step=5340000
+SPS: 1053
+Epoch: 447, global_step=5352000
+SPS: 1053
+Epoch: 448, global_step=5364000
+SPS: 1054
+Epoch: 449, global_step=5376000
+SPS: 1055
+Epoch: 450, global_step=5388000
+SPS: 1055
+Epoch: 451, global_step=5400000
+SPS: 1056
+Epoch: 452, global_step=5412000
+SPS: 1056
+Epoch: 453, global_step=5424000
+SPS: 1056
+Epoch: 454, global_step=5436000
+SPS: 1057
+Epoch: 455, global_step=5448000
+SPS: 1057
+Epoch: 456, global_step=5460000
+SPS: 1058
+Epoch: 457, global_step=5472000
+SPS: 1058
+Epoch: 458, global_step=5484000
+SPS: 1059
+Epoch: 459, global_step=5496000
+SPS: 1060
+Epoch: 460, global_step=5508000
+SPS: 1060
+Epoch: 461, global_step=5520000
+SPS: 1060
+Epoch: 462, global_step=5532000
+SPS: 1061
+Epoch: 463, global_step=5544000
+SPS: 1062
+Epoch: 464, global_step=5556000
+SPS: 1063
+Epoch: 465, global_step=5568000
+SPS: 1063
+Epoch: 466, global_step=5580000
+SPS: 1064
+Epoch: 467, global_step=5592000
+SPS: 1064
+Epoch: 468, global_step=5604000
+SPS: 1065
+Epoch: 469, global_step=5616000
+SPS: 1065
+Epoch: 470, global_step=5628000
+SPS: 1065
+Epoch: 471, global_step=5640000
+SPS: 1066
+Epoch: 472, global_step=5652000
+SPS: 1066
+Epoch: 473, global_step=5664000
+SPS: 1066
+Epoch: 474, global_step=5676000
+SPS: 1066
+Epoch: 475, global_step=5688000
+SPS: 1067
+Epoch: 476, global_step=5700000
+SPS: 1067
+Epoch: 477, global_step=5712000
+SPS: 1068
+Epoch: 478, global_step=5724000
+SPS: 1068
+Epoch: 479, global_step=5736000
+SPS: 1068
+Epoch: 480, global_step=5748000
+SPS: 1069
+Epoch: 481, global_step=5760000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.8021[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.1004[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5517[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7969[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_10_481.pt
+SPS: 1054
+Epoch: 482, global_step=5772000
+SPS: 1054
+Epoch: 483, global_step=5784000
+SPS: 1054
+Epoch: 484, global_step=5796000
+SPS: 1055
+Epoch: 485, global_step=5808000
+SPS: 1055
+Epoch: 486, global_step=5820000
+SPS: 1056
+Epoch: 487, global_step=5832000
+SPS: 1056
+Epoch: 488, global_step=5844000
+SPS: 1057
+Epoch: 489, global_step=5856000
+SPS: 1058
+Epoch: 490, global_step=5868000
+SPS: 1058
+Epoch: 491, global_step=5880000
+SPS: 1059
+Epoch: 492, global_step=5892000
+SPS: 1059
+Epoch: 493, global_step=5904000
+SPS: 1060
+Epoch: 494, global_step=5916000
+SPS: 1060
+Epoch: 495, global_step=5928000
+SPS: 1060
+Epoch: 496, global_step=5940000
+SPS: 1061
+Epoch: 497, global_step=5952000
+SPS: 1061
+Epoch: 498, global_step=5964000
+SPS: 1062
+Epoch: 499, global_step=5976000
+SPS: 1062
+Epoch: 500, global_step=5988000
+SPS: 1063
+Epoch: 501, global_step=6000000
+SPS: 1063
+Epoch: 502, global_step=6012000
+SPS: 1064
+Epoch: 503, global_step=6024000
+SPS: 1064
+Epoch: 504, global_step=6036000
+SPS: 1065
+Epoch: 505, global_step=6048000
+SPS: 1065
+Epoch: 506, global_step=6060000
+SPS: 1066
+Epoch: 507, global_step=6072000
+SPS: 1066
+Epoch: 508, global_step=6084000
+SPS: 1066
+Epoch: 509, global_step=6096000
+SPS: 1067
+Epoch: 510, global_step=6108000
+SPS: 1067
+Epoch: 511, global_step=6120000
+SPS: 1068
+Epoch: 512, global_step=6132000
+SPS: 1068
+Epoch: 513, global_step=6144000
+SPS: 1069
+Epoch: 514, global_step=6156000
+SPS: 1069
+Epoch: 515, global_step=6168000
+SPS: 1070
+Epoch: 516, global_step=6180000
+SPS: 1070
+Epoch: 517, global_step=6192000
+SPS: 1070
+Epoch: 518, global_step=6204000
+SPS: 1071
+Epoch: 519, global_step=6216000
+SPS: 1072
+Epoch: 520, global_step=6228000
+SPS: 1072
+Epoch: 521, global_step=6240000
+SPS: 1073
+Epoch: 522, global_step=6252000
+SPS: 1073
+Epoch: 523, global_step=6264000
+SPS: 1074
+Epoch: 524, global_step=6276000
+SPS: 1074
+Epoch: 525, global_step=6288000
+SPS: 1075
+Epoch: 526, global_step=6300000
+SPS: 1075
+Epoch: 527, global_step=6312000
+SPS: 1076
+Epoch: 528, global_step=6324000
+SPS: 1076
+Epoch: 529, global_step=6336000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7448[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.5259[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5254[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7240[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_11_529.pt
+SPS: 1061
+Epoch: 530, global_step=6348000
+SPS: 1062
+Epoch: 531, global_step=6360000
+SPS: 1062
+Epoch: 532, global_step=6372000
+SPS: 1063
+Epoch: 533, global_step=6384000
+SPS: 1063
+Epoch: 534, global_step=6396000
+SPS: 1064
+Epoch: 535, global_step=6408000
+SPS: 1064
+Epoch: 536, global_step=6420000
+SPS: 1065
+Epoch: 537, global_step=6432000
+SPS: 1065
+Epoch: 538, global_step=6444000
+SPS: 1065
+Epoch: 539, global_step=6456000
+SPS: 1066
+Epoch: 540, global_step=6468000
+SPS: 1066
+Epoch: 541, global_step=6480000
+SPS: 1067
+Epoch: 542, global_step=6492000
+SPS: 1068
+Epoch: 543, global_step=6504000
+SPS: 1068
+Epoch: 544, global_step=6516000
+SPS: 1068
+Epoch: 545, global_step=6528000
+SPS: 1069
+Epoch: 546, global_step=6540000
+SPS: 1069
+Epoch: 547, global_step=6552000
+SPS: 1069
+Epoch: 548, global_step=6564000
+SPS: 1069
+Epoch: 549, global_step=6576000
+SPS: 1070
+Epoch: 550, global_step=6588000
+SPS: 1071
+Epoch: 551, global_step=6600000
+SPS: 1071
+Epoch: 552, global_step=6612000
+SPS: 1071
+Epoch: 553, global_step=6624000
+SPS: 1072
+Epoch: 554, global_step=6636000
+SPS: 1072
+Epoch: 555, global_step=6648000
+SPS: 1073
+Epoch: 556, global_step=6660000
+SPS: 1073
+Epoch: 557, global_step=6672000
+SPS: 1074
+Epoch: 558, global_step=6684000
+SPS: 1074
+Epoch: 559, global_step=6696000
+SPS: 1075
+Epoch: 560, global_step=6708000
+SPS: 1075
+Epoch: 561, global_step=6720000
+SPS: 1076
+Epoch: 562, global_step=6732000
+SPS: 1077
+Epoch: 563, global_step=6744000
+SPS: 1077
+Epoch: 564, global_step=6756000
+SPS: 1077
+Epoch: 565, global_step=6768000
+SPS: 1078
+Epoch: 566, global_step=6780000
+SPS: 1078
+Epoch: 567, global_step=6792000
+SPS: 1079
+Epoch: 568, global_step=6804000
+SPS: 1079
+Epoch: 569, global_step=6816000
+SPS: 1080
+Epoch: 570, global_step=6828000
+SPS: 1080
+Epoch: 571, global_step=6840000
+SPS: 1081
+Epoch: 572, global_step=6852000
+SPS: 1081
+Epoch: 573, global_step=6864000
+SPS: 1082
+Epoch: 574, global_step=6876000
+SPS: 1083
+Epoch: 575, global_step=6888000
+SPS: 1083
+Epoch: 576, global_step=6900000
+SPS: 1084
+Epoch: 577, global_step=6912000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7917[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.4232[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5571[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7656[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_12_577.pt
+SPS: 1070
+Epoch: 578, global_step=6924000
+SPS: 1071
+Epoch: 579, global_step=6936000
+SPS: 1071
+Epoch: 580, global_step=6948000
+SPS: 1071
+Epoch: 581, global_step=6960000
+SPS: 1071
+Epoch: 582, global_step=6972000
+SPS: 1072
+Epoch: 583, global_step=6984000
+SPS: 1072
+Epoch: 584, global_step=6996000
+SPS: 1073
+Epoch: 585, global_step=7008000
+SPS: 1073
+Epoch: 586, global_step=7020000
+SPS: 1074
+Epoch: 587, global_step=7032000
+SPS: 1074
+Epoch: 588, global_step=7044000
+SPS: 1075
+Epoch: 589, global_step=7056000
+SPS: 1075
+Epoch: 590, global_step=7068000
+SPS: 1076
+Epoch: 591, global_step=7080000
+SPS: 1076
+Epoch: 592, global_step=7092000
+SPS: 1077
+Epoch: 593, global_step=7104000
+SPS: 1077
+Epoch: 594, global_step=7116000
+SPS: 1078
+Epoch: 595, global_step=7128000
+SPS: 1078
+Epoch: 596, global_step=7140000
+SPS: 1079
+Epoch: 597, global_step=7152000
+SPS: 1079
+Epoch: 598, global_step=7164000
+SPS: 1080
+Epoch: 599, global_step=7176000
+SPS: 1080
+Epoch: 600, global_step=7188000
+SPS: 1081
+Epoch: 601, global_step=7200000
+SPS: 1081
+Epoch: 602, global_step=7212000
+SPS: 1082
+Epoch: 603, global_step=7224000
+SPS: 1082
+Epoch: 604, global_step=7236000
+SPS: 1083
+Epoch: 605, global_step=7248000
+SPS: 1083
+Epoch: 606, global_step=7260000
+SPS: 1084
+Epoch: 607, global_step=7272000
+SPS: 1084
+Epoch: 608, global_step=7284000
+SPS: 1085
+Epoch: 609, global_step=7296000
+SPS: 1085
+Epoch: 610, global_step=7308000
+SPS: 1086
+Epoch: 611, global_step=7320000
+SPS: 1086
+Epoch: 612, global_step=7332000
+SPS: 1087
+Epoch: 613, global_step=7344000
+SPS: 1088
+Epoch: 614, global_step=7356000
+SPS: 1088
+Epoch: 615, global_step=7368000
+SPS: 1089
+Epoch: 616, global_step=7380000
+SPS: 1089
+Epoch: 617, global_step=7392000
+SPS: 1090
+Epoch: 618, global_step=7404000
+SPS: 1090
+Epoch: 619, global_step=7416000
+SPS: 1091
+Epoch: 620, global_step=7428000
+SPS: 1091
+Epoch: 621, global_step=7440000
+SPS: 1092
+Epoch: 622, global_step=7452000
+SPS: 1092
+Epoch: 623, global_step=7464000
+SPS: 1093
+Epoch: 624, global_step=7476000
+SPS: 1093
+Epoch: 625, global_step=7488000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7396[0m
+[32mEvaluation Metric: return[0m | [36mMean: 32.5885[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5431[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7344[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_13_625.pt
+SPS: 1081
+Epoch: 626, global_step=7500000
+SPS: 1081
+Epoch: 627, global_step=7512000
+SPS: 1082
+Epoch: 628, global_step=7524000
+SPS: 1082
+Epoch: 629, global_step=7536000
+SPS: 1083
+Epoch: 630, global_step=7548000
+SPS: 1083
+Epoch: 631, global_step=7560000
+SPS: 1084
+Epoch: 632, global_step=7572000
+SPS: 1084
+Epoch: 633, global_step=7584000
+SPS: 1085
+Epoch: 634, global_step=7596000
+SPS: 1085
+Epoch: 635, global_step=7608000
+SPS: 1086
+Epoch: 636, global_step=7620000
+SPS: 1086
+Epoch: 637, global_step=7632000
+SPS: 1087
+Epoch: 638, global_step=7644000
+SPS: 1087
+Epoch: 639, global_step=7656000
+SPS: 1088
+Epoch: 640, global_step=7668000
+SPS: 1089
+Epoch: 641, global_step=7680000
+SPS: 1089
+Epoch: 642, global_step=7692000
+SPS: 1089
+Epoch: 643, global_step=7704000
+SPS: 1090
+Epoch: 644, global_step=7716000
+SPS: 1090
+Epoch: 645, global_step=7728000
+SPS: 1091
+Epoch: 646, global_step=7740000
+SPS: 1092
+Epoch: 647, global_step=7752000
+SPS: 1092
+Epoch: 648, global_step=7764000
+SPS: 1093
+Epoch: 649, global_step=7776000
+SPS: 1093
+Epoch: 650, global_step=7788000
+SPS: 1094
+Epoch: 651, global_step=7800000
+SPS: 1094
+Epoch: 652, global_step=7812000
+SPS: 1095
+Epoch: 653, global_step=7824000
+SPS: 1095
+Epoch: 654, global_step=7836000
+SPS: 1096
+Epoch: 655, global_step=7848000
+SPS: 1096
+Epoch: 656, global_step=7860000
+SPS: 1097
+Epoch: 657, global_step=7872000
+SPS: 1097
+Epoch: 658, global_step=7884000
+SPS: 1098
+Epoch: 659, global_step=7896000
+SPS: 1098
+Epoch: 660, global_step=7908000
+SPS: 1099
+Epoch: 661, global_step=7920000
+SPS: 1100
+Epoch: 662, global_step=7932000
+SPS: 1100
+Epoch: 663, global_step=7944000
+SPS: 1101
+Epoch: 664, global_step=7956000
+SPS: 1101
+Epoch: 665, global_step=7968000
+SPS: 1102
+Epoch: 666, global_step=7980000
+SPS: 1102
+Epoch: 667, global_step=7992000
+SPS: 1103
+Epoch: 668, global_step=8004000
+SPS: 1103
+Epoch: 669, global_step=8016000
+SPS: 1104
+Epoch: 670, global_step=8028000
+SPS: 1104
+Epoch: 671, global_step=8040000
+SPS: 1105
+Epoch: 672, global_step=8052000
+SPS: 1106
+Epoch: 673, global_step=8064000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7865[0m
+[32mEvaluation Metric: return[0m | [36mMean: 34.6904[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5782[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7812[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_14_673.pt
+SPS: 1094
+Epoch: 674, global_step=8076000
+SPS: 1094
+Epoch: 675, global_step=8088000
+SPS: 1095
+Epoch: 676, global_step=8100000
+SPS: 1095
+Epoch: 677, global_step=8112000
+SPS: 1096
+Epoch: 678, global_step=8124000
+SPS: 1096
+Epoch: 679, global_step=8136000
+SPS: 1097
+Epoch: 680, global_step=8148000
+SPS: 1097
+Epoch: 681, global_step=8160000
+SPS: 1098
+Epoch: 682, global_step=8172000
+SPS: 1098
+Epoch: 683, global_step=8184000
+SPS: 1099
+Epoch: 684, global_step=8196000
+SPS: 1099
+Epoch: 685, global_step=8208000
+SPS: 1100
+Epoch: 686, global_step=8220000
+SPS: 1100
+Epoch: 687, global_step=8232000
+SPS: 1101
+Epoch: 688, global_step=8244000
+SPS: 1101
+Epoch: 689, global_step=8256000
+SPS: 1102
+Epoch: 690, global_step=8268000
+SPS: 1103
+Epoch: 691, global_step=8280000
+SPS: 1103
+Epoch: 692, global_step=8292000
+SPS: 1104
+Epoch: 693, global_step=8304000
+SPS: 1104
+Epoch: 694, global_step=8316000
+SPS: 1105
+Epoch: 695, global_step=8328000
+SPS: 1105
+Epoch: 696, global_step=8340000
+SPS: 1106
+Epoch: 697, global_step=8352000
+SPS: 1106
+Epoch: 698, global_step=8364000
+SPS: 1107
+Epoch: 699, global_step=8376000
+SPS: 1107
+Epoch: 700, global_step=8388000
+SPS: 1108
+Epoch: 701, global_step=8400000
+SPS: 1108
+Epoch: 702, global_step=8412000
+SPS: 1109
+Epoch: 703, global_step=8424000
+SPS: 1109
+Epoch: 704, global_step=8436000
+SPS: 1110
+Epoch: 705, global_step=8448000
+SPS: 1110
+Epoch: 706, global_step=8460000
+SPS: 1111
+Epoch: 707, global_step=8472000
+SPS: 1111
+Epoch: 708, global_step=8484000
+SPS: 1112
+Epoch: 709, global_step=8496000
+SPS: 1112
+Epoch: 710, global_step=8508000
+SPS: 1113
+Epoch: 711, global_step=8520000
+SPS: 1113
+Epoch: 712, global_step=8532000
+SPS: 1114
+Epoch: 713, global_step=8544000
+SPS: 1114
+Epoch: 714, global_step=8556000
+SPS: 1115
+Epoch: 715, global_step=8568000
+SPS: 1115
+Epoch: 716, global_step=8580000
+SPS: 1116
+Epoch: 717, global_step=8592000
+SPS: 1116
+Epoch: 718, global_step=8604000
+SPS: 1117
+Epoch: 719, global_step=8616000
+SPS: 1117
+Epoch: 720, global_step=8628000
+SPS: 1118
+Epoch: 721, global_step=8640000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7917[0m
+[32mEvaluation Metric: return[0m | [36mMean: 34.9827[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5830[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7917[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_15_721.pt
+SPS: 1107
+Epoch: 722, global_step=8652000
+SPS: 1107
+Epoch: 723, global_step=8664000
+SPS: 1108
+Epoch: 724, global_step=8676000
+SPS: 1108
+Epoch: 725, global_step=8688000
+SPS: 1109
+Epoch: 726, global_step=8700000
+SPS: 1109
+Epoch: 727, global_step=8712000
+SPS: 1110
+Epoch: 728, global_step=8724000
+SPS: 1110
+Epoch: 729, global_step=8736000
+SPS: 1111
+Epoch: 730, global_step=8748000
+SPS: 1111
+Epoch: 731, global_step=8760000
+SPS: 1112
+Epoch: 732, global_step=8772000
+SPS: 1112
+Epoch: 733, global_step=8784000
+SPS: 1113
+Epoch: 734, global_step=8796000
+SPS: 1113
+Epoch: 735, global_step=8808000
+SPS: 1114
+Epoch: 736, global_step=8820000
+SPS: 1115
+Epoch: 737, global_step=8832000
+SPS: 1115
+Epoch: 738, global_step=8844000
+SPS: 1116
+Epoch: 739, global_step=8856000
+SPS: 1116
+Epoch: 740, global_step=8868000
+SPS: 1117
+Epoch: 741, global_step=8880000
+SPS: 1117
+Epoch: 742, global_step=8892000
+SPS: 1118
+Epoch: 743, global_step=8904000
+SPS: 1118
+Epoch: 744, global_step=8916000
+SPS: 1119
+Epoch: 745, global_step=8928000
+SPS: 1119
+Epoch: 746, global_step=8940000
+SPS: 1120
+Epoch: 747, global_step=8952000
+SPS: 1120
+Epoch: 748, global_step=8964000
+SPS: 1121
+Epoch: 749, global_step=8976000
+SPS: 1121
+Epoch: 750, global_step=8988000
+SPS: 1122
+Epoch: 751, global_step=9000000
+SPS: 1122
+Epoch: 752, global_step=9012000
+SPS: 1122
+Epoch: 753, global_step=9024000
+SPS: 1123
+Epoch: 754, global_step=9036000
+SPS: 1123
+Epoch: 755, global_step=9048000
+SPS: 1124
+Epoch: 756, global_step=9060000
+SPS: 1124
+Epoch: 757, global_step=9072000
+SPS: 1125
+Epoch: 758, global_step=9084000
+SPS: 1125
+Epoch: 759, global_step=9096000
+SPS: 1126
+Epoch: 760, global_step=9108000
+SPS: 1126
+Epoch: 761, global_step=9120000
+SPS: 1127
+Epoch: 762, global_step=9132000
+SPS: 1127
+Epoch: 763, global_step=9144000
+SPS: 1128
+Epoch: 764, global_step=9156000
+SPS: 1128
+Epoch: 765, global_step=9168000
+SPS: 1129
+Epoch: 766, global_step=9180000
+SPS: 1129
+Epoch: 767, global_step=9192000
+SPS: 1130
+Epoch: 768, global_step=9204000
+SPS: 1130
+Epoch: 769, global_step=9216000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7708[0m
+[32mEvaluation Metric: return[0m | [36mMean: 34.4103[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5735[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7604[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_16_769.pt
+SPS: 1119
+Epoch: 770, global_step=9228000
+SPS: 1120
+Epoch: 771, global_step=9240000
+SPS: 1120
+Epoch: 772, global_step=9252000
+SPS: 1121
+Epoch: 773, global_step=9264000
+SPS: 1121
+Epoch: 774, global_step=9276000
+SPS: 1122
+Epoch: 775, global_step=9288000
+SPS: 1122
+Epoch: 776, global_step=9300000
+SPS: 1123
+Epoch: 777, global_step=9312000
+SPS: 1123
+Epoch: 778, global_step=9324000
+SPS: 1124
+Epoch: 779, global_step=9336000
+SPS: 1124
+Epoch: 780, global_step=9348000
+SPS: 1125
+Epoch: 781, global_step=9360000
+SPS: 1125
+Epoch: 782, global_step=9372000
+SPS: 1126
+Epoch: 783, global_step=9384000
+SPS: 1126
+Epoch: 784, global_step=9396000
+SPS: 1127
+Epoch: 785, global_step=9408000
+SPS: 1127
+Epoch: 786, global_step=9420000
+SPS: 1128
+Epoch: 787, global_step=9432000
+SPS: 1128
+Epoch: 788, global_step=9444000
+SPS: 1129
+Epoch: 789, global_step=9456000
+SPS: 1129
+Epoch: 790, global_step=9468000
+SPS: 1130
+Epoch: 791, global_step=9480000
+SPS: 1130
+Epoch: 792, global_step=9492000
+SPS: 1131
+Epoch: 793, global_step=9504000
+SPS: 1131
+Epoch: 794, global_step=9516000
+SPS: 1132
+Epoch: 795, global_step=9528000
+SPS: 1132
+Epoch: 796, global_step=9540000
+SPS: 1133
+Epoch: 797, global_step=9552000
+SPS: 1133
+Epoch: 798, global_step=9564000
+SPS: 1134
+Epoch: 799, global_step=9576000
+SPS: 1134
+Epoch: 800, global_step=9588000
+SPS: 1135
+Epoch: 801, global_step=9600000
+SPS: 1135
+Epoch: 802, global_step=9612000
+SPS: 1136
+Epoch: 803, global_step=9624000
+SPS: 1136
+Epoch: 804, global_step=9636000
+SPS: 1137
+Epoch: 805, global_step=9648000
+SPS: 1137
+Epoch: 806, global_step=9660000
+SPS: 1137
+Epoch: 807, global_step=9672000
+SPS: 1138
+Epoch: 808, global_step=9684000
+SPS: 1138
+Epoch: 809, global_step=9696000
+SPS: 1139
+Epoch: 810, global_step=9708000
+SPS: 1139
+Epoch: 811, global_step=9720000
+SPS: 1140
+Epoch: 812, global_step=9732000
+SPS: 1140
+Epoch: 813, global_step=9744000
+SPS: 1141
+Epoch: 814, global_step=9756000
+SPS: 1141
+Epoch: 815, global_step=9768000
+SPS: 1142
+Epoch: 816, global_step=9780000
+SPS: 1142
+Epoch: 817, global_step=9792000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7604[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.9500[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5658[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7604[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_17_817.pt
+SPS: 1132
+Epoch: 818, global_step=9804000
+SPS: 1133
+Epoch: 819, global_step=9816000
+SPS: 1133
+Epoch: 820, global_step=9828000
+SPS: 1133
+Epoch: 821, global_step=9840000
+SPS: 1134
+Epoch: 822, global_step=9852000
+SPS: 1134
+Epoch: 823, global_step=9864000
+SPS: 1135
+Epoch: 824, global_step=9876000
+SPS: 1135
+Epoch: 825, global_step=9888000
+SPS: 1136
+Epoch: 826, global_step=9900000
+SPS: 1136
+Epoch: 827, global_step=9912000
+SPS: 1137
+Epoch: 828, global_step=9924000
+SPS: 1137
+Epoch: 829, global_step=9936000
+SPS: 1138
+Epoch: 830, global_step=9948000
+SPS: 1138
+Epoch: 831, global_step=9960000
+SPS: 1138
+Epoch: 832, global_step=9972000
+SPS: 1139
+Epoch: 833, global_step=9984000
+SPS: 1139
+Epoch: 834, global_step=9996000
+SPS: 1140
+Epoch: 835, global_step=10008000
+SPS: 1140
+Epoch: 836, global_step=10020000
+SPS: 1141
+Epoch: 837, global_step=10032000
+SPS: 1141
+Epoch: 838, global_step=10044000
+SPS: 1142
+Epoch: 839, global_step=10056000
+SPS: 1142
+Epoch: 840, global_step=10068000
+SPS: 1143
+Epoch: 841, global_step=10080000
+SPS: 1143
+Epoch: 842, global_step=10092000
+SPS: 1144
+Epoch: 843, global_step=10104000
+SPS: 1144
+Epoch: 844, global_step=10116000
+SPS: 1145
+Epoch: 845, global_step=10128000
+SPS: 1145
+Epoch: 846, global_step=10140000
+SPS: 1145
+Epoch: 847, global_step=10152000
+SPS: 1146
+Epoch: 848, global_step=10164000
+SPS: 1146
+Epoch: 849, global_step=10176000
+SPS: 1147
+Epoch: 850, global_step=10188000
+SPS: 1147
+Epoch: 851, global_step=10200000
+SPS: 1148
+Epoch: 852, global_step=10212000
+SPS: 1148
+Epoch: 853, global_step=10224000
+SPS: 1149
+Epoch: 854, global_step=10236000
+SPS: 1149
+Epoch: 855, global_step=10248000
+SPS: 1150
+Epoch: 856, global_step=10260000
+SPS: 1150
+Epoch: 857, global_step=10272000
+SPS: 1151
+Epoch: 858, global_step=10284000
+SPS: 1151
+Epoch: 859, global_step=10296000
+SPS: 1152
+Epoch: 860, global_step=10308000
+SPS: 1152
+Epoch: 861, global_step=10320000
+SPS: 1152
+Epoch: 862, global_step=10332000
+SPS: 1153
+Epoch: 863, global_step=10344000
+SPS: 1153
+Epoch: 864, global_step=10356000
+SPS: 1154
+Epoch: 865, global_step=10368000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7500[0m
+[32mEvaluation Metric: return[0m | [36mMean: 33.9680[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5661[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7500[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/ckpt_18_865.pt
+SPS: 1144
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-42__42__rgb_joints_belief__20260125_073311/20260125_073311/final_ckpt.pt
+Running RememberShape5-v0 with belief, seed 99
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShape5-v0                                       ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeInfoWrapper                                         ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints_belief'
+prompt_info=None
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Loading belief model from /local/s4176650/sphinx/storage_cvae/RememberShape5-v0_cvae_mikasa_last5_v6_1_norm200/final_vae_model.pt
+  phi_dim=16, latent_dim=32
+Belief model loaded successfully. Memory size: 768
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.8595[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1643[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_0_1.pt
+SPS: 146
+Epoch: 2, global_step=12000
+SPS: 265
+Epoch: 3, global_step=24000
+SPS: 363
+Epoch: 4, global_step=36000
+SPS: 442
+Epoch: 5, global_step=48000
+SPS: 509
+Epoch: 6, global_step=60000
+SPS: 564
+Epoch: 7, global_step=72000
+SPS: 612
+Epoch: 8, global_step=84000
+SPS: 651
+Epoch: 9, global_step=96000
+SPS: 686
+Epoch: 10, global_step=108000
+SPS: 718
+Epoch: 11, global_step=120000
+SPS: 746
+Epoch: 12, global_step=132000
+SPS: 771
+Epoch: 13, global_step=144000
+SPS: 793
+Epoch: 14, global_step=156000
+SPS: 814
+Epoch: 15, global_step=168000
+SPS: 833
+Epoch: 16, global_step=180000
+SPS: 849
+Epoch: 17, global_step=192000
+SPS: 865
+Epoch: 18, global_step=204000
+SPS: 879
+Epoch: 19, global_step=216000
+SPS: 892
+Epoch: 20, global_step=228000
+SPS: 904
+Epoch: 21, global_step=240000
+SPS: 914
+Epoch: 22, global_step=252000
+SPS: 925
+Epoch: 23, global_step=264000
+SPS: 934
+Epoch: 24, global_step=276000
+SPS: 944
+Epoch: 25, global_step=288000
+SPS: 952
+Epoch: 26, global_step=300000
+SPS: 959
+Epoch: 27, global_step=312000
+SPS: 966
+Epoch: 28, global_step=324000
+SPS: 973
+Epoch: 29, global_step=336000
+SPS: 980
+Epoch: 30, global_step=348000
+SPS: 986
+Epoch: 31, global_step=360000
+SPS: 991
+Epoch: 32, global_step=372000
+SPS: 997
+Epoch: 33, global_step=384000
+SPS: 1003
+Epoch: 34, global_step=396000
+SPS: 1008
+Epoch: 35, global_step=408000
+SPS: 1013
+Epoch: 36, global_step=420000
+SPS: 1017
+Epoch: 37, global_step=432000
+SPS: 1021
+Epoch: 38, global_step=444000
+SPS: 1026
+Epoch: 39, global_step=456000
+SPS: 1029
+Epoch: 40, global_step=468000
+SPS: 1033
+Epoch: 41, global_step=480000
+SPS: 1037
+Epoch: 42, global_step=492000
+SPS: 1042
+Epoch: 43, global_step=504000
+SPS: 1047
+Epoch: 44, global_step=516000
+SPS: 1051
+Epoch: 45, global_step=528000
+SPS: 1056
+Epoch: 46, global_step=540000
+SPS: 1060
+Epoch: 47, global_step=552000
+SPS: 1063
+Epoch: 48, global_step=564000
+SPS: 1065
+Epoch: 49, global_step=576000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.3906[0m
+[32mEvaluation Metric: return[0m | [36mMean: 14.2271[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2371[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.1823[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_1_49.pt
+SPS: 928
+Epoch: 50, global_step=588000
+SPS: 933
+Epoch: 51, global_step=600000
+SPS: 937
+Epoch: 52, global_step=612000
+SPS: 941
+Epoch: 53, global_step=624000
+SPS: 945
+Epoch: 54, global_step=636000
+SPS: 949
+Epoch: 55, global_step=648000
+SPS: 953
+Epoch: 56, global_step=660000
+SPS: 956
+Epoch: 57, global_step=672000
+SPS: 960
+Epoch: 58, global_step=684000
+SPS: 963
+Epoch: 59, global_step=696000
+SPS: 966
+Epoch: 60, global_step=708000
+SPS: 969
+Epoch: 61, global_step=720000
+SPS: 972
+Epoch: 62, global_step=732000
+SPS: 975
+Epoch: 63, global_step=744000
+SPS: 978
+Epoch: 64, global_step=756000
+SPS: 981
+Epoch: 65, global_step=768000
+SPS: 983
+Epoch: 66, global_step=780000
+SPS: 986
+Epoch: 67, global_step=792000
+SPS: 988
+Epoch: 68, global_step=804000
+SPS: 991
+Epoch: 69, global_step=816000
+SPS: 994
+Epoch: 70, global_step=828000
+SPS: 996
+Epoch: 71, global_step=840000
+SPS: 999
+Epoch: 72, global_step=852000
+SPS: 1001
+Epoch: 73, global_step=864000
+SPS: 1003
+Epoch: 74, global_step=876000
+SPS: 1006
+Epoch: 75, global_step=888000
+SPS: 1008
+Epoch: 76, global_step=900000
+SPS: 1010
+Epoch: 77, global_step=912000
+SPS: 1012
+Epoch: 78, global_step=924000
+SPS: 1014
+Epoch: 79, global_step=936000
+SPS: 1016
+Epoch: 80, global_step=948000
+SPS: 1018
+Epoch: 81, global_step=960000
+SPS: 1020
+Epoch: 82, global_step=972000
+SPS: 1022
+Epoch: 83, global_step=984000
+SPS: 1024
+Epoch: 84, global_step=996000
+SPS: 1026
+Epoch: 85, global_step=1008000
+SPS: 1028
+Epoch: 86, global_step=1020000
+SPS: 1030
+Epoch: 87, global_step=1032000
+SPS: 1032
+Epoch: 88, global_step=1044000
+SPS: 1034
+Epoch: 89, global_step=1056000
+SPS: 1036
+Epoch: 90, global_step=1068000
+SPS: 1037
+Epoch: 91, global_step=1080000
+SPS: 1039
+Epoch: 92, global_step=1092000
+SPS: 1040
+Epoch: 93, global_step=1104000
+SPS: 1042
+Epoch: 94, global_step=1116000
+SPS: 1043
+Epoch: 95, global_step=1128000
+SPS: 1044
+Epoch: 96, global_step=1140000
+SPS: 1046
+Epoch: 97, global_step=1152000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5156[0m
+[32mEvaluation Metric: return[0m | [36mMean: 17.1707[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.2862[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.2917[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_2_97.pt
+SPS: 977
+Epoch: 98, global_step=1164000
+SPS: 979
+Epoch: 99, global_step=1176000
+SPS: 981
+Epoch: 100, global_step=1188000
+SPS: 983
+Epoch: 101, global_step=1200000
+SPS: 985
+Epoch: 102, global_step=1212000
+SPS: 987
+Epoch: 103, global_step=1224000
+SPS: 988
+Epoch: 104, global_step=1236000
+SPS: 990
+Epoch: 105, global_step=1248000
+SPS: 991
+Epoch: 106, global_step=1260000
+SPS: 993
+Epoch: 107, global_step=1272000
+SPS: 994
+Epoch: 108, global_step=1284000
+SPS: 996
+Epoch: 109, global_step=1296000
+SPS: 998
+Epoch: 110, global_step=1308000
+SPS: 999
+Epoch: 111, global_step=1320000
+SPS: 1001
+Epoch: 112, global_step=1332000
+SPS: 1002
+Epoch: 113, global_step=1344000
+SPS: 1003
+Epoch: 114, global_step=1356000
+SPS: 1005
+Epoch: 115, global_step=1368000
+SPS: 1006
+Epoch: 116, global_step=1380000
+SPS: 1008
+Epoch: 117, global_step=1392000
+SPS: 1009
+Epoch: 118, global_step=1404000
+SPS: 1010
+Epoch: 119, global_step=1416000
+SPS: 1012
+Epoch: 120, global_step=1428000
+SPS: 1013
+Epoch: 121, global_step=1440000
+SPS: 1014
+Epoch: 122, global_step=1452000
+SPS: 1015
+Epoch: 123, global_step=1464000
+SPS: 1017
+Epoch: 124, global_step=1476000
+SPS: 1018
+Epoch: 125, global_step=1488000
+SPS: 1019
+Epoch: 126, global_step=1500000
+SPS: 1020
+Epoch: 127, global_step=1512000
+SPS: 1021
+Epoch: 128, global_step=1524000
+SPS: 1023
+Epoch: 129, global_step=1536000
+SPS: 1024
+Epoch: 130, global_step=1548000
+SPS: 1025
+Epoch: 131, global_step=1560000
+SPS: 1026
+Epoch: 132, global_step=1572000
+SPS: 1027
+Epoch: 133, global_step=1584000
+SPS: 1028
+Epoch: 134, global_step=1596000
+SPS: 1029
+Epoch: 135, global_step=1608000
+SPS: 1030
+Epoch: 136, global_step=1620000
+SPS: 1031
+Epoch: 137, global_step=1632000
+SPS: 1032
+Epoch: 138, global_step=1644000
+SPS: 1033
+Epoch: 139, global_step=1656000
+SPS: 1034
+Epoch: 140, global_step=1668000
+SPS: 1036
+Epoch: 141, global_step=1680000
+SPS: 1037
+Epoch: 142, global_step=1692000
+SPS: 1038
+Epoch: 143, global_step=1704000
+SPS: 1038
+Epoch: 144, global_step=1716000
+SPS: 1039
+Epoch: 145, global_step=1728000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6250[0m
+[32mEvaluation Metric: return[0m | [36mMean: 21.1634[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3527[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4219[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_3_145.pt
+SPS: 993
+Epoch: 146, global_step=1740000
+SPS: 994
+Epoch: 147, global_step=1752000
+SPS: 995
+Epoch: 148, global_step=1764000
+SPS: 996
+Epoch: 149, global_step=1776000
+SPS: 998
+Epoch: 150, global_step=1788000
+SPS: 999
+Epoch: 151, global_step=1800000
+SPS: 1000
+Epoch: 152, global_step=1812000
+SPS: 1001
+Epoch: 153, global_step=1824000
+SPS: 1003
+Epoch: 154, global_step=1836000
+SPS: 1004
+Epoch: 155, global_step=1848000
+SPS: 1005
+Epoch: 156, global_step=1860000
+SPS: 1006
+Epoch: 157, global_step=1872000
+SPS: 1007
+Epoch: 158, global_step=1884000
+SPS: 1008
+Epoch: 159, global_step=1896000
+SPS: 1009
+Epoch: 160, global_step=1908000
+SPS: 1010
+Epoch: 161, global_step=1920000
+SPS: 1011
+Epoch: 162, global_step=1932000
+SPS: 1012
+Epoch: 163, global_step=1944000
+SPS: 1013
+Epoch: 164, global_step=1956000
+SPS: 1014
+Epoch: 165, global_step=1968000
+SPS: 1015
+Epoch: 166, global_step=1980000
+SPS: 1016
+Epoch: 167, global_step=1992000
+SPS: 1017
+Epoch: 168, global_step=2004000
+SPS: 1019
+Epoch: 169, global_step=2016000
+SPS: 1020
+Epoch: 170, global_step=2028000
+SPS: 1021
+Epoch: 171, global_step=2040000
+SPS: 1022
+Epoch: 172, global_step=2052000
+SPS: 1022
+Epoch: 173, global_step=2064000
+SPS: 1023
+Epoch: 174, global_step=2076000
+SPS: 1024
+Epoch: 175, global_step=2088000
+SPS: 1025
+Epoch: 176, global_step=2100000
+SPS: 1026
+Epoch: 177, global_step=2112000
+SPS: 1027
+Epoch: 178, global_step=2124000
+SPS: 1028
+Epoch: 179, global_step=2136000
+SPS: 1028
+Epoch: 180, global_step=2148000
+SPS: 1029
+Epoch: 181, global_step=2160000
+SPS: 1030
+Epoch: 182, global_step=2172000
+SPS: 1031
+Epoch: 183, global_step=2184000
+SPS: 1032
+Epoch: 184, global_step=2196000
+SPS: 1032
+Epoch: 185, global_step=2208000
+SPS: 1033
+Epoch: 186, global_step=2220000
+SPS: 1034
+Epoch: 187, global_step=2232000
+SPS: 1035
+Epoch: 188, global_step=2244000
+SPS: 1036
+Epoch: 189, global_step=2256000
+SPS: 1036
+Epoch: 190, global_step=2268000
+SPS: 1037
+Epoch: 191, global_step=2280000
+SPS: 1038
+Epoch: 192, global_step=2292000
+SPS: 1039
+Epoch: 193, global_step=2304000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5677[0m
+[32mEvaluation Metric: return[0m | [36mMean: 18.7250[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3121[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4219[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_4_193.pt
+SPS: 1002
+Epoch: 194, global_step=2316000
+SPS: 1004
+Epoch: 195, global_step=2328000
+SPS: 1005
+Epoch: 196, global_step=2340000
+SPS: 1006
+Epoch: 197, global_step=2352000
+SPS: 1007
+Epoch: 198, global_step=2364000
+SPS: 1008
+Epoch: 199, global_step=2376000
+SPS: 1009
+Epoch: 200, global_step=2388000
+SPS: 1010
+Epoch: 201, global_step=2400000
+SPS: 1011
+Epoch: 202, global_step=2412000
+SPS: 1012
+Epoch: 203, global_step=2424000
+SPS: 1012
+Epoch: 204, global_step=2436000
+SPS: 1013
+Epoch: 205, global_step=2448000
+SPS: 1014
+Epoch: 206, global_step=2460000
+SPS: 1015
+Epoch: 207, global_step=2472000
+SPS: 1015
+Epoch: 208, global_step=2484000
+SPS: 1016
+Epoch: 209, global_step=2496000
+SPS: 1017
+Epoch: 210, global_step=2508000
+SPS: 1018
+Epoch: 211, global_step=2520000
+SPS: 1018
+Epoch: 212, global_step=2532000
+SPS: 1019
+Epoch: 213, global_step=2544000
+SPS: 1020
+Epoch: 214, global_step=2556000
+SPS: 1021
+Epoch: 215, global_step=2568000
+SPS: 1021
+Epoch: 216, global_step=2580000
+SPS: 1022
+Epoch: 217, global_step=2592000
+SPS: 1023
+Epoch: 218, global_step=2604000
+SPS: 1023
+Epoch: 219, global_step=2616000
+SPS: 1024
+Epoch: 220, global_step=2628000
+SPS: 1025
+Epoch: 221, global_step=2640000
+SPS: 1025
+Epoch: 222, global_step=2652000
+SPS: 1026
+Epoch: 223, global_step=2664000
+SPS: 1027
+Epoch: 224, global_step=2676000
+SPS: 1028
+Epoch: 225, global_step=2688000
+SPS: 1028
+Epoch: 226, global_step=2700000
+SPS: 1029
+Epoch: 227, global_step=2712000
+SPS: 1030
+Epoch: 228, global_step=2724000
+SPS: 1030
+Epoch: 229, global_step=2736000
+SPS: 1031
+Epoch: 230, global_step=2748000
+SPS: 1032
+Epoch: 231, global_step=2760000
+SPS: 1032
+Epoch: 232, global_step=2772000
+SPS: 1033
+Epoch: 233, global_step=2784000
+SPS: 1034
+Epoch: 234, global_step=2796000
+SPS: 1034
+Epoch: 235, global_step=2808000
+SPS: 1035
+Epoch: 236, global_step=2820000
+SPS: 1036
+Epoch: 237, global_step=2832000
+SPS: 1036
+Epoch: 238, global_step=2844000
+SPS: 1038
+Epoch: 239, global_step=2856000
+SPS: 1039
+Epoch: 240, global_step=2868000
+SPS: 1040
+Epoch: 241, global_step=2880000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5833[0m
+[32mEvaluation Metric: return[0m | [36mMean: 20.1759[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3363[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4323[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_5_241.pt
+SPS: 1010
+Epoch: 242, global_step=2892000
+SPS: 1011
+Epoch: 243, global_step=2904000
+SPS: 1012
+Epoch: 244, global_step=2916000
+SPS: 1013
+Epoch: 245, global_step=2928000
+SPS: 1014
+Epoch: 246, global_step=2940000
+SPS: 1015
+Epoch: 247, global_step=2952000
+SPS: 1015
+Epoch: 248, global_step=2964000
+SPS: 1016
+Epoch: 249, global_step=2976000
+SPS: 1017
+Epoch: 250, global_step=2988000
+SPS: 1018
+Epoch: 251, global_step=3000000
+SPS: 1018
+Epoch: 252, global_step=3012000
+SPS: 1019
+Epoch: 253, global_step=3024000
+SPS: 1020
+Epoch: 254, global_step=3036000
+SPS: 1021
+Epoch: 255, global_step=3048000
+SPS: 1022
+Epoch: 256, global_step=3060000
+SPS: 1022
+Epoch: 257, global_step=3072000
+SPS: 1023
+Epoch: 258, global_step=3084000
+SPS: 1024
+Epoch: 259, global_step=3096000
+SPS: 1024
+Epoch: 260, global_step=3108000
+SPS: 1025
+Epoch: 261, global_step=3120000
+SPS: 1025
+Epoch: 262, global_step=3132000
+SPS: 1027
+Epoch: 263, global_step=3144000
+SPS: 1027
+Epoch: 264, global_step=3156000
+SPS: 1028
+Epoch: 265, global_step=3168000
+SPS: 1029
+Epoch: 266, global_step=3180000
+SPS: 1029
+Epoch: 267, global_step=3192000
+SPS: 1030
+Epoch: 268, global_step=3204000
+SPS: 1031
+Epoch: 269, global_step=3216000
+SPS: 1032
+Epoch: 270, global_step=3228000
+SPS: 1033
+Epoch: 271, global_step=3240000
+SPS: 1034
+Epoch: 272, global_step=3252000
+SPS: 1035
+Epoch: 273, global_step=3264000
+SPS: 1035
+Epoch: 274, global_step=3276000
+SPS: 1036
+Epoch: 275, global_step=3288000
+SPS: 1036
+Epoch: 276, global_step=3300000
+SPS: 1037
+Epoch: 277, global_step=3312000
+SPS: 1037
+Epoch: 278, global_step=3324000
+SPS: 1038
+Epoch: 279, global_step=3336000
+SPS: 1039
+Epoch: 280, global_step=3348000
+SPS: 1040
+Epoch: 281, global_step=3360000
+SPS: 1040
+Epoch: 282, global_step=3372000
+SPS: 1041
+Epoch: 283, global_step=3384000
+SPS: 1041
+Epoch: 284, global_step=3396000
+SPS: 1042
+Epoch: 285, global_step=3408000
+SPS: 1043
+Epoch: 286, global_step=3420000
+SPS: 1044
+Epoch: 287, global_step=3432000
+SPS: 1044
+Epoch: 288, global_step=3444000
+SPS: 1045
+Epoch: 289, global_step=3456000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.5885[0m
+[32mEvaluation Metric: return[0m | [36mMean: 20.3418[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3390[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4010[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_6_289.pt
+SPS: 1021
+Epoch: 290, global_step=3468000
+SPS: 1022
+Epoch: 291, global_step=3480000
+SPS: 1023
+Epoch: 292, global_step=3492000
+SPS: 1024
+Epoch: 293, global_step=3504000
+SPS: 1025
+Epoch: 294, global_step=3516000
+SPS: 1026
+Epoch: 295, global_step=3528000
+SPS: 1027
+Epoch: 296, global_step=3540000
+SPS: 1028
+Epoch: 297, global_step=3552000
+SPS: 1028
+Epoch: 298, global_step=3564000
+SPS: 1030
+Epoch: 299, global_step=3576000
+SPS: 1031
+Epoch: 300, global_step=3588000
+SPS: 1032
+Epoch: 301, global_step=3600000
+SPS: 1032
+Epoch: 302, global_step=3612000
+SPS: 1033
+Epoch: 303, global_step=3624000
+SPS: 1034
+Epoch: 304, global_step=3636000
+SPS: 1035
+Epoch: 305, global_step=3648000
+SPS: 1036
+Epoch: 306, global_step=3660000
+SPS: 1037
+Epoch: 307, global_step=3672000
+SPS: 1037
+Epoch: 308, global_step=3684000
+SPS: 1038
+Epoch: 309, global_step=3696000
+SPS: 1038
+Epoch: 310, global_step=3708000
+SPS: 1039
+Epoch: 311, global_step=3720000
+SPS: 1040
+Epoch: 312, global_step=3732000
+SPS: 1040
+Epoch: 313, global_step=3744000
+SPS: 1041
+Epoch: 314, global_step=3756000
+SPS: 1041
+Epoch: 315, global_step=3768000
+SPS: 1042
+Epoch: 316, global_step=3780000
+SPS: 1043
+Epoch: 317, global_step=3792000
+SPS: 1044
+Epoch: 318, global_step=3804000
+SPS: 1045
+Epoch: 319, global_step=3816000
+SPS: 1045
+Epoch: 320, global_step=3828000
+SPS: 1046
+Epoch: 321, global_step=3840000
+SPS: 1047
+Epoch: 322, global_step=3852000
+SPS: 1048
+Epoch: 323, global_step=3864000
+SPS: 1049
+Epoch: 324, global_step=3876000
+SPS: 1049
+Epoch: 325, global_step=3888000
+SPS: 1050
+Epoch: 326, global_step=3900000
+SPS: 1050
+Epoch: 327, global_step=3912000
+SPS: 1051
+Epoch: 328, global_step=3924000
+SPS: 1052
+Epoch: 329, global_step=3936000
+SPS: 1053
+Epoch: 330, global_step=3948000
+SPS: 1053
+Epoch: 331, global_step=3960000
+SPS: 1054
+Epoch: 332, global_step=3972000
+SPS: 1054
+Epoch: 333, global_step=3984000
+SPS: 1055
+Epoch: 334, global_step=3996000
+SPS: 1056
+Epoch: 335, global_step=4008000
+SPS: 1056
+Epoch: 336, global_step=4020000
+SPS: 1057
+Epoch: 337, global_step=4032000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7292[0m
+[32mEvaluation Metric: return[0m | [36mMean: 23.8433[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3974[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.4844[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_7_337.pt
+SPS: 1035
+Epoch: 338, global_step=4044000
+SPS: 1036
+Epoch: 339, global_step=4056000
+SPS: 1037
+Epoch: 340, global_step=4068000
+SPS: 1038
+Epoch: 341, global_step=4080000
+SPS: 1039
+Epoch: 342, global_step=4092000
+SPS: 1039
+Epoch: 343, global_step=4104000
+SPS: 1040
+Epoch: 344, global_step=4116000
+SPS: 1041
+Epoch: 345, global_step=4128000
+SPS: 1042
+Epoch: 346, global_step=4140000
+SPS: 1042
+Epoch: 347, global_step=4152000
+SPS: 1043
+Epoch: 348, global_step=4164000
+SPS: 1043
+Epoch: 349, global_step=4176000
+SPS: 1044
+Epoch: 350, global_step=4188000
+SPS: 1045
+Epoch: 351, global_step=4200000
+SPS: 1046
+Epoch: 352, global_step=4212000
+SPS: 1047
+Epoch: 353, global_step=4224000
+SPS: 1048
+Epoch: 354, global_step=4236000
+SPS: 1049
+Epoch: 355, global_step=4248000
+SPS: 1049
+Epoch: 356, global_step=4260000
+SPS: 1050
+Epoch: 357, global_step=4272000
+SPS: 1050
+Epoch: 358, global_step=4284000
+SPS: 1051
+Epoch: 359, global_step=4296000
+SPS: 1052
+Epoch: 360, global_step=4308000
+SPS: 1052
+Epoch: 361, global_step=4320000
+SPS: 1053
+Epoch: 362, global_step=4332000
+SPS: 1054
+Epoch: 363, global_step=4344000
+SPS: 1055
+Epoch: 364, global_step=4356000
+SPS: 1055
+Epoch: 365, global_step=4368000
+SPS: 1056
+Epoch: 366, global_step=4380000
+SPS: 1056
+Epoch: 367, global_step=4392000
+SPS: 1058
+Epoch: 368, global_step=4404000
+SPS: 1059
+Epoch: 369, global_step=4416000
+SPS: 1060
+Epoch: 370, global_step=4428000
+SPS: 1060
+Epoch: 371, global_step=4440000
+SPS: 1061
+Epoch: 372, global_step=4452000
+SPS: 1061
+Epoch: 373, global_step=4464000
+SPS: 1062
+Epoch: 374, global_step=4476000
+SPS: 1063
+Epoch: 375, global_step=4488000
+SPS: 1063
+Epoch: 376, global_step=4500000
+SPS: 1064
+Epoch: 377, global_step=4512000
+SPS: 1064
+Epoch: 378, global_step=4524000
+SPS: 1065
+Epoch: 379, global_step=4536000
+SPS: 1065
+Epoch: 380, global_step=4548000
+SPS: 1066
+Epoch: 381, global_step=4560000
+SPS: 1066
+Epoch: 382, global_step=4572000
+SPS: 1067
+Epoch: 383, global_step=4584000
+SPS: 1068
+Epoch: 384, global_step=4596000
+SPS: 1069
+Epoch: 385, global_step=4608000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7031[0m
+[32mEvaluation Metric: return[0m | [36mMean: 23.9671[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.3995[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.5312[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_8_385.pt
+SPS: 1050
+Epoch: 386, global_step=4620000
+SPS: 1051
+Epoch: 387, global_step=4632000
+SPS: 1051
+Epoch: 388, global_step=4644000
+SPS: 1052
+Epoch: 389, global_step=4656000
+SPS: 1053
+Epoch: 390, global_step=4668000
+SPS: 1053
+Epoch: 391, global_step=4680000
+SPS: 1054
+Epoch: 392, global_step=4692000
+SPS: 1055
+Epoch: 393, global_step=4704000
+SPS: 1056
+Epoch: 394, global_step=4716000
+SPS: 1056
+Epoch: 395, global_step=4728000
+SPS: 1057
+Epoch: 396, global_step=4740000
+SPS: 1058
+Epoch: 397, global_step=4752000
+SPS: 1058
+Epoch: 398, global_step=4764000
+SPS: 1059
+Epoch: 399, global_step=4776000
+SPS: 1059
+Epoch: 400, global_step=4788000
+SPS: 1060
+Epoch: 401, global_step=4800000
+SPS: 1061
+Epoch: 402, global_step=4812000
+SPS: 1062
+Epoch: 403, global_step=4824000
+SPS: 1062
+Epoch: 404, global_step=4836000
+SPS: 1063
+Epoch: 405, global_step=4848000
+SPS: 1064
+Epoch: 406, global_step=4860000
+SPS: 1065
+Epoch: 407, global_step=4872000
+SPS: 1065
+Epoch: 408, global_step=4884000
+SPS: 1066
+Epoch: 409, global_step=4896000
+SPS: 1067
+Epoch: 410, global_step=4908000
+SPS: 1068
+Epoch: 411, global_step=4920000
+SPS: 1068
+Epoch: 412, global_step=4932000
+SPS: 1069
+Epoch: 413, global_step=4944000
+SPS: 1069
+Epoch: 414, global_step=4956000
+SPS: 1070
+Epoch: 415, global_step=4968000
+SPS: 1071
+Epoch: 416, global_step=4980000
+SPS: 1071
+Epoch: 417, global_step=4992000
+SPS: 1072
+Epoch: 418, global_step=5004000
+SPS: 1072
+Epoch: 419, global_step=5016000
+SPS: 1073
+Epoch: 420, global_step=5028000
+SPS: 1073
+Epoch: 421, global_step=5040000
+SPS: 1074
+Epoch: 422, global_step=5052000
+SPS: 1074
+Epoch: 423, global_step=5064000
+SPS: 1075
+Epoch: 424, global_step=5076000
+SPS: 1076
+Epoch: 425, global_step=5088000
+SPS: 1076
+Epoch: 426, global_step=5100000
+SPS: 1077
+Epoch: 427, global_step=5112000
+SPS: 1077
+Epoch: 428, global_step=5124000
+SPS: 1078
+Epoch: 429, global_step=5136000
+SPS: 1078
+Epoch: 430, global_step=5148000
+SPS: 1079
+Epoch: 431, global_step=5160000
+SPS: 1080
+Epoch: 432, global_step=5172000
+SPS: 1080
+Epoch: 433, global_step=5184000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.6875[0m
+[32mEvaluation Metric: return[0m | [36mMean: 25.1997[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4200[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.5417[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_9_433.pt
+SPS: 1062
+Epoch: 434, global_step=5196000
+SPS: 1063
+Epoch: 435, global_step=5208000
+SPS: 1063
+Epoch: 436, global_step=5220000
+SPS: 1064
+Epoch: 437, global_step=5232000
+SPS: 1064
+Epoch: 438, global_step=5244000
+SPS: 1064
+Epoch: 439, global_step=5256000
+SPS: 1065
+Epoch: 440, global_step=5268000
+SPS: 1065
+Epoch: 441, global_step=5280000
+SPS: 1066
+Epoch: 442, global_step=5292000
+SPS: 1066
+Epoch: 443, global_step=5304000
+SPS: 1067
+Epoch: 444, global_step=5316000
+SPS: 1068
+Epoch: 445, global_step=5328000
+SPS: 1068
+Epoch: 446, global_step=5340000
+SPS: 1068
+Epoch: 447, global_step=5352000
+SPS: 1069
+Epoch: 448, global_step=5364000
+SPS: 1070
+Epoch: 449, global_step=5376000
+SPS: 1070
+Epoch: 450, global_step=5388000
+SPS: 1071
+Epoch: 451, global_step=5400000
+SPS: 1071
+Epoch: 452, global_step=5412000
+SPS: 1072
+Epoch: 453, global_step=5424000
+SPS: 1072
+Epoch: 454, global_step=5436000
+SPS: 1073
+Epoch: 455, global_step=5448000
+SPS: 1073
+Epoch: 456, global_step=5460000
+SPS: 1074
+Epoch: 457, global_step=5472000
+SPS: 1075
+Epoch: 458, global_step=5484000
+SPS: 1075
+Epoch: 459, global_step=5496000
+SPS: 1076
+Epoch: 460, global_step=5508000
+SPS: 1076
+Epoch: 461, global_step=5520000
+SPS: 1076
+Epoch: 462, global_step=5532000
+SPS: 1077
+Epoch: 463, global_step=5544000
+SPS: 1077
+Epoch: 464, global_step=5556000
+SPS: 1078
+Epoch: 465, global_step=5568000
+SPS: 1078
+Epoch: 466, global_step=5580000
+SPS: 1079
+Epoch: 467, global_step=5592000
+SPS: 1079
+Epoch: 468, global_step=5604000
+SPS: 1080
+Epoch: 469, global_step=5616000
+SPS: 1081
+Epoch: 470, global_step=5628000
+SPS: 1081
+Epoch: 471, global_step=5640000
+SPS: 1082
+Epoch: 472, global_step=5652000
+SPS: 1082
+Epoch: 473, global_step=5664000
+SPS: 1083
+Epoch: 474, global_step=5676000
+SPS: 1084
+Epoch: 475, global_step=5688000
+SPS: 1084
+Epoch: 476, global_step=5700000
+SPS: 1085
+Epoch: 477, global_step=5712000
+SPS: 1085
+Epoch: 478, global_step=5724000
+SPS: 1086
+Epoch: 479, global_step=5736000
+SPS: 1086
+Epoch: 480, global_step=5748000
+SPS: 1087
+Epoch: 481, global_step=5760000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7552[0m
+[32mEvaluation Metric: return[0m | [36mMean: 27.2410[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4540[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6510[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_10_481.pt
+SPS: 1071
+Epoch: 482, global_step=5772000
+SPS: 1072
+Epoch: 483, global_step=5784000
+SPS: 1072
+Epoch: 484, global_step=5796000
+SPS: 1073
+Epoch: 485, global_step=5808000
+SPS: 1073
+Epoch: 486, global_step=5820000
+SPS: 1074
+Epoch: 487, global_step=5832000
+SPS: 1074
+Epoch: 488, global_step=5844000
+SPS: 1075
+Epoch: 489, global_step=5856000
+SPS: 1075
+Epoch: 490, global_step=5868000
+SPS: 1076
+Epoch: 491, global_step=5880000
+SPS: 1076
+Epoch: 492, global_step=5892000
+SPS: 1077
+Epoch: 493, global_step=5904000
+SPS: 1077
+Epoch: 494, global_step=5916000
+SPS: 1078
+Epoch: 495, global_step=5928000
+SPS: 1079
+Epoch: 496, global_step=5940000
+SPS: 1079
+Epoch: 497, global_step=5952000
+SPS: 1080
+Epoch: 498, global_step=5964000
+SPS: 1080
+Epoch: 499, global_step=5976000
+SPS: 1081
+Epoch: 500, global_step=5988000
+SPS: 1082
+Epoch: 501, global_step=6000000
+SPS: 1082
+Epoch: 502, global_step=6012000
+SPS: 1083
+Epoch: 503, global_step=6024000
+SPS: 1083
+Epoch: 504, global_step=6036000
+SPS: 1083
+Epoch: 505, global_step=6048000
+SPS: 1084
+Epoch: 506, global_step=6060000
+SPS: 1084
+Epoch: 507, global_step=6072000
+SPS: 1085
+Epoch: 508, global_step=6084000
+SPS: 1085
+Epoch: 509, global_step=6096000
+SPS: 1086
+Epoch: 510, global_step=6108000
+SPS: 1086
+Epoch: 511, global_step=6120000
+SPS: 1087
+Epoch: 512, global_step=6132000
+SPS: 1087
+Epoch: 513, global_step=6144000
+SPS: 1088
+Epoch: 514, global_step=6156000
+SPS: 1088
+Epoch: 515, global_step=6168000
+SPS: 1089
+Epoch: 516, global_step=6180000
+SPS: 1089
+Epoch: 517, global_step=6192000
+SPS: 1090
+Epoch: 518, global_step=6204000
+SPS: 1090
+Epoch: 519, global_step=6216000
+SPS: 1091
+Epoch: 520, global_step=6228000
+SPS: 1091
+Epoch: 521, global_step=6240000
+SPS: 1092
+Epoch: 522, global_step=6252000
+SPS: 1093
+Epoch: 523, global_step=6264000
+SPS: 1093
+Epoch: 524, global_step=6276000
+SPS: 1094
+Epoch: 525, global_step=6288000
+SPS: 1094
+Epoch: 526, global_step=6300000
+SPS: 1095
+Epoch: 527, global_step=6312000
+SPS: 1095
+Epoch: 528, global_step=6324000
+SPS: 1096
+Epoch: 529, global_step=6336000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7656[0m
+[32mEvaluation Metric: return[0m | [36mMean: 28.4267[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4738[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6927[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_11_529.pt
+SPS: 1081
+Epoch: 530, global_step=6348000
+SPS: 1082
+Epoch: 531, global_step=6360000
+SPS: 1082
+Epoch: 532, global_step=6372000
+SPS: 1083
+Epoch: 533, global_step=6384000
+SPS: 1083
+Epoch: 534, global_step=6396000
+SPS: 1084
+Epoch: 535, global_step=6408000
+SPS: 1084
+Epoch: 536, global_step=6420000
+SPS: 1084
+Epoch: 537, global_step=6432000
+SPS: 1085
+Epoch: 538, global_step=6444000
+SPS: 1085
+Epoch: 539, global_step=6456000
+SPS: 1086
+Epoch: 540, global_step=6468000
+SPS: 1086
+Epoch: 541, global_step=6480000
+SPS: 1087
+Epoch: 542, global_step=6492000
+SPS: 1087
+Epoch: 543, global_step=6504000
+SPS: 1088
+Epoch: 544, global_step=6516000
+SPS: 1088
+Epoch: 545, global_step=6528000
+SPS: 1088
+Epoch: 546, global_step=6540000
+SPS: 1089
+Epoch: 547, global_step=6552000
+SPS: 1089
+Epoch: 548, global_step=6564000
+SPS: 1090
+Epoch: 549, global_step=6576000
+SPS: 1090
+Epoch: 550, global_step=6588000
+SPS: 1091
+Epoch: 551, global_step=6600000
+SPS: 1091
+Epoch: 552, global_step=6612000
+SPS: 1092
+Epoch: 553, global_step=6624000
+SPS: 1092
+Epoch: 554, global_step=6636000
+SPS: 1093
+Epoch: 555, global_step=6648000
+SPS: 1093
+Epoch: 556, global_step=6660000
+SPS: 1094
+Epoch: 557, global_step=6672000
+SPS: 1094
+Epoch: 558, global_step=6684000
+SPS: 1095
+Epoch: 559, global_step=6696000
+SPS: 1095
+Epoch: 560, global_step=6708000
+SPS: 1095
+Epoch: 561, global_step=6720000
+SPS: 1096
+Epoch: 562, global_step=6732000
+SPS: 1096
+Epoch: 563, global_step=6744000
+SPS: 1097
+Epoch: 564, global_step=6756000
+SPS: 1097
+Epoch: 565, global_step=6768000
+SPS: 1098
+Epoch: 566, global_step=6780000
+SPS: 1098
+Epoch: 567, global_step=6792000
+SPS: 1099
+Epoch: 568, global_step=6804000
+SPS: 1099
+Epoch: 569, global_step=6816000
+SPS: 1100
+Epoch: 570, global_step=6828000
+SPS: 1100
+Epoch: 571, global_step=6840000
+SPS: 1101
+Epoch: 572, global_step=6852000
+SPS: 1101
+Epoch: 573, global_step=6864000
+SPS: 1101
+Epoch: 574, global_step=6876000
+SPS: 1102
+Epoch: 575, global_step=6888000
+SPS: 1102
+Epoch: 576, global_step=6900000
+SPS: 1103
+Epoch: 577, global_step=6912000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7917[0m
+[32mEvaluation Metric: return[0m | [36mMean: 28.6973[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.4783[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7083[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_12_577.pt
+SPS: 1089
+Epoch: 578, global_step=6924000
+SPS: 1090
+Epoch: 579, global_step=6936000
+SPS: 1090
+Epoch: 580, global_step=6948000
+SPS: 1091
+Epoch: 581, global_step=6960000
+SPS: 1091
+Epoch: 582, global_step=6972000
+SPS: 1092
+Epoch: 583, global_step=6984000
+SPS: 1092
+Epoch: 584, global_step=6996000
+SPS: 1093
+Epoch: 585, global_step=7008000
+SPS: 1093
+Epoch: 586, global_step=7020000
+SPS: 1093
+Epoch: 587, global_step=7032000
+SPS: 1094
+Epoch: 588, global_step=7044000
+SPS: 1094
+Epoch: 589, global_step=7056000
+SPS: 1095
+Epoch: 590, global_step=7068000
+SPS: 1095
+Epoch: 591, global_step=7080000
+SPS: 1096
+Epoch: 592, global_step=7092000
+SPS: 1096
+Epoch: 593, global_step=7104000
+SPS: 1097
+Epoch: 594, global_step=7116000
+SPS: 1097
+Epoch: 595, global_step=7128000
+SPS: 1098
+Epoch: 596, global_step=7140000
+SPS: 1098
+Epoch: 597, global_step=7152000
+SPS: 1099
+Epoch: 598, global_step=7164000
+SPS: 1099
+Epoch: 599, global_step=7176000
+SPS: 1099
+Epoch: 600, global_step=7188000
+SPS: 1100
+Epoch: 601, global_step=7200000
+SPS: 1100
+Epoch: 602, global_step=7212000
+SPS: 1100
+Epoch: 603, global_step=7224000
+SPS: 1101
+Epoch: 604, global_step=7236000
+SPS: 1101
+Epoch: 605, global_step=7248000
+SPS: 1102
+Epoch: 606, global_step=7260000
+SPS: 1102
+Epoch: 607, global_step=7272000
+SPS: 1102
+Epoch: 608, global_step=7284000
+SPS: 1103
+Epoch: 609, global_step=7296000
+SPS: 1104
+Epoch: 610, global_step=7308000
+SPS: 1104
+Epoch: 611, global_step=7320000
+SPS: 1104
+Epoch: 612, global_step=7332000
+SPS: 1105
+Epoch: 613, global_step=7344000
+SPS: 1105
+Epoch: 614, global_step=7356000
+SPS: 1106
+Epoch: 615, global_step=7368000
+SPS: 1106
+Epoch: 616, global_step=7380000
+SPS: 1107
+Epoch: 617, global_step=7392000
+SPS: 1107
+Epoch: 618, global_step=7404000
+SPS: 1108
+Epoch: 619, global_step=7416000
+SPS: 1108
+Epoch: 620, global_step=7428000
+SPS: 1109
+Epoch: 621, global_step=7440000
+SPS: 1109
+Epoch: 622, global_step=7452000
+SPS: 1110
+Epoch: 623, global_step=7464000
+SPS: 1110
+Epoch: 624, global_step=7476000
+SPS: 1111
+Epoch: 625, global_step=7488000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7396[0m
+[32mEvaluation Metric: return[0m | [36mMean: 30.4533[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5076[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6927[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_13_625.pt
+SPS: 1098
+Epoch: 626, global_step=7500000
+SPS: 1098
+Epoch: 627, global_step=7512000
+SPS: 1099
+Epoch: 628, global_step=7524000
+SPS: 1099
+Epoch: 629, global_step=7536000
+SPS: 1099
+Epoch: 630, global_step=7548000
+SPS: 1100
+Epoch: 631, global_step=7560000
+SPS: 1100
+Epoch: 632, global_step=7572000
+SPS: 1100
+Epoch: 633, global_step=7584000
+SPS: 1101
+Epoch: 634, global_step=7596000
+SPS: 1101
+Epoch: 635, global_step=7608000
+SPS: 1101
+Epoch: 636, global_step=7620000
+SPS: 1102
+Epoch: 637, global_step=7632000
+SPS: 1102
+Epoch: 638, global_step=7644000
+SPS: 1103
+Epoch: 639, global_step=7656000
+SPS: 1103
+Epoch: 640, global_step=7668000
+SPS: 1104
+Epoch: 641, global_step=7680000
+SPS: 1104
+Epoch: 642, global_step=7692000
+SPS: 1105
+Epoch: 643, global_step=7704000
+SPS: 1105
+Epoch: 644, global_step=7716000
+SPS: 1105
+Epoch: 645, global_step=7728000
+SPS: 1106
+Epoch: 646, global_step=7740000
+SPS: 1106
+Epoch: 647, global_step=7752000
+SPS: 1107
+Epoch: 648, global_step=7764000
+SPS: 1107
+Epoch: 649, global_step=7776000
+SPS: 1107
+Epoch: 650, global_step=7788000
+SPS: 1108
+Epoch: 651, global_step=7800000
+SPS: 1108
+Epoch: 652, global_step=7812000
+SPS: 1108
+Epoch: 653, global_step=7824000
+SPS: 1109
+Epoch: 654, global_step=7836000
+SPS: 1109
+Epoch: 655, global_step=7848000
+SPS: 1109
+Epoch: 656, global_step=7860000
+SPS: 1110
+Epoch: 657, global_step=7872000
+SPS: 1110
+Epoch: 658, global_step=7884000
+SPS: 1111
+Epoch: 659, global_step=7896000
+SPS: 1111
+Epoch: 660, global_step=7908000
+SPS: 1112
+Epoch: 661, global_step=7920000
+SPS: 1112
+Epoch: 662, global_step=7932000
+SPS: 1113
+Epoch: 663, global_step=7944000
+SPS: 1113
+Epoch: 664, global_step=7956000
+SPS: 1113
+Epoch: 665, global_step=7968000
+SPS: 1114
+Epoch: 666, global_step=7980000
+SPS: 1114
+Epoch: 667, global_step=7992000
+SPS: 1114
+Epoch: 668, global_step=8004000
+SPS: 1115
+Epoch: 669, global_step=8016000
+SPS: 1115
+Epoch: 670, global_step=8028000
+SPS: 1116
+Epoch: 671, global_step=8040000
+SPS: 1116
+Epoch: 672, global_step=8052000
+SPS: 1117
+Epoch: 673, global_step=8064000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7656[0m
+[32mEvaluation Metric: return[0m | [36mMean: 32.2227[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5370[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7448[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_14_673.pt
+SPS: 1105
+Epoch: 674, global_step=8076000
+SPS: 1105
+Epoch: 675, global_step=8088000
+SPS: 1106
+Epoch: 676, global_step=8100000
+SPS: 1106
+Epoch: 677, global_step=8112000
+SPS: 1106
+Epoch: 678, global_step=8124000
+SPS: 1106
+Epoch: 679, global_step=8136000
+SPS: 1107
+Epoch: 680, global_step=8148000
+SPS: 1107
+Epoch: 681, global_step=8160000
+SPS: 1108
+Epoch: 682, global_step=8172000
+SPS: 1108
+Epoch: 683, global_step=8184000
+SPS: 1109
+Epoch: 684, global_step=8196000
+SPS: 1109
+Epoch: 685, global_step=8208000
+SPS: 1109
+Epoch: 686, global_step=8220000
+SPS: 1110
+Epoch: 687, global_step=8232000
+SPS: 1110
+Epoch: 688, global_step=8244000
+SPS: 1111
+Epoch: 689, global_step=8256000
+SPS: 1111
+Epoch: 690, global_step=8268000
+SPS: 1111
+Epoch: 691, global_step=8280000
+SPS: 1112
+Epoch: 692, global_step=8292000
+SPS: 1112
+Epoch: 693, global_step=8304000
+SPS: 1113
+Epoch: 694, global_step=8316000
+SPS: 1113
+Epoch: 695, global_step=8328000
+SPS: 1113
+Epoch: 696, global_step=8340000
+SPS: 1114
+Epoch: 697, global_step=8352000
+SPS: 1114
+Epoch: 698, global_step=8364000
+SPS: 1114
+Epoch: 699, global_step=8376000
+SPS: 1115
+Epoch: 700, global_step=8388000
+SPS: 1115
+Epoch: 701, global_step=8400000
+SPS: 1116
+Epoch: 702, global_step=8412000
+SPS: 1116
+Epoch: 703, global_step=8424000
+SPS: 1117
+Epoch: 704, global_step=8436000
+SPS: 1117
+Epoch: 705, global_step=8448000
+SPS: 1118
+Epoch: 706, global_step=8460000
+SPS: 1118
+Epoch: 707, global_step=8472000
+SPS: 1118
+Epoch: 708, global_step=8484000
+SPS: 1119
+Epoch: 709, global_step=8496000
+SPS: 1119
+Epoch: 710, global_step=8508000
+SPS: 1120
+Epoch: 711, global_step=8520000
+SPS: 1120
+Epoch: 712, global_step=8532000
+SPS: 1121
+Epoch: 713, global_step=8544000
+SPS: 1121
+Epoch: 714, global_step=8556000
+SPS: 1121
+Epoch: 715, global_step=8568000
+SPS: 1121
+Epoch: 716, global_step=8580000
+SPS: 1122
+Epoch: 717, global_step=8592000
+SPS: 1122
+Epoch: 718, global_step=8604000
+SPS: 1122
+Epoch: 719, global_step=8616000
+SPS: 1123
+Epoch: 720, global_step=8628000
+SPS: 1123
+Epoch: 721, global_step=8640000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7552[0m
+[32mEvaluation Metric: return[0m | [36mMean: 32.8557[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5476[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7552[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_15_721.pt
+SPS: 1112
+Epoch: 722, global_step=8652000
+SPS: 1112
+Epoch: 723, global_step=8664000
+SPS: 1113
+Epoch: 724, global_step=8676000
+SPS: 1113
+Epoch: 725, global_step=8688000
+SPS: 1113
+Epoch: 726, global_step=8700000
+SPS: 1114
+Epoch: 727, global_step=8712000
+SPS: 1114
+Epoch: 728, global_step=8724000
+SPS: 1115
+Epoch: 729, global_step=8736000
+SPS: 1115
+Epoch: 730, global_step=8748000
+SPS: 1116
+Epoch: 731, global_step=8760000
+SPS: 1116
+Epoch: 732, global_step=8772000
+SPS: 1116
+Epoch: 733, global_step=8784000
+SPS: 1117
+Epoch: 734, global_step=8796000
+SPS: 1117
+Epoch: 735, global_step=8808000
+SPS: 1118
+Epoch: 736, global_step=8820000
+SPS: 1118
+Epoch: 737, global_step=8832000
+SPS: 1119
+Epoch: 738, global_step=8844000
+SPS: 1119
+Epoch: 739, global_step=8856000
+SPS: 1119
+Epoch: 740, global_step=8868000
+SPS: 1120
+Epoch: 741, global_step=8880000
+SPS: 1120
+Epoch: 742, global_step=8892000
+SPS: 1121
+Epoch: 743, global_step=8904000
+SPS: 1121
+Epoch: 744, global_step=8916000
+SPS: 1121
+Epoch: 745, global_step=8928000
+SPS: 1122
+Epoch: 746, global_step=8940000
+SPS: 1122
+Epoch: 747, global_step=8952000
+SPS: 1123
+Epoch: 748, global_step=8964000
+SPS: 1123
+Epoch: 749, global_step=8976000
+SPS: 1124
+Epoch: 750, global_step=8988000
+SPS: 1124
+Epoch: 751, global_step=9000000
+SPS: 1125
+Epoch: 752, global_step=9012000
+SPS: 1125
+Epoch: 753, global_step=9024000
+SPS: 1126
+Epoch: 754, global_step=9036000
+SPS: 1126
+Epoch: 755, global_step=9048000
+SPS: 1126
+Epoch: 756, global_step=9060000
+SPS: 1127
+Epoch: 757, global_step=9072000
+SPS: 1127
+Epoch: 758, global_step=9084000
+SPS: 1127
+Epoch: 759, global_step=9096000
+SPS: 1128
+Epoch: 760, global_step=9108000
+SPS: 1128
+Epoch: 761, global_step=9120000
+SPS: 1129
+Epoch: 762, global_step=9132000
+SPS: 1129
+Epoch: 763, global_step=9144000
+SPS: 1129
+Epoch: 764, global_step=9156000
+SPS: 1130
+Epoch: 765, global_step=9168000
+SPS: 1130
+Epoch: 766, global_step=9180000
+SPS: 1130
+Epoch: 767, global_step=9192000
+SPS: 1131
+Epoch: 768, global_step=9204000
+SPS: 1131
+Epoch: 769, global_step=9216000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7240[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.8644[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5311[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7135[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_16_769.pt
+SPS: 1121
+Epoch: 770, global_step=9228000
+SPS: 1121
+Epoch: 771, global_step=9240000
+SPS: 1122
+Epoch: 772, global_step=9252000
+SPS: 1122
+Epoch: 773, global_step=9264000
+SPS: 1122
+Epoch: 774, global_step=9276000
+SPS: 1123
+Epoch: 775, global_step=9288000
+SPS: 1123
+Epoch: 776, global_step=9300000
+SPS: 1124
+Epoch: 777, global_step=9312000
+SPS: 1124
+Epoch: 778, global_step=9324000
+SPS: 1125
+Epoch: 779, global_step=9336000
+SPS: 1125
+Epoch: 780, global_step=9348000
+SPS: 1125
+Epoch: 781, global_step=9360000
+SPS: 1126
+Epoch: 782, global_step=9372000
+SPS: 1126
+Epoch: 783, global_step=9384000
+SPS: 1127
+Epoch: 784, global_step=9396000
+SPS: 1127
+Epoch: 785, global_step=9408000
+SPS: 1128
+Epoch: 786, global_step=9420000
+SPS: 1128
+Epoch: 787, global_step=9432000
+SPS: 1128
+Epoch: 788, global_step=9444000
+SPS: 1129
+Epoch: 789, global_step=9456000
+SPS: 1129
+Epoch: 790, global_step=9468000
+SPS: 1129
+Epoch: 791, global_step=9480000
+SPS: 1130
+Epoch: 792, global_step=9492000
+SPS: 1130
+Epoch: 793, global_step=9504000
+SPS: 1131
+Epoch: 794, global_step=9516000
+SPS: 1131
+Epoch: 795, global_step=9528000
+SPS: 1132
+Epoch: 796, global_step=9540000
+SPS: 1132
+Epoch: 797, global_step=9552000
+SPS: 1132
+Epoch: 798, global_step=9564000
+SPS: 1133
+Epoch: 799, global_step=9576000
+SPS: 1133
+Epoch: 800, global_step=9588000
+SPS: 1134
+Epoch: 801, global_step=9600000
+SPS: 1134
+Epoch: 802, global_step=9612000
+SPS: 1135
+Epoch: 803, global_step=9624000
+SPS: 1135
+Epoch: 804, global_step=9636000
+SPS: 1135
+Epoch: 805, global_step=9648000
+SPS: 1136
+Epoch: 806, global_step=9660000
+SPS: 1136
+Epoch: 807, global_step=9672000
+SPS: 1137
+Epoch: 808, global_step=9684000
+SPS: 1137
+Epoch: 809, global_step=9696000
+SPS: 1138
+Epoch: 810, global_step=9708000
+SPS: 1138
+Epoch: 811, global_step=9720000
+SPS: 1138
+Epoch: 812, global_step=9732000
+SPS: 1139
+Epoch: 813, global_step=9744000
+SPS: 1139
+Epoch: 814, global_step=9756000
+SPS: 1140
+Epoch: 815, global_step=9768000
+SPS: 1140
+Epoch: 816, global_step=9780000
+SPS: 1141
+Epoch: 817, global_step=9792000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7292[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.9892[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5332[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.7083[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_17_817.pt
+SPS: 1130
+Epoch: 818, global_step=9804000
+SPS: 1131
+Epoch: 819, global_step=9816000
+SPS: 1131
+Epoch: 820, global_step=9828000
+SPS: 1132
+Epoch: 821, global_step=9840000
+SPS: 1132
+Epoch: 822, global_step=9852000
+SPS: 1132
+Epoch: 823, global_step=9864000
+SPS: 1133
+Epoch: 824, global_step=9876000
+SPS: 1133
+Epoch: 825, global_step=9888000
+SPS: 1134
+Epoch: 826, global_step=9900000
+SPS: 1134
+Epoch: 827, global_step=9912000
+SPS: 1135
+Epoch: 828, global_step=9924000
+SPS: 1135
+Epoch: 829, global_step=9936000
+SPS: 1135
+Epoch: 830, global_step=9948000
+SPS: 1136
+Epoch: 831, global_step=9960000
+SPS: 1136
+Epoch: 832, global_step=9972000
+SPS: 1137
+Epoch: 833, global_step=9984000
+SPS: 1137
+Epoch: 834, global_step=9996000
+SPS: 1137
+Epoch: 835, global_step=10008000
+SPS: 1138
+Epoch: 836, global_step=10020000
+SPS: 1138
+Epoch: 837, global_step=10032000
+SPS: 1139
+Epoch: 838, global_step=10044000
+SPS: 1139
+Epoch: 839, global_step=10056000
+SPS: 1139
+Epoch: 840, global_step=10068000
+SPS: 1140
+Epoch: 841, global_step=10080000
+SPS: 1140
+Epoch: 842, global_step=10092000
+SPS: 1141
+Epoch: 843, global_step=10104000
+SPS: 1141
+Epoch: 844, global_step=10116000
+SPS: 1141
+Epoch: 845, global_step=10128000
+SPS: 1142
+Epoch: 846, global_step=10140000
+SPS: 1142
+Epoch: 847, global_step=10152000
+SPS: 1143
+Epoch: 848, global_step=10164000
+SPS: 1143
+Epoch: 849, global_step=10176000
+SPS: 1144
+Epoch: 850, global_step=10188000
+SPS: 1144
+Epoch: 851, global_step=10200000
+SPS: 1144
+Epoch: 852, global_step=10212000
+SPS: 1145
+Epoch: 853, global_step=10224000
+SPS: 1145
+Epoch: 854, global_step=10236000
+SPS: 1146
+Epoch: 855, global_step=10248000
+SPS: 1146
+Epoch: 856, global_step=10260000
+SPS: 1146
+Epoch: 857, global_step=10272000
+SPS: 1147
+Epoch: 858, global_step=10284000
+SPS: 1147
+Epoch: 859, global_step=10296000
+SPS: 1148
+Epoch: 860, global_step=10308000
+SPS: 1148
+Epoch: 861, global_step=10320000
+SPS: 1148
+Epoch: 862, global_step=10332000
+SPS: 1149
+Epoch: 863, global_step=10344000
+SPS: 1149
+Epoch: 864, global_step=10356000
+SPS: 1150
+Epoch: 865, global_step=10368000
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.7083[0m
+[32mEvaluation Metric: return[0m | [36mMean: 31.7180[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.5286[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.6927[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/ckpt_18_865.pt
+SPS: 1140
+model saved to checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShape5-v0/ppo-cvae-last5-v6-1-newhyper1e-4-norm200-99__99__rgb_joints_belief__20260125_100433/20260125_100433/final_ckpt.pt
