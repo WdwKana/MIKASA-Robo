@@ -1,0 +1,29 @@
+env: InterceptFast-v0
+data_path: /local/s4176650/sphinx/data/collect_InterceptFast-v0.pt
+rep_model_path: /local/s4176650/sphinx/storage/InterceptFast-v0_last5/final_model.pt
+out_dir: /local/s4176650/MIKASA-Robo/final_results/latent_action_structure
+device: cuda
+seed: 1
+num_episodes_after_subset: 5000
+train_episodes: 4000
+test_episodes: 1000
+state_sentinel: 1000.0
+state_sentinel_replace: 1.0
+history_recurrence: 16
+ridge_alpha: 1.0
+max_tsne_points: 12000
+tsne_perplexity: 30.0
+tsne_max_iter: 1000
+python_cmd: /local/s4176650/sphinx/scripts/latent_action_structure.py --env InterceptFast-v0 --data-path /local/s4176650/sphinx/data/collect_InterceptFast-v0.pt --rep-model-path /local/s4176650/sphinx/storage/InterceptFast-v0_last5/final_model.pt --belief-labels none,v6_001,v6_01,v6_1 --belief-paths /local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_ablation_none/final_vae_model.pt,/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_001/final_vae_model.pt,/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_01/final_vae_model.pt,/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt --out-dir /local/s4176650/MIKASA-Robo/final_results/latent_action_structure --test-ratio 0.2 --ridge-alpha 1.0 --max-tsne-points 12000
+
+## Embedding method per model
+- none: pca_fallback
+- v6_001: pca_fallback
+- v6_01: pca_fallback
+- v6_1: pca_fallback
+
+## Metrics
+- none: R2=0.004528, nMSE=0.995008, n_train=356000, n_test=89000, belief_path=/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_ablation_none/final_vae_model.pt
+- v6_001: R2=0.005387, nMSE=0.994149, n_train=356000, n_test=89000, belief_path=/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_001/final_vae_model.pt
+- v6_01: R2=0.043243, nMSE=0.956302, n_train=356000, n_test=89000, belief_path=/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_01/final_vae_model.pt
+- v6_1: R2=0.240955, nMSE=0.758460, n_train=356000, n_test=89000, belief_path=/local/s4176650/sphinx/storage_cvae/InterceptFast-v0_cvae_mikasa_last5_v6_1/final_vae_model.pt

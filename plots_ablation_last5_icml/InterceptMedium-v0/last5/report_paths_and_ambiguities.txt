@@ -1,0 +1,33 @@
+### Used paths for InterceptMedium-v0 last5 3-way ablation plot
+belief_root: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense
+seedset_requested: ['33', '42', '99']
+preset: interceptmedium_ablation_seedset_33_42_99_v2_none_v7
+tag: 
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_ablation_last5.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_ablation_last5.py --preset interceptmedium_ablation_seedset_33_42_99_v2_none_v7 --out-root /local/s4176650/MIKASA-Robo/plots_ablation_last5_icml
+icml_linewidth_pt: 2.8
+icml_no_title_default: True (use caption in LaTeX)
+curve_labels:
+  - aib: AIB+PPO
+  - no_action: AIB+PPO (Without Action Head)
+  - mse_inv_dyn: AIB+PPO (With Mse Inverse Dynamic)
+
+## Used CSVs
+
+[aib] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v2-interceptmedium-33__33__rgb_joints_belief__20260126_212815/20260126_212815/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v2-interceptmedium-42__42__rgb_joints_belief__20260126_231857/20260126_231857/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v2-interceptmedium-99__99__rgb_joints_belief__20260127_010912/20260127_010912/training_metrics.csv
+
+[no_action] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-ablation-none-interceptmedium-33__33__rgb_joints_belief__20260128_112324/20260128_112324/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-ablation-none-interceptmedium-42__42__rgb_joints_belief__20260128_131312/20260128_131312/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-ablation-none-interceptmedium-99__99__rgb_joints_belief__20260128_150206/20260128_150206/training_metrics.csv
+
+[mse_inv_dyn] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v7-interceptmedium-33__33__rgb_joints_belief__20260128_123637/20260128_123637/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v7-interceptmedium-42__42__rgb_joints_belief__20260128_142750/20260128_142750/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptMedium-v0/ppo-cvae-v7-interceptmedium-99__99__rgb_joints_belief__20260128_161938/20260128_161938/training_metrics.csv
+
+## Ambiguities / multiple candidates
+None

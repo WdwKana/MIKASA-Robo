@@ -1,0 +1,67 @@
+### baseline newhyper vs AIB v6 (+ optional nonbelief) (last5)
+baseline_task_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0
+aib_task_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/RememberShapeAndColor3x2-v0
+nonbelief_task_dir: None
+task_name: InterceptFast-v0
+requested_seeds: ['33', '42', '99']
+preset: interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief
+input_mode: explicit_csvs
+baseline_csvs_arg: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-33__33__rgb_joints_belief__20260127_215614,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-42__42__rgb_joints_belief__20260127_234338,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-99__99__rgb_joints_belief__20260128_013222
+aib_csvs_arg: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-33__33__rgb_joints_belief__20260127_213816,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-42__42__rgb_joints_belief__20260127_232947,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-99__99__rgb_joints_belief__20260128_011917
+nonbelief_csvs_arg: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_202735,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-42__42__rgb_joints__20260127_214546,/local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-99__99__rgb_joints__20260127_230712
+baseline_glob: **/ppo-last5-baseline-newhyper-lr1e-4-{seed}__{seed}__*/**/training_metrics.csv
+aib_glob: **/ppo-last5-cvae-v6-ent0001-kl005-gamma095-lr1e4-{seed}__{seed}__*/**/training_metrics.csv
+nonbelief_glob: **/ppo-nonbelief-baseline-newhyper-{seed}__{seed}__*/**/training_metrics.csv
+baseline seeds used: ['33', '42', '99']
+AIB seeds used: ['33', '42', '99']
+nonbelief seeds used: ['33', '42', '99']
+out_dir: /local/s4176650/MIKASA-Robo/plots_single_runs/InterceptFast-v0/interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_baseline_newhyper_vs_aib_v6_last5.py --preset interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief --out-dir /local/s4176650/MIKASA-Robo/plots_single_runs/InterceptFast-v0/interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief
+icml_linewidth_pt: 2.8
+icml_no_title_default: True (use caption in LaTeX)
+curve_labels:
+  - aib: PPO+AIB (ours)
+  - baseline: PPO+Believer
+  - nonbelief: PPO
+
+paths:
+  baseline seed33:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-33__33__rgb_joints_belief__20260127_215614/20260127_215614/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-33__33__rgb_joints_belief__20260127_215614
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-33__33__rgb_joints_belief__20260127_215614/20260127_215614
+  baseline seed42:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-42__42__rgb_joints_belief__20260127_234338/20260127_234338/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-42__42__rgb_joints_belief__20260127_234338
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-42__42__rgb_joints_belief__20260127_234338/20260127_234338
+  baseline seed99:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-99__99__rgb_joints_belief__20260128_013222/20260128_013222/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-99__99__rgb_joints_belief__20260128_013222
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-belief-interceptfast-99__99__rgb_joints_belief__20260128_013222/20260128_013222
+  AIB seed33:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-33__33__rgb_joints_belief__20260127_213816/20260127_213816/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-33__33__rgb_joints_belief__20260127_213816
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-33__33__rgb_joints_belief__20260127_213816/20260127_213816
+  AIB seed42:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-42__42__rgb_joints_belief__20260127_232947/20260127_232947/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-42__42__rgb_joints_belief__20260127_232947
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-42__42__rgb_joints_belief__20260127_232947/20260127_232947
+  AIB seed99:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-99__99__rgb_joints_belief__20260128_011917/20260128_011917/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-99__99__rgb_joints_belief__20260128_011917
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-99__99__rgb_joints_belief__20260128_011917/20260128_011917
+  nonbelief seed33:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_202735/20260127_202735/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_202735
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_202735/20260127_202735
+  nonbelief seed42:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-42__42__rgb_joints__20260127_214546/20260127_214546/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-42__42__rgb_joints__20260127_214546
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-42__42__rgb_joints__20260127_214546/20260127_214546
+  nonbelief seed99:
+    csv: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-99__99__rgb_joints__20260127_230712/20260127_230712/training_metrics.csv
+    run_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-99__99__rgb_joints__20260127_230712
+    ts_dir: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints/normalized_dense/InterceptFast-v0/ppo-nonbelief-newhyper-lr1e-4-99__99__rgb_joints__20260127_230712/20260127_230712
+
+out_success_once: /local/s4176650/MIKASA-Robo/plots_single_runs/InterceptFast-v0/interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief/InterceptFast-v0__baseline_newhyper_vs_aib_v6__success_once__seeds_33_42_99.png
+out_success_at_end: /local/s4176650/MIKASA-Robo/plots_single_runs/InterceptFast-v0/interceptfast_seedset_33_42_99_belief_cvae_v2_nonbelief/InterceptFast-v0__baseline_newhyper_vs_aib_v6__success_at_end__seeds_33_42_99.png

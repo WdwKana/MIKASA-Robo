@@ -1,0 +1,33 @@
+### Used paths for InterceptFast-v0 last5 3-way ablation plot
+belief_root: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense
+seedset_requested: ['33', '42', '99']
+preset: interceptfast_ablation_seedset_33_42_99_v2_none_mse
+tag: 
+plot_script: /local/s4176650/MIKASA-Robo/tools/plot_ablation_last5.py
+plot_command: /local/s4176650/MIKASA-Robo/tools/plot_ablation_last5.py --preset interceptfast_ablation_seedset_33_42_99_v2_none_mse --out-root /local/s4176650/MIKASA-Robo/plots_ablation_last5_icml
+icml_linewidth_pt: 2.8
+icml_no_title_default: True (use caption in LaTeX)
+curve_labels:
+  - aib: AIB+PPO
+  - no_action: AIB+PPO (Without Action Head)
+  - mse_inv_dyn: AIB+PPO (With Mse Inverse Dynamic)
+
+## Used CSVs
+
+[aib] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-33__33__rgb_joints_belief__20260127_213816/20260127_213816/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-42__42__rgb_joints_belief__20260127_232947/20260127_232947/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-v2-interceptfast-99__99__rgb_joints_belief__20260128_011917/20260128_011917/training_metrics.csv
+
+[no_action] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-none-interceptfast-33__33__rgb_joints_belief__20260128_171251/20260128_171251/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-none-interceptfast-42__42__rgb_joints_belief__20260128_190119/20260128_190119/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-none-interceptfast-99__99__rgb_joints_belief__20260128_205231/20260128_205231/training_metrics.csv
+
+[mse_inv_dyn] seeds=['33', '42', '99']
+  seed33: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-mse2-interceptfast-33__33__rgb_joints_belief__20260129_061237/20260129_061237/training_metrics.csv
+  seed42: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-mse2-interceptfast-42__42__rgb_joints_belief__20260129_061237/20260129_061237/training_metrics.csv
+  seed99: /local/s4176650/MIKASA-Robo/checkpoints/ppo_memtasks/rgb_joints_belief/normalized_dense/InterceptFast-v0/ppo-cvae-mse2-interceptfast-99__99__rgb_joints_belief__20260129_061237/20260129_061237/training_metrics.csv
+
+## Ambiguities / multiple candidates
+None

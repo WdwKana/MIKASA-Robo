@@ -1,0 +1,80 @@
+Enabling podman.socket for user: s4176650
+Running RememberShapeAndColor3x2-v0 with belief, seed 33
+
+===========================================================================
+║                        Environment Configuration                        ║
+===========================================================================
+║ Environment ID: RememberShapeAndColor3x2-v0                             ║
+║ Oracle Info:    None                                                    ║
+║ Wrappers:                                                               ║
+║    ├─ InitialZeroActionWrapper                                         ║
+║    │  └─ {'n_initial_steps': 0}                                           ║
+║    ├─ RememberShapeAndColorInfoWrapper                                 ║
+║    ├─ RenderStepInfoWrapper                                            ║
+║    ├─ RenderRewardInfoWrapper                                          ║
+║    ├─ DebugRewardWrapper                                               ║
+║-------------------------------------------------------------------------║
+║ include_state:       False │ state will not be used                ║
+║ include_rgb:         True  │ rgb images will be used               ║
+║ include_oracle:      False │ oracle info will not be used          ║
+║ include_joints:      True  │ joints will be used                   ║
+===========================================================================
+
+MODE='rgb_joints'
+prompt_info=None
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+{0: 'cube', 1: 'sphere', 2: 't_shape', 3: 'cross', 4: 'torus'}
+Saving eval videos to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShapeAndColor3x2-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_233700/20260127_233700/videos
+======================================================================
+Max Episode Steps: 60
+======================================================================
+
+Running training
+
+####
+args.num_iterations=865 args.num_envs=200 args.num_eval_envs=16
+args.minibatch_size=375 args.batch_size=12000 args.update_epochs=4
+####
+
+sample_obs.keys()=dict_keys(['joints', 'rgb'])
+joints: torch.Size([200, 25])
+rgb: torch.Size([200, 128, 128, 3])
+
+
+##################################################
+latent_size=512
+self.gru.hidden_size=512
+##################################################
+
+
+Epoch: 1, global_step=0
+Evaluating
+Evaluated 11520 steps resulting in 192 episodes
+[32mEvaluation Metric: success_once[0m | [36mMean: 0.0000[0m
+[32mEvaluation Metric: return[0m | [36mMean: 9.8263[0m
+[32mEvaluation Metric: episode_len[0m | [36mMean: 60.0000[0m
+[32mEvaluation Metric: reward[0m | [36mMean: 0.1638[0m
+[32mEvaluation Metric: success_at_end[0m | [36mMean: 0.0000[0m
+model saved to checkpoints/ppo_memtasks/rgb_joints/normalized_dense/RememberShapeAndColor3x2-v0/ppo-nonbelief-newhyper-lr1e-4-33__33__rgb_joints__20260127_233700/20260127_233700/ckpt_0_1.pt
+SPS: 178
+Epoch: 2, global_step=12000
+SPS: 330
+Epoch: 3, global_step=24000
+SPS: 457
+Epoch: 4, global_step=36000
+SPS: 566
+Epoch: 5, global_step=48000
+SPS: 659
+Epoch: 6, global_step=60000
+SPS: 737
+Epoch: 7, global_step=72000
+SPS: 809
+Epoch: 8, global_step=84000
+SPS: 870
+Epoch: 9, global_step=96000
+SPS: 923
+Epoch: 10, global_step=108000
+SPS: 970
+Epoch: 11, global_step=120000
+SPS: 1013
+Epoch: 12, global_step=132000
