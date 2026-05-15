@@ -315,7 +315,22 @@ Saliency head 必须按 ViT 配置匹配训练：
 
 **警告**：未来不得直接复用 `run_scripts/ppo/ppo_{lstm,mlp}/.../*.sh` 旧模板——它们带的是项目早期未调优的 hyper（gamma=0.8, lr=3e-4, update_epochs=8）。如需新 baseline，统一从 [run_scripts/ppo/ppo_gru_dual/...](run_scripts/ppo/ppo_gru_dual/dense_reward/remember_color/rgb_joint/remember_color_9.slurm) 复制。
 
-## 6.5 计算资源
+## 6.5 复现性（Reproducibility）
+
+**所有随机性源必须显式设种子**——这是论文级 reproducibility 的硬要求，不可省略。
+
+| 阶段 | 种子 | 设置位置 |
+|---|---|---|
+| **Saliency head 预训练**（[`analysis/ebm/path_a_train_head*.py`](analysis/ebm/path_a_train_head_v3.py)） | **0** | `set_seed(0)` 函数调用于 `main()` 顶部，覆盖 `random` / `np.random` / `torch.manual_seed` / `torch.cuda.manual_seed_all` / `cudnn.deterministic=True` / `cudnn.benchmark=False` |
+| **离线 rollout 数据收集**（[`path_a_collect_data.py`](analysis/ebm/path_a_collect_data.py)） | CLI `--seed=42` | numpy default_rng 派生每个 episode 的 env reset seed |
+| **PPO 训练**（所有 `baselines/ppo/ppo_memtasks_*.py`） | CLI `--seed=33/42/99` | 每个 SLURM array task 用 SEEDS=(33 42 99) 列表的对应索引 |
+| **`torch.backends.cudnn.deterministic`** | `True` | 在 PPO 主 script 中显式设置 |
+
+**3 seeds 选择理由**：33 / 42 / 99 来自项目历史"newhyper" preset，与 sphinx 阶段对照实验同集（便于跨阶段对比）。
+
+**每个实验 SR 报告格式**：`mean ± std across 3 seeds`，主表至少 3 seeds，附录扩展可加 100 / 123。
+
+## 6.6 计算资源
 
 - ViT forward 是主要新增开销，但 frozen + no_grad，PPO rollout 吞吐预计下降 < 30%。
 - buffer 操作 O(L × d) per step，L=64，可忽略。
