@@ -1,0 +1,9 @@
+env,method,n_seeds,final_step,final_so_mean,final_so_std,peak_so_mean,final_se_mean,final_se_std,peak_se_mean,final_return_mean,final_return_std
+RememberColor5-v0,MLP (no memory),3,9584640,0.0347,0.0455,0.1580,0.0243,0.0344,0.1111,4.8776,0.4256
+RememberColor5-v0,GRU,3,9584640,0.1406,0.0516,0.1945,0.0677,0.0371,0.1562,3.7893,0.6889
+RememberColor5-v0,LSTM,3,9584640,0.0694,0.0982,0.2482,0.0000,0.0000,0.1615,4.9922,1.3911
+RememberColor5-v0,EBM-Robo (ours),3,9584640,0.2986,0.1127,0.3056,0.1719,0.0788,0.1858,9.7449,3.5816
+RememberColor9-v0,MLP (no memory),3,9584640,0.0139,0.0123,0.1007,0.0087,0.0088,0.0504,3.3549,0.7167
+RememberColor9-v0,GRU,3,9584640,0.0000,0.0000,0.1111,0.0000,0.0000,0.0382,1.2034,0.3932
+RememberColor9-v0,LSTM,3,9584640,0.0434,0.0614,0.1840,0.0000,0.0000,0.0799,3.6585,0.5075
+RememberColor9-v0,EBM-Robo (ours),3,9584640,0.1198,0.0185,0.1580,0.0729,0.0127,0.0851,6.7994,0.5359

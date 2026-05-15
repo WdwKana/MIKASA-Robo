@@ -62,3 +62,14 @@ secret.txt
 download_assets.sh
 keep_going.sh
 upload.ipynb
+# EBM project — large transient data, never commit
+checkpoints/
+slurm_logs/
+*_frames/
+analysis/ebm/path_a_data/
+analysis/ebm/_inset_probe/
+analysis/ebm/saliency_maps/
+analysis/ebm/saliency_maps_armmasked/
+analysis/ebm/saliency_maps_basecam/
+analysis/ebm/saliency_maps_dual/
+analysis/ebm/path_a_features.pt
