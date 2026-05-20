@@ -36,9 +36,10 @@ from mikasa_robo_suite.utils.wrappers import *
 
 # Dual-camera observation wrapper (base_camera + hand_camera)
 from baselines.ppo.utils_ebm import FlattenRGBDObservationWrapperMulti
-# V2 (hybrid): use EBMHybridMemoryModule, aliased so the rest of this file's
-# code (built from V1) refers to it as EBMMemoryModule with no other changes.
-from baselines.ppo.modules import EBMHybridMemoryModule as EBMMemoryModule
+# MemoryVLA-style baseline: push-all + cosine-pair merge bank + 2-layer cross-attn.
+# Imported under EBMMemoryModule alias so the rest of the file (Agent class,
+# replay, eval EBM) stays diff-minimal vs ppo_memtasks_ebm.py.
+from baselines.ppo.modules import EBMMemVLAStyleModule as EBMMemoryModule
 
 
 import copy
@@ -543,18 +544,12 @@ class Agent(nn.Module):
     # ─── PPO update path: differentiable replay over cached buffer state ───
 
     def replay_action_value(self, cached_buffer: dict, cls_base, cls_hand, proprio,
-                            gru_state_pre, gru_input, action=None):
-        """V2-hybrid replay path. Inputs include the cached pre-step GRU state
-        and the per-step gru_input recorded during rollout; the replay() call
-        forwards GRU 1 step (differentiable) + reader + fuse.
-
-        gru_state_pre: (mb_size, gru_hidden)
-        gru_input:     (mb_size, gru_input_dim)
+                            action=None):
+        """Used during the PPO update phase. Recomputes (action, logprob,
+        entropy, value) from cached rollout state without invoking the frozen
+        ViT or saliency head — only the learned modules see gradient.
         """
-        # ebm.replay expects gru_state_pre in (1, B, H) layout
-        gru_state_pre_3d = gru_state_pre.unsqueeze(0).contiguous()
-        s_t = self.ebm.replay(cached_buffer, cls_base, cls_hand, proprio,
-                              gru_state_pre_3d, gru_input)
+        s_t = self.ebm.replay(cached_buffer, cls_base, cls_hand, proprio)
         action_mean = self.actor_mean(s_t)
         action_logstd = self.actor_logstd.expand_as(action_mean)
         action_std = torch.exp(action_logstd)
@@ -975,18 +970,10 @@ if __name__ == "__main__":
     cache_features   = torch.zeros(args.num_steps, args.num_envs, L_buf, d_vit, device=device)
     cache_used       = torch.zeros(args.num_steps, args.num_envs, dtype=torch.long, device=device)
     cache_timestamps = torch.zeros(args.num_steps, args.num_envs, L_buf, dtype=torch.long, device=device)
-    cache_saliency   = torch.full((args.num_steps, args.num_envs, L_buf), -1e9, device=device)
+    # No cache_saliency: MemVLA-style bank doesn't track per-slot saliency.
     cache_cls_base   = torch.zeros(args.num_steps, args.num_envs, d_vit, device=device)
     cache_cls_hand   = torch.zeros(args.num_steps, args.num_envs, d_vit, device=device)
     cache_proprio    = torch.zeros(args.num_steps, args.num_envs, p_dim, device=device)
-
-    # V2-hybrid: cache GRU state PRE-step + the gru_input that step used.
-    # Replay path forwards GRU 1 step from (cached_state, cached_input) so
-    # gradients flow through gru params.
-    gru_hidden = agent.ebm.gru_hidden_size
-    gru_in_dim = agent.ebm.gru_input_dim
-    cache_gru_state_pre = torch.zeros(args.num_steps, args.num_envs, gru_hidden, device=device)
-    cache_gru_input     = torch.zeros(args.num_steps, args.num_envs, gru_in_dim, device=device)
 
     # Eval needs its own EBM with num_envs = num_eval_envs but shared params.
     # Lightweight: instantiate a fresh EBMMemoryModule and overwrite its
@@ -1005,18 +992,12 @@ if __name__ == "__main__":
         no_saliency=args.no_saliency,
     )
     # Share frozen + learned submodules with the training EBM (params not
-    # duplicated; only the buffer is independent).
+    # duplicated; only the buffer is independent). MemVLA-style has no
+    # saliency_head / xy_concat — push-all + cosine-pair-merge instead.
     agent_eval_ebm.vit            = agent.ebm.vit
-    agent_eval_ebm.saliency_head  = agent.ebm.saliency_head
-    agent_eval_ebm.xy_concat      = agent.ebm.xy_concat
     agent_eval_ebm.curr_summary   = agent.ebm.curr_summary
     agent_eval_ebm.reader         = agent.ebm.reader
     agent_eval_ebm.fuse           = agent.ebm.fuse
-    # V2-Hybrid specific: also share the GRU parameters (eval still owns its
-    # own gru_state buffer at size num_eval_envs). Without this, the eval
-    # path's GRU stays on CPU because agent_eval_ebm is never `.to(device)`-ed
-    # and only the explicitly moved submodules end up on CUDA.
-    agent_eval_ebm.gru            = agent.ebm.gru
 
     # for iteration in range(1, args.num_iterations + 1):
     for iteration in tqdm(range(1, args.num_iterations + 1), total=args.num_iterations, desc="Training"):
@@ -1097,21 +1078,16 @@ if __name__ == "__main__":
             # a fresh episode here).
             with torch.no_grad():
                 agent.ebm.reset(next_done.bool())
-                # V2-hybrid: snapshot gru_state BEFORE this step (used as initial
-                # state in replay path).
-                cache_gru_state_pre[step] = agent.ebm.gru_state.squeeze(0).detach().clone()
-                # forward EBM step (this consumes gru_state and returns the new one + gru_input that was fed)
+                # forward EBM step manually so we can capture cls + buffer state
                 s_t, info = agent.ebm.step(next_obs["rgb"], next_obs["joints"], t=step)
 
                 # cache POST-PUSH buffer state (= what reader saw)
                 cache_features[step]   = agent.ebm.buffer.features.detach()
                 cache_used[step]       = agent.ebm.buffer.used.clone()
                 cache_timestamps[step] = agent.ebm.buffer.timestamps.clone()
-                cache_saliency[step]   = agent.ebm.buffer.saliency.clone()
                 cache_cls_base[step]   = info["cls_base"]
                 cache_cls_hand[step]   = info["cls_hand"]
                 cache_proprio[step]    = next_obs["joints"].detach()
-                cache_gru_input[step]  = info["gru_input"]
 
                 # actor / critic on s_t
                 action_mean = agent.actor_mean(s_t)
@@ -1223,13 +1199,9 @@ if __name__ == "__main__":
         b_features   = cache_features.reshape(-1, L_buf, d_vit)
         b_used       = cache_used.reshape(-1)
         b_timestamps = cache_timestamps.reshape(-1, L_buf)
-        b_saliency   = cache_saliency.reshape(-1, L_buf)
         b_cls_base   = cache_cls_base.reshape(-1, d_vit)
         b_cls_hand   = cache_cls_hand.reshape(-1, d_vit)
         b_proprio    = cache_proprio.reshape(-1, p_dim)
-        # V2-hybrid: cached GRU pre-step state and per-step gru input
-        b_gru_state_pre = cache_gru_state_pre.reshape(-1, gru_hidden)
-        b_gru_input     = cache_gru_input.reshape(-1, gru_in_dim)
 
         # Optimizing the policy and value network
         agent.train()
@@ -1242,20 +1214,17 @@ if __name__ == "__main__":
                 end = start + args.minibatch_size
                 mb_inds = b_inds[start:end]
 
-                # V2-hybrid: replay reader+curr+GRU+fuse on cached state for this minibatch.
+                # Replay reader+curr+fuse on cached buffer state for this minibatch.
                 cached = {
                     "features":   b_features[mb_inds],
                     "used":       b_used[mb_inds],
                     "timestamps": b_timestamps[mb_inds],
-                    "saliency":   b_saliency[mb_inds],
                 }
                 _, newlogprob, entropy, newvalue = agent.replay_action_value(
                     cached,
                     b_cls_base[mb_inds],
                     b_cls_hand[mb_inds],
                     b_proprio[mb_inds],
-                    b_gru_state_pre[mb_inds],
-                    b_gru_input[mb_inds],
                     b_actions[mb_inds],
                 )
                 logratio = newlogprob - b_logprobs[mb_inds]

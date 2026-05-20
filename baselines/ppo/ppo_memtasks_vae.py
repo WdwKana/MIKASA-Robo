@@ -23,22 +23,15 @@ if os.path.exists("wandb_config.yaml"):
         wandb_config = yaml.load(f, Loader=yaml.FullLoader)
     os.environ['WANDB_API_KEY'] = wandb_config['wandb_api']
 
-# ManiSkill specific imports
 import mani_skill.envs
 from mani_skill.utils import gym_utils
+
 from mani_skill.utils.wrappers.flatten import FlattenActionSpaceWrapper
 from mani_skill.utils.wrappers.record import RecordEpisode
 from mani_skill.vector.wrappers.gymnasium import ManiSkillVectorEnv
 
-# Memory-ManiSkill specific imports
 from mikasa_robo_suite.memory_envs import *
 from mikasa_robo_suite.utils.wrappers import *
-
-# Dual-camera observation wrapper (base_camera + hand_camera)
-from baselines.ppo.utils_ebm import FlattenRGBDObservationWrapperMulti
-# V2 (hybrid): use EBMHybridMemoryModule, aliased so the rest of this file's
-# code (built from V1) refers to it as EBMMemoryModule with no other changes.
-from baselines.ppo.modules import EBMHybridMemoryModule as EBMMemoryModule
 
 
 import copy
@@ -46,9 +39,14 @@ from typing import Dict
 from mani_skill.envs.sapien_env import BaseEnv
 from mani_skill.utils import common
 from tqdm import tqdm
+#for belief VAE (CVAE)
+import sys
+sys.path.append('/local/s4176650/sphinx')
+from model_vae_mikasa import BeliefVAEModel
 
 import warnings
 warnings.filterwarnings('ignore', message='.*env\\.\\w+ to get variables from other wrappers is deprecated.*')
+
 
 class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
     """
@@ -75,7 +73,6 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
         self.base_env.update_obs_space(new_obs)
 
     def observation(self, observation: Dict):
-        # Save oracle_info if it exists
         ret = dict()
 
         if self.include_rgb or self.include_depth:
@@ -118,6 +115,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
                     if key in observation:
                         extra_agent[key] = observation.pop(key)
 
+
                 # Flatten the extra_agent dict
                 extra_agent_flat = common.flatten_state_dict(extra_agent, use_torch=True, device=self.base_env.device)
                 ret['joints'] = extra_agent_flat
@@ -138,6 +136,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
             ret["rgbd"] = images
         elif self.include_depth and not self.include_rgb:
             ret["depth"] = images
+
 
         if 'state' in ret.keys() and not self.include_state:
             ret.pop('state')
@@ -161,7 +160,7 @@ class FlattenRGBDObservationWrapper(gym.ObservationWrapper):
 class Args:
     exp_name: Optional[str] = None
     """the name of this experiment"""
-    seed: int = 123
+    seed: int = 42
     """seed of the experiment"""
     torch_deterministic: bool = True
     """if toggled, `torch.backends.cudnn.deterministic=False`"""
@@ -189,11 +188,11 @@ class Args:
     """the id of the environment"""
     include_state: bool = False
     """whether to include state information in observations"""
-    total_timesteps: int = 50_000_000
+    total_timesteps: int = 130_000_000
     """total timesteps of the experiments"""
     learning_rate: float = 3e-4
     """the learning rate of the optimizer"""
-    num_envs: int = 1024 # 512 | *256
+    num_envs: int = 128 # 512 | *256
     """the number of parallel environments"""
     num_eval_envs: int = 16
     """the number of parallel evaluation environments"""
@@ -258,29 +257,11 @@ class Args:
     """if toggled, rgb images will be included in the observation space"""
     include_joints: bool = False
     """[works only with include_rgb=True] if toggled, joints will be included in the observation space"""
+    include_belief: bool = False
+    """[works only with include_rgb=True] if toggled, belief from VAE will be included in the observation space"""
+    belief_path: Optional[str] = None
     reward_mode: str = 'normalized_dense' # sparse | normalized_dense
     """the mode of the reward function"""
-    
-    # ───── EBM-specific args (replaces GRU args; kept under same names for
-    # CLI compat where applicable, plus new ones) ─────
-    saliency_ckpt: str = "analysis/ebm/path_a_head_v2.pt"
-    """path to Path A v2 trained saliency head checkpoint"""
-    no_saliency: bool = False
-    """A3 ablation: ignore saliency head, push ALL DINOv2 patches into buffer
-    (subject to L=64 cap and novelty filter). Tests H4 (filter is load-bearing)."""
-    vit_backbone: str = "dinov2"
-    """A_backbone ablation: 'dinov2' (default) or 'clip' for CLIP-ViT-B/16.
-    Pair with the matching --saliency-ckpt (path_a_head_v3.pt vs path_a_head_v3_clip.pt)."""
-    ebm_buffer_size: int = 64
-    """episodic buffer length L"""
-    ebm_top_k: int = 8
-    """K candidate patches per step"""
-    ebm_d_state: int = 256
-    """fused state dim s_t"""
-    ebm_novelty_thresh: float = 0.95
-    """cosine similarity threshold for buffer novelty filter"""
-    ebm_tau_age: float = 30.0
-    """age decay constant for buffer eviction priority"""
 
 def layer_init(layer, std=np.sqrt(2), bias_const=0.0):
     torch.nn.init.orthogonal_(layer.weight, std)
@@ -341,12 +322,35 @@ class DictArray(object):
         return DictArray(new_buffer_shape, None, data_dict=new_dict)
 
 class NatureCNN(nn.Module):
-    def __init__(self, sample_obs):
+    def __init__(self, sample_obs, belief_model=None):
         """
         oracle_info: dict with keys: "cup_with_ball_number" for ShellGame
         include_oracle: bool, if True, oracle_info will be used during the training, i.e. reducing memory task to MDP
         """
         super().__init__()
+        self.belief_model = belief_model
+        if self.belief_model is not None:
+            # Freeze the belief model - we don't train it
+            for param in self.belief_model.parameters():
+                param.requires_grad = False
+            self.belief_model.eval()
+
+            # Believer-style: use sampled latent z (phi_dim) aggregated via small MLPs
+            self.num_belief_samples = 30  # number of particles to sample (aligned with believer)
+            self.belief_sample_dim = self.belief_model.phi_dim
+            self.belief_encoder = nn.Sequential(
+                nn.Linear(self.belief_sample_dim, 64),
+                nn.ReLU(),
+                nn.Linear(64, 64),
+            )
+            self.belief_agg = nn.Sequential(
+                nn.Linear(64, 64),
+                nn.ReLU(),
+                nn.Linear(64, 64),
+            )
+            self.belief_feat_dim = 64
+        else:
+            self.belief_feat_dim = 0
 
         extractors = {}
 
@@ -396,10 +400,14 @@ class NatureCNN(nn.Module):
                 self.out_features += 64
             elif key == 'joints':
                 extractors[key] =  nn.Sequential(
-                    nn.Linear(sample_obs[key].shape[-1], 256),
+                    nn.Linear(sample_obs[key].shape[-1], 128),
                     nn.ReLU()
                 )
-                self.out_features += 256
+                self.out_features += 128
+
+        # Add belief feature dimension (aggregated samples)
+        if self.belief_model is not None:
+            self.out_features += self.belief_feat_dim
 
         print(f'{sample_obs.keys()=}')
         print_tensor_shapes(sample_obs)
@@ -413,160 +421,123 @@ class NatureCNN(nn.Module):
 
         self.extractors = nn.ModuleDict(extractors)
 
-    def forward(self, observations) -> torch.Tensor:
+    def forward(self, observations, belief_memory=None, cached_belief_samples=None, return_samples=False):
+        """
+        Returns:
+            features: torch.Tensor - concatenated features
+            new_belief_memory: torch.Tensor or None - updated belief memory (if belief_model exists)
+            used_samples: torch.Tensor or None - belief samples actually used (B, K, D)
+        """
         encoded_tensor_list = []
+        new_belief_memory = belief_memory  # Default: return input memory unchanged
+        used_samples = None
+        
         # self.extractors contain nn.Modules that do all the processing.
         for key, extractor in self.extractors.items():
             obs = observations[key]
             if key == "rgb" and 'rgb' in self.list_of_obs_keys:
                 obs = obs.float().permute(0,3,1,2) # (N, H, W, C) -> (N, C, H, W)
-                obs = obs / 255.
+                obs = obs / 255
             elif key in ['oracle_info', 'prompt', 'joints']:
                 obs = obs.float()
 
             encoded_tensor_list.append(extractor(obs))
-        return torch.cat(encoded_tensor_list, dim=1)
+        
+        # Compute belief from VAE if available (sample-based aggregation, Believer-style)
+        #
+        # Important: we want to keep the VAE frozen (no gradients / no autograd graph),
+        # but still TRAIN the small aggregation MLPs (belief_encoder/belief_agg).
+        if self.belief_model is not None and 'rgb' in observations:
+            if cached_belief_samples is None:
+                with torch.no_grad():
+                    rgb_obs = observations['rgb']
+                    belief_context, new_belief_memory = self.belief_model(rgb_obs, belief_memory)
+
+                    # Sample multiple latent particles conditioned on context.
+                    # These samples are treated as constants w.r.t. RL loss; gradients should
+                    # flow only through belief_encoder/belief_agg parameters.
+                    z_samples = [self.belief_model.sample(belief_context) for _ in range(self.num_belief_samples)]
+                    used_samples = torch.stack(z_samples, dim=1)  # (B, K, D)
+            else:
+                # Use provided samples to keep PPO old/new logprob consistent
+                used_samples = cached_belief_samples
+
+            # Encode/aggregate OUTSIDE no_grad so these MLPs can learn.
+            samples = [self.belief_encoder(z) for z in used_samples.unbind(dim=1)]
+            samples = torch.stack(samples, dim=1)  # (B, K, 64)
+            belief_feat = self.belief_agg(samples.mean(dim=1))  # (B, 64)
+            encoded_tensor_list.append(belief_feat)
+        
+        features = torch.cat(encoded_tensor_list, dim=1)
+        if return_samples:
+            return features, new_belief_memory, used_samples
+        return features, new_belief_memory, used_samples
 
 class Agent(nn.Module):
-    """
-    EBM-Robo agent. Replaces NatureCNN+GRU with EBMMemoryModule (frozen DINOv2 +
-    frozen saliency head + episodic buffer + learned cross-attention reader).
-
-    Interface mirrors the original GRU Agent:
-      - get_action_and_value(obs, ebm_state, done, action=None)
-      - get_action(obs, ebm_state, done, deterministic=False)
-      - get_value(obs, ebm_state, done)
-
-    But `ebm_state` here is NOT a tensor — it is a Python dict snapshot of the
-    buffer (features/timestamps/saliency/used). At rollout the buffer is
-    maintained inside `self.ebm`, so we ignore the passed-in `ebm_state` and
-    use the live buffer. At update we restore from the cached snapshot before
-    forwarding (managed by the outer training loop).
-    """
-    def __init__(self, envs, sample_obs):
+    def __init__(self, envs, sample_obs, belief_model=None):
         super().__init__()
-        # EBM module — manages perception, buffer, reader, and fuse internally
-        device = next(iter(self.parameters()), torch.tensor(0)).device  # placeholder
-        proprio_dim = sample_obs["joints"].shape[-1] if "joints" in sample_obs else 25
-        self.ebm = EBMMemoryModule(
-            num_envs=args.num_envs,
-            proprio_dim=proprio_dim,
-            saliency_ckpt=args.saliency_ckpt,
-            vit_backbone=args.vit_backbone,
-            L=args.ebm_buffer_size,
-            K=args.ebm_top_k,
-            d_state=args.ebm_d_state,
-            novelty_thresh=args.ebm_novelty_thresh,
-            tau_age=args.ebm_tau_age,
-            device="cuda",
-            no_saliency=args.no_saliency,
-        )
-        d_state = args.ebm_d_state
-
-        print('#'*50)
-        print(f"EBM: num_envs={args.num_envs}, L={args.ebm_buffer_size}, "
-              f"K={args.ebm_top_k}, d_state={d_state}")
-        print('#'*50, '\n')
-
+        self.belief_model = belief_model
+        self.feature_net = NatureCNN(sample_obs=sample_obs, belief_model=belief_model)
+        self.last_belief_samples = None
+        # latent_size = np.array(envs.unwrapped.single_observation_space.shape).prod()
+        if belief_model is not None:
+            self.belief_memory_size = belief_model.memory_size
+        else:
+            self.belief_memory_size = 0
+        latent_size = self.feature_net.out_features
         self.critic = nn.Sequential(
-            layer_init(nn.Linear(d_state, 512)),
+            layer_init(nn.Linear(latent_size, 512)),
             nn.ReLU(inplace=True),
             layer_init(nn.Linear(512, 1)),
         )
         self.actor_mean = nn.Sequential(
-            layer_init(nn.Linear(d_state, 512)),
+            layer_init(nn.Linear(latent_size, 512)),
             nn.ReLU(inplace=True),
             layer_init(nn.Linear(512, np.prod(envs.unwrapped.single_action_space.shape)), std=0.01*np.sqrt(2)),
             nn.Tanh(),
         )
         self.actor_logstd = nn.Parameter(torch.ones(1, np.prod(envs.unwrapped.single_action_space.shape)) * -0.5)
-
-        # rollout step counter (for buffer timestamping)
-        self._t_global = 0
-
-    def _step_ebm(self, x: dict, done: torch.Tensor, t_offset: int = 0) -> torch.Tensor:
-        """
-        x:    dict with 'rgb' (B, H, W, 6) and 'joints' (B, p)
-        done: (B,) bool/float — reset buffer for envs where done==1 BEFORE forward.
-        Returns s_t: (B, d_state).
-        """
-        if done is not None:
-            self.ebm.reset(done.bool() if done.dtype != torch.bool else done)
-        rgb = x["rgb"]
-        proprio = x["joints"]
-        s_t, _ = self.ebm.step(rgb, proprio, t=self._t_global + t_offset)
-        return s_t
-
-    def get_states(self, x: dict, ebm_state, done):
-        """
-        x: dict; if rgb has shape (T*B, H, W, 6) [from PPO update flat batch],
-        we need to know T and B to walk through episode boundaries. The outer
-        loop is responsible for restoring buffer state via self.ebm.restore()
-        before calling this.
-
-        For both rollout (single step) and update (replay) cases, we just call
-        the EBM module forward — outer loop handles state restoration.
-        """
-        # rollout case: x has shape (B, H, W, 6); done is (B,)
-        s_t = self._step_ebm(x, done)
-        # The "next state" for the rollout-buffer logbook is just the buffer
-        # snapshot post-step.
-        return s_t, self.ebm.snapshot()
-
-    def get_value(self, x, ebm_state, done):
-        s_t, _ = self.get_states(x, ebm_state, done)
-        return self.critic(s_t)
-
-    def get_action(self, x, ebm_state, done, deterministic=False):
-        s_t, new_state = self.get_states(x, ebm_state, done)
-        action_mean = self.actor_mean(s_t)
+    
+    def get_features(self, x, belief_memory=None):
+        features, new_memory, _ = self.feature_net(x, belief_memory)
+        return features, new_memory
+    
+    def get_value(self, x, belief_memory=None):
+        """Get value estimate. Does not return new memory (used during updates)."""
+        features, _, _ = self.feature_net(x, belief_memory)
+        return self.critic(features)
+    
+    def get_action(self, x, deterministic=False, belief_memory=None, belief_samples=None):
+        """Get action. Returns (action, new_belief_memory) for rollout."""
+        features, new_memory, _ = self.feature_net(x, belief_memory, cached_belief_samples=belief_samples)
+        action_mean = self.actor_mean(features)
         if deterministic:
-            return action_mean, new_state
+            return action_mean, new_memory
         action_logstd = self.actor_logstd.expand_as(action_mean)
         action_std = torch.exp(action_logstd)
         probs = Normal(action_mean, action_std)
-        return probs.sample(), new_state
-
-    def get_action_and_value(self, x, ebm_state, done, action=None):
-        s_t, new_state = self.get_states(x, ebm_state, done)
-        action_mean = self.actor_mean(s_t)
-        action_logstd = self.actor_logstd.expand_as(action_mean)
-        action_std = torch.exp(action_logstd)
-        probs = Normal(action_mean, action_std)
-        if action is None:
-            action = probs.sample()
-        return action, probs.log_prob(action).sum(1), probs.entropy().sum(1), self.critic(s_t), new_state
-
-    def reset_t_global(self, t: int = 0):
-        self._t_global = t
-
-    # ─── PPO update path: differentiable replay over cached buffer state ───
-
-    def replay_action_value(self, cached_buffer: dict, cls_base, cls_hand, proprio,
-                            gru_state_pre, gru_input, action=None):
-        """V2-hybrid replay path. Inputs include the cached pre-step GRU state
-        and the per-step gru_input recorded during rollout; the replay() call
-        forwards GRU 1 step (differentiable) + reader + fuse.
-
-        gru_state_pre: (mb_size, gru_hidden)
-        gru_input:     (mb_size, gru_input_dim)
+        return probs.sample(), new_memory
+    
+    def get_action_and_value(self, x, action=None, belief_memory=None, belief_samples=None, return_samples=False):
         """
-        # ebm.replay expects gru_state_pre in (1, B, H) layout
-        gru_state_pre_3d = gru_state_pre.unsqueeze(0).contiguous()
-        s_t = self.ebm.replay(cached_buffer, cls_base, cls_hand, proprio,
-                              gru_state_pre_3d, gru_input)
-        action_mean = self.actor_mean(s_t)
+        Get action and value. 
+        Returns: (action, log_prob, entropy, value, new_belief_memory) during rollout
+        """
+        features, new_memory, used_samples = self.feature_net(
+            x, belief_memory, cached_belief_samples=belief_samples, return_samples=return_samples
+        )
+        action_mean = self.actor_mean(features)
         action_logstd = self.actor_logstd.expand_as(action_mean)
         action_std = torch.exp(action_logstd)
         probs = Normal(action_mean, action_std)
         if action is None:
             action = probs.sample()
-        return (action,
-                probs.log_prob(action).sum(1),
-                probs.entropy().sum(1),
-                self.critic(s_t))
-
-
+        logprob = probs.log_prob(action).sum(1)
+        entropy = probs.entropy().sum(1)
+        value = self.critic(features)
+        # Persist last used samples for external access (PPO buffer)
+        self.last_belief_samples = used_samples
+        return action, logprob, entropy, value, new_memory
 
 class AgentStateOnly(nn.Module):
     def __init__(self, envs):
@@ -582,6 +553,7 @@ class AgentStateOnly(nn.Module):
             length += l_
         
         print(f'Total length: {length}')
+
 
         self.critic = nn.Sequential(
             layer_init(nn.Linear(length, 256)),
@@ -600,6 +572,7 @@ class AgentStateOnly(nn.Module):
             layer_init(nn.Linear(256, 256)),
             nn.Tanh(),
             layer_init(nn.Linear(256, np.prod(envs.single_action_space.shape)), std=0.01*np.sqrt(2)),
+            nn.Tanh(),
         )
         self.actor_logstd = nn.Parameter(torch.ones(1, np.prod(envs.single_action_space.shape)) * -0.5)
 
@@ -763,6 +736,10 @@ if __name__ == "__main__":
         prompt_info = None
     else:
         raise ValueError(f"Unknown environment: {args.env_id}")
+    assert any([args.include_state, args.include_rgb]), "At least one of include_state or include_rgb must be True."
+    assert not (args.include_joints and not args.include_rgb), "include_joints can only be True when include_rgb is True"
+    assert not (args.include_belief and not args.include_rgb), "include_belief can only be True when include_rgb is True"
+    assert not (args.include_belief and args.belief_path is None), "belief_path must be provided when include_belief is True"
 
     print('\n' + '='*75)
     print('║' + ' '*24 + 'Environment Configuration' + ' '*24 + '║')
@@ -807,17 +784,18 @@ if __name__ == "__main__":
         MODE = 'rgb'
     elif not args.include_state and args.include_rgb and args.include_oracle and not args.include_joints:
         MODE = 'rgb_oracle'
-    elif not args.include_state and args.include_rgb and args.include_joints and args.include_oracle:
-        MODE = 'rgb_joints_oracle' # TODO: check if this is correct
-    elif not args.include_state and args.include_rgb and args.include_joints and not args.include_oracle:
+    elif not args.include_state and args.include_rgb and args.include_joints and args.include_oracle and args.include_belief:
+        MODE = 'rgb_joints_oracle_belief'
+    elif not args.include_state and args.include_rgb and args.include_joints and not args.include_oracle and args.include_belief:
+        MODE = 'rgb_joints_belief'
+    elif not args.include_state and args.include_rgb and args.include_joints and args.include_oracle and not args.include_belief:
+        MODE = 'rgb_joints_oracle'
+    elif not args.include_state and args.include_rgb and args.include_joints and not args.include_oracle and not args.include_belief:
         MODE = 'rgb_joints'
     else:
-        raise NotImplementedError(f"Unknown mode: {args.include_state=} {args.include_rgb=} {args.include_oracle=} {args.include_joints=}")
+        raise NotImplementedError(f"Unknown mode: {args.include_state=} {args.include_rgb=} {args.include_oracle=} {args.include_joints=} {args.include_belief=}")
     
     SAVE_DIR = f'checkpoints/ppo_memtasks/{MODE}/{args.reward_mode}/{args.env_id}'
-
-    if 'state' in MODE:
-        raise NotImplementedError("state mode is not implemented with GRU model, use rgb mode instead")
 
 
     print(f'{MODE=}')
@@ -830,6 +808,7 @@ if __name__ == "__main__":
         args.exp_name = os.path.basename(__file__)[: -len(".py")]
         run_name = f"{args.env_id}__{args.exp_name}__{args.seed}__{MODE}__{TIME}"
     else:
+        # run_name = args.exp_name
         run_name = f"{args.exp_name}__{args.seed}__{MODE}__{TIME}"
     log_dir = f"{SAVE_DIR}/{run_name}/{TIME}"
     os.makedirs(log_dir, exist_ok=True)
@@ -862,20 +841,10 @@ if __name__ == "__main__":
         eval_envs = wrapper_class(eval_envs, **wrapper_kwargs)
         envs = wrapper_class(envs, **wrapper_kwargs)
 
-
-    # DUAL-CAMERA: base + hand are concat'd channel-wise -> rgb shape (..., H, W, 6).
-    # in_channels in the CNN is auto-detected from sample_obs["rgb"].shape[-1] = 6,
-    # so no further conv-channel surgery is needed here.
-    envs = FlattenRGBDObservationWrapperMulti(
-        envs, rgb=args.include_rgb, depth=False, state=args.include_state,
-        oracle=args.include_oracle, joints=args.include_joints,
-        target_cameras=("base_camera", "hand_camera"),
-    )
-    eval_envs = FlattenRGBDObservationWrapperMulti(
-        eval_envs, rgb=args.include_rgb, depth=False, state=args.include_state,
-        oracle=args.include_oracle, joints=args.include_joints,
-        target_cameras=("base_camera", "hand_camera"),
-    )
+    envs = FlattenRGBDObservationWrapper(envs, rgb=args.include_rgb, depth=False, state=args.include_state, 
+                                         oracle=args.include_oracle, joints=args.include_joints)
+    eval_envs = FlattenRGBDObservationWrapper(eval_envs, rgb=args.include_rgb, depth=False, state=args.include_state, 
+                                              oracle=args.include_oracle, joints=args.include_joints)
 
     if isinstance(envs.action_space, gym.spaces.Dict):
         envs = FlattenActionSpaceWrapper(envs)
@@ -903,6 +872,44 @@ if __name__ == "__main__":
     print('='*70)
     print(f"Max Episode Steps: {max_episode_steps}")
     print('='*70 + '\n')
+    # Load belief model if needed (before agent creation)
+    belief_model = None
+    if args.include_belief and args.belief_path:
+        print(f"Loading belief model from {args.belief_path}")
+        
+        checkpoint = torch.load(args.belief_path, map_location=device)
+
+        # Prefer explicit fields; otherwise infer from saved weights to avoid mismatched dims
+        model_state = checkpoint["model_state"] if isinstance(checkpoint, dict) and "model_state" in checkpoint else checkpoint
+
+        phi_dim = checkpoint.get("phi_dim")
+        if phi_dim is None and "vae_decoder.4.weight" in model_state:
+            # decoder output is 2 * phi_dim
+            phi_dim = model_state["vae_decoder.4.weight"].shape[0] // 2
+        if phi_dim is None:
+            phi_dim = checkpoint.get("state_dim", 32)
+
+        latent_dim = checkpoint.get("latent_dim")
+        if latent_dim is None and "vae_encoder.4.weight" in model_state:
+            # encoder last layer outputs 2 * latent_dim
+            latent_dim = model_state["vae_encoder.4.weight"].shape[0] // 2
+        if latent_dim is None:
+            latent_dim = 32
+
+        print(f"  phi_dim={phi_dim}, latent_dim={latent_dim}")
+        
+        belief_model = BeliefVAEModel(
+            obs_space={'image': (128, 128, 3)},
+            state_dim=phi_dim,
+            latent_dim=latent_dim,
+        )
+        
+        belief_model.load_state_dict(model_state)
+            
+        belief_model.to(device)
+        belief_model.eval()
+        print(f"Belief model loaded successfully. Memory size: {belief_model.memory_size}")
+
     logger = None
     if not args.evaluate:
         print("Running training")
@@ -931,12 +938,23 @@ if __name__ == "__main__":
         print("Running evaluation")
 
     # ALGO Logic: Storage setup
-    obs = DictArray((args.num_steps, args.num_envs), envs.single_observation_space, device=device)        
+    obs = DictArray((args.num_steps, args.num_envs), envs.single_observation_space, device=device)
     actions = torch.zeros((args.num_steps, args.num_envs) + envs.single_action_space.shape).to(device)
     logprobs = torch.zeros((args.num_steps, args.num_envs)).to(device)
     rewards = torch.zeros((args.num_steps, args.num_envs)).to(device)
     dones = torch.zeros((args.num_steps, args.num_envs)).to(device)
     values = torch.zeros((args.num_steps, args.num_envs)).to(device)
+    
+    # Belief memory storage
+    belief_memories = None
+    belief_samples = None
+    if belief_model is not None:
+        belief_memories = torch.zeros((args.num_steps, args.num_envs, belief_model.memory_size), device=device)
+        num_belief_samples = 30  # must stay in sync with NatureCNN.num_belief_samples
+        belief_samples = torch.zeros(
+            (args.num_steps, args.num_envs, num_belief_samples, belief_model.phi_dim),
+            device=device,
+        )
 
     # TRY NOT TO MODIFY: start the game
     global_step = 0
@@ -944,7 +962,6 @@ if __name__ == "__main__":
     next_obs, _ = envs.reset(seed=args.seed)
     eval_obs, _ = eval_envs.reset(seed=args.seed)
     next_done = torch.zeros(args.num_envs, device=device)
-    next_done_eval = torch.zeros(args.num_eval_envs, device=device)
     eps_returns = torch.zeros(args.num_envs, dtype=torch.float, device=device)
     video_iteration = 0
 
@@ -954,97 +971,45 @@ if __name__ == "__main__":
     print(f"####\n")
 
     if MODE not in ['state', 'state_oracle']:
-        agent = Agent(envs, sample_obs=next_obs).to(device)
+        agent = Agent(envs, sample_obs=next_obs, belief_model=belief_model).to(device)
     else:
         agent = AgentStateOnly(envs).to(device)
+
+    # Initialize belief memory if needed
+    if belief_model is not None:
+        belief_memory = torch.zeros(args.num_envs, belief_model.memory_size, device=device)
+        eval_belief_memory = torch.zeros(args.num_eval_envs, belief_model.memory_size, device=device)
+    else:
+        belief_memory = None
+        eval_belief_memory = None
 
     optimizer = optim.Adam(agent.parameters(), lr=args.learning_rate, eps=1e-5)
 
     if args.checkpoint:
         agent.load_state_dict(torch.load(args.checkpoint))
 
-    # ─── EBM rollout caches (per-step) ─────────────────────────────────────
-    # We do NOT keep a "gru_states" tensor; instead per step we cache the
-    # buffer snapshot (post-push state, what reader saw) plus the cls tokens
-    # and proprio that built the query. PPO update replays reader+curr+fuse
-    # over these caches WITHOUT re-running ViT / saliency head.
-    d_vit  = agent.ebm.vit.dim
-    L_buf  = agent.ebm.L
-    p_dim  = agent.ebm.reader.W_Q.in_features - 128  # query_in = [proprio, curr(128)]
-
-    cache_features   = torch.zeros(args.num_steps, args.num_envs, L_buf, d_vit, device=device)
-    cache_used       = torch.zeros(args.num_steps, args.num_envs, dtype=torch.long, device=device)
-    cache_timestamps = torch.zeros(args.num_steps, args.num_envs, L_buf, dtype=torch.long, device=device)
-    cache_saliency   = torch.full((args.num_steps, args.num_envs, L_buf), -1e9, device=device)
-    cache_cls_base   = torch.zeros(args.num_steps, args.num_envs, d_vit, device=device)
-    cache_cls_hand   = torch.zeros(args.num_steps, args.num_envs, d_vit, device=device)
-    cache_proprio    = torch.zeros(args.num_steps, args.num_envs, p_dim, device=device)
-
-    # V2-hybrid: cache GRU state PRE-step + the gru_input that step used.
-    # Replay path forwards GRU 1 step from (cached_state, cached_input) so
-    # gradients flow through gru params.
-    gru_hidden = agent.ebm.gru_hidden_size
-    gru_in_dim = agent.ebm.gru_input_dim
-    cache_gru_state_pre = torch.zeros(args.num_steps, args.num_envs, gru_hidden, device=device)
-    cache_gru_input     = torch.zeros(args.num_steps, args.num_envs, gru_in_dim, device=device)
-
-    # Eval needs its own EBM with num_envs = num_eval_envs but shared params.
-    # Lightweight: instantiate a fresh EBMMemoryModule and overwrite its
-    # learned submodules with references to the train-side ones.
-    agent_eval_ebm = EBMMemoryModule(
-        num_envs=args.num_eval_envs,
-        proprio_dim=p_dim,
-        saliency_ckpt=args.saliency_ckpt,
-        vit_backbone=args.vit_backbone,
-        L=args.ebm_buffer_size,
-        K=args.ebm_top_k,
-        d_state=args.ebm_d_state,
-        novelty_thresh=args.ebm_novelty_thresh,
-        tau_age=args.ebm_tau_age,
-        device="cuda",
-        no_saliency=args.no_saliency,
-    )
-    # Share frozen + learned submodules with the training EBM (params not
-    # duplicated; only the buffer is independent).
-    agent_eval_ebm.vit            = agent.ebm.vit
-    agent_eval_ebm.saliency_head  = agent.ebm.saliency_head
-    agent_eval_ebm.xy_concat      = agent.ebm.xy_concat
-    agent_eval_ebm.curr_summary   = agent.ebm.curr_summary
-    agent_eval_ebm.reader         = agent.ebm.reader
-    agent_eval_ebm.fuse           = agent.ebm.fuse
-    # V2-Hybrid specific: also share the GRU parameters (eval still owns its
-    # own gru_state buffer at size num_eval_envs). Without this, the eval
-    # path's GRU stays on CPU because agent_eval_ebm is never `.to(device)`-ed
-    # and only the explicitly moved submodules end up on CUDA.
-    agent_eval_ebm.gru            = agent.ebm.gru
-
-    # for iteration in range(1, args.num_iterations + 1):
     for iteration in tqdm(range(1, args.num_iterations + 1), total=args.num_iterations, desc="Training"):
         print(f"Epoch: {iteration}, global_step={global_step}")
-        # reset the training EBM buffer for ALL envs at the start of each
-        # iteration (each task has max_episode_steps == args.num_steps so a
-        # rollout iteration covers exactly one episode per env).
-        agent.ebm.reset(torch.ones(args.num_envs, dtype=torch.bool, device=device))
-        agent.reset_t_global(0)
         final_values = torch.zeros((args.num_steps, args.num_envs), device=device)
         agent.eval()
         if iteration % args.eval_freq == 1:
             print("Evaluating")
-            agent_eval_ebm.reset(torch.ones(args.num_eval_envs, dtype=torch.bool, device=device))
             eval_obs, _ = eval_envs.reset()
+            # Reset eval belief memory at start of evaluation
+            if belief_model is not None:
+                eval_belief_memory = torch.zeros(args.num_eval_envs, belief_model.memory_size, device=device)
             eval_metrics = defaultdict(list)
             num_episodes = 0
-            eval_t = 0
             for _ in range(args.num_eval_steps):
                 with torch.no_grad():
-                    # reset eval buffer for envs whose previous episode just ended
-                    agent_eval_ebm.reset(next_done_eval.bool())
-                    s_t_eval, _ = agent_eval_ebm.step(eval_obs["rgb"], eval_obs["joints"], t=eval_t)
-                    act_eval = agent.actor_mean(s_t_eval)  # deterministic = mean
-                    eval_t += 1
-                    act_eval = clip_action(act_eval)
-                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(act_eval)
-                    next_done_eval = torch.logical_or(eval_terminations, eval_truncations).to(torch.float32)
+                    eval_action, eval_belief_memory = agent.get_action(eval_obs, deterministic=True, belief_memory=eval_belief_memory)
+                    eval_action = clip_action(eval_action)
+                    eval_obs, eval_rew, eval_terminations, eval_truncations, eval_infos = eval_envs.step(eval_action)
+                    # Reset belief memory for finished episodes
+                    if belief_model is not None:
+                        eval_done = torch.logical_or(eval_terminations, eval_truncations)
+                        if eval_done.any():
+                            eval_belief_memory[eval_done] = 0.0
                     if "final_info" in eval_infos:
                         mask = eval_infos["_final_info"]
                         num_episodes += mask.sum()
@@ -1078,7 +1043,6 @@ if __name__ == "__main__":
             video_iteration += 1
             torch.save(agent.state_dict(), model_path)
             print(f"model saved to {model_path}")
-
         # Annealing the rate if instructed to do so.
         if args.anneal_lr:
             frac = 1.0 - (iteration - 1.0) / args.num_iterations
@@ -1091,40 +1055,20 @@ if __name__ == "__main__":
             obs[step] = next_obs
             dones[step] = next_done
 
+            # Store belief memory before update
+            if belief_model is not None:
+                belief_memories[step] = belief_memory
+
             # ALGO LOGIC: action logic
-            # Reset EBM buffer for envs that just terminated (next_done is the
-            # done flag at the START of this step — those envs are starting
-            # a fresh episode here).
             with torch.no_grad():
-                agent.ebm.reset(next_done.bool())
-                # V2-hybrid: snapshot gru_state BEFORE this step (used as initial
-                # state in replay path).
-                cache_gru_state_pre[step] = agent.ebm.gru_state.squeeze(0).detach().clone()
-                # forward EBM step (this consumes gru_state and returns the new one + gru_input that was fed)
-                s_t, info = agent.ebm.step(next_obs["rgb"], next_obs["joints"], t=step)
-
-                # cache POST-PUSH buffer state (= what reader saw)
-                cache_features[step]   = agent.ebm.buffer.features.detach()
-                cache_used[step]       = agent.ebm.buffer.used.clone()
-                cache_timestamps[step] = agent.ebm.buffer.timestamps.clone()
-                cache_saliency[step]   = agent.ebm.buffer.saliency.clone()
-                cache_cls_base[step]   = info["cls_base"]
-                cache_cls_hand[step]   = info["cls_hand"]
-                cache_proprio[step]    = next_obs["joints"].detach()
-                cache_gru_input[step]  = info["gru_input"]
-
-                # actor / critic on s_t
-                action_mean = agent.actor_mean(s_t)
-                action_logstd = agent.actor_logstd.expand_as(action_mean)
-                std = torch.exp(action_logstd)
-                probs = Normal(action_mean, std)
-                action = probs.sample()
-                logprob = probs.log_prob(action).sum(-1)
-                value = agent.critic(s_t)
+                action, logprob, _, value, belief_memory = agent.get_action_and_value(
+                    next_obs, belief_memory=belief_memory, return_samples=True
+                )
                 values[step] = value.flatten()
-
             actions[step] = action
             logprobs[step] = logprob
+            if belief_model is not None and agent.last_belief_samples is not None:
+                belief_samples[step] = agent.last_belief_samples
 
             # TRY NOT TO MODIFY: execute the game and log data.
             next_obs, reward, terminations, truncations, infos = envs.step(clip_action(action))
@@ -1134,43 +1078,44 @@ if __name__ == "__main__":
             if "final_info" in infos:
                 final_info = infos["final_info"]
                 done_mask = infos["_final_info"]
-                csv_row = {
+                train_csv_row = {
                     "iteration": iteration,
                     "total_env_steps": global_step,
                     "mode": "train",
                     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 }
                 for k, v in final_info["episode"].items():
-                    sliced = v[done_mask].float()
-                    if sliced.numel() > 0:
-                        mean_value = sliced.mean()
-                        if logger is not None:
-                            logger.add_scalar(f"train/{k}", mean_value, global_step)
-                        csv_row[k] = round(mean_value.item(), 4)
-                        if k not in csv_fieldnames:
-                            csv_fieldnames.append(k)
+                    mean_value = v[done_mask].float().mean()
+                    logger.add_scalar(f"train/{k}", mean_value, global_step)
+                    train_csv_row[k] = round(mean_value.item(), 4)
+                    if k not in csv_fieldnames:
+                        csv_fieldnames.append(k)
                 file_exists = os.path.exists(csv_path)
                 with open(csv_path, "a", newline="", encoding="utf-8") as f:
                     writer = csv.DictWriter(f, fieldnames=csv_fieldnames)
                     if not file_exists:
                         writer.writeheader()
-                    writer.writerow(csv_row)
+                    writer.writerow(train_csv_row)
                 for k in infos["final_observation"]:
                     infos["final_observation"][k] = infos["final_observation"][k][done_mask]
                 with torch.no_grad():
-                    # snapshot/restore EBM so bootstrap doesn't perturb buffer
-                    _snap = agent.ebm.snapshot()
-                    fv = agent.get_value(infos["final_observation"], None, next_done).view(-1)
-                    agent.ebm.restore(_snap)
-                    final_values[step, torch.arange(args.num_envs, device=device)[done_mask]] = fv[done_mask]
-
+                    # For final values, use belief memory BEFORE reset
+                    bm_for_final = None
+                    if belief_model is not None:
+                        bm_for_final = belief_memory[done_mask] if done_mask.any() else None
+                    final_values[step, torch.arange(args.num_envs, device=device)[done_mask]] = agent.get_value(
+                        infos["final_observation"],
+                        belief_memory=bm_for_final,
+                    ).view(-1)
+            
+            # Reset belief memory for finished episodes (after using it for final_values)
+            if belief_model is not None and next_done.any():
+                belief_memory[next_done.bool()] = 0.0
         rollout_time = time.time() - rollout_time
 
         # bootstrap value according to termination and truncation
         with torch.no_grad():
-            _snap = agent.ebm.snapshot()
-            next_value = agent.get_value(next_obs, None, next_done).reshape(1, -1)
-            agent.ebm.restore(_snap)
+            next_value = agent.get_value(next_obs, belief_memory=belief_memory).reshape(1, -1)
             advantages = torch.zeros_like(rewards).to(device)
             lastgaelam = 0
             for t in reversed(range(args.num_steps)):
@@ -1180,10 +1125,8 @@ if __name__ == "__main__":
                 else:
                     next_not_done = 1.0 - dones[t + 1]
                     nextvalues = values[t + 1]
-                real_next_values = next_not_done * nextvalues + final_values[t] # t instead of t+1
-                # next_not_done means nextvalues is computed from the correct next_obs
-                # if next_not_done is 1, final_values is always 0
-                # if next_not_done is 0, then use final_values, which is computed according to bootstrap_at_done
+                real_next_values = next_not_done * nextvalues + final_values[t]
+
                 if args.finite_horizon_gae:
                     """
                     See GAE paper equation(16) line 1, we will compute the GAE based on this line only
@@ -1212,24 +1155,16 @@ if __name__ == "__main__":
             returns = advantages + values
 
         # flatten the batch
-        b_obs = obs.reshape((-1,))   # kept for compatibility; not used in update
+        b_obs = obs.reshape((-1,))
         b_logprobs = logprobs.reshape(-1)
         b_actions = actions.reshape((-1,) + envs.single_action_space.shape)
         b_advantages = advantages.reshape(-1)
         b_returns = returns.reshape(-1)
         b_values = values.reshape(-1)
-        b_dones = dones.reshape(-1)
-        # flatten EBM caches so we can index by mb_inds
-        b_features   = cache_features.reshape(-1, L_buf, d_vit)
-        b_used       = cache_used.reshape(-1)
-        b_timestamps = cache_timestamps.reshape(-1, L_buf)
-        b_saliency   = cache_saliency.reshape(-1, L_buf)
-        b_cls_base   = cache_cls_base.reshape(-1, d_vit)
-        b_cls_hand   = cache_cls_hand.reshape(-1, d_vit)
-        b_proprio    = cache_proprio.reshape(-1, p_dim)
-        # V2-hybrid: cached GRU pre-step state and per-step gru input
-        b_gru_state_pre = cache_gru_state_pre.reshape(-1, gru_hidden)
-        b_gru_input     = cache_gru_input.reshape(-1, gru_in_dim)
+
+        if belief_model is not None:
+            b_belief_memories = belief_memories.reshape((-1, belief_model.memory_size))
+            b_belief_samples = belief_samples.reshape((-1, num_belief_samples, belief_model.phi_dim))
 
         # Optimizing the policy and value network
         agent.train()
@@ -1242,21 +1177,18 @@ if __name__ == "__main__":
                 end = start + args.minibatch_size
                 mb_inds = b_inds[start:end]
 
-                # V2-hybrid: replay reader+curr+GRU+fuse on cached state for this minibatch.
-                cached = {
-                    "features":   b_features[mb_inds],
-                    "used":       b_used[mb_inds],
-                    "timestamps": b_timestamps[mb_inds],
-                    "saliency":   b_saliency[mb_inds],
-                }
-                _, newlogprob, entropy, newvalue = agent.replay_action_value(
-                    cached,
-                    b_cls_base[mb_inds],
-                    b_cls_hand[mb_inds],
-                    b_proprio[mb_inds],
-                    b_gru_state_pre[mb_inds],
-                    b_gru_input[mb_inds],
+                # Retrieve stored belief memory for this batch
+                mb_belief_memory = None
+                mb_belief_samples = None
+                if belief_model is not None:
+                    mb_belief_memory = b_belief_memories[mb_inds]
+                    mb_belief_samples = b_belief_samples[mb_inds]
+                
+                _, newlogprob, entropy, newvalue, _ = agent.get_action_and_value(
+                    b_obs[mb_inds],
                     b_actions[mb_inds],
+                    belief_memory=mb_belief_memory,
+                    belief_samples=mb_belief_samples,
                 )
                 logratio = newlogprob - b_logprobs[mb_inds]
                 ratio = logratio.exp()
@@ -1326,6 +1258,8 @@ if __name__ == "__main__":
         logger.add_scalar("time/update_time", update_time, global_step)
         logger.add_scalar("time/rollout_time", rollout_time, global_step)
         logger.add_scalar("time/rollout_fps", args.num_envs * args.num_steps / rollout_time, global_step)
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     if args.save_model and not args.evaluate:
         model_path = f"{SAVE_DIR}/{run_name}/{TIME}/final_ckpt.pt"

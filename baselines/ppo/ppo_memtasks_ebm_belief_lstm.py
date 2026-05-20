@@ -38,7 +38,7 @@ from mikasa_robo_suite.utils.wrappers import *
 from baselines.ppo.utils_ebm import FlattenRGBDObservationWrapperMulti
 # V2 (hybrid): use EBMHybridMemoryModule, aliased so the rest of this file's
 # code (built from V1) refers to it as EBMMemoryModule with no other changes.
-from baselines.ppo.modules import EBMHybridMemoryModule as EBMMemoryModule
+from baselines.ppo.modules import EBMBeliefLSTMMemoryModule as EBMMemoryModule
 
 
 import copy
@@ -970,7 +970,7 @@ if __name__ == "__main__":
     # over these caches WITHOUT re-running ViT / saliency head.
     d_vit  = agent.ebm.vit.dim
     L_buf  = agent.ebm.L
-    p_dim  = agent.ebm.reader.W_Q.in_features - 128  # query_in = [proprio, curr(128)]
+    p_dim  = agent.ebm.gru_input_dim - 128  # belief variants: GRU input = [proprio, curr(128)]
 
     cache_features   = torch.zeros(args.num_steps, args.num_envs, L_buf, d_vit, device=device)
     cache_used       = torch.zeros(args.num_steps, args.num_envs, dtype=torch.long, device=device)
@@ -983,7 +983,7 @@ if __name__ == "__main__":
     # V2-hybrid: cache GRU state PRE-step + the gru_input that step used.
     # Replay path forwards GRU 1 step from (cached_state, cached_input) so
     # gradients flow through gru params.
-    gru_hidden = agent.ebm.gru_hidden_size
+    gru_hidden = agent.ebm.gru_state.shape[-1]  # auto: H for GRU, 2H for LSTM
     gru_in_dim = agent.ebm.gru_input_dim
     cache_gru_state_pre = torch.zeros(args.num_steps, args.num_envs, gru_hidden, device=device)
     cache_gru_input     = torch.zeros(args.num_steps, args.num_envs, gru_in_dim, device=device)
@@ -1016,7 +1016,7 @@ if __name__ == "__main__":
     # own gru_state buffer at size num_eval_envs). Without this, the eval
     # path's GRU stays on CPU because agent_eval_ebm is never `.to(device)`-ed
     # and only the explicitly moved submodules end up on CUDA.
-    agent_eval_ebm.gru            = agent.ebm.gru
+    agent_eval_ebm.lstm           = agent.ebm.lstm
 
     # for iteration in range(1, args.num_iterations + 1):
     for iteration in tqdm(range(1, args.num_iterations + 1), total=args.num_iterations, desc="Training"):
