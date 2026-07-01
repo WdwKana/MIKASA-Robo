@@ -8,12 +8,16 @@ manipulation (MIKASA-Robo). Everything below is exact as of this commit.
 
 ## 0. TL;DR
 
-- **Our method (the ONE file to run):**
-  `baselines/ppo/ppo_memtasks_ebm_srb_tr_cres_caps.py`
-- **Run one job (pin to GPU 0):**
+- **Our method = SRB-TR.** The exact ENTRY FILE and the two auxiliaries (CRES/CAPS)
+  depend on the TASK CATEGORY — see §3 for the principled rule. The three entries per
+  method are `..._cres_caps.py` (CRES+CAPS), `..._caps.py` (CAPS only), and the base
+  `....py` (plain). **`run_remote_cuda0.sh` picks the right one automatically per task.**
+- **Just use the helper (recommended):** `bash run_remote_cuda0.sh` (edit the TASKS
+  list at the top; it auto-selects config + entry + flags per task and pins cuda:0).
+- **Manual example** (a COLOR task → CRES+CAPS entry):
   ```bash
   CUDA_VISIBLE_DEVICES=0 python3 baselines/ppo/ppo_memtasks_ebm_srb_tr_cres_caps.py \
-      --env_id=ShellGameTouch-v0 --exp-name=srbtr-crescaps-seed33 \
+      --env_id=RememberColor5-v0 --exp-name=srbtr-cres_caps-seed33 \
       --capture-video --save-model \
       --num-steps=60 --num-eval-steps=720 --eval-freq=24 \
       --include-rgb --include-joints --seed=33 \
@@ -22,7 +26,8 @@ manipulation (MIKASA-Robo). Everything below is exact as of this commit.
       --gae-lambda=0.9 --gamma=0.99 --learning-rate=1e-4 --anneal-lr \
       --ent-coef=0.001 --target-kl=0.05 --caps-lambda-t=0.15
   ```
-- **Or just use the helper:** `bash run_remote_cuda0.sh` (edits at top of file).
+  (For ShellGame/Rotate/TakeItBack/RememberShape use the `..._caps.py` entry, same
+  flags. For pure Intercept use the base `....py` entry and DROP `--caps-lambda-t`.)
 - **One run ≈ 16–17 GB VRAM, ≈ 8 h on an L4.** Run **one at a time** on a 24 GB card.
 
 ---
@@ -67,36 +72,55 @@ DINOv2 weights download automatically from HuggingFace on first run.
 | ↳ cross-attention reader | `baselines/ppo/modules/memory_reader.py` |
 | ↳ frozen DINOv2 perception | `baselines/ppo/modules/frozen_vit.py` |
 
-### Baselines (perception-matched, same tricks — for fair comparison)
-| Method | Entry | Encoder module |
-|---|---|---|
-| GRU | `baselines/ppo/ppo_memtasks_dinov2_gru_cres_caps.py` | `modules/dinov2_simple_encoder.py` |
-| LSTM | `baselines/ppo/ppo_memtasks_dinov2_lstm_cres_caps.py` | `modules/dinov2_simple_encoder.py` |
-| MLP (pure PPO, no memory) | `baselines/ppo/ppo_memtasks_dinov2_mlp_cres_caps.py` | `modules/dinov2_simple_encoder.py` |
+### Baselines (perception-matched — SAME config as ours per §3, for fair comparison)
+Each method has THREE entry variants (pick the one §3 dictates for the task):
+`_cres_caps.py` (CRES+CAPS), `_caps.py` (CAPS only), base `.py` (plain).
 
-All four share the **same frozen DINOv2 backbone** → any gap over baselines is
-attributable to the memory mechanism, not perception.
+| Method | Entry stem | Encoder module |
+|---|---|---|
+| GRU | `baselines/ppo/ppo_memtasks_dinov2_gru{,_caps,_cres_caps}.py` | `modules/dinov2_simple_encoder.py` |
+| LSTM | `baselines/ppo/ppo_memtasks_dinov2_lstm{,_caps,_cres_caps}.py` | `modules/dinov2_simple_encoder.py` |
+| MLP (pure PPO, no memory) | `baselines/ppo/ppo_memtasks_dinov2_mlp{,_caps,_cres_caps}.py` | `modules/dinov2_simple_encoder.py` |
+
+Our SRB-TR mirrors this: `ppo_memtasks_ebm_srb_tr{,_caps,_cres_caps}.py`. Whatever
+config a task uses, ALL four methods use the SAME one → any gap over baselines is
+attributable to the memory mechanism, not perception or the auxiliaries.
 
 ---
 
-## 3. The two "fair tricks" (applied to ALL methods equally)
+## 3. The two auxiliaries (CRES, CAPS) — applied PER TASK CATEGORY by a principled rule
 
-These are auxiliary fairness mechanisms, NOT the contribution. They are given to
-every method (ours + all baselines) so the comparison is clean.
+CRES and CAPS are auxiliary mechanisms, NOT the core contribution (which is SRB-TR).
+Within a task they are given to EVERY method equally (fair). WHETHER a task uses them
+is decided by TWO rules, each read off the task's own definition — NOT hand-tuned:
 
-1. **CRES — Color RESidual injection.** Frozen DINOv2 underweights color; CRES adds
-   a dim-preserving color signal so color tasks aren't perception-limited.
-   - For **ours**: built into `modules/ebm_srb_tr_cres.py` (`_fuse_color`): per-patch
-     centered mean-RGB projected by a FIXED random matrix (seed 1234), scale
-     auto-calibrated to `color_frac≈0.4·‖dino‖` then frozen. Dim-preserving.
-   - For **baselines**: `modules/dinov2_simple_encoder.py` with `color_aug=True` —
-     concatenates the per-patch centered mean-RGB map (162×3=486) to the feature.
-   - Both hand the same color information to the model; nothing learned.
+- **CRES is ON ⇔ the task's cue is COLOR** (frozen DINOv2 underweights color). True
+  only for `RememberColor*` and `RememberShapeAndColor*`. Every other family (shape,
+  shell, rotate, take-it-back, intercept) cues on shape/position/angle → CRES OFF.
+- **CAPS is ON ⇔ success requires the robot to STABILIZE** (`is_robot_static` /
+  `is_stable` in the success predicate). True for all Remember tasks, ShellGame,
+  Rotate, TakeItBack (verified in the env code). Pure `Intercept*` (non-grab) has NO
+  terminal-hold requirement → CAPS OFF (empirically CAPS halves its success).
 
-2. **CAPS — action smoothness.** Temporal `λ·‖π_mean(s_t)−π_mean(s_{t+1})‖²`,
-   **actor-head only** (gradient never reaches the memory). Fixes "settling" so the
-   arm holds still at episode end. Flag: **`--caps-lambda-t=0.15`** (same for all
-   methods, all tasks).
+**Resulting config per task → which entry to run:**
+
+| Task family | Config | Entry suffix | `--caps-lambda-t` |
+|---|---|---|---|
+| RememberColor 3/5/9, RememberShapeAndColor | CRES+CAPS | `..._cres_caps.py` | 0.15 |
+| RememberShape 3/5/9 | CAPS only | `..._caps.py` | 0.15 |
+| ShellGame*, Rotate*, TakeItBack | CAPS only | `..._caps.py` | 0.15 |
+| Intercept* (pure, non-grab) | plain | base `....py` | (omit) |
+| InterceptGrab* | TBD (probing plain vs CRES+CAPS) | — | — |
+
+`run_remote_cuda0.sh` encodes exactly this table (`config_for` / `entry_for`).
+
+**CRES** = per-patch centered mean-RGB projected by a FIXED random matrix (seed 1234),
+scale auto-calibrated to `color_frac≈0.4·‖dino‖` then frozen; dim-preserving. Ours:
+`modules/ebm_srb_tr_cres.py` (`_fuse_color`). Baselines: `dinov2_simple_encoder.py`
+with `color_aug=True` (concat the 162×3 color map). Nothing learned.
+
+**CAPS** = temporal `λ·‖π_mean(s_t)−π_mean(s_{t+1})‖²`, **actor-head only** (gradient
+never reaches the memory). Flag `--caps-lambda-t=0.15`. Fixes end-of-episode settling.
 
 ---
 
