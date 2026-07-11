@@ -73,3 +73,7 @@ analysis/ebm/saliency_maps_armmasked/
 analysis/ebm/saliency_maps_basecam/
 analysis/ebm/saliency_maps_dual/
 analysis/ebm/path_a_features.pt
+
+# Overleaf paper (separate git repo)
+paper/
+analysis/rnn_diagnosis/out/
