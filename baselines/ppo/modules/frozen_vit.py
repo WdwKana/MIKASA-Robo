@@ -82,7 +82,11 @@ class FrozenDualDinoV2(nn.Module):
     def forward(self, rgb6: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         B = rgb6.shape[0]
         x = self._preprocess_pair(rgb6)               # (2B, 3, S, S) fp16
-        out = self.backbone(pixel_values=x, interpolate_pos_encoding=True)
+        # NOTE: HF Dinov2 interpolates pos-encoding unconditionally inside
+        # Dinov2Embeddings.forward, so the explicit `interpolate_pos_encoding=True`
+        # kwarg (removed in transformers>=4.44) is a no-op here. Dropping it keeps
+        # numerics identical while restoring compatibility with current transformers.
+        out = self.backbone(pixel_values=x)
         h = out.last_hidden_state                     # (2B, 1+N, d)
         cls = h[:, 0, :].float()                      # (2B, d) fp32
         tok = h[:, 1:, :].float()                     # (2B, N, d) fp32
