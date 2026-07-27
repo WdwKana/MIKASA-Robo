@@ -34,8 +34,9 @@ ENTRY = {
     "gru": "baselines.ppo.ppo_memtasks_dinov2_gru_cres_caps",
     # single entry with flags; crescaps config = color_aug=True
     "ffm": "baselines.ppo.ppo_memtasks_dinov2_ffm",
+    "shm": "baselines.ppo.ppo_memtasks_dinov2_shm",
 }
-EXTRA_ARGS = {"ffm": dict(color_aug=True)}
+EXTRA_ARGS = {"ffm": dict(color_aug=True), "shm": dict(color_aug=True)}
 
 
 def build_eval_envs(M, env_id: str, num_envs: int, seed: int):
@@ -157,7 +158,7 @@ def main():
     # for FFM also capture the post-mix readout y (what the policy sees);
     # for GRU/LSTM the readout IS the hidden state, so no extra capture needed
     y_slot = {}
-    if args_cli.method == "ffm":
+    if args_cli.method in ("ffm", "shm"):
         agent.gru.register_forward_hook(
             lambda mod, inp, out: y_slot.__setitem__("v", out[0].detach()))
 
@@ -180,7 +181,7 @@ def main():
         c_log = np.zeros((T, N, H), dtype=np.float16) if is_lstm else None
         emb_log = None
         y_log = (np.zeros((T, N, agent.gru.output_size), dtype=np.float16)
-                 if args_cli.method == "ffm" else None)
+                 if args_cli.method in ("ffm", "shm") else None)
         succ_log = np.zeros((T, N), dtype=np.bool_)
         ball_pos_log = np.zeros((T, N, 3), dtype=np.float32) if base_env else None
         ball_vel_log = np.zeros((T, N, 3), dtype=np.float32) if base_env else None
