@@ -32,8 +32,8 @@ METHODS = ["mlp", "gru", "lstm", "ffm", "shm", "srbtr"]
 MCOLOR = {"srbtr": PALETTE["blue_main"], "gru": PALETTE["teal"],
           "lstm": PALETTE["red_strong"], "mlp": PALETTE["neutral"],
           "ffm": PALETTE["violet"], "shm": PALETTE["green_3"]}
-MLABEL = {"srbtr": "STRM (ours)", "gru": "GRU", "lstm": "LSTM",
-          "mlp": "MLP", "ffm": "FFM", "shm": "SHM"}
+MLABEL = {"srbtr": "PPO+STRM (ours)", "gru": "PPO+GRU", "lstm": "PPO+LSTM",
+          "mlp": "PPO", "ffm": "PPO+FFM", "shm": "PPO+SHM"}
 MLW = {"srbtr": 2.8}
 
 # 12 final tasks. Panel/row order = INCREASING MEMORY DEMAND (stated in the

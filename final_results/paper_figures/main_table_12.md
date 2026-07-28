@@ -1,4 +1,4 @@
-| Task | MLP | GRU | LSTM | FFM | SHM | STRM (ours) |
+| Task | PPO | PPO+GRU | PPO+LSTM | PPO+FFM | PPO+SHM | PPO+STRM (ours) |
 |---|---|---|---|---|---|---|
 | ShellGameTouch | 29.9±8.4 | 56.1±16.6 | 15.5±20.5 | 16.6±14.8 | 0.0±0.0† | **98.1±1.2** |
 | ShellGamePush | 11.2±0.2 | 18.5±3.6 | 24.4±16.7 | 6.8±3.7 | 0.0±0.0† | **40.0±31.9** |
