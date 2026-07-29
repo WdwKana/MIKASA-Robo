@@ -111,7 +111,7 @@ plt.rcParams.update({
     "axes.linewidth": 1.6, "axes.spines.top": False, "axes.spines.right": False,
     "legend.frameon": False, "pdf.fonttype": 42, "ps.fonttype": 42,
 })
-fig, axes = plt.subplots(3, 4, figsize=(16, 8.2), sharex=True)
+fig, axes = plt.subplots(3, 4, figsize=(16, 10.2), sharex=True)
 axes = axes.ravel()
 for i, (env, short, cfg, fam) in enumerate(TASKS):
     ax = axes[i]
