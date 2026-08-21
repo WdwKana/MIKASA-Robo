@@ -1,0 +1,3 @@
+iteration,total_env_steps,mode,timestamp
+1,0,eval,2026-05-29 11:07:31
+2,960,train,2026-05-29 11:07:34,0.0,0.0973,60.0,0.0016,0.0

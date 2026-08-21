@@ -104,7 +104,7 @@ def main():
     print(f"episodes={len(y)}  classes={n_cls}  T={T}  "
           f"succ_once={succ_once.mean():.2f}  succ_end={data['succ'][-1].mean():.2f}")
 
-    targets = args.targets or [k for k in ("h", "c", "emb", "s", "bufmean", "y") if k in data]
+    targets = args.targets or [k for k in ("h", "c", "emb", "s", "bufmean", "reader", "y") if k in data]
     results = {"chance": chance, "T": T, "succ_once": float(succ_once.mean()),
                "succ_end": float(data["succ"][-1].mean()), "episodes": int(len(y))}
     for tgt in targets:
@@ -124,7 +124,8 @@ def main():
     ax.axvspan(0, 5, color="gold", alpha=0.18, label="cue visible")
     ax.axvspan(5, 10, color="gray", alpha=0.15, label="occluded")
     styles = {"h": ("-", "#d62728"), "c": ("--", "#ff9896"), "emb": ("-", "#1f77b4"),
-              "s": ("-", "#d62728"), "bufmean": ("-", "#2ca02c"), "y": ("--", "#9467bd")}
+              "s": ("-", "#d62728"), "bufmean": ("-", "#2ca02c"), "reader": ("--", "#e377c2"),
+              "y": ("--", "#9467bd")}
     for tgt in targets:
         ls, col = styles.get(tgt, ("-", None))
         ax.plot(range(T), results[tgt], ls, color=col, lw=2, label=f"probe on {tgt}")

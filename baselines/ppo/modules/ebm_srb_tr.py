@@ -258,6 +258,7 @@ class EBMSRBTRMemoryModule(nn.Module):
             "cls_hand":    cls_h.detach(),
             "gru_input":   gru_input.squeeze(0).detach(),
             "gru_state_post": self.gru_state.detach().clone(),
+            "retrieved":   retrieved.detach(),
         }
 
     # ─── replay (PPO update; gradients flow through reader + LSTM + fuse) ──

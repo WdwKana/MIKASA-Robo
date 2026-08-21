@@ -91,7 +91,7 @@ def main():
         agent.ebm.reset(torch.ones(N, dtype=torch.bool, device=device))
         agent._t_global = 0
 
-        s_log = surp_log = npush_log = bufmean_log = None
+        s_log = surp_log = npush_log = bufmean_log = reader_log = None
         succ_log = np.zeros((T, N), dtype=np.bool_)
         wm_log = emb_log = ball_pos_log = ball_vel_log = None
         if a.record_ball:
@@ -106,13 +106,16 @@ def main():
                 proprio = obs["joints"]
                 s_t, step_info = agent.ebm.step(rgb, proprio, t=t)
                 action = agent.actor_mean(s_t)  # deterministic
+            retrieved = step_info["retrieved"]
             if s_log is None:
                 s_log = np.zeros((T, N, s_t.shape[-1]), dtype=np.float16)
+                reader_log = np.zeros((T, N, retrieved.shape[-1]), dtype=np.float16)
                 surp_log = np.zeros((T, N), dtype=np.float32)
                 npush_log = np.zeros((T, N), dtype=np.int16)
                 d_vit = agent.ebm.buffer.features.shape[-1]
                 bufmean_log = np.zeros((T, N, d_vit), dtype=np.float16)
             s_log[t] = s_t.float().cpu().numpy()
+            reader_log[t] = retrieved.float().cpu().numpy()
             surp_log[t] = step_info["max_surprise"].float().cpu().numpy()
             npush_log[t] = step_info["n_pushed"].cpu().numpy()
             feats, mask = agent.ebm.buffer.features, agent.ebm.buffer.mask
@@ -135,7 +138,8 @@ def main():
                          ball_pos=ball_pos_log, ball_vel=ball_vel_log)
         np.savez_compressed(
             os.path.join(a.out, f"batch{b:03d}.npz"),
-            s=s_log, bufmean=bufmean_log, surp=surp_log, npush=npush_log,
+            s=s_log, bufmean=bufmean_log, reader=reader_log,
+            surp=surp_log, npush=npush_log,
             succ=succ_log, color=color,
             buf_feats=agent.ebm.buffer.features.float().cpu().numpy().astype(np.float16),
             buf_mask=agent.ebm.buffer.mask.cpu().numpy(), **extra)
